@@ -1,0 +1,57 @@
+.customize-control-typography li.typography-line-height,
+.customize-control-typography li.typography-font-size {
+    clear: both;
+    margin-bottom: 15px;
+}
+
+.typography-loading {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.customize-control-typo-title {
+    display: block;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+/*Range Control*/
+.typo-slider-range {
+    position: relative;
+    height: 4px;
+    margin: 12px 0;
+    background-color: rgba(0, 0, 0, .15);
+    border-radius: 5px;
+    cursor: pointer;
+    -webkit-transition: background .5s;
+    transition: background .5s;
+}
+
+.typo-slider-range:hover {
+    background-color: rgba(0, 0, 0, .2);
+}
+
+.typo-slider-range .ui-slider-range {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background-color: #13a1dc;
+}
+
+.typo-slider-range .ui-slider-handle {
+    height: 16px;
+    width: 16px;
+    background-color: #fff;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%) translateX(-4px);
+    transform: translateY(-50%) translateX(-4px);
+    -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+}
