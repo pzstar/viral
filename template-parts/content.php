@@ -15,7 +15,7 @@
         <?php if (has_post_thumbnail()): ?>
             <figure class="entry-figure">
                 <?php
-                $viral_image = wp_get_attachment_image_src(get_post_thumbnail_id(), 'viral-blog-header');
+                $viral_image = wp_get_attachment_image_src(get_post_thumbnail_id(), 'viral-780x440');
                 ?>
                 <a href="<?php the_permalink(); ?>"><img src="<?php echo esc_url($viral_image[0]); ?>" alt="<?php echo esc_attr(get_the_title()) ?>"></a>
             </figure>

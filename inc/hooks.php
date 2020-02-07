@@ -113,7 +113,7 @@ if (!function_exists('viral_top_section_style1')) {
                             <a href="<?php the_permalink(); ?>">
                                 <?php
                                 if (has_post_thumbnail()) {
-                                    $image = wp_get_attachment_image_src(get_post_thumbnail_id(), 'viral-400x400')
+                                    $image = wp_get_attachment_image_src(get_post_thumbnail_id(), 'viral-600x600')
                                     ?>
                                     <img alt="<?php echo esc_attr(get_the_title()) ?>" src="<?php echo esc_url($image[0]); ?>"/>
                                 <?php } ?>
@@ -205,7 +205,7 @@ if (!function_exists('viral_top_section_style2')) {
                                 <a href="<?php the_permalink(); ?>">
                                     <?php
                                     if (has_post_thumbnail()) {
-                                        $image = wp_get_attachment_image_src(get_post_thumbnail_id(), 'viral-400x400')
+                                        $image = wp_get_attachment_image_src(get_post_thumbnail_id(), 'viral-600x600')
                                         ?>
                                         <img alt="<?php echo esc_attr(get_the_title()) ?>" src="<?php echo esc_url($image[0]); ?>"/>
                                     <?php } ?>
@@ -257,7 +257,7 @@ if (!function_exists('viral_top_section_style3')) {
                         <a href="<?php the_permalink(); ?>">
                             <?php
                             if (has_post_thumbnail()) {
-                                $image = wp_get_attachment_image_src(get_post_thumbnail_id(), 'viral-400x400')
+                                $image = wp_get_attachment_image_src(get_post_thumbnail_id(), 'viral-600x600')
                                 ?>
                                 <img alt="<?php echo esc_attr(get_the_title()) ?>" src="<?php echo esc_url($image[0]); ?>"/>
                             <?php } ?>
@@ -305,12 +305,15 @@ if (!function_exists('viral_top_section_style4')) {
                 <div class="vl-post-item vl-clearfix">
                     <div class="vl-post-thumb">
                         <a href="<?php the_permalink(); ?>">
-                            <?php
-                            if (has_post_thumbnail()) {
-                                $image = wp_get_attachment_image_src(get_post_thumbnail_id(), 'viral-150x150')
+                            <div class="vl-thumb-container">
+                                <?php
+                                if (has_post_thumbnail()) {
+                                    $image = wp_get_attachment_image_src(get_post_thumbnail_id(), 'viral-150x150');
+                                    ?>
+                                    <img alt="<?php echo esc_attr(get_the_title()) ?>" src="<?php echo esc_url($image[0]) ?>">
+                                <?php }
                                 ?>
-                                <img alt="<?php echo esc_attr(get_the_title()) ?>" src="<?php echo esc_url($image[0]); ?>"/>
-                            <?php } ?>
+                            </div>
                         </a>
                     </div>
 
@@ -377,7 +380,7 @@ if (!function_exists('viral_middle_section_style1')) {
                                 <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                                 <?php echo viral_post_date(); ?>
                                 <div class="vl-excerpt">
-                                    <?php echo viral_excerpt(get_the_content(), 150); ?>
+                                    <?php echo viral_excerpt(get_the_content(), 200); ?>
                                 </div>
                             </div>
                         </div>

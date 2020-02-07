@@ -22,7 +22,7 @@ function viral_customize_register($wp_customize) {
     $wp_customize->add_section(new Viral_Customize_Section_Pro($wp_customize, 'viral-pro-section', array(
         'priority' => 0,
         'pro_text' => esc_html__('Upgrade to Pro', 'viral'),
-        'pro_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/'
+        'pro_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=button&utm_campaign=viralpro_sales&utm_content=customizer'
     )));
 
     $wp_customize->add_section(new Viral_Customize_Section_Pro($wp_customize, 'viral-doc-section', array(
@@ -243,7 +243,7 @@ function viral_customize_register($wp_customize) {
         'category' => array(
             'type' => 'multicategory',
             'label' => esc_html__('Select Category', 'viral'),
-            'description' => esc_html__('All latest post will display if no category is selected', 'viral-news')
+            'description' => esc_html__('All latest post will display if no category is selected', 'viral')
         ),
         'layout' => array(
             'type' => 'selector',

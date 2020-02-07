@@ -177,5 +177,5 @@
         <p><?php echo esc_html__('Try the Premium version and check if it fits to your need or not. If not, we have 7 day money back guarantee.', 'viral'); ?></p>
     </div>
 
-    <a class="upgrade-button" href="https://hashthemes.com/wordpress-theme/viral-pro/" target="_blank"><?php esc_html_e('Upgrade Now', 'viral'); ?></a>
+    <a class="upgrade-button" href="https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=button&utm_campaign=viralpro_sales&utm_content=getting_started" target="_blank"><?php esc_html_e('Upgrade Now', 'viral'); ?></a>
 </div>

@@ -93,8 +93,8 @@ if (!class_exists('Viral_Welcome')) :
 
                     <div class="promo-banner-wrap">
                         <p><?php esc_html_e('Upgrade for $59', 'viral'); ?></p>
-                        <a href="<?php echo esc_url('https://hashthemes.com/wordpress-theme/viral-pro/'); ?>" target="_blank" class="button button-primary upgrade-btn"><?php echo esc_html__('Upgrade Now', 'viral'); ?></a>
-                        <a class="promo-offer-text" href="<?php echo esc_url('https://hashthemes.com/wordpress-theme/viral-pro/'); ?>" target="_blank"><?php echo esc_html__('Unlock all the possibitlies with Viral Pro.', 'viral'); ?></a>
+                        <a href="<?php echo esc_url('https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=button&utm_campaign=viralpro_sales&utm_content=welcome'); ?>" target="_blank" class="button button-primary upgrade-btn"><?php echo esc_html__('Upgrade Now', 'viral'); ?></a>
+                        <a class="promo-offer-text" href="<?php echo esc_url('https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=button&utm_campaign=viralpro_sales&utm_content=welcome'); ?>" target="_blank"><?php echo esc_html__('Unlock all the possibitlies with Viral Pro.', 'viral'); ?></a>
                     </div>
                 </div>
 

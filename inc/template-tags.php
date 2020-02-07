@@ -32,7 +32,7 @@ if (!function_exists('viral_posted_on')) :
         } else {
             $comments = esc_html__('1 Comment', 'viral');
         }
-        $comment_link = '<a href="' . get_comments_link() . '">' . $comments . '</a>';
+        $comment_link = '<a class="entry-comment" href="' . get_comments_link() . '">' . $comments . '</a>';
 
         echo '<span class="entry-date published updated">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>' . $comment_link; // WPCS: XSS OK.
     }
@@ -159,7 +159,6 @@ if (!function_exists('viral_social_share')) :
         // Construct sharing URL
         $twitterURL = 'https://twitter.com/intent/tweet?text=' . $post_title . '&amp;url=' . $post_url;
         $facebookURL = 'https://www.facebook.com/sharer/sharer.php?u=' . $post_url;
-        $googleURL = 'https://plus.google.com/share?url=' . $post_url;
         $pinterestURL = 'https://pinterest.com/pin/create/button/?url=' . $post_url . '&amp;media=' . $post_thumbnail[0] . '&amp;description=' . $post_title;
         $mailURL = 'mailto:?Subject=' . $post_title . '&amp;Body=' . $post_url;
 
@@ -167,7 +166,6 @@ if (!function_exists('viral_social_share')) :
         $content .= '<span>' . esc_html__('SHARE', 'viral') . '</span>';
         $content .= '<a title="' . esc_html__('Share on Facebook', 'viral') . '" href="' . $facebookURL . '" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>';
         $content .= '<a title="' . esc_html__('Share on Twitter', 'viral') . '" href="' . $twitterURL . '" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>';
-        $content .= '<a title="' . esc_html__('Share on GooglePlus', 'viral') . '" href="' . $googleURL . '" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>';
         $content .= '<a title="' . esc_html__('Share on Pinterest', 'viral') . '" href="' . $pinterestURL . '" target="_blank"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>';
         $content .= '<a title="' . esc_html__('Email', 'viral') . '" href="' . $mailURL . '"><i class="fa fa-envelope" aria-hidden="true"></i></a>';
         $content .= '</div>';

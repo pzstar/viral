@@ -22,7 +22,7 @@
             <p><?php esc_html_e('Upgrade to pro version for additional features and better supports.', 'viral'); ?></p>
         </td>
         <td colspan="2">
-            <a target="__blank" class="buy-pro-btn" href="https://hashthemes.com/wordpress-theme/viral-pro/"><?php esc_html_e('Buy Now ($59 only)', 'viral'); ?></a>
+            <a target="__blank" class="buy-pro-btn" href="https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=button&utm_campaign=viralpro_sales&utm_content=freevspro"><?php esc_html_e('Buy Now ($59 only)', 'viral'); ?></a>
         </td>
     </tr>
     <tr>
@@ -240,7 +240,7 @@
             <p><?php esc_html_e('Upgrade to pro version for additional features and better supports.', 'viral'); ?></p>
         </td>
         <td colspan="2">
-            <a target="__blank" class="buy-pro-btn" href="https://hashthemes.com/wordpress-theme/viral-pro/"><?php esc_html_e('Buy Now ($59 only)', 'viral'); ?></a>
+            <a target="__blank" class="buy-pro-btn" href="https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=button&utm_campaign=viralpro_sales&utm_content=freevspro"><?php esc_html_e('Buy Now ($59 only)', 'viral'); ?></a>
         </td>
     </tr>
 </table>
