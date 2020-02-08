@@ -2973,12 +2973,12 @@ object {
         width: 100%;
         margin-bottom: 20px;
     }
-    
+
     .vl-post-info .entry-date span{
         display: inline;
         padding: 0 2px;
     }
-    
+
     .vl-post-info .entry-date span.vl-day{
         font-size: 15px;
         font-weight: normal;
