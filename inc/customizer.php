@@ -64,6 +64,17 @@ function viral_customize_register($wp_customize) {
             'fullwidth' => esc_html__('Full Width', 'viral'),
             'boxed' => esc_html__('Boxed', 'viral'),
     )));
+    
+    /* ============COLOR SETTING============ */
+    $wp_customize->add_setting('viral_template_color', array(
+        'default' => '#0078af',
+        'sanitize_callback' => 'sanitize_hex_color'
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'viral_template_color', array(
+        'section' => 'colors',
+        'label' => esc_html__('Template Color', 'viral-news')
+    )));
 
     /* ============HEADER SETTING PANEL============ */
     $wp_customize->add_panel('viral_header_setting_panel', array(

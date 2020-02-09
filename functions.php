@@ -198,6 +198,7 @@ function viral_scripts() {
     wp_enqueue_style('font-awesome', get_template_directory_uri() . '/css/font-awesome.css', array(), '1.0.0');
     wp_enqueue_style('owl-carousel', get_template_directory_uri() . '/css/owl.carousel.css', array(), '1.0.0');
     wp_enqueue_style('viral-style', get_stylesheet_uri());
+    wp_add_inline_style('viral-style', viral_dymanic_styles());
 
     wp_enqueue_script('owl-carousel', get_template_directory_uri() . '/js/owl.carousel.js', array('jquery'), '1.0.0', true);
     wp_enqueue_script('theia-sticky-sidebar', get_template_directory_uri() . '/js/theia-sticky-sidebar.js', array('jquery'), '1.0.0', true);
@@ -241,6 +242,11 @@ require get_template_directory() . '/inc/customizer.php';
  * Hooks additions.
  */
 require get_template_directory() . '/inc/hooks.php';
+
+/**
+ * Dynamic Styles additions.
+ */
+require get_template_directory() . '/inc/style.php';
 
 /**
  * Widgets additions.
