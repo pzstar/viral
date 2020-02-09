@@ -25,7 +25,7 @@
         </header><!-- .entry-header -->
 
         <div class="entry-categories">
-            <i class="fa fa-bookmark"></i> <?php echo viral_entry_category(); ?>
+            <?php echo viral_entry_category(); ?>
         </div>
         <div class="entry-content">
             <?php
