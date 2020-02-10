@@ -73,7 +73,7 @@ function viral_customize_register($wp_customize) {
 
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'viral_template_color', array(
         'section' => 'colors',
-        'label' => esc_html__('Template Color', 'viral-news')
+        'label' => esc_html__('Template Color', 'viral')
     )));
 
     /* ============HEADER SETTING PANEL============ */

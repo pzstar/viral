@@ -24,6 +24,9 @@ Viral is minimal, clean designed blog website. Good for blogger, new, magazine w
 
 
 == Changelog ==
+= 1.4.0 - Feb 10, 2020 =
+* Minor Bugs fixed
+
 = 1.3.9 - Feb 8, 2020 =
 * Styling issue fixed
 
