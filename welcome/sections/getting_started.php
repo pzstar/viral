@@ -32,7 +32,7 @@
 
     <div class="theme-image">
         <h3><?php echo esc_html__('Demo Import', 'viral'); ?></h3>
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/screenshot.png'); ?>" alt="<?php echo esc_html__('Viral Plus Demo', 'viral'); ?>">
+        <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/screenshot.png'); ?>" alt="<?php echo esc_html__('Viral Demo', 'viral'); ?>">
 
         <div class="theme-import-demo">
             <?php
@@ -52,7 +52,7 @@
                 $viral_import_button_text = esc_html__('Install Importer Plugin', 'viral');
             endif;
             ?>
-            <p><?php echo sprintf(esc_html__('Or you can import the demo with just one click. It is recommended to import the demo on a fresh WordPress install. Or you can reset the website using %s plugin.', 'viral'), '<a target="_blank" href="https://wordpress.org/plugins/wordpress-reset/">WordPress Reset</a>'); ?></p>
+            <p><?php echo sprintf(esc_html__('Or you can import the demo with just one click. It is recommended to import the demo on a fresh WordPress install. Or you can reset the website using %s plugin.', 'viral'), '<a target="_blank" href="' . admin_url('/plugin-install.php?s=wordpress+reset&tab=search&type=term') . '">WordPress Reset</a>'); ?></p>
             <p><?php echo esc_html__('Click on the button below to install and activate demo importer plugin.', 'viral'); ?></p>
             <a data-slug="<?php echo esc_attr($viral_demo_importer_slug); ?>" data-filename="<?php echo esc_attr($viral_demo_importer_filename); ?>" class="<?php echo esc_attr($viral_import_class); ?>" href="<?php echo $viral_import_url; ?>"><?php echo esc_html($viral_import_button_text); ?></a>
         </div>

@@ -31,7 +31,7 @@ jQuery(function ($) {
         speed: 'fast'
     });
 
-    $('#primary, #secondary').theiaStickySidebar({
+    $('#secondary').theiaStickySidebar({
         additionalMarginTop: 20,
         additionalMarginBottom: 20
     });
