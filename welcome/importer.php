@@ -11,7 +11,7 @@ function viral_import_files() {
             'local_import_file' => trailingslashit(get_template_directory()) . 'welcome/demo-data/content.xml',
             'local_import_widget_file' => trailingslashit(get_template_directory()) . 'welcome/demo-data/widgets.wie',
             'local_import_customizer_file' => trailingslashit(get_template_directory()) . 'welcome/demo-data/customizer.dat',
-            'import_preview_image_url' => 'https://i0.wp.com/themes.svn.wordpress.org/square/1.4.0/screenshot.png',
+            'import_preview_image_url' => get_stylesheet_directory_uri() . '/screenshot.png',
             'preview_url' => 'https://demo.hashthemes.com/viral'
         )
     );

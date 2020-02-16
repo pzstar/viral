@@ -14,6 +14,7 @@
     </head>
 
     <body <?php body_class(); ?>>
+        <?php wp_body_open(); ?>
         <div id="vl-page">
             <header id="vl-masthead" class="vl-site-header">
                 <div class="vl-top-header">
