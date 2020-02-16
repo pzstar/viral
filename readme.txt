@@ -1,23 +1,20 @@
 === Viral ===
-
-Viral WordPress Theme, Copyright Hashthemes 2015-2016
+Viral WordPress Theme, Copyright HashThemes 2020
 Viral is distributed under the terms of the GNU GPL (http://www.gnu.org/licenses/gpl-2.0.html)
 
 Contributors: HashThemes
 Tags: translation-ready, custom-background, custom-menu, post-formats, threaded-comments
 
-Requires at least: 4.0
-Tested up to: 4.4.1
+Requires at least: 5.0
+Tested up to: 5.3.2
 Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
-
-Viral is minimal, clean designed blog website. Good for blogger, new, magazine website to use.
+Viral is a responsive magazine WordPress theme specially designed for magazine, newspaper, news portals, publishing, personal blogs, professional blogs, corporate blogs, and editorial style websites. The theme has repeatable drag and drop section that allows adding as many sections as you want with various beautifully designed layouts suitable for magazine, newspaper. The theme consists of 3 unique banner layout to highlight your featured content, 6 unique category section layout, news ticker, promotional headline. There are five different built-in widgets in the theme that can be used in the sidebar and footers. Moreover, the theme is built in the customizer that enables you to set up your website with live preview.
 
 == Installation ==
-	
 1. In your admin panel, go to Appearance > Themes and click the Add New button.
 2. Click Upload and Choose File, then select the theme's .zip file. Click Install Now.
 3. Click Activate to use your new theme right away.
