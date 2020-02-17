@@ -270,8 +270,3 @@ require get_template_directory() . '/inc/widgets/widget-advertisement.php';
  * Welcome Page.
  */
 require get_template_directory() . '/welcome/welcome.php';
-
-/**
- * Demo Import.
- */
-require get_template_directory() . '/welcome/importer.php';

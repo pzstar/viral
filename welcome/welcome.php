@@ -130,7 +130,7 @@ if (!class_exists('Viral_Welcome')) :
                 $importer_params = array(
                     'installing_text' => esc_html__('Installing Importer Plugin', 'viral'),
                     'activating_text' => esc_html__('Activating Importer Plugin', 'viral'),
-                    'importer_page' => esc_html__('Go to Importer Page >>', 'viral'),
+                    'importer_page' => esc_html__('Go to Importer Page', 'viral'),
                     'importer_url' => admin_url('themes.php?page=pt-one-click-demo-import'),
                     'error' => esc_html__('Error! Reload the page and try again.', 'viral'),
                 );
@@ -157,14 +157,10 @@ if (!class_exists('Viral_Welcome')) :
         public function viral_plugin_generate_url($status, $slug, $file_name) {
             switch ($status) {
                 case 'install':
-                    return wp_nonce_url(
-                            add_query_arg(
-                                    array(
+                    return wp_nonce_url(add_query_arg(array(
                         'action' => 'install-plugin',
                         'plugin' => esc_attr($slug)
-                                    ), network_admin_url('update.php')
-                            ), 'install-plugin_' . esc_attr($slug)
-                    );
+                                    ), network_admin_url('update.php')), 'install-plugin_' . esc_attr($slug));
                     break;
 
                 case 'inactive':
@@ -209,4 +205,4 @@ if (!class_exists('Viral_Welcome')) :
 
     new Viral_Welcome();
 
-	endif;
+endif;
