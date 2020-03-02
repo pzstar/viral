@@ -128,10 +128,10 @@ if (!class_exists('Viral_Welcome')) :
         public function viral_welcome_styles_and_scripts($hook) {
             if ('appearance_page_viral-welcome' == $hook) {
                 $importer_params = array(
-                    'installing_text' => esc_html__('Installing Importer Plugin', 'viral'),
-                    'activating_text' => esc_html__('Activating Importer Plugin', 'viral'),
-                    'importer_page' => esc_html__('Go to Importer Page', 'viral'),
-                    'importer_url' => admin_url('themes.php?page=pt-one-click-demo-import'),
+                    'installing_text' => esc_html__('Installing Demo Importer Plugin', 'viral'),
+                    'activating_text' => esc_html__('Activating Demo Importer Plugin', 'viral'),
+                    'importer_page' => esc_html__('Go to Demo Importer Page', 'viral'),
+                    'importer_url' => admin_url('themes.php?page=hdi-demo-importer'),
                     'error' => esc_html__('Error! Reload the page and try again.', 'viral'),
                 );
                 wp_enqueue_style('viral-welcome', get_template_directory_uri() . '/welcome/css/welcome.css');

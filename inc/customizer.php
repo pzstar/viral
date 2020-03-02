@@ -31,6 +31,13 @@ function viral_customize_register($wp_customize) {
         'pro_text' => esc_html__('View', 'viral'),
         'pro_url' => 'https://hashthemes.com/documentation/viral-documentation/'
     )));
+    
+    $wp_customize->add_section(new Viral_Customize_Section_Pro($wp_customize, 'viral-demo-import-section', array(
+        'title' => esc_html__('Import Demo Content', 'viral'),
+        'priority' => 1001,
+        'pro_text' => esc_html__('Import', 'viral'),
+        'pro_url' => admin_url('/themes.php?page=viral-welcome')
+    )));
 
     /* ============GENERAL SETTINGS PANEL============ */
     $wp_customize->add_panel('viral_general_settings_panel', array(
@@ -404,44 +411,6 @@ function viral_customize_register($wp_customize) {
             ),
             'default' => 'on'
         )
-    )));
-
-
-    /* ============IMPORTANT LINKS============ */
-    $wp_customize->add_section('viral_implink_section', array(
-        'title' => esc_html__('Important Links', 'viral'),
-        'priority' => 999
-    ));
-
-    $wp_customize->add_setting('viral_imp_links', array(
-        'sanitize_callback' => 'viral_sanitize_text'
-    ));
-
-    $wp_customize->add_control(new Viral_Customize_Info($wp_customize, 'viral_imp_links', array(
-        'settings' => 'viral_imp_links',
-        'section' => 'viral_implink_section',
-        'description' => '<div class="viral-info"><a href="https://hashthemes.com/documentation/viral-documentation/" target="_blank">' . esc_html__('Documentation', 'viral') . '</a><a href="http://demo.hashthemes.com/viral/" target="_blank">' . esc_html__('Live Demo', 'viral') . '</a><a href="http://hashthemes.com/support/" target="_blank">' . esc_html__('Support Forum', 'viral') . '</a><a href="https://www.facebook.com/hashtheme/" target="_blank">' . esc_html__('Like Us in Facebook', 'viral') . '</a></div>',
-    )));
-
-    $wp_customize->add_setting('viral_video_link', array(
-        'sanitize_callback' => 'viral_sanitize_text'
-    ));
-
-    $wp_customize->add_control(new Viral_Customize_Info($wp_customize, 'viral_video_link', array(
-        'settings' => 'viral_video_link',
-        'section' => 'viral_implink_section',
-        'label' => esc_html__('Check out the video tutorial on how to set up the Home Page', 'viral'),
-        'description' => '<a href="https://www.youtube.com/watch?v=mfLt0pA-Kx8" target="_blank">https://www.youtube.com/watch?v=mfLt0pA-Kx8</a>'
-    )));
-
-    $wp_customize->add_setting('viral_support_link', array(
-        'sanitize_callback' => 'viral_sanitize_text'
-    ));
-
-    $wp_customize->add_control(new Viral_Customize_Info($wp_customize, 'viral_support_link', array(
-        'settings' => 'viral_support_link',
-        'section' => 'viral_implink_section',
-        'description' => '<div class="viral-info"><a href="mailto:support@hashthemes.com" target="_blank">' . esc_html__('Support & Customization', 'viral') . ' <br/>------<br/> support@hashthemes.com</a></div>'
     )));
 }
 
