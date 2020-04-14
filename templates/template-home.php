@@ -9,8 +9,15 @@ get_header();
 <div class="vl-container">
     <div id="vl-top-section">
         <?php
+        $ticket_class = array();
+        $viral_full_width_menu_bar = get_theme_mod('viral_full_width_menu_bar', false);
+        $viral_disable_menu_shadow = get_theme_mod('viral_disable_menu_shadow', false);
+        $viral_ticker_dark_color_scheme = get_theme_mod('viral_ticker_dark_color_scheme', false);
+        $ticket_class[] = $viral_full_width_menu_bar && $viral_disable_menu_shadow ? 'vl-full-width-ticker' : '';
+        $ticket_class[] = $viral_ticker_dark_color_scheme ? 'vl-dark-ticker' : '';
+
         $viral_ticker_category = get_theme_mod('viral_ticker_category', '-1');
-        if ($viral_ticker_category) {
+        if ($viral_ticker_category !== 'none') {
             $args = array(
                 'posts_per_page' => 5,
                 'ignore_sticky_posts' => true
@@ -23,24 +30,26 @@ get_header();
             $query = new WP_Query($args);
             if ($query->have_posts()):
                 ?>
-                <div class="vl-ticker">
-                    <span class="vl-ticker-title">
-                        <?php
-                        $viral_ticker_title = get_theme_mod('viral_ticker_title', esc_html__('Breaking News', 'viral'));
-                        if ($viral_ticker_title) {
-                            echo esc_html($viral_ticker_title);
-                        } else {
-                            echo esc_html(get_cat_name($viral_ticker_category));
-                        }
-                        ?>
-                    </span>
-                    <div class="owl-carousel">
-                        <?php
-                        while ($query->have_posts()): $query->the_post();
-                            echo '<a href="' . esc_url(get_permalink()) . '">' . esc_html(get_the_title()) . '</a>';
-                        endwhile;
-                        wp_reset_postdata();
-                        ?>
+                <div class="vl-ticker <?php echo esc_attr(implode(' ', $ticket_class)); ?>">
+                    <div class="vl-container">
+                        <span class="vl-ticker-title">
+                            <?php
+                            $viral_ticker_title = get_theme_mod('viral_ticker_title', esc_html__('Breaking News', 'viral'));
+                            if ($viral_ticker_title) {
+                                echo esc_html($viral_ticker_title);
+                            } else {
+                                echo esc_html(get_cat_name($viral_ticker_category));
+                            }
+                            ?>
+                        </span>
+                        <div class="owl-carousel">
+                            <?php
+                            while ($query->have_posts()): $query->the_post();
+                                echo '<a href="' . esc_url(get_permalink()) . '">' . esc_html(get_the_title()) . '</a>';
+                            endwhile;
+                            wp_reset_postdata();
+                            ?>
+                        </div>
                     </div>
                 </div>
                 <?php

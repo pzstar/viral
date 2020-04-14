@@ -146,21 +146,19 @@ if (!function_exists('viral_fonts_url')) :
         $fonts = array();
         $subsets = 'latin,latin-ext';
 
-        /*
-         * Translators: If there are characters in your language that are not supported
-         * by Roboto Condensed, translate this to 'off'. Do not translate into your own language.
-         */
-        if ('off' !== _x('on', 'Roboto Condensed font: on or off', 'viral')) {
-            $fonts[] = 'Roboto Condensed:300italic,400italic,700italic,400,300,700';
+        $viral_header_typography = get_theme_mod('viral_header_typography', 'Roboto Condensed');
+        $viral_body_typography = get_theme_mod('viral_body_typography', 'Roboto');
+        $standard_fonts = array('Arial', 'Georgia');
+
+        if (!in_array($viral_header_typography, $standard_fonts)) {
+            $fonts[] = $viral_header_typography . ':400,400i,700';
         }
 
-        /*
-         * Translators: If there are characters in your language that are not supported
-         * by Roboto, translate this to 'off'. Do not translate into your own language.
-         */
-        if ('off' !== _x('on', 'Roboto font: on or off', 'viral')) {
-            $fonts[] = 'Roboto:300,400,400i,500,700';
+        if (!in_array($viral_body_typography, $standard_fonts)) {
+            $fonts[] = $viral_body_typography . ':400,400i,700';
         }
+
+        $fonts = array_unique($fonts);
 
         /*
          * Translators: To add an additional character subset specific to your language,

@@ -135,7 +135,7 @@ a.promo-offer-text {
 }
 
 .theme-image .theme-import-demo{
-   padding: 0 20px 40px;
+    padding: 0 20px 40px;
 }
 
 .upgrade-box{
@@ -174,7 +174,7 @@ a.promo-offer-text {
 }
 
 .welcome-section-wrapper {
-	padding: 50px 0 0;
+    padding: 50px 0 0;
 }
 
 .recomended-plugin-wrap{
@@ -372,7 +372,7 @@ a.buy-pro-btn:hover{
 }
 
 .free_vs_pro .three-col{
-  margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 .welcome-section .three-col,
@@ -393,4 +393,19 @@ a.buy-pro-btn:hover{
 
 .theme-image img{
     padding: 20px;
+}
+
+body.appearance_page_viral-welcome #wpfooter{
+    position: fixed;
+    background: #111;
+    color: #FFF;
+    max-width: 1110px;
+}
+
+body.appearance_page_viral-welcome #wpfooter a{
+    color: #FFF;
+}
+
+body.appearance_page_viral-welcome #wpfooter {
+    left: 40px;
 }

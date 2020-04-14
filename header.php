@@ -15,8 +15,14 @@
 
     <body <?php body_class(); ?>>
         <?php wp_body_open(); ?>
+        <?php
+        $viral_full_width_menu_bar = get_theme_mod('viral_full_width_menu_bar', false);
+        $viral_disable_menu_shadow = get_theme_mod('viral_disable_menu_shadow', false);
+        $navigation_class = $viral_full_width_menu_bar ? 'vl-full-width-navigation' : '';
+        $header_class = $viral_disable_menu_shadow ? 'vl-no-header-shadow' : '';
+        ?>
         <div id="vl-page">
-            <header id="vl-masthead" class="vl-site-header">
+            <header id="vl-masthead" class="vl-site-header <?php echo esc_attr($header_class); ?>">
                 <div class="vl-top-header">
                     <div class="vl-container vl-clearfix">
                         <div class="vl-top-left-header">
@@ -68,20 +74,24 @@
                     </div>
                 </div>
 
-                <nav id="vl-site-navigation" class="vl-main-navigation">
-                    <div class="vl-toggle-menu"><span></span></div>
-                    <?php
-                    wp_nav_menu(
-                            array(
-                                'theme_location' => 'primary',
-                                'container_class' => 'vl-menu vl-clearfix',
-                                'menu_class' => 'vl-clearfix',
-                                'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                            )
-                    );
-                    ?>
+                <nav id="vl-site-navigation" class="vl-main-navigation <?php echo esc_attr($navigation_class); ?>">
+                    <div class="vl-container">
+                        <div class="vl-toggle-menu"><span></span></div>
+                        <?php
+                        wp_nav_menu(
+                                array(
+                                    'theme_location' => 'primary',
+                                    'container_class' => 'vl-menu vl-clearfix',
+                                    'menu_class' => 'vl-clearfix',
+                                    'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                                )
+                        );
+                        ?>
+                    </div>
                 </nav>
-                <img src="<?php echo get_template_directory_uri(); ?>/images/shadow.png" alt="<?php esc_attr_e('Shadow', 'viral'); ?>">
+                <?php if (!$viral_disable_menu_shadow) { ?>
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/shadow.png" alt="<?php esc_attr_e('Shadow', 'viral'); ?>">
+                <?php } ?>
             </header>
 
             <div id="vl-content" class="vl-site-content">

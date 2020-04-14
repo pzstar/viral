@@ -30,15 +30,20 @@ if (!class_exists('Viral_Welcome')) :
 
             /** List of Recommended Free Plugins * */
             $this->free_plugins = array(
-                'social-count-plus' => array(
-                    'name' => 'Social Count Plus',
-                    'slug' => 'social-count-plus',
-                    'filename' => 'social-count-plus'
+                'simple-floating-menu' => array(
+                    'name' => 'Simple Floating Menu',
+                    'slug' => 'simple-floating-menu',
+                    'filename' => 'simple-floating-menu'
                 ),
                 'instagram-feed' => array(
                     'name' => 'Smash Balloon Instagram Feed',
                     'slug' => 'instagram-feed',
                     'filename' => 'instagram-feed'
+                ),
+                'hashthemes-demo-importer' => array(
+                    'name' => 'HashThemes Demo Importer',
+                    'slug' => 'hashthemes-demo-importer',
+                    'filename' => 'hashthemes-demo-importer'
                 )
             );
 
@@ -47,6 +52,8 @@ if (!class_exists('Viral_Welcome')) :
 
             /* Theme Activation Notice */
             add_action('admin_notices', array($this, 'viral_activation_admin_notice'));
+
+            add_filter('admin_footer_text', array($this, 'viral_admin_footer_text'));
 
             /* Create a Welcome Page */
             add_action('admin_menu', array($this, 'viral_welcome_register_menu'));
@@ -199,6 +206,34 @@ if (!class_exists('Viral_Welcome')) :
             }
             echo wp_json_encode(array('success' => $success));
             die();
+        }
+
+        public function viral_admin_footer_text($text) {
+            $screen = get_current_screen();
+
+            if ('appearance_page_viral-welcome' == $screen->id) {
+
+                $theme = wp_get_theme(get_template());
+                $theme_name = $theme->get('Name');
+
+                $text = sprintf(esc_html__('Please leave us a %s rating if you like our theme . A huge thank you from HashThemes in advance!', 'viral'), '<a href="https://wordpress.org/support/theme/viral/reviews/?filter=5#new-post" target="_blank">&#9733;&#9733;&#9733;&#9733;&#9733;</a>');
+            }
+
+            return $text;
+        }
+
+        public function viral_plugin_thumb($plugin_slug = '') {
+            if (!empty($plugin_slug)) {
+                $image_url = "";
+                $image_types = array('icon-256x256.png', 'icon-256x256.jpg', 'icon-128x128.png', 'icon-128x128.jpg');
+
+                foreach ($image_types as $image_type) {
+                    $image_url = 'https://ps.w.org/' . $plugin_slug . '/assets/' . $image_type;
+                    if (@getimagesize($image_url)) {
+                        return $image_url;
+                    }
+                }
+            }
         }
 
     }

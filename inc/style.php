@@ -6,7 +6,30 @@
 function viral_dymanic_styles() {
     $color = get_theme_mod('viral_template_color', '#0078af');
     $color = sanitize_hex_color($color); //Sanitized here so that variable can be used inside quote
+    $header_typography = get_theme_mod('viral_header_typography', 'Roboto');
+    $body_typography = get_theme_mod('viral_body_typography', 'Roboto');
+    $header_typography = wp_filter_post_kses($header_typography); //Sanitized here so that variable can be used inside quote
+    $body_typography = wp_filter_post_kses($body_typography); //Sanitized here so that variable can be used inside quote
     $custom_css = "
+body,
+button,
+input,
+select,
+textarea{
+font-family: '{$body_typography}', sans-serif;
+}
+
+.vl-site-title,
+.vl-main-navigation a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+font-family: '{$header_typography}', sans-serif;
+}
+
 button,
 input[type='button'],
 input[type='reset'],

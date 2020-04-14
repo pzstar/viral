@@ -14,7 +14,7 @@ if (!empty($free_plugins)) {
             ?>
             <div class="recom-plugin-wrap">
                 <div class="plugin-img-wrap">
-                    <img src="<?php echo esc_url('https://ps.w.org/' . esc_attr($slug) . '/assets/icon-128x128.png') ?>" />
+                    <img src="<?php echo esc_url($this->viral_plugin_thumb($slug)) ?>" />
                 </div>
 
                 <div class="plugin-title-install clearfix">
