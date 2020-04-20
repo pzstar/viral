@@ -15,9 +15,11 @@ function viral_customize_register($wp_customize) {
 
     $wp_customize->get_setting('blogname')->transport = 'postMessage';
     $wp_customize->get_setting('blogdescription')->transport = 'postMessage';
-    $wp_customize->get_setting('header_textcolor')->transport = 'postMessage';
+    $wp_customize->get_setting('custom_logo')->transport = 'refresh';
 
     $wp_customize->register_section_type('Viral_Customize_Section_Pro');
+    $wp_customize->register_section_type('Viral_Customize_Upgrade_Section');
+
     // Register sections.
     $wp_customize->add_section(new Viral_Customize_Section_Pro($wp_customize, 'viral-pro-section', array(
         'priority' => 0,
@@ -47,7 +49,8 @@ function viral_customize_register($wp_customize) {
 
     $wp_customize->get_section('static_front_page')->priority = 1;
     $wp_customize->get_section('title_tagline')->panel = 'viral_general_settings_panel';
-    $wp_customize->get_section('title_tagline')->title = esc_html__('Site Title/Logo/Favicon', 'viral');
+    $wp_customize->get_section('title_tagline')->title = esc_html__('Site Logo, Title and Tagline', 'viral');
+    $wp_customize->get_control('header_text')->label = esc_html__('Display Site Title and Tagline(Only Displays If Logo Is Not Added)', 'viral');
     $wp_customize->get_section('colors')->panel = 'viral_general_settings_panel';
     $wp_customize->get_section('background_image')->panel = 'viral_general_settings_panel';
     $wp_customize->get_control('background_color')->section = 'background_image';
@@ -82,12 +85,12 @@ function viral_customize_register($wp_customize) {
         'section' => 'colors',
         'label' => esc_html__('Template Color', 'viral')
     )));
-    
-    $wp_customize->add_setting('viral_color_pro_version', array(
+
+    $wp_customize->add_setting('viral_color_upgrade_text', array(
         'sanitize_callback' => 'viral_sanitize_text'
     ));
 
-    $wp_customize->add_control(new Viral_Pro_Version($wp_customize, 'viral_color_pro_version', array(
+    $wp_customize->add_control(new Viral_Upgrade_Text($wp_customize, 'viral_color_upgrade_text', array(
         'section' => 'colors',
         'label' => esc_html__('For more color settings,', 'viral'),
         'priority' => 100
@@ -139,14 +142,18 @@ function viral_customize_register($wp_customize) {
         )
     ));
 
-    $wp_customize->add_setting('viral_typography_pro_version', array(
+    $wp_customize->add_setting('viral_typography_upgrade_text', array(
         'sanitize_callback' => 'viral_sanitize_text'
     ));
 
-    $wp_customize->add_control(new Viral_Pro_Version($wp_customize, 'viral_typography_pro_version', array(
+    $wp_customize->add_control(new Viral_Upgrade_Text($wp_customize, 'viral_typography_upgrade_text', array(
         'section' => 'viral_typography_section',
         'label' => esc_html__('For more fonts and settings,', 'viral'),
-        'description' => wp_kses_post(__('- 800+ Google fonts<br/>- Seperate Typography settings for Menu, Header Titles(H1, H2, H3, H4, H5, H6), Page Title, Block Title, Widget Title and other<br/> - More advanced Typography options like font family, font weight, text transform, text dectoration, font size, line height, letter spacing', 'viral')),
+        'choices' => array(
+            esc_html__('800+ Google fonts', 'viral'),
+            esc_html__('Seperate Typography settings for Menu, Header Titles(H1, H2, H3, H4, H5, H6), Page Title, Block Title, Widget Title and other', 'viral'),
+            esc_html__('More advanced Typography options like font family, font weight, text transform, text dectoration, font size, line height, letter spacing', 'viral')
+        ),
         'priority' => 100
     )));
 
@@ -276,12 +283,12 @@ function viral_customize_register($wp_customize) {
         'type' => 'url',
         'label' => esc_html__('Instagram', 'viral')
     ));
-    
-    $wp_customize->add_setting('viral_top_header_pro_version', array(
+
+    $wp_customize->add_setting('viral_top_header_upgrade_text', array(
         'sanitize_callback' => 'viral_sanitize_text'
     ));
 
-    $wp_customize->add_control(new Viral_Pro_Version($wp_customize, 'viral_top_header_pro_version', array(
+    $wp_customize->add_control(new Viral_Upgrade_Text($wp_customize, 'viral_top_header_upgrade_text', array(
         'section' => 'viral_top_header_settings_sec',
         'label' => esc_html__('For more options,', 'viral'),
         'priority' => 100
@@ -315,15 +322,22 @@ function viral_customize_register($wp_customize) {
         'section' => 'viral_main_header_settings_sec',
         'label' => esc_html__('Disable Shadow Below Menu', 'viral')
     ));
-    
-    $wp_customize->add_setting('viral_main_header_pro_version', array(
+
+    $wp_customize->add_setting('viral_main_header_upgrade_text', array(
         'sanitize_callback' => 'viral_sanitize_text'
     ));
 
-    $wp_customize->add_control(new Viral_Pro_Version($wp_customize, 'viral_main_header_pro_version', array(
+    $wp_customize->add_control(new Viral_Upgrade_Text($wp_customize, 'viral_main_header_upgrade_text', array(
         'section' => 'viral_main_header_settings_sec',
         'label' => esc_html__('For more options,', 'viral'),
-        'description' => wp_kses_post(__('- 7 header layouts<br/>- Sticky header<br/>- Search button<br/> - OffCanvas menu<br/>- Header color options<br/>- 10 Menu hover styles', 'viral')),
+        'choices' => array(
+            esc_html__('7 header layouts', 'viral'),
+            esc_html__('Sticky header', 'viral'),
+            esc_html__('Search button', 'viral'),
+            esc_html__('OffCanvas menu', 'viral'),
+            esc_html__('Header color options', 'viral'),
+            esc_html__('10 Menu hover styles', 'viral')
+        ),
         'priority' => 100
     )));
 
@@ -372,7 +386,7 @@ function viral_customize_register($wp_customize) {
             )
         ))
     ));
-    
+
     $wp_customize->add_setting('viral_ticker_dark_color_scheme', array(
         'default' => false,
         'sanitize_callback' => 'viral_sanitize_checkbox'
@@ -419,12 +433,12 @@ function viral_customize_register($wp_customize) {
             'default' => 'on'
         )
     )));
-    
-    $wp_customize->add_setting('viral_top_section_pro_version', array(
+
+    $wp_customize->add_setting('viral_top_section_upgrade_text', array(
         'sanitize_callback' => 'viral_sanitize_text'
     ));
 
-    $wp_customize->add_control(new Viral_Pro_Version($wp_customize, 'viral_top_section_pro_version', array(
+    $wp_customize->add_control(new Viral_Upgrade_Text($wp_customize, 'viral_top_section_upgrade_text', array(
         'section' => 'viral_frontpage_top_sec',
         'label' => esc_html__('For more block layouts and settings,', 'viral'),
         'priority' => 100
@@ -489,12 +503,12 @@ function viral_customize_register($wp_customize) {
             'default' => 'on'
         )
     )));
-    
-    $wp_customize->add_setting('viral_middle_left_section_pro_version', array(
+
+    $wp_customize->add_setting('viral_middle_left_section_upgrade_text', array(
         'sanitize_callback' => 'viral_sanitize_text'
     ));
 
-    $wp_customize->add_control(new Viral_Pro_Version($wp_customize, 'viral_middle_left_section_pro_version', array(
+    $wp_customize->add_control(new Viral_Upgrade_Text($wp_customize, 'viral_middle_left_section_upgrade_text', array(
         'section' => 'viral_frontpage_middle_left_sec',
         'label' => esc_html__('For more block layouts and settings,', 'viral'),
         'priority' => 100
@@ -566,15 +580,35 @@ function viral_customize_register($wp_customize) {
             'default' => 'on'
         )
     )));
-    
-    $wp_customize->add_setting('viral_bottom_section_pro_version', array(
+
+    $wp_customize->add_setting('viral_bottom_section_upgrade_text', array(
         'sanitize_callback' => 'viral_sanitize_text'
     ));
 
-    $wp_customize->add_control(new Viral_Pro_Version($wp_customize, 'viral_bottom_section_pro_version', array(
+    $wp_customize->add_control(new Viral_Upgrade_Text($wp_customize, 'viral_bottom_section_upgrade_text', array(
         'section' => 'viral_frontpage_bottom_sec',
         'label' => esc_html__('For more block layouts and settings,', 'viral'),
         'priority' => 100
+    )));
+
+    $wp_customize->add_section(new Viral_Customize_Upgrade_Section($wp_customize, 'viral-upgrade-section', array(
+        'title' => esc_html__('More Sections on Premium', 'viral'),
+        'panel' => 'viral_front_page_panel',
+        'priority' => 1000,
+        'options' => array(
+            esc_html__('--Drag and Drop Reorder Sections--', 'viral'),
+            esc_html__('- Ticker Module', 'viral'),
+            esc_html__('- Tile Module', 'viral'),
+            esc_html__('- Slider Module', 'viral'),
+            esc_html__('- Carousel Module', 'viral'),
+            esc_html__('- News Module - Left Sidebar', 'viral'),
+            esc_html__('- News Module - Right Sidebar', 'viral'),
+            esc_html__('- Mini News Module', 'viral'),
+            esc_html__('- Video Playlist Module', 'viral'),
+            esc_html__('- Full Width News Module', 'viral'),
+            esc_html__('- Featured Image Module', 'viral'),
+            esc_html__('- Three Column Module', 'viral')
+        )
     )));
 }
 
@@ -939,28 +973,39 @@ if (class_exists('WP_Customize_Control')) {
 
     }
 
-    // Pro Version
-    class Viral_Pro_Version extends WP_Customize_Control {
+    // Upgrade Text
+    class Viral_Upgrade_Text extends WP_Customize_Control {
 
-        public $type = 'viral-pro-version';
+        public $type = 'viral-upgrade-text';
 
         public function render_content() {
             ?>
-            <span class="dashicons dashicons-info"></span>
+            <label>
+                <span class="dashicons dashicons-info"></span>
 
-            <?php if ($this->label) { ?>
-                <span>
-                    <?php echo wp_kses_post($this->label); ?>
-                </span>
-            <?php } ?>
+                <?php if ($this->label) { ?>
+                    <span>
+                        <?php echo wp_kses_post($this->label); ?>
+                    </span>
+                <?php } ?>
 
-            <a href="https://hashthemes.com/wordpress-theme/viral-pro/#theme-comparision-tab" target="_blank"><strong> <?php echo esc_html__('Upgrade to PRO', 'viral'); ?></strong></a>
+                <a href="<?php echo esc_url('https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=button&utm_campaign=viralpro_sales&utm_content=customizer'); ?>" target="_blank"> <strong><?php echo esc_html__('Upgrade to PRO', 'viral'); ?></strong></a>
+            </label>
 
             <?php if ($this->description) { ?>
                 <span class="description customize-control-description">
                     <?php echo wp_kses_post($this->description); ?>
                 </span>
                 <?php
+            }
+
+            $choices = $this->choices;
+            if ($choices) {
+                echo '<ul>';
+                foreach ($choices as $choice) {
+                    echo '<li>' . esc_html($choice) . '</li>';
+                }
+                echo '</ul>';
             }
         }
 
@@ -969,7 +1014,7 @@ if (class_exists('WP_Customize_Control')) {
 }
 
 
-if (class_exists('WP_Customize_Section')):
+if (class_exists('WP_Customize_Section')) {
 
     /**
      * Pro customizer section.
@@ -1049,7 +1094,75 @@ if (class_exists('WP_Customize_Section')):
 
     }
 
-    endif;
+    class Viral_Customize_Upgrade_Section extends WP_Customize_Section {
+
+        /**
+         * The type of customize section being rendered.
+         *
+         * @since  1.0.0
+         * @access public
+         * @var    string
+         */
+        public $type = 'upgrade-section';
+
+        /**
+         * Custom button text to output.
+         *
+         * @since  1.0.0
+         * @access public
+         * @var    string
+         */
+        public $text = '';
+        public $options = array();
+
+        /**
+         * Add custom parameters to pass to the JS via JSON.
+         *
+         * @since  1.0.0
+         * @access public
+         * @return void
+         */
+        public function json() {
+            $json = parent::json();
+
+            $json['text'] = $this->text;
+            $json['options'] = $this->options;
+
+            return $json;
+        }
+
+        /**
+         * Outputs the Underscore.js template.
+         *
+         * @since  1.0.0
+         * @access public
+         * @return void
+         */
+        protected function render_template() {
+            ?>
+            <li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }} cannot-expand">
+                <label>
+                    <# if ( data.title ) { #>
+                    {{ data.title }}
+                    <# } #>
+                </label>
+
+                <# if ( data.text ) { #>
+                {{ data.text }}
+                <# } #>
+
+                <# _.each( data.options, function(key, value) { #>
+                {{ key }}<br/>
+                <# }) #>
+
+                <a href="<?php echo esc_url('https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=button&utm_campaign=viralpro_sales&utm_content=customizer'); ?>" class="button button-primary" target="_blank"><?php echo esc_html__('Upgrad to Pro', 'viral'); ?></a>
+            </li>
+            <?php
+        }
+
+    }
+
+}
 
 //SANITIZATION FUNCTIONS
 function viral_sanitize_text($input) {

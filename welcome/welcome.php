@@ -19,6 +19,7 @@ if (!class_exists('Viral_Welcome')) :
             $theme = wp_get_theme();
             $this->theme_name = $theme->Name;
             $this->theme_version = $theme->Version;
+            $this->theme_desc = $theme->Description;
 
             /** Define Tabs Sections * */
             $this->tab_sections = array(
@@ -71,7 +72,7 @@ if (!class_exists('Viral_Welcome')) :
             if (is_admin() && ('themes.php' == $pagenow) && (isset($_GET['activated']))) {
                 ?>
                 <div class="notice notice-success is-dismissible"> 
-                    <p><?php echo esc_html__('Welcome! Thank you for choosing Viral. Please make sure you visit Settings Page to get started with Viral theme.', 'viral'); ?></p>
+                    <p><?php echo sprintf(esc_html__('Welcome! Thank you for choosing %1$s. Please make sure you visit Settings Page to get started with %1$s theme.', 'viral'), $this->theme_name, $this->theme_name); ?></p>
                     <p><a class="button button-primary" href="<?php echo admin_url('/themes.php?page=viral-welcome') ?>"><?php echo esc_html__('Let\'s Get Started', 'viral'); ?></a></p>
                 </div>
                 <?php
@@ -80,7 +81,7 @@ if (!class_exists('Viral_Welcome')) :
 
         /** Register Menu for Welcome Page * */
         public function viral_welcome_register_menu() {
-            add_theme_page(esc_html__('Welcome', 'viral'), esc_html__('Viral Settings', 'viral'), 'edit_theme_options', 'viral-welcome', array($this, 'viral_welcome_screen'));
+            add_theme_page(esc_html__('Welcome', 'viral'), sprintf(esc_html__('%s Settings', 'viral'), $this->theme_name), 'edit_theme_options', 'viral-welcome', array($this, 'viral_welcome_screen'));
         }
 
         /** Welcome Page * */
@@ -95,7 +96,7 @@ if (!class_exists('Viral_Welcome')) :
                                     /* translators: 1-theme name, 2-theme version */
                                     esc_html__('Welcome to %1$s - Version %2$s', 'viral'), $this->theme_name, $this->theme_version);
                             ?></h1>
-                        <div class="about-text"><?php echo esc_html__('Viral is a responsive magazine WordPress Theme specially designed for magazine, newspaper, news portals, publishing, personal blogs, professional blogs, corporate blogs, and editorial style websites. The theme has repeatable drag and drop section that allows adding as many section as you want with various beautifully designed layouts suitable for magazine, newspaper. The theme consist of 3  unique banner layout to highlight your featured content, 6 unique category section layout, news ticker, promotional headline. There are five different built in widgets in the theme that can be used in the sidebar and footers. Moreover the theme is built is customizer that enable to set up your website with live preview.', 'viral'); ?></div>
+                        <div class="about-text"><?php echo $this->theme_desc; ?></div>
                     </div>
 
                     <div class="promo-banner-wrap">
@@ -212,10 +213,6 @@ if (!class_exists('Viral_Welcome')) :
             $screen = get_current_screen();
 
             if ('appearance_page_viral-welcome' == $screen->id) {
-
-                $theme = wp_get_theme(get_template());
-                $theme_name = $theme->get('Name');
-
                 $text = sprintf(esc_html__('Please leave us a %s rating if you like our theme . A huge thank you from HashThemes in advance!', 'viral'), '<a href="https://wordpress.org/support/theme/viral/reviews/?filter=5#new-post" target="_blank">&#9733;&#9733;&#9733;&#9733;&#9733;</a>');
             }
 

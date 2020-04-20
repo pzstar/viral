@@ -61,7 +61,7 @@
 
 <div class="getting-started-bottom-wrap">
     <h3><?php echo esc_html__('Viral Pro Demos - Check the premium demos. You might be interested in purchasing premium version.', 'viral'); ?></h3>
-    <p><?php echo esc_html__('Check out the websites that you can create with the premium version of the Viral Theme. These demos can be imported with just one click in the premium version.', 'viral'); ?></p>
+    <p><?php echo sprintf(esc_html__('Check out the websites that you can create with the premium version of the %s Theme. These demos can be imported with just one click in the premium version.', 'viral'), $this->theme_name); ?></p>
 
     <div class="recomended-plugin-wrap clearfix">
         <div class="recom-plugin-wrap">
@@ -173,7 +173,7 @@
 <div class="upgrade-box">
     <div class="upgrade-box-text">
         <h3><?php echo esc_html__('Upgrade To Premium Version (7 Day Money Back Guarantee)', 'viral'); ?></h3>
-        <p><?php echo esc_html__('With Viral Theme you can create a beautiful website. But if you want to unlock more possibilites then upgrade to premium version.', 'viral'); ?></p>
+        <p><?php echo sprintf(esc_html__('With %s Theme you can create a beautiful website. But if you want to unlock more possibilites then upgrade to premium version.', 'viral'), $this->theme_name); ?></p>
         <p><?php echo esc_html__('Try the Premium version and check if it fits to your need or not. If not, we have 7 day money back guarantee.', 'viral'); ?></p>
     </div>
 

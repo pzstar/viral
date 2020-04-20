@@ -22,6 +22,7 @@
         $header_class = $viral_disable_menu_shadow ? 'vl-no-header-shadow' : '';
         ?>
         <div id="vl-page">
+            <a class="skip-link screen-reader-text" href="#sq-content"><?php esc_html_e('Skip to content', 'viral'); ?></a>
             <header id="vl-masthead" class="vl-site-header <?php echo esc_attr($header_class); ?>">
                 <div class="vl-top-header">
                     <div class="vl-container vl-clearfix">
@@ -76,7 +77,7 @@
 
                 <nav id="vl-site-navigation" class="vl-main-navigation <?php echo esc_attr($navigation_class); ?>">
                     <div class="vl-container">
-                        <div class="vl-toggle-menu"><span></span></div>
+                        <a href="#" class="vl-toggle-menu"><span></span></a>
                         <?php
                         wp_nav_menu(
                                 array(

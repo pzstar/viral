@@ -4,7 +4,7 @@ Theme URI: https://hashthemes.com/wordpress-theme/viral/
 Author: HashThemes
 Author URI: https://hashthemes.com
 Description: Viral is a responsive magazine WordPress theme specially designed for magazine, newspaper, news portals, publishing, personal blogs, professional blogs, corporate blogs, and editorial style websites. The theme has repeatable drag and drop section that allows adding as many sections as you want with various beautifully designed layouts suitable for magazine, newspaper. The theme consists of 3 unique banner layout to highlight your featured content, 6 unique category section layout, news ticker, promotional headline. There are five different built-in widgets in the theme that can be used in the sidebar and footers. Moreover, the theme is built in the customizer that enables you to set up your website with live preview. For demo https://demo.hashthemes.com/viral/
-Version: 1.4.5
+Version: 1.4.6
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: viral
@@ -75,7 +75,6 @@ a {
 
 a:active,
 a:hover {
-    outline: 0;
 }
 
 abbr[title] {
@@ -455,7 +454,6 @@ button:active,
 input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
-    outline: 0;
 }
 
 input[type="text"],
@@ -503,7 +501,6 @@ input[type="datetime-local"]:focus,
 input[type="color"]:focus,
 textarea:focus,
 select:focus {
-    outline: 0;
 }
 
 textarea {
@@ -526,12 +523,10 @@ a:active {
 }
 
 a:focus {
-    outline: 0;
 }
 
 a:hover,
 a:active {
-    outline: 0;
 }
 
 /*--------------------------------------------------------------
@@ -539,11 +534,44 @@ a:active {
 --------------------------------------------------------------*/
 /* Text meant only for screen readers. */
 .screen-reader-text {
+    border: 0;
     clip: rect(1px, 1px, 1px, 1px);
-    position: absolute !important;
+    clip-path: inset(50%);
     height: 1px;
-    width: 1px;
+    margin: -1px;
     overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal !important;
+    /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+    background-color: #f1f1f1;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
+    clip-path: none;
+    color: #21759b;
+    display: block;
+    font-size: 14px;
+    font-size: 0.875rem;
+    font-weight: bold;
+    height: auto;
+    right: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+    /* Above WP toolbar. */
+}
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+    outline: 0;
 }
 
 /*--------------------------------------------------------------
@@ -2745,13 +2773,19 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
     }
 
     .vl-main-navigation ul ul{
+        background: #FFF !important;
         position: static;
         box-shadow: none;
-        border-top: 1px solid #F0F0F0;
+        border-top: 1px solid #FAFAFA;
+    }
+    
+    .vl-main-navigation ul ul li{
+        border-bottom: 1px solid #FAFAFA;
     }
 
     .vl-main-navigation ul ul a{
         text-align: center;
+        color: #333;
     }
 
     .vl-menu > ul > li > a:after{

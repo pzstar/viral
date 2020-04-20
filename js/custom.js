@@ -23,6 +23,8 @@ jQuery(function ($) {
 
     $('.vl-toggle-menu').click(function () {
         $('.vl-main-navigation .vl-menu').slideToggle();
+        viralKeyboardLoop($('.vl-menu'));
+        return false;
     });
 
     $('.vl-menu > ul').superfish({
@@ -47,5 +49,39 @@ jQuery(function ($) {
     $('#vl-back-top').click(function () {
         $('html,body').animate({scrollTop: 0}, 800);
     });
+
+    var viralKeyboardLoop = function (elem) {
+
+        var tabbable = elem.find('select, input, textarea, button, a').filter(':visible');
+
+        var firstTabbable = tabbable.first();
+        var lastTabbable = tabbable.last();
+        /*set focus on first input*/
+        firstTabbable.focus();
+
+        /*redirect last tab to first input*/
+        lastTabbable.on('keydown', function (e) {
+            if ((e.which === 9 && !e.shiftKey)) {
+                e.preventDefault();
+                firstTabbable.focus();
+            }
+        });
+
+        /*redirect first shift+tab to last input*/
+        firstTabbable.on('keydown', function (e) {
+            if ((e.which === 9 && e.shiftKey)) {
+                e.preventDefault();
+                lastTabbable.focus();
+            }
+        });
+
+        /* allow escape key to close insiders div */
+        elem.on('keyup', function (e) {
+            if (e.keyCode === 27) {
+                elem.hide();
+            }
+            ;
+        });
+    };
 
 });
