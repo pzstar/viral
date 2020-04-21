@@ -21,6 +21,9 @@ Viral is a responsive magazine WordPress theme specially designed for magazine, 
 
 
 == Changelog ==
+= 1.4.7 - Apr 20 2020 =
+* Minor Changes
+
 = 1.4.6 - Apr 20 2020 =
 * Skip Content and Keyboard navigation fixed
 

@@ -24,7 +24,7 @@ function viral_customize_register($wp_customize) {
     $wp_customize->add_section(new Viral_Customize_Section_Pro($wp_customize, 'viral-pro-section', array(
         'priority' => 0,
         'pro_text' => esc_html__('Upgrade to Pro', 'viral'),
-        'pro_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=button&utm_campaign=viralpro_sales&utm_content=customizer'
+        'pro_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=viral-button&utm_campaign=viral-upgrade'
     )));
 
     $wp_customize->add_section(new Viral_Customize_Section_Pro($wp_customize, 'viral-doc-section', array(
@@ -989,7 +989,7 @@ if (class_exists('WP_Customize_Control')) {
                     </span>
                 <?php } ?>
 
-                <a href="<?php echo esc_url('https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=button&utm_campaign=viralpro_sales&utm_content=customizer'); ?>" target="_blank"> <strong><?php echo esc_html__('Upgrade to PRO', 'viral'); ?></strong></a>
+                <a href="<?php echo esc_url('https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=viral-link&utm_campaign=viral-upgrade'); ?>" target="_blank"> <strong><?php echo esc_html__('Upgrade to PRO', 'viral'); ?></strong></a>
             </label>
 
             <?php if ($this->description) { ?>
@@ -1155,7 +1155,7 @@ if (class_exists('WP_Customize_Section')) {
                 {{ key }}<br/>
                 <# }) #>
 
-                <a href="<?php echo esc_url('https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=button&utm_campaign=viralpro_sales&utm_content=customizer'); ?>" class="button button-primary" target="_blank"><?php echo esc_html__('Upgrad to Pro', 'viral'); ?></a>
+                <a href="<?php echo esc_url('https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=viral-link&utm_campaign=viral-upgrade'); ?>" class="button button-primary" target="_blank"><?php echo esc_html__('Upgrad to Pro', 'viral'); ?></a>
             </li>
             <?php
         }
