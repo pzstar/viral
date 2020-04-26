@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: _s 1.0.0\n"
 "Report-Msgid-Bugs-To: http://hashthemes.com\n"
-"POT-Creation-Date: 2020-04-14 18:00+0000\n"
+"POT-Creation-Date: 2020-04-26 08:27+0000\n"
 "POT-Revision-Date: Sun Sep 04 2016 23:59:35 GMT+0545 (Nepal Standard Time)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Hash Themes <hashthemes@gmail.com>\n"
@@ -23,45 +23,45 @@ msgstr ""
 "esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
 "X-Generator: Loco https://localise.biz/"
 
-#: functions.php:25
+#: functions.php:29
 msgid "Main Menu"
 msgstr ""
 
-#: functions.php:26 inc/customizer.php:194
+#: functions.php:30 inc/customizer.php:201
 msgid "Top Header Menu"
 msgstr ""
 
-#: functions.php:65
+#: functions.php:69
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:75
+#: functions.php:79
 msgid "Header Ads"
 msgstr ""
 
-#: functions.php:85
+#: functions.php:89
 msgid "Home Middle Section - Right Sidebar"
 msgstr ""
 
-#: functions.php:95
+#: functions.php:99
 msgid "Footer 1"
 msgstr ""
 
-#: functions.php:105
+#: functions.php:109
 msgid "Footer 2"
 msgstr ""
 
-#: functions.php:115
+#: functions.php:119
 msgid "Footer 3"
 msgstr ""
 
-#: functions.php:125
+#: functions.php:129
 msgid "Footer 4"
 msgstr ""
 
 #. Translators: To add an additional character subset specific to your language,
 #. translate this to 'greek', 'cyrillic', 'devanagari' or 'vietnamese'. Do not translate into your own language.
-#: functions.php:167
+#: functions.php:171
 msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
 msgid "no-subset"
 msgstr ""
@@ -78,8 +78,8 @@ msgstr ""
 #: comments.php:23
 #, php-format
 msgctxt "comments title"
-msgid "One Comment"
-msgid_plural "%1$s Comments"
+msgid "%d Comment"
+msgid_plural "%d Comments"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -109,7 +109,11 @@ msgstr ""
 msgid "Search Results for: %s"
 msgstr ""
 
-#: header.php:93
+#: header.php:25
+msgid "Skip to content"
+msgstr ""
+
+#: header.php:94
 msgid "Shadow"
 msgstr ""
 
@@ -133,269 +137,299 @@ msgstr ""
 msgid "Select the Category"
 msgstr ""
 
-#: inc/extras.php:83
+#: inc/extras.php:81
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: inc/extras.php:85
+#: inc/extras.php:83
 msgid "Edit"
 msgstr ""
 
 #. translators: 1: comment date, 2: comment time
-#: inc/extras.php:97
+#: inc/extras.php:95
 #, php-format
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: inc/customizer.php:24 welcome/sections/free_vs_pro.php:21
+#: inc/customizer.php:26 welcome/sections/free_vs_pro.php:21
 #: welcome/sections/free_vs_pro.php:239
 msgid "Upgrade to Pro"
 msgstr ""
 
-#: inc/customizer.php:29 welcome/sections/support.php:3
+#: inc/customizer.php:31 welcome/sections/support.php:3
 msgid "Documentation"
 msgstr ""
 
-#: inc/customizer.php:31
+#: inc/customizer.php:33
 msgid "View"
 msgstr ""
 
-#: inc/customizer.php:36
+#: inc/customizer.php:38
 msgid "Import Demo Content"
 msgstr ""
 
-#: inc/customizer.php:38
+#: inc/customizer.php:40
 msgid "Import"
 msgstr ""
 
-#: inc/customizer.php:44
+#: inc/customizer.php:46
 msgid "General Settings"
 msgstr ""
 
-#: inc/customizer.php:50
-msgid "Site Title/Logo/Favicon"
+#: inc/customizer.php:52
+msgid "Site Logo, Title and Tagline"
 msgstr ""
 
-#: inc/customizer.php:56
+#: inc/customizer.php:53
+msgid "Display Site Title and Tagline(Only Displays if Logo is Removed)"
+msgstr ""
+
+#: inc/customizer.php:59
 msgid "Website Layout"
 msgstr ""
 
-#: inc/customizer.php:69
+#: inc/customizer.php:72
 msgid "Choose the Layout"
 msgstr ""
 
-#: inc/customizer.php:71
+#: inc/customizer.php:74
 msgid "Full Width"
 msgstr ""
 
-#: inc/customizer.php:72
+#: inc/customizer.php:75
 msgid "Boxed"
 msgstr ""
 
-#: inc/customizer.php:83
+#: inc/customizer.php:86
 msgid "Template Color"
 msgstr ""
 
-#: inc/customizer.php:92
+#: inc/customizer.php:95
 msgid "For more color settings,"
 msgstr ""
 
-#: inc/customizer.php:98
+#: inc/customizer.php:101
 msgid "Typography Settings"
 msgstr ""
 
-#: inc/customizer.php:110
+#: inc/customizer.php:113
 msgid "Header Typography"
 msgstr ""
 
-#: inc/customizer.php:112 inc/customizer.php:132
+#: inc/customizer.php:115 inc/customizer.php:135
 msgid "Arial"
 msgstr ""
 
-#: inc/customizer.php:113 inc/customizer.php:133
+#: inc/customizer.php:116 inc/customizer.php:136
 msgid "Georgia"
 msgstr ""
 
-#: inc/customizer.php:114 inc/customizer.php:134
+#: inc/customizer.php:117 inc/customizer.php:137
 msgid "Roboto"
 msgstr ""
 
-#: inc/customizer.php:115
+#: inc/customizer.php:118
 msgid "Oswald"
 msgstr ""
 
-#: inc/customizer.php:116
+#: inc/customizer.php:119
 msgid "Montserrat"
 msgstr ""
 
-#: inc/customizer.php:117 inc/customizer.php:137
+#: inc/customizer.php:120 inc/customizer.php:140
 msgid "Poppins"
 msgstr ""
 
-#: inc/customizer.php:118 inc/customizer.php:138
+#: inc/customizer.php:121 inc/customizer.php:141
 msgid "Lora"
 msgstr ""
 
-#: inc/customizer.php:130
+#: inc/customizer.php:133
 msgid "Body Typography"
 msgstr ""
 
-#: inc/customizer.php:135
+#: inc/customizer.php:138
 msgid "Open Sans"
 msgstr ""
 
-#: inc/customizer.php:136
+#: inc/customizer.php:139
 msgid "Raleway"
 msgstr ""
 
-#: inc/customizer.php:148
+#: inc/customizer.php:151
 msgid "For more fonts and settings,"
 msgstr ""
 
-#: inc/customizer.php:149
+#: inc/customizer.php:153
+msgid "800+ Google fonts"
+msgstr ""
+
+#: inc/customizer.php:154
 msgid ""
-"- 800+ Google fonts<br/>- Seperate Typography settings for Menu, Header "
-"Titles(H1, H2, H3, H4, H5, H6), Page Title, Block Title, Widget Title and "
-"other<br/> - More advanced Typography options like font family, font weight, "
-"text transform, text dectoration, font size, line height, letter spacing"
+"Seperate Typography settings for Menu, Header Titles(H1, H2, H3, H4, H5, H6),"
+" Page Title, Block Title, Widget Title and other"
 msgstr ""
 
 #: inc/customizer.php:155
+msgid ""
+"More advanced Typography options like font family, font weight, text "
+"transform, text dectoration, font size, line height, letter spacing"
+msgstr ""
+
+#: inc/customizer.php:162
 msgid "Header Settings"
 msgstr ""
 
-#: inc/customizer.php:160
+#: inc/customizer.php:167
 msgid "Top Header Settings"
 msgstr ""
 
-#: inc/customizer.php:173
+#: inc/customizer.php:180
 msgid "Show Date in Header"
 msgstr ""
 
-#: inc/customizer.php:184
+#: inc/customizer.php:191
 msgid "Header Left Text"
 msgstr ""
 
-#: inc/customizer.php:195
+#: inc/customizer.php:202
 msgid "To add the Menu, Go to Appearance -> Menu and save it as Top Menu"
 msgstr ""
 
-#: inc/customizer.php:205
+#: inc/customizer.php:212
 msgid "Social Icons - Right Header"
 msgstr ""
 
-#: inc/customizer.php:217
+#: inc/customizer.php:224
 msgid "Facebook"
 msgstr ""
 
-#: inc/customizer.php:229
+#: inc/customizer.php:236
 msgid "Twitter"
 msgstr ""
 
-#: inc/customizer.php:241
+#: inc/customizer.php:248
 msgid "Pinterest"
 msgstr ""
 
-#: inc/customizer.php:253
+#: inc/customizer.php:260
 msgid "Youtube"
 msgstr ""
 
-#: inc/customizer.php:265
+#: inc/customizer.php:272
 msgid "Linkedin"
 msgstr ""
 
-#: inc/customizer.php:277
+#: inc/customizer.php:284
 msgid "Instagram"
 msgstr ""
 
-#: inc/customizer.php:286 inc/customizer.php:325
+#: inc/customizer.php:293 inc/customizer.php:332
 msgid "For more options,"
 msgstr ""
 
-#: inc/customizer.php:291
+#: inc/customizer.php:298
 msgid "Main Header Settings"
 msgstr ""
 
-#: inc/customizer.php:304
+#: inc/customizer.php:311
 msgid "Full Width Menu Bar"
 msgstr ""
 
-#: inc/customizer.php:316
+#: inc/customizer.php:323
 msgid "Disable Shadow Below Menu"
 msgstr ""
 
-#: inc/customizer.php:326
-msgid ""
-"- 7 header layouts<br/>- Sticky header<br/>- Search button<br/> - OffCanvas "
-"menu<br/>- Header color options<br/>- 10 Menu hover styles"
+#: inc/customizer.php:334
+msgid "7 header layouts"
 msgstr ""
 
-#: inc/customizer.php:332
-msgid "Front Page Sections"
+#: inc/customizer.php:335
+msgid "Sticky header"
+msgstr ""
+
+#: inc/customizer.php:336
+msgid "Search button"
+msgstr ""
+
+#: inc/customizer.php:337
+msgid "OffCanvas menu"
 msgstr ""
 
 #: inc/customizer.php:338
+msgid "Header color options"
+msgstr ""
+
+#: inc/customizer.php:339
+msgid "10 Menu hover styles"
+msgstr ""
+
+#: inc/customizer.php:346
+msgid "Front Page Sections"
+msgstr ""
+
+#: inc/customizer.php:352
 msgid "Home Top Section"
 msgstr ""
 
-#: inc/customizer.php:344 templates/template-home.php:37
+#: inc/customizer.php:358 templates/template-home.php:37
 msgid "Breaking News"
 msgstr ""
 
-#: inc/customizer.php:351
+#: inc/customizer.php:365
 msgid "Ticker Title"
 msgstr ""
 
-#: inc/customizer.php:362
+#: inc/customizer.php:376
 msgid "Choose Ticker Category"
 msgstr ""
 
-#: inc/customizer.php:385
+#: inc/customizer.php:399
 msgid "Enable Black Background on Ticker"
 msgstr ""
 
-#: inc/customizer.php:389
+#: inc/customizer.php:403
 msgid "FrontPage Top Blocks - FullWidth"
 msgstr ""
 
-#: inc/customizer.php:392 inc/customizer.php:456 inc/customizer.php:527
+#: inc/customizer.php:406 inc/customizer.php:470 inc/customizer.php:541
 msgid "News Section"
 msgstr ""
 
-#: inc/customizer.php:393 inc/customizer.php:457 inc/customizer.php:528
+#: inc/customizer.php:407 inc/customizer.php:471 inc/customizer.php:542
 msgid "Add Section"
 msgstr ""
 
-#: inc/customizer.php:397 inc/widgets/widget-category-block.php:42
+#: inc/customizer.php:411 inc/widgets/widget-category-block.php:42
 #: inc/widgets/widget-timeline.php:42
 msgid "Select Category"
 msgstr ""
 
-#: inc/customizer.php:398
+#: inc/customizer.php:412
 msgid "All latest post will display if no category is selected"
 msgstr ""
 
-#: inc/customizer.php:402 inc/customizer.php:472 inc/customizer.php:550
+#: inc/customizer.php:416 inc/customizer.php:486 inc/customizer.php:564
 msgid "Layouts"
 msgstr ""
 
-#: inc/customizer.php:403 inc/customizer.php:473 inc/customizer.php:551
+#: inc/customizer.php:417 inc/customizer.php:487 inc/customizer.php:565
 msgid "Select the Block Layout"
 msgstr ""
 
-#: inc/customizer.php:414 inc/customizer.php:484 inc/customizer.php:561
+#: inc/customizer.php:428 inc/customizer.php:498 inc/customizer.php:575
 msgid "Enable Section"
 msgstr ""
 
-#: inc/customizer.php:429 inc/customizer.php:499 inc/customizer.php:576
+#: inc/customizer.php:443 inc/customizer.php:513 inc/customizer.php:590
 msgid "For more block layouts and settings,"
 msgstr ""
 
-#: inc/customizer.php:435
+#: inc/customizer.php:449
 msgid "Home Middle Section - Left Content"
 msgstr ""
 
-#: inc/customizer.php:444 inc/customizer.php:461 inc/customizer.php:462
+#: inc/customizer.php:458 inc/customizer.php:475 inc/customizer.php:476
 #: home-parts/middle-left-section.php:8
 #: inc/widgets/widget-category-block.php:36
 #: inc/widgets/widget-category-block.php:38
@@ -407,58 +441,114 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: inc/customizer.php:453
+#: inc/customizer.php:467
 msgid "FrontPage Middle Blocks - Left Content"
 msgstr ""
 
-#: inc/customizer.php:463
+#: inc/customizer.php:477
 msgid "Optional - Leave blank to hide Title"
 msgstr ""
 
-#: inc/customizer.php:467 inc/customizer.php:532 inc/customizer.php:538
-#: inc/customizer.php:544
+#: inc/customizer.php:481 inc/customizer.php:546 inc/customizer.php:552
+#: inc/customizer.php:558
 msgid "Category"
 msgstr ""
 
-#: inc/customizer.php:505
+#: inc/customizer.php:519
 msgid "Home Bottom Section"
 msgstr ""
 
-#: inc/customizer.php:524
+#: inc/customizer.php:538
 msgid "FrontPage Bottom Blocks - FullWidth"
 msgstr ""
 
-#: inc/customizer.php:707 inc/widgets/widget-fields.php:137
+#: inc/customizer.php:595
+msgid "More Sections on Premium"
+msgstr ""
+
+#: inc/customizer.php:599
+msgid "--Drag and Drop Reorder Sections--"
+msgstr ""
+
+#: inc/customizer.php:600
+msgid "- Ticker Module"
+msgstr ""
+
+#: inc/customizer.php:601
+msgid "- Tile Module"
+msgstr ""
+
+#: inc/customizer.php:602
+msgid "- Slider Module"
+msgstr ""
+
+#: inc/customizer.php:603
+msgid "- Carousel Module"
+msgstr ""
+
+#: inc/customizer.php:604
+msgid "- News Module - Left Sidebar"
+msgstr ""
+
+#: inc/customizer.php:605
+msgid "- News Module - Right Sidebar"
+msgstr ""
+
+#: inc/customizer.php:606
+msgid "- Mini News Module"
+msgstr ""
+
+#: inc/customizer.php:607
+msgid "- Video Playlist Module"
+msgstr ""
+
+#: inc/customizer.php:608
+msgid "- Full Width News Module"
+msgstr ""
+
+#: inc/customizer.php:609
+msgid "- Featured Image Module"
+msgstr ""
+
+#: inc/customizer.php:610
+msgid "- Three Column Module"
+msgstr ""
+
+#: inc/customizer.php:741 inc/widgets/widget-fields.php:137
 msgid "No image selected"
 msgstr ""
 
-#: inc/customizer.php:713 inc/widgets/widget-fields.php:144
+#: inc/customizer.php:747 inc/widgets/widget-fields.php:144
 msgid "Remove"
 msgstr ""
 
-#: inc/customizer.php:714 inc/widgets/widget-fields.php:145
+#: inc/customizer.php:748 inc/widgets/widget-fields.php:145
 msgid "Select Image"
 msgstr ""
 
-#: inc/customizer.php:723 inc/customizer.php:928
+#: inc/customizer.php:757 inc/customizer.php:962
 #: inc/widgets/widget-category-block.php:28 inc/widgets/widget-timeline.php:28
 msgid "Latest Posts"
 msgstr ""
 
-#: inc/customizer.php:844
+#: inc/customizer.php:878
 msgid "Delete"
 msgstr ""
 
-#: inc/customizer.php:845
+#: inc/customizer.php:879
 msgid "Close"
 msgstr ""
 
-#: inc/customizer.php:927
+#: inc/customizer.php:961
 msgid "Don't Display"
 msgstr ""
 
-#: inc/customizer.php:957
+#: inc/customizer.php:992
 msgid "Upgrade to PRO"
+msgstr ""
+
+#: inc/customizer.php:1158
+msgid "Upgrad to Pro"
 msgstr ""
 
 #: inc/template-tags.php:22 inc/template-tags.php:58
@@ -513,89 +603,77 @@ msgstr ""
 msgid "Share on Pinterest"
 msgstr ""
 
-#: welcome/welcome.php:25
+#: welcome/welcome.php:26
 msgid "Getting Started"
 msgstr ""
 
-#: welcome/welcome.php:26 welcome/sections/recommended_plugins.php:6
+#: welcome/welcome.php:27 welcome/sections/recommended_plugins.php:6
 msgid "Recommended Plugins"
 msgstr ""
 
-#: welcome/welcome.php:27
+#: welcome/welcome.php:28
 msgid "Support"
 msgstr ""
 
-#: welcome/welcome.php:28
+#: welcome/welcome.php:29
 msgid "Free Vs Pro"
 msgstr ""
 
-#: welcome/welcome.php:74
+#: welcome/welcome.php:75
+#, php-format
 msgid ""
-"Welcome! Thank you for choosing Viral. Please make sure you visit Settings "
-"Page to get started with Viral theme."
+"Welcome! Thank you for choosing %1$s. Please make sure you visit Settings "
+"Page to get started with %1$s theme."
 msgstr ""
 
-#: welcome/welcome.php:75
+#: welcome/welcome.php:76
 msgid "Let's Get Started"
 msgstr ""
 
-#: welcome/welcome.php:83
+#: welcome/welcome.php:84
 msgid "Welcome"
 msgstr ""
 
-#: welcome/welcome.php:83
-msgid "Viral Settings"
+#: welcome/welcome.php:84
+#, php-format
+msgid "%s Settings"
 msgstr ""
 
 #. 1-theme name, 2-theme version
-#: welcome/welcome.php:96
+#: welcome/welcome.php:97
 #, php-format
 msgid "Welcome to %1$s - Version %2$s"
 msgstr ""
 
-#: welcome/welcome.php:98
-msgid ""
-"Viral is a responsive magazine WordPress Theme specially designed for "
-"magazine, newspaper, news portals, publishing, personal blogs, professional "
-"blogs, corporate blogs, and editorial style websites. The theme has "
-"repeatable drag and drop section that allows adding as many section as you "
-"want with various beautifully designed layouts suitable for magazine, "
-"newspaper. The theme consist of 3  unique banner layout to highlight your "
-"featured content, 6 unique category section layout, news ticker, promotional "
-"headline. There are five different built in widgets in the theme that can be "
-"used in the sidebar and footers. Moreover the theme is built is customizer "
-"that enable to set up your website with live preview."
-msgstr ""
-
-#: welcome/welcome.php:102
+#: welcome/welcome.php:103
 msgid "Upgrade for $59"
 msgstr ""
 
-#: welcome/welcome.php:103 welcome/sections/getting_started.php:180
+#: welcome/welcome.php:104 welcome/sections/getting_started.php:180
 msgid "Upgrade Now"
 msgstr ""
 
-#: welcome/welcome.php:104
+#: welcome/welcome.php:105
 msgid "Unlock all the possibitlies with Viral Pro."
 msgstr ""
 
-#: welcome/welcome.php:138
+#: welcome/welcome.php:139
 msgid "Installing Demo Importer Plugin"
 msgstr ""
 
-#: welcome/welcome.php:139
+#: welcome/welcome.php:140
 msgid "Activating Demo Importer Plugin"
 msgstr ""
 
-#: welcome/welcome.php:140 welcome/sections/getting_started.php:48
+#: welcome/welcome.php:141 welcome/sections/getting_started.php:48
 msgid "Go to Demo Importer Page"
 msgstr ""
 
-#: welcome/welcome.php:142
+#: welcome/welcome.php:143
 msgid "Error! Reload the page and try again."
 msgstr ""
 
-#: welcome/welcome.php:219
+#: welcome/welcome.php:216
 #, php-format
 msgid ""
 "Please leave us a %s rating if you like our theme . A huge thank you from "
@@ -841,9 +919,10 @@ msgid ""
 msgstr ""
 
 #: welcome/sections/getting_started.php:64
+#, php-format
 msgid ""
 "Check out the websites that you can create with the premium version of the "
-"Viral Theme. These demos can be imported with just one click in the premium "
+"%s Theme. These demos can be imported with just one click in the premium "
 "version."
 msgstr ""
 
@@ -873,9 +952,10 @@ msgid "Upgrade To Premium Version (7 Day Money Back Guarantee)"
 msgstr ""
 
 #: welcome/sections/getting_started.php:176
+#, php-format
 msgid ""
-"With Viral Theme you can create a beautiful website. But if you want to "
-"unlock more possibilites then upgrade to premium version."
+"With %s Theme you can create a beautiful website. But if you want to unlock "
+"more possibilites then upgrade to premium version."
 msgstr ""
 
 #: welcome/sections/getting_started.php:177

@@ -142,11 +142,11 @@ if (!class_exists('Viral_Welcome')) :
                     'importer_url' => admin_url('themes.php?page=hdi-demo-importer'),
                     'error' => esc_html__('Error! Reload the page and try again.', 'viral'),
                 );
-                wp_enqueue_style('viral-welcome', get_template_directory_uri() . '/welcome/css/welcome.css');
+                wp_enqueue_style('viral-welcome', get_template_directory_uri() . '/welcome/css/welcome.css', array(), VIRAL_VERSION);
                 wp_enqueue_style('plugin-install');
                 wp_enqueue_script('plugin-install');
                 wp_enqueue_script('updates');
-                wp_enqueue_script('viral-welcome', get_template_directory_uri() . '/welcome/js/welcome.js', array(), '1.0');
+                wp_enqueue_script('viral-welcome', get_template_directory_uri() . '/welcome/js/welcome.js', array(), VIRAL_VERSION);
                 wp_localize_script('viral-welcome', 'importer_params', $importer_params);
             }
         }

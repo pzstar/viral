@@ -24,7 +24,7 @@ function viral_customize_register($wp_customize) {
     $wp_customize->add_section(new Viral_Customize_Section_Pro($wp_customize, 'viral-pro-section', array(
         'priority' => 0,
         'pro_text' => esc_html__('Upgrade to Pro', 'viral'),
-        'pro_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=viral-button&utm_campaign=viral-upgrade'
+        'pro_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=viral-customizer-button&utm_campaign=viral-upgrade'
     )));
 
     $wp_customize->add_section(new Viral_Customize_Section_Pro($wp_customize, 'viral-doc-section', array(
@@ -50,7 +50,7 @@ function viral_customize_register($wp_customize) {
     $wp_customize->get_section('static_front_page')->priority = 1;
     $wp_customize->get_section('title_tagline')->panel = 'viral_general_settings_panel';
     $wp_customize->get_section('title_tagline')->title = esc_html__('Site Logo, Title and Tagline', 'viral');
-    $wp_customize->get_control('header_text')->label = esc_html__('Display Site Title and Tagline(Only Displays If Logo Is Not Added)', 'viral');
+    $wp_customize->get_control('header_text')->label = esc_html__('Display Site Title and Tagline(Only Displays if Logo is Removed)', 'viral');
     $wp_customize->get_section('colors')->panel = 'viral_general_settings_panel';
     $wp_customize->get_section('background_image')->panel = 'viral_general_settings_panel';
     $wp_customize->get_control('background_color')->section = 'background_image';
@@ -618,15 +618,15 @@ add_action('customize_register', 'viral_customize_register');
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function viral_customize_preview_js() {
-    wp_enqueue_script('viral_customizer', get_template_directory_uri() . '/js/customizer.js', array('customize-preview'), '1.0.0', true);
+    wp_enqueue_script('viral_customizer', get_template_directory_uri() . '/js/customizer.js', array('customize-preview'), VIRAL_VERSION, true);
 }
 
 add_action('customize_preview_init', 'viral_customize_preview_js');
 
 function viral_customizer_script() {
-    wp_enqueue_script('viral-customizer-script', get_template_directory_uri() . '/inc/js/customizer-scripts.js', array('jquery'), '1.0.0', true);
-    wp_enqueue_style('font-awesome', get_template_directory_uri() . '/css/font-awesome.css');
-    wp_enqueue_style('viral-customizer-style', get_template_directory_uri() . '/inc/css/customizer-style.css');
+    wp_enqueue_script('viral-customizer-script', get_template_directory_uri() . '/inc/js/customizer-scripts.js', array('jquery'), VIRAL_VERSION, true);
+    wp_enqueue_style('font-awesome', get_template_directory_uri() . '/css/font-awesome.css', array(), VIRAL_VERSION);
+    wp_enqueue_style('viral-customizer-style', get_template_directory_uri() . '/inc/css/customizer-style.css', array(),VIRAL_VERSION);
 }
 
 add_action('customize_controls_enqueue_scripts', 'viral_customizer_script');
@@ -1031,7 +1031,7 @@ if (class_exists('WP_Customize_Section')) {
          * @access public
          * @var    string
          */
-        public $type = 'pro-section';
+        public $type = 'viral-pro-section';
 
         /**
          * Custom button text to output.
@@ -1103,7 +1103,7 @@ if (class_exists('WP_Customize_Section')) {
          * @access public
          * @var    string
          */
-        public $type = 'upgrade-section';
+        public $type = 'viral-upgrade-section';
 
         /**
          * Custom button text to output.

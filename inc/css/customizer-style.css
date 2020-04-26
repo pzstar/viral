@@ -489,19 +489,19 @@
     margin-left: -8px;
 }
 
-.control-section-upgrade-section{
+.control-section-viral-upgrade-section{
     background: #FFF;
     padding: 20px;
     margin: 15px;
 }
 
-.control-section-upgrade-section .button{
+.control-section-viral-upgrade-section .button{
     display: block;
     text-align: center;
     margin-top: 10px;
 }
 
-.control-section-upgrade-section label{
+.control-section-viral-upgrade-section label{
     display: block;
     font-weight: bold;
     margin-bottom: 8px;

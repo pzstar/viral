@@ -67,8 +67,6 @@ add_filter('get_the_archive_title', 'viral_filter_archive_title');
 if (!function_exists('viral_comment')) {
 
     function viral_comment($comment, $args, $depth) {
-        $GLOBALS['comment'] = $comment;
-        extract($args, EXTR_SKIP);
         $tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
         ?>
         <<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class(empty($args['has_children']) ? 'parent' : '', $comment); ?>>

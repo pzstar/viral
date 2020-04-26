@@ -356,7 +356,7 @@ jQuery(document).ready(function ($) {
 // Extends our custom section.
 (function (api) {
 
-    api.sectionConstructor['pro-section'] = api.Section.extend({
+    api.sectionConstructor['viral-pro-section'] = api.Section.extend({
 
         // No events for this type of section.
         attachEvents: function () {},
@@ -366,8 +366,8 @@ jQuery(document).ready(function ($) {
             return true;
         }
     });
-    
-    api.sectionConstructor['upgrade-section'] = api.Section.extend({
+
+    api.sectionConstructor['viral-upgrade-section'] = api.Section.extend({
 
         // No events for this type of section.
         attachEvents: function () {},
