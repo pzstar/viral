@@ -3,8 +3,8 @@ $free_plugins = $this->free_plugins;
 
 if (!empty($free_plugins)) {
     ?>
-    <h4 class="recomplug-title"><?php echo esc_html__('Recommended Plugins', 'viral'); ?></h4>
-    <p><?php echo esc_html__('Please install these plugins. These plugins are complementary only and add more feature to theme.', 'viral'); ?></p>
+    <h3><?php echo esc_html__('Recommended Plugins', 'viral'); ?></h3>
+    <p><?php echo esc_html__('Please install these free plugins. These plugins are complementary that adds more features to the theme.', 'viral'); ?></p>
     <div class="recomended-plugin-wrap">
         <?php
         foreach ($free_plugins as $plugin) {
@@ -12,28 +12,28 @@ if (!empty($free_plugins)) {
             $name = $plugin['name'];
             $filename = $plugin['filename'];
             ?>
-            <div class="recom-plugin-wrap">
-                <div class="plugin-img-wrap">
-                    <img src="<?php echo esc_url($this->viral_plugin_thumb($slug)) ?>" />
+            <div class="recommended-plugins">
+                <div class="plugin-image">
+                    <img src="<?php echo esc_url($this->plugin_thumb($slug)) ?>" />
                 </div>
 
-                <div class="plugin-title-install clearfix">
-                    <span class="title">
+                <div class="plugin-title-wrap">
+                    <div class="plugin-title">
                         <?php echo esc_html($name); ?>	
-                    </span>
+                    </div>
 
-                    <span class="plugin-btn-wrapper">
-                        <?php if ($this->viral_check_installed_plugin($slug, $filename) && !$this->viral_check_plugin_active_state($slug, $filename)) : ?>
-                            <a target="_blank" href="<?php echo esc_url($this->viral_plugin_generate_url('active', $slug, $filename)) ?>" class="button button-primary"><?php esc_html_e('Activate', 'viral'); ?></a>
-                        <?php elseif ($this->viral_check_installed_plugin($slug, $filename)) :
+                    <div class="plugin-btn-wrapper">
+                        <?php if ($this->check_plugin_installed_state($slug, $filename) && !$this->check_plugin_active_state($slug, $filename)) : ?>
+                            <a target="_blank" href="<?php echo esc_url($this->plugin_generate_url('active', $slug, $filename)) ?>" class="button button-primary"><?php esc_html_e('Activate', 'viral'); ?></a>
+                        <?php elseif ($this->check_plugin_installed_state($slug, $filename)) :
                             ?>
                             <button type="button" class="button button-disabled" disabled="disabled"><?php esc_html_e('Installed', 'viral'); ?></button>
                         <?php else :
                             ?>
-                            <a target="_blank" class="install-now button-primary" href="<?php echo esc_url($this->viral_plugin_generate_url('install', $slug, $filename)) ?>" >
+                            <a target="_blank" class="install-now button-primary" href="<?php echo esc_url($this->plugin_generate_url('install', $slug, $filename)) ?>" >
                                 <?php esc_html_e('Install Now', 'viral'); ?></a>							
                             <?php endif; ?>
-                    </span>
+                    </div>
                 </div>
             </div>
         <?php }

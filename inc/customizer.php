@@ -40,6 +40,17 @@ function viral_customize_register($wp_customize) {
         'pro_text' => esc_html__('Import', 'viral'),
         'pro_url' => admin_url('/themes.php?page=viral-welcome')
     )));
+    
+    /* ============HOMEPAGE SETTINGS PANEL============ */
+    $wp_customize->add_setting('viral_enable_frontpage', array(
+        'sanitize_callback' => 'viral_sanitize_checkbox'
+    ));
+
+    $wp_customize->add_control(new Viral_Toggle_Control($wp_customize, 'viral_enable_frontpage', array(
+        'section' => 'static_front_page',
+        'label' => esc_html__('Enable FrontPage', 'viral'),
+        'description' => esc_html__('Overwrites the homepage displays setting and shows the frontpage', 'viral')
+    )));
 
     /* ============GENERAL SETTINGS PANEL============ */
     $wp_customize->add_panel('viral_general_settings_panel', array(
@@ -969,6 +980,39 @@ if (class_exists('WP_Customize_Control')) {
                 </label>
                 <?php
             }
+        }
+
+    }
+    
+    class Viral_Toggle_Control extends WP_Customize_Control {
+
+        /**
+         * Control type
+         *
+         * @var string
+         */
+        public $type = 'viral-toggle';
+
+        /**
+         * Control method
+         *
+         * @since 1.0.0
+         */
+        public function render_content() {
+            ?>
+            <div class="viral-checkbox-toggle">
+                <div class="toggle-switch">
+                    <input type="checkbox" id="<?php echo esc_attr($this->id); ?>" name="<?php echo esc_attr($this->id); ?>" class="toggle-checkbox" value="<?php echo esc_attr($this->value()); ?>" <?php $this->link(); ?> <?php checked($this->value()); ?>>
+                    <label class="toggle-label" for="<?php echo esc_attr($this->id); ?>"><span></span></label>
+                </div>
+                <span class="customize-control-title toggle-title"><?php echo esc_html($this->label); ?></span>
+                <?php if (!empty($this->description)) { ?>
+                    <span class="description customize-control-description">
+                        <?php echo wp_kses_post($this->description); ?>
+                    </span>
+                <?php } ?>
+            </div>
+            <?php
         }
 
     }
