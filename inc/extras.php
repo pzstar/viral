@@ -272,6 +272,34 @@ function viral_premium_demo_config($demos) {
             'image' => 'https://hashthemes.com/import-files/viral-pro/screen/news.jpg',
             'preview_url' => 'https://demo.hashthemes.com/viral-pro/news/'
         ),
+        'viral-news-one' => array(
+            'name' => 'Viral Pro - News One',
+            'type' => 'pro',
+            'buy_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/',
+            'image' => 'https://hashthemes.com/import-files/viral-pro/screen/viral-news-one.jpg',
+            'preview_url' => 'https://demo.hashthemes.com/viral-pro/viral-news-one/'
+        ),
+        'viral-news-two' => array(
+            'name' => 'Viral Pro - News Two',
+            'type' => 'pro',
+            'buy_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/',
+            'image' => 'https://hashthemes.com/import-files/viral-pro/screen/viral-news-two.jpg',
+            'preview_url' => 'https://demo.hashthemes.com/viral-pro/viral-news-two/'
+        ),
+        'viral-news-three' => array(
+            'name' => 'Viral Pro - News Three',
+            'type' => 'pro',
+            'buy_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/',
+            'image' => 'https://hashthemes.com/import-files/viral-pro/screen/viral-news-three.jpg',
+            'preview_url' => 'https://demo.hashthemes.com/viral-pro/viral-news-three/'
+        ),
+        'viral-news-four' => array(
+            'name' => 'Viral Pro - News Four',
+            'type' => 'pro',
+            'buy_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/',
+            'image' => 'https://hashthemes.com/import-files/viral-pro/screen/viral-news-four.jpg',
+            'preview_url' => 'https://demo.hashthemes.com/viral-pro/viral-news-four/'
+        ),
         'sports' => array(
             'name' => 'Viral Pro - Sports',
             'type' => 'pro',
@@ -316,6 +344,8 @@ function viral_premium_demo_config($demos) {
     ));
 
     $demos = array_merge($demos, $premium_demos);
+    
+    $demos['main']['tags']['free'] = "Free";
 
     return $demos;
 }
