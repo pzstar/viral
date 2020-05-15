@@ -28,11 +28,11 @@ add_filter('body_class', 'viral_body_classes');
 if (!function_exists('viral_excerpt')) {
 
     function viral_excerpt($content, $letter_count) {
-        $content = strip_shortcodes($content);
-        $content = strip_tags($content);
-        $content = mb_substr($content, 0, $letter_count);
+        $new_content = strip_shortcodes($content);
+        $new_content = strip_tags($new_content);
+        $content = mb_substr($new_content, 0, $letter_count);
 
-        if (strlen($content) == $letter_count) {
+        if (($letter_count !== 0) && (strlen($new_content) > $letter_count)) {
             $content .= "...";
         }
         return $content;
@@ -263,88 +263,124 @@ function viral_premium_demo_config($demos) {
             'type' => 'pro',
             'buy_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/',
             'image' => 'https://hashthemes.com/import-files/viral-pro/screen/magazine.jpg',
-            'preview_url' => 'https://demo.hashthemes.com/viral-pro/magazine/'
+            'preview_url' => 'https://demo.hashthemes.com/viral-pro/magazine/',
+            'tags' => array(
+                'premium' => 'Premium'
+            )
         ),
         'news' => array(
             'name' => 'Viral Pro - News',
             'type' => 'pro',
             'buy_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/',
             'image' => 'https://hashthemes.com/import-files/viral-pro/screen/news.jpg',
-            'preview_url' => 'https://demo.hashthemes.com/viral-pro/news/'
+            'preview_url' => 'https://demo.hashthemes.com/viral-pro/news/',
+            'tags' => array(
+                'premium' => 'Premium'
+            )
         ),
         'viral-news-one' => array(
             'name' => 'Viral Pro - News One',
             'type' => 'pro',
             'buy_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/',
             'image' => 'https://hashthemes.com/import-files/viral-pro/screen/viral-news-one.jpg',
-            'preview_url' => 'https://demo.hashthemes.com/viral-pro/viral-news-one/'
+            'preview_url' => 'https://demo.hashthemes.com/viral-pro/viral-news-one/',
+            'tags' => array(
+                'premium' => 'Premium'
+            )
         ),
         'viral-news-two' => array(
             'name' => 'Viral Pro - News Two',
             'type' => 'pro',
             'buy_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/',
             'image' => 'https://hashthemes.com/import-files/viral-pro/screen/viral-news-two.jpg',
-            'preview_url' => 'https://demo.hashthemes.com/viral-pro/viral-news-two/'
+            'preview_url' => 'https://demo.hashthemes.com/viral-pro/viral-news-two/',
+            'tags' => array(
+                'premium' => 'Premium'
+            )
         ),
         'viral-news-three' => array(
             'name' => 'Viral Pro - News Three',
             'type' => 'pro',
             'buy_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/',
             'image' => 'https://hashthemes.com/import-files/viral-pro/screen/viral-news-three.jpg',
-            'preview_url' => 'https://demo.hashthemes.com/viral-pro/viral-news-three/'
+            'preview_url' => 'https://demo.hashthemes.com/viral-pro/viral-news-three/',
+            'tags' => array(
+                'premium' => 'Premium'
+            )
         ),
         'viral-news-four' => array(
             'name' => 'Viral Pro - News Four',
             'type' => 'pro',
             'buy_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/',
             'image' => 'https://hashthemes.com/import-files/viral-pro/screen/viral-news-four.jpg',
-            'preview_url' => 'https://demo.hashthemes.com/viral-pro/viral-news-four/'
+            'preview_url' => 'https://demo.hashthemes.com/viral-pro/viral-news-four/',
+            'tags' => array(
+                'premium' => 'Premium'
+            )
         ),
         'sports' => array(
             'name' => 'Viral Pro - Sports',
             'type' => 'pro',
             'buy_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/',
             'image' => 'https://hashthemes.com/import-files/viral-pro/screen/sports.jpg',
-            'preview_url' => 'https://demo.hashthemes.com/viral-pro/sports/'
+            'preview_url' => 'https://demo.hashthemes.com/viral-pro/sports/',
+            'tags' => array(
+                'premium' => 'Premium'
+            )
         ),
         'technology' => array(
             'name' => 'Viral Pro - Technology',
             'type' => 'pro',
             'buy_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/',
             'image' => 'https://hashthemes.com/import-files/viral-pro/screen/technology.jpg',
-            'preview_url' => 'https://demo.hashthemes.com/viral-pro/technology/'
+            'preview_url' => 'https://demo.hashthemes.com/viral-pro/technology/',
+            'tags' => array(
+                'premium' => 'Premium'
+            )
         ),
         'illustration' => array(
             'name' => 'Viral Pro - Illustration',
             'type' => 'pro',
             'buy_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/',
             'image' => 'https://hashthemes.com/import-files/viral-pro/screen/illustration.jpg',
-            'preview_url' => 'https://demo.hashthemes.com/viral-pro/illustration/'
+            'preview_url' => 'https://demo.hashthemes.com/viral-pro/illustration/',
+            'tags' => array(
+                'premium' => 'Premium'
+            )
         ),
         'fashion' => array(
             'name' => 'Viral Pro - Fashion',
             'type' => 'pro',
             'buy_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/',
             'image' => 'https://hashthemes.com/import-files/viral-pro/screen/fashion.jpg',
-            'preview_url' => 'https://demo.hashthemes.com/viral-pro/fashion/'
+            'preview_url' => 'https://demo.hashthemes.com/viral-pro/fashion/',
+            'tags' => array(
+                'premium' => 'Premium'
+            )
         ),
         'travel' => array(
             'name' => 'Viral Pro - Travel',
             'type' => 'pro',
             'buy_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/',
             'image' => 'https://hashthemes.com/import-files/viral-pro/screen/travel.jpg',
-            'preview_url' => 'https://demo.hashthemes.com/viral-pro/travel/'
+            'preview_url' => 'https://demo.hashthemes.com/viral-pro/travel/',
+            'tags' => array(
+                'premium' => 'Premium'
+            )
         ),
         'rtl' => array(
             'name' => 'Viral Pro - RTL',
             'type' => 'pro',
             'buy_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/',
             'image' => 'https://hashthemes.com/import-files/viral-pro/screen/rtl.jpg',
-            'preview_url' => 'https://demo.hashthemes.com/viral-pro/rtl/'
+            'preview_url' => 'https://demo.hashthemes.com/viral-pro/rtl/',
+            'tags' => array(
+                'premium' => 'Premium'
+            )
     ));
 
     $demos = array_merge($demos, $premium_demos);
-    
+
     $demos['main']['tags']['free'] = "Free";
 
     return $demos;
