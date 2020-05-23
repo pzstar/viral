@@ -78,7 +78,7 @@ if (!class_exists('Viral_Welcome')) :
         public function admin_notice_content() {
             $screen = get_current_screen();
 
-            if ('appearance_page_viral-welcome' === $screen->id || (isset($screen->parent_file) && 'plugins.php' === $screen->parent_file && 'update' === $screen->id)) {
+            if ('appearance_page_viral-welcome' === $screen->id || (isset($screen->parent_file) && 'plugins.php' === $screen->parent_file && 'update' === $screen->id) || 'theme-install' === $screen->id) {
                 return;
             }
 
