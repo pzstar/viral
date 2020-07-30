@@ -636,7 +636,6 @@ add_action('customize_preview_init', 'viral_customize_preview_js');
 
 function viral_customizer_script() {
     wp_enqueue_script('viral-customizer-script', get_template_directory_uri() . '/inc/js/customizer-scripts.js', array('jquery'), VIRAL_VERSION, true);
-    wp_enqueue_style('font-awesome', get_template_directory_uri() . '/css/font-awesome.css', array(), VIRAL_VERSION);
     wp_enqueue_style('viral-customizer-style', get_template_directory_uri() . '/inc/css/customizer-style.css', array(),VIRAL_VERSION);
 }
 
@@ -843,21 +842,6 @@ if (class_exists('WP_Customize_Control')) {
                                             echo '<input  class="range-input-selector" type="text" value="' . esc_attr($new_value) . '"  data-name="' . esc_attr($key) . '"/>';
                                             echo '<span class="unit">' . esc_html($options['unit']) . '</span>';
                                             echo '</div>';
-                                            break;
-
-                                        case 'icon':
-                                            echo '<div class="viral-selected-icon">';
-                                            echo '<i class="' . esc_attr($new_value) . '"></i>';
-                                            echo '<span><i class="fa fa-angle-down"></i></span>';
-                                            echo '</div>';
-                                            echo '<ul class="viral-icon-list clearfix">';
-                                            $viral_font_awesome_icon_array = viral_font_awesome_icon_array();
-                                            foreach ($viral_font_awesome_icon_array as $viral_font_awesome_icon) {
-                                                $icon_class = $new_value == $viral_font_awesome_icon ? 'icon-active' : '';
-                                                echo '<li class=' . $icon_class . '><i class="' . $viral_font_awesome_icon . '"></i></li>';
-                                            }
-                                            echo '</ul>';
-                                            echo '<input data-default="' . esc_attr($default) . '" type="hidden" value="' . esc_attr($new_value) . '" data-name="' . esc_attr($key) . '"/>';
                                             break;
 
                                         case 'multicategory':

@@ -46,14 +46,19 @@ input[type='submit'],
 #vl-site-navigation,
 .vl-main-navigation ul ul,
 .vl-ticker-title,
-.vl-ticker .owl-prev, 
-.vl-ticker .owl-next,
-.vl-top-block .post-categories li a:hover{
+.vl-ticker .owl-carousel .owl-nav button[class^='owl-'],
+body .he-ticker-title,
+body .he-ticker .owl-carousel .owl-nav button[class^='owl-'],
+.vl-top-block .post-categories li a:hover,
+body .he-post-thumb .post-categories li a:hover,
+body .he-post-content .post-categories li a:hover,
+body .he-carousel-block .owl-carousel .owl-nav button.owl-prev, 
+body .he-carousel-block .owl-carousel .owl-nav button.owl-next{
 	background:{$color};
 }
 
 a,
-.entry-categories .fa,
+.entry-categories i,
 .vl-share-buttons a:hover,
 .widget-area a:hover,
 .comment-list a:hover,
@@ -61,6 +66,7 @@ a,
 .vl-site-description,
 .post-navigation a:hover,
 .vl-ticker .owl-item a:hover,
+body .he-ticker .owl-item a:hover,
 .vl-post-item h3 a:hover{
 	color:{$color};
 }
@@ -69,7 +75,8 @@ a,
 h3#reply-title,
 h3.comments-title,
 .comment-navigation .nav-next a:after,
-.vl-block-title{
+.vl-block-title,
+body.he-viral .he-block-title{
 border-left-color: {$color};
 }
 
@@ -77,7 +84,8 @@ border-left-color: {$color};
 border-right-color: {$color};
 }
 
-.vl-ticker-title:after{
+.vl-ticker-title:after,
+body .he-ticker-title:after{
     border-color: transparent transparent transparent {$color};
 }
 ";

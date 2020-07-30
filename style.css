@@ -3,12 +3,14 @@ Theme Name: Viral
 Theme URI: https://hashthemes.com/wordpress-theme/viral/
 Author: HashThemes
 Author URI: https://hashthemes.com
-Description: Viral is a responsive magazine WordPress theme specially designed for magazine, newspaper, news portals, publishing, personal blogs, professional blogs, corporate blogs, and editorial style websites. The theme has repeatable drag and drop section that allows adding as many sections as you want with various beautifully designed layouts suitable for magazine, newspaper. The theme consists of 3 unique banner layout to highlight your featured content, 6 unique category section layout, news ticker, promotional headline. There are five different built-in widgets in the theme that can be used in the sidebar and footers. Moreover, the theme is built in the customizer that enables you to set up your website with live preview. For demo https://demo.hashthemes.com/viral/
-Version: 1.5.2
+Description: Viral is a responsive magazine and news WordPress theme designed for magazine, newspaper, news portals, publishing, personal blogs, professional blogs, corporate blogs, gaming magazines, review sites, and editorial style websites. The theme supports the Elementor page builder plugin. Using it, you can create the website of your imagination. The theme has 20+ uniquely designed news/magazine elements for Elementor that you can shuffle to create a unique looking website. Most importantly, the theme is SEO friendly that will help you rank quickly in all search engines. The theme is also WPML, Gutenberg, translation, and RTL ready. There are five different built-in widgets in the theme that can be used in the sidebar and footers. Moreover, the theme is built in the customizer that enables you to set up your website with live preview. For demo https://demo.hashthemes.com/viral/
+Version: 1.5.3
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: viral
 Tags: two-columns, right-sidebar, custom-background, custom-menu, custom-colors, sticky-post, threaded-comments, translation-ready, featured-images, theme-options, grid-layout, custom-logo, footer-widgets, blog, news, portfolio
+Tested up to: 5.4.2
+Requires PHP: 5.6
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -702,6 +704,25 @@ a:active {
     float: right;
 }
 
+.viral-no-sidebar #primary{
+    width: auto;
+    float: none;
+}
+
+.viral-no-sidebar-condensed #primary{
+    width: 76%;
+    float: none;
+    margin: 0 auto;
+}
+
+.viral-left-sidebar #primary{
+    float: right;
+}
+
+.viral-left-sidebar #secondary{
+    float: left;
+}
+
 .vl-main-header{
     margin-bottom: 30px;
 }
@@ -790,7 +811,7 @@ a:active {
     margin-bottom: 15px;
 }
 
-.entry-categories .fa{
+.entry-categories i{
     color: #0078af;
     margin-right: 5px;
 }
@@ -814,9 +835,9 @@ a:active {
     color: #0E0E0E;
 }
 
-.entry-footer .cat-links .fa,
-.entry-footer .tags-links .fa,
-.entry-footer .edit-link .fa{
+.entry-footer .cat-links i,
+.entry-footer .tags-links i,
+.entry-footer .edit-link i{
     margin-right: 5px;
 }
 
@@ -861,7 +882,7 @@ a:active {
     color : #0078af;
 }
 
-.vl-share-buttons .fa{
+.vl-share-buttons i{
     line-height: 40px;
     display: block;
 }
@@ -931,10 +952,10 @@ a:active {
     padding-left: 30px;
 }
 
-.vl-contact-info ul li .fa{
+.vl-contact-info ul li i{
     margin-left: -30px;
     float: left;
-    margin-top: 6px;
+    margin-top: 2px;
 }
 
 .vl-contact-info p{
@@ -949,7 +970,10 @@ a:active {
 
 .vl-personal-info .vl-pi-image img{
     border-radius: 50%;
-    max-width: 150px;
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .vl-personal-info .vl-pi-name{
@@ -1389,7 +1413,7 @@ object {
     margin-right: 25px;
 }
 
-.vl-top-left-header > span .fa{
+.vl-top-left-header > span i{
     margin-right: 6px;
 }
 
@@ -1644,11 +1668,11 @@ object {
     display: block;
 }
 
-.nav-previous span .fa{
+.nav-previous span i{
     margin-right: 10px;
 }
 
-.nav-next span .fa{
+.nav-next span i{
     margin-left: 10px;
 }
 
@@ -1900,7 +1924,7 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
     margin-top: 12px;
 }
 
-.posted-on .fa{
+.posted-on i{
     margin-right: 5px;
     font-size: 0.88em;
 }
@@ -2040,7 +2064,7 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
     border-left: 10px solid #0078af;
     margin-bottom: 30px;
     font-weight: bold;
-    line-height: 20px;
+    line-height: 1;
 }
 
 .vl-block-title span{
@@ -2423,6 +2447,8 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 
 .vl-four-column-block{
     margin: 0 -15px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .vl-four-column-block .vl-post-item{
@@ -2492,7 +2518,7 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
     color: #F6F6F6;
 }
 
-.vl-footer-block .vl-contact-info ul li .fa{
+.vl-footer-block .vl-contact-info ul li i{
     margin-top: 4px;
 }
 
@@ -2529,7 +2555,7 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
     -webkit-transition: all 0.3s ease-in-out;
 }
 
-#vl-back-top .fa{
+#vl-back-top i{
     line-height: 40px;
 }
 
@@ -2552,8 +2578,8 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 }
 /* styling for both css and generated arrows */
 .sf-arrows .sf-with-ul:before {
-    content: '\f107';
-    font-family: FontAwesome;
+    content: '\F0140';
+    font-family: "Material Design Icons";
     position: absolute;
     right: 1em;
     height: 0;
@@ -2566,7 +2592,7 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 }
 /* styling for right-facing arrows */
 .sf-arrows ul .sf-with-ul:before {
-    content: '\f105';
+    content: '\F0142';
 }
 .sf-arrows ul li > .sf-with-ul:focus:before,
 .sf-arrows ul li:hover > .sf-with-ul:before,
@@ -2602,50 +2628,38 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 @media screen and (max-width: 1200px){
     .vl-container{
         width: 100%;
-        padding: 0 40px;
+        padding: 0 5%;
     }
-    
+
     #vl-site-navigation:not(.vl-full-width-navigation){
         width: auto;
-        margin: 0 40px;
+        margin: 0 5%;
     }
-    
+
+    body.vl-boxed .vl-ticker.vl-full-width-ticker {
+        margin-left: -5%;
+        margin-right: -5%;
+    }
+
     .vl-ticker.vl-full-width-ticker{
-        padding: 10px 40px;
+        padding: 10px 5%;
     }
-    
+
     .vl-ticker .vl-container,
     .vl-ticker.vl-full-width-ticker .vl-container{
         width: 100% !important;
         padding: 0;
     }
-    
+
     #vl-site-navigation.vl-full-width-navigation{
         margin: 0;
     }
 }
 
 @media screen and (max-width: 1000px){
-    .vl-container{
-        padding: 0 20px;
-    }
-    
-    #vl-site-navigation:not(.vl-full-width-navigation){
-        margin: 0 20px;
-    }
-    
-    .vl-ticker.vl-full-width-ticker{
-        padding: 10px 20px;
-    }
-    
-    body.vl-boxed .vl-ticker.vl-full-width-ticker {
-        margin-left: -20px;
-        margin-right: -20px;
-    }
-    
     #vl-site-navigation + img{
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 5%;
+        padding-right: 5%;
     }
 
     .vl-top-left-header > .vl-menu{
@@ -2778,7 +2792,7 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
         box-shadow: none;
         border-top: 1px solid #FAFAFA;
     }
-    
+
     .vl-main-navigation ul ul li{
         border-bottom: 1px solid #FAFAFA;
     }
@@ -2901,15 +2915,6 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
         padding: 20px 0 0;
     }
 
-    .vl-double-small-block{
-        margin: 0;
-    }
-
-    .vl-double-small-block .vl-post-item{
-        width: 50%;
-        padding: 0 20px 0 0;
-    }
-
     #primary{
         width: auto !important;
         float: none !important;
@@ -2993,10 +2998,6 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
         float: none;
     }
 
-    .vl-grid-block{
-        width: 50%;
-    }
-
     .vl-double-small-block{
         margin: 0;
     }
@@ -3050,9 +3051,7 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
     }
 
     .vl-four-column-block .vl-post-item{
-        width: auto;
-        margin-left: 0;
-        float: none;
+        width: 100%;
     }
 
     .vl-grid-blocks{

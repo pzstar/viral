@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: _s 1.0.0\n"
 "Report-Msgid-Bugs-To: http://hashthemes.com\n"
-"POT-Creation-Date: 2020-05-06 20:07+0000\n"
+"POT-Creation-Date: 2020-07-30 07:51+0000\n"
 "POT-Revision-Date: Sun Sep 04 2016 23:59:35 GMT+0545 (Nepal Standard Time)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Hash Themes <hashthemes@gmail.com>\n"
@@ -32,36 +32,40 @@ msgid "Top Header Menu"
 msgstr ""
 
 #: functions.php:69
-msgid "Sidebar"
+msgid "Right Sidebar"
 msgstr ""
 
 #: functions.php:79
-msgid "Header Ads"
+msgid "Left Sidebar"
 msgstr ""
 
 #: functions.php:89
-msgid "Home Middle Section - Right Sidebar"
+msgid "Header Ads"
 msgstr ""
 
 #: functions.php:99
-msgid "Footer 1"
+msgid "Home Middle Section - Right Sidebar"
 msgstr ""
 
 #: functions.php:109
-msgid "Footer 2"
+msgid "Footer 1"
 msgstr ""
 
 #: functions.php:119
-msgid "Footer 3"
+msgid "Footer 2"
 msgstr ""
 
 #: functions.php:129
+msgid "Footer 3"
+msgstr ""
+
+#: functions.php:139
 msgid "Footer 4"
 msgstr ""
 
-#. Translators: To add an additional character subset specific to your language,
+#. To add an additional character subset specific to your language,
 #. translate this to 'greek', 'cyrillic', 'devanagari' or 'vietnamese'. Do not translate into your own language.
-#: functions.php:171
+#: functions.php:181
 msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
 msgid "no-subset"
 msgstr ""
@@ -121,12 +125,12 @@ msgstr ""
 msgid "Download Viral"
 msgstr ""
 
-#: single.php:23
+#: single.php:29
 msgid "Prev"
 msgstr ""
 
-#: single.php:27
-msgid "next"
+#: single.php:33
+msgid "Next"
 msgstr ""
 
 #: front-page.php:41 inc/customizer.php:369 templates/template-home.php:37
@@ -141,16 +145,24 @@ msgstr ""
 msgid "Select the Category"
 msgstr ""
 
-#: inc/extras.php:81
+#: inc/metabox.php:16
+msgid "Sidebar Layout"
+msgstr ""
+
+#: inc/metabox.php:68
+msgid "Hide Title"
+msgstr ""
+
+#: inc/extras.php:94
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: inc/extras.php:83
+#: inc/extras.php:96
 msgid "Edit"
 msgstr ""
 
-#. translators: 1: comment date, 2: comment time
-#: inc/extras.php:95
+#. 1: comment date, 2: comment time
+#: inc/extras.php:108
 #, php-format
 msgid "%1$s at %2$s"
 msgstr ""
@@ -522,40 +534,40 @@ msgstr ""
 msgid "- Three Column Module"
 msgstr ""
 
-#: inc/customizer.php:752 inc/widgets/widget-fields.php:137
+#: inc/customizer.php:751 inc/widgets/widget-fields.php:137
 msgid "No image selected"
 msgstr ""
 
-#: inc/customizer.php:758 inc/widgets/widget-fields.php:144
+#: inc/customizer.php:757 inc/widgets/widget-fields.php:144
 msgid "Remove"
 msgstr ""
 
-#: inc/customizer.php:759 inc/widgets/widget-fields.php:145
+#: inc/customizer.php:758 inc/widgets/widget-fields.php:145
 msgid "Select Image"
 msgstr ""
 
-#: inc/customizer.php:768 inc/customizer.php:973
+#: inc/customizer.php:767 inc/customizer.php:957
 #: inc/widgets/widget-category-block.php:28 inc/widgets/widget-timeline.php:28
 msgid "Latest Posts"
 msgstr ""
 
-#: inc/customizer.php:889
+#: inc/customizer.php:873
 msgid "Delete"
 msgstr ""
 
-#: inc/customizer.php:890
+#: inc/customizer.php:874
 msgid "Close"
 msgstr ""
 
-#: inc/customizer.php:972
+#: inc/customizer.php:956
 msgid "Don't Display"
 msgstr ""
 
-#: inc/customizer.php:1036
+#: inc/customizer.php:1020
 msgid "Upgrade to PRO"
 msgstr ""
 
-#: inc/customizer.php:1202
+#: inc/customizer.php:1186
 msgid "Upgrad to Pro"
 msgstr ""
 
@@ -577,11 +589,13 @@ msgstr ""
 msgid "1 Comment"
 msgstr ""
 
+#. used between list items, there is a space after the comma
 #: inc/template-tags.php:77
 #, php-format
 msgid "Posted in %1$s"
 msgstr ""
 
+#. used between list items, there is a space after the comma
 #: inc/template-tags.php:83
 #, php-format
 msgid "Tagged %1$s"
@@ -627,89 +641,89 @@ msgstr ""
 msgid "Free Vs Pro"
 msgstr ""
 
-#: welcome/welcome.php:89
+#: welcome/welcome.php:99
 msgid "Congratulations!"
 msgstr ""
 
-#: welcome/welcome.php:90
+#: welcome/welcome.php:100
 #, php-format
 msgid ""
 "%1$s is now installed and ready to use. You can start either by importing "
 "the ready made demo or get started by customizing it your self."
 msgstr ""
 
-#: welcome/welcome.php:94 welcome/sections/getting_started.php:5
+#: welcome/welcome.php:104 welcome/sections/getting_started.php:6
 #: welcome/sections/footer.php:10
 msgid "Viral Demo"
 msgstr ""
 
-#: welcome/welcome.php:101
+#: welcome/welcome.php:111
 msgid "Import Demo"
 msgstr ""
 
-#: welcome/welcome.php:102
+#: welcome/welcome.php:112
 msgid "Click below to install and active HashThemes Demo Importer Plugin."
 msgstr ""
 
-#: welcome/welcome.php:110
+#: welcome/welcome.php:120
 msgid "Get Started"
 msgstr ""
 
-#: welcome/welcome.php:111
+#: welcome/welcome.php:121
 #, php-format
 msgid ""
 "Here you will find all the necessary links and information on how to use %s."
 msgstr ""
 
-#: welcome/welcome.php:112
+#: welcome/welcome.php:122
 msgid "Go to Setting Page"
 msgstr ""
 
-#: welcome/welcome.php:116
+#: welcome/welcome.php:126
 msgid "Dismiss"
 msgstr ""
 
-#: welcome/welcome.php:127
+#: welcome/welcome.php:137
 msgid "Action Failed. Something is Wrong."
 msgstr ""
 
-#: welcome/welcome.php:136
+#: welcome/welcome.php:146
 msgid "Welcome"
 msgstr ""
 
-#: welcome/welcome.php:136
+#: welcome/welcome.php:146
 #, php-format
 msgid "%s Settings"
 msgstr ""
 
-#: welcome/welcome.php:167
+#: welcome/welcome.php:177
 msgid "Installing Demo Importer Plugin"
 msgstr ""
 
-#: welcome/welcome.php:168
+#: welcome/welcome.php:178
 msgid "Activating Demo Importer Plugin"
 msgstr ""
 
-#: welcome/welcome.php:169 welcome/welcome.php:261
+#: welcome/welcome.php:179 welcome/welcome.php:271
 msgid "Go to Demo Importer Page"
 msgstr ""
 
-#: welcome/welcome.php:171
+#: welcome/welcome.php:181
 msgid "Error! Reload the page and try again."
 msgstr ""
 
-#: welcome/welcome.php:245
+#: welcome/welcome.php:255
 #, php-format
 msgid ""
 "Please leave us a %s rating if you like our theme . A huge thank you from "
 "HashThemes in advance!"
 msgstr ""
 
-#: welcome/welcome.php:258
+#: welcome/welcome.php:268
 msgid "Activate Demo Importer Plugin"
 msgstr ""
 
-#: welcome/welcome.php:265
+#: welcome/welcome.php:275
 msgid "Install Demo Importer Plugin"
 msgstr ""
 
@@ -741,6 +755,10 @@ msgstr ""
 
 #: template-parts/content.php:37
 msgid "Read More"
+msgstr ""
+
+#. Name of the template
+msgid "Blank Template(For Page Builders)"
 msgstr ""
 
 #. Name of the template
@@ -849,47 +867,90 @@ msgid "Install Now"
 msgstr ""
 
 #: welcome/sections/getting_started.php:3
-msgid "Manual Setup from Customizer Panel"
+msgid "Manual Setup"
+msgstr ""
+
+#: welcome/sections/getting_started.php:8
+msgid ""
+"You can setup the home page sections either from Customizer Panel or from "
+"Elementor Pagebuilder"
 msgstr ""
 
 #: welcome/sections/getting_started.php:9
+msgid "FROM CUSTOMIZER"
+msgstr ""
+
+#: welcome/sections/getting_started.php:11
 msgid "Go to Appearance > Customize"
 msgstr ""
 
-#: welcome/sections/getting_started.php:10
+#: welcome/sections/getting_started.php:12
 msgid ""
 "Click on \"Homepage Settings\" and turn on the option for \"Enable "
 "FrontPage\" Setting"
 msgstr ""
 
-#: welcome/sections/getting_started.php:11
+#: welcome/sections/getting_started.php:13
 msgid ""
 "Now go back and click on \"Front Page Sections\" and set up the FrontPage "
 "Section"
 msgstr ""
 
-#: welcome/sections/getting_started.php:13
-msgid "Go to Customizer Panels"
+#: welcome/sections/getting_started.php:15
+msgid "FROM ELEMENTOR"
 msgstr ""
 
 #: welcome/sections/getting_started.php:17
-msgid "Demo Importer"
+#, php-format
+msgid ""
+"Firstly install and activate \"Elementor\" and \"Hash Elements\" plugin from "
+"%s."
 msgstr ""
 
 #: welcome/sections/getting_started.php:17
-msgid "View Demo"
+msgid "Recommended Plugin page"
+msgstr ""
+
+#: welcome/sections/getting_started.php:18
+msgid ""
+"Create a new page and edit with Elementor. Drag and drop the news elements "
+"in the Elementor to create your own design."
 msgstr ""
 
 #: welcome/sections/getting_started.php:19
+msgid ""
+"Now go to Appearance > Customize > Homepage Settings and choose \"A static "
+"page\" for \"Your latest posts\" and select the created page for \"Home "
+"Page\" option."
+msgstr ""
+
+#: welcome/sections/getting_started.php:21
+#, php-format
+msgid "For detailed documentation, please visit %s."
+msgstr ""
+
+#: welcome/sections/getting_started.php:21
+msgid "Documentation Page"
+msgstr ""
+
+#: welcome/sections/getting_started.php:25
+msgid "Demo Importer"
+msgstr ""
+
+#: welcome/sections/getting_started.php:25
+msgid "View Demo"
+msgstr ""
+
+#: welcome/sections/getting_started.php:27
 #, php-format
 msgid "%s Demo"
 msgstr ""
 
-#: welcome/sections/getting_started.php:23
+#: welcome/sections/getting_started.php:31
 msgid "Or you can get started by importing the demo with just one click."
 msgstr ""
 
-#: welcome/sections/getting_started.php:24
+#: welcome/sections/getting_started.php:32
 #, php-format
 msgid ""
 "Click on the button below to install and activate the HashThemes Demo "
@@ -897,7 +958,7 @@ msgid ""
 "works, click %s."
 msgstr ""
 
-#: welcome/sections/getting_started.php:24
+#: welcome/sections/getting_started.php:32
 msgid "here"
 msgstr ""
 
@@ -926,7 +987,7 @@ msgid "Premium Demos"
 msgstr ""
 
 #: welcome/sections/header.php:23
-msgid "Unlock all the possibitlies with Viral Pro."
+msgid "Unlock all the possibilities with Viral Pro."
 msgstr ""
 
 #: welcome/sections/header.php:24

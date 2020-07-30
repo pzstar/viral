@@ -91,7 +91,7 @@
                     </div>
                 </nav>
                 <?php if (!$viral_disable_menu_shadow) { ?>
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/shadow.png" alt="<?php esc_attr_e('Shadow', 'viral'); ?>">
+                    <img src="<?php echo esc_url(get_template_directory_uri() . '/images/shadow.png'); ?>" alt="<?php esc_attr_e('Shadow', 'viral'); ?>">
                 <?php } ?>
             </header>
 

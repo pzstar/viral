@@ -66,13 +66,23 @@ add_action('after_setup_theme', 'viral_content_width', 0);
  */
 function viral_widgets_init() {
     register_sidebar(array(
-        'name' => esc_html__('Sidebar', 'viral'),
+        'name' => esc_html__('Right Sidebar', 'viral'),
         'id' => 'viral-sidebar',
         'description' => '',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget' => '</aside>',
         'before_title' => '<h3 class="widget-title">',
         'after_title' => '</h3>',
+    ));
+
+    register_sidebar(array(
+        'name' => esc_html__('Left Sidebar', 'viral'),
+        'id' => 'viral-left-sidebar',
+        'description' => '',
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget' => '</aside>',
+        'before_title' => '<h3 class="widget-title"><span>',
+        'after_title' => '</span></h3>',
     ));
 
     register_sidebar(array(
@@ -197,7 +207,7 @@ endif;
  */
 function viral_scripts() {
     wp_enqueue_style('viral-fonts', viral_fonts_url(), array(), NULL);
-    wp_enqueue_style('font-awesome', get_template_directory_uri() . '/css/font-awesome.css', array(), VIRAL_VERSION);
+    wp_enqueue_style('materialdesignicons', get_template_directory_uri() . '/css/materialdesignicons.css', array(), VIRAL_VERSION);
     wp_enqueue_style('owl-carousel', get_template_directory_uri() . '/css/owl.carousel.css', array(), VIRAL_VERSION);
     wp_enqueue_style('viral-style', get_stylesheet_uri(), array(), VIRAL_VERSION);
     wp_add_inline_style('viral-style', viral_dymanic_styles());
@@ -247,6 +257,11 @@ require get_template_directory() . '/inc/extras.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * Metabox additions.
+ */
+require get_template_directory() . '/inc/metabox.php';
 
 /**
  * Hooks additions.

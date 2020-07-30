@@ -8,13 +8,21 @@ get_header();
 <div class="vl-container vl-clearfix">
     <div id="primary" class="content-area">
 
-        <header class="vl-main-header">
-            <?php the_title('<h1>', '</h1>'); ?>
-        </header><!-- .entry-header -->
+        <?php
+        while (have_posts()) : the_post();
 
-        <?php while (have_posts()) : the_post(); ?>
+            $viral_hide_title = get_post_meta($post->ID, 'viral_hide_title', true);
 
-            <?php get_template_part('template-parts/content', 'page'); ?>
+            if (!$viral_hide_title) {
+                ?>
+                <header class="vl-main-header">
+                    <?php the_title('<h1>', '</h1>'); ?>
+                </header><!-- .entry-header -->
+                <?php
+            }
+
+            get_template_part('template-parts/content', 'page');
+            ?>
 
             <?php
             // If comments are open or we have at least one comment, load up the comment template.
@@ -23,7 +31,7 @@ get_header();
             endif;
             ?>
 
-        <?php endwhile; // End of the loop. ?>
+        <?php endwhile; // End of the loop.   ?>
 
     </div><!-- #primary -->
 

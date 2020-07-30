@@ -7,24 +7,30 @@ get_header();
 
 <div class="vl-container vl-clearfix">
     <div id="primary" class="content-area">
+        <?php
+        while (have_posts()) : the_post();
 
-        <header class="vl-main-header">
-            <?php the_title('<h1>', '</h1>'); ?>
-        </header><!-- .entry-header -->
+            $viral_hide_title = get_post_meta($post->ID, 'viral_hide_title', true);
 
-        <?php while (have_posts()) : the_post(); ?>
+            if (!$viral_hide_title) {
+                ?>
+                <header class="vl-main-header">
+                    <?php the_title('<h1>', '</h1>'); ?>
+                </header><!-- .entry-header -->
+                <?php
+            }
 
-            <?php get_template_part('template-parts/content', 'single'); ?>
-
+            get_template_part('template-parts/content', 'single');
+            ?>
 
             <nav class="navigation post-navigation">
                 <div class="nav-links">
                     <div class="nav-previous">
-                        <?php previous_post_link('%link', '<span><i class="fa fa-angle-left" aria-hidden="true"></i>' . esc_html__('Prev', 'viral') . '</span>%title'); ?> 
+                        <?php previous_post_link('%link', '<span><i class="mdi mdi-chevron-left"></i>' . esc_html__('Prev', 'viral') . '</span>%title'); ?> 
                     </div>
 
                     <div class="nav-next">
-                        <?php next_post_link('%link', '<span>' . esc_html__('next', 'viral') . '<i class="fa fa-angle-right" aria-hidden="true"></i></span>%title'); ?>
+                        <?php next_post_link('%link', '<span>' . esc_html__('Next', 'viral') . '<i class="mdi mdi-chevron-right"></i></span>%title'); ?>
                     </div>
                 </div>
             </nav>
@@ -36,7 +42,7 @@ get_header();
             endif;
             ?>
 
-        <?php endwhile; // End of the loop. ?>
+        <?php endwhile; // End of the loop.   ?>
 
     </div><!-- #primary -->
 

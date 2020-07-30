@@ -753,7 +753,7 @@ if (!function_exists('viral_bottom_section_style2')) {
             ?>
             <div class="vl-bottom-block vl-clearfix <?php echo esc_attr($layout); ?>">
                 <h2 class="vl-block-title"><span><?php echo esc_html($cat_name); ?></span></h2>
-                <div class="vl-clearfix vl-four-column-block">
+                <div class="vl-four-column-block">
                     <?php
                     $args = array(
                         'posts_per_page' => 4,
