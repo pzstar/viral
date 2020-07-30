@@ -84,6 +84,7 @@ class viral_timeline extends WP_Widget {
             <div class="vl-timeline">
                 <?php
                 $args = array(
+                    'ignore_sticky_posts' => 1,
                     'posts_per_page' => $post_no
                 );
 
