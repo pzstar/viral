@@ -32,27 +32,32 @@ if (!class_exists('Viral_Welcome')) :
                 'hashthemes-demo-importer' => array(
                     'name' => 'HashThemes Demo Importer',
                     'slug' => 'hashthemes-demo-importer',
-                    'filename' => 'hashthemes-demo-importer'
+                    'filename' => 'hashthemes-demo-importer',
+                    'thumb_path' => 'https://ps.w.org/hashthemes-demo-importer/assets/icon-256x256.png'
                 ),
                 'elementor' => array(
                     'name' => 'Elementor',
                     'slug' => 'elementor',
-                    'filename' => 'elementor'
+                    'filename' => 'elementor',
+                    'thumb_path' => 'https://ps.w.org/elementor/assets/icon-256x256.png'
                 ),
                 'hash-elements' => array(
                     'name' => 'Hash Elements',
                     'slug' => 'hash-elements',
-                    'filename' => 'hash-elements'
+                    'filename' => 'hash-elements',
+                    'thumb_path' => 'https://ps.w.org/hash-elements/assets/icon-256x256.png'
                 ),
                 'wp-my-instagram' => array(
                     'name' => 'WP Instant Feeds',
                     'slug' => 'wp-my-instagram',
-                    'filename' => 'wp-my-instagram'
+                    'filename' => 'wp-my-instagram',
+                    'thumb_path' => 'https://ps.w.org/wp-my-instagram/assets/icon-256x256.jpg'
                 ),
                 'simple-floating-menu' => array(
                     'name' => 'Simple Floating Menu',
                     'slug' => 'simple-floating-menu',
-                    'filename' => 'simple-floating-menu'
+                    'filename' => 'simple-floating-menu',
+                    'thumb_path' => 'https://ps.w.org/simple-floating-menu/assets/icon-256x256.png'
                 ),
             );
 
