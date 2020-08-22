@@ -6,7 +6,7 @@
  * @package Viral
  */
 if (!defined('VIRAL_VERSION')) {
-    define('VIRAL_VERSION', '1.5.4');
+    define('VIRAL_VERSION', '1.5.5');
 }
 
 if (!function_exists('viral_setup')) :
@@ -234,6 +234,7 @@ function viral_admin_scripts() {
 }
 
 add_action('admin_enqueue_scripts', 'viral_admin_scripts');
+add_action('elementor/editor/before_enqueue_scripts', 'viral_admin_scripts');
 
 if (!function_exists('wp_body_open')) {
 

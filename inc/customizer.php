@@ -38,7 +38,7 @@ function viral_customize_register($wp_customize) {
         'title' => esc_html__('Import Demo Content', 'viral'),
         'priority' => 1001,
         'pro_text' => esc_html__('Import', 'viral'),
-        'pro_url' => admin_url('/themes.php?page=viral-welcome')
+        'pro_url' => admin_url('admin.php?page=viral-welcome')
     )));
     
     /* ============HOMEPAGE SETTINGS PANEL============ */
