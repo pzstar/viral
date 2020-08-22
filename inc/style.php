@@ -53,8 +53,7 @@ body .he-ticker .owl-carousel .owl-nav button[class^='owl-'],
 body .he-post-thumb .post-categories li a:hover,
 body .he-post-content .post-categories li a:hover,
 body .he-carousel-block .owl-carousel .owl-nav button.owl-prev, 
-body .he-carousel-block .owl-carousel .owl-nav button.owl-next,
-body .he-title-style2.he-block-title span:before{
+body .he-carousel-block .owl-carousel .owl-nav button.owl-next{
 	background:{$color};
 }
 
@@ -77,7 +76,7 @@ h3#reply-title,
 h3.comments-title,
 .comment-navigation .nav-next a:after,
 .vl-block-title,
-body .he-title-style3.he-block-title{
+body.he-viral .he-block-title{
 border-left-color: {$color};
 }
 

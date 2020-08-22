@@ -119,7 +119,7 @@ if (!class_exists('Viral_Welcome')) :
                         <div class="viral-welcome-getting-started">
                             <h3><?php esc_html_e('Get Started', 'viral'); ?></h3>
                             <p><?php printf(esc_html__('Here you will find all the necessary links and information on how to use %s.', 'viral'), $this->theme_name); ?></p>
-                            <p><a href="<?php echo esc_url(admin_url('admin.php?page=viral-welcome')); ?>" class="button button-primary"><?php esc_html_e('Go to Setting Page', 'viral'); ?></a></p>
+                            <p><a href="<?php echo esc_url(admin_url('/themes.php?page=viral-welcome')); ?>" class="button button-primary"><?php esc_html_e('Go to Setting Page', 'viral'); ?></a></p>
                         </div>
                     </div>
 
@@ -143,7 +143,7 @@ if (!class_exists('Viral_Welcome')) :
 
         /** Register Menu for Welcome Page */
         public function welcome_register_menu() {
-            add_menu_page(esc_html__('Welcome', 'viral'), sprintf(esc_html__('%s Settings', 'viral'), esc_html(str_replace(' ', '', $this->theme_name))), 'manage_options', 'viral-welcome', array($this, 'welcome_screen'), '', 2);
+            add_theme_page(esc_html__('Welcome', 'viral'), sprintf(esc_html__('%s Settings', 'viral'), $this->theme_name), 'edit_theme_options', 'viral-welcome', array($this, 'welcome_screen'));
         }
 
         /** Welcome Page */
