@@ -6,7 +6,7 @@
  * @package Viral
  */
 if (!defined('VIRAL_VERSION')) {
-    define('VIRAL_VERSION', '1.5.7');
+    define('VIRAL_VERSION', '1.5.8');
 }
 
 if (!function_exists('viral_setup')) :

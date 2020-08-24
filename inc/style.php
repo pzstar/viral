@@ -54,7 +54,7 @@ body .he-post-thumb .post-categories li a:hover,
 body .he-post-content .post-categories li a:hover,
 body .he-carousel-block .owl-carousel .owl-nav button.owl-prev, 
 body .he-carousel-block .owl-carousel .owl-nav button.owl-next,
-body .he-title-style2.he-block-title span:before,{
+body .he-title-style2.he-block-title span:before{
 	background:{$color};
 }
 
