@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: _s 1.0.0\n"
 "Report-Msgid-Bugs-To: http://hashthemes.com\n"
-"POT-Creation-Date: 2020-07-30 07:51+0000\n"
+"POT-Creation-Date: 2020-08-22 13:48+0000\n"
 "POT-Revision-Date: Sun Sep 04 2016 23:59:35 GMT+0545 (Nepal Standard Time)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Hash Themes <hashthemes@gmail.com>\n"
@@ -641,89 +641,89 @@ msgstr ""
 msgid "Free Vs Pro"
 msgstr ""
 
-#: welcome/welcome.php:99
+#: welcome/welcome.php:110
 msgid "Congratulations!"
 msgstr ""
 
-#: welcome/welcome.php:100
+#: welcome/welcome.php:111
 #, php-format
 msgid ""
 "%1$s is now installed and ready to use. You can start either by importing "
 "the ready made demo or get started by customizing it your self."
 msgstr ""
 
-#: welcome/welcome.php:104 welcome/sections/getting_started.php:6
+#: welcome/welcome.php:115 welcome/sections/getting_started.php:6
 #: welcome/sections/footer.php:10
 msgid "Viral Demo"
 msgstr ""
 
-#: welcome/welcome.php:111
+#: welcome/welcome.php:122
 msgid "Import Demo"
 msgstr ""
 
-#: welcome/welcome.php:112
+#: welcome/welcome.php:123
 msgid "Click below to install and active HashThemes Demo Importer Plugin."
 msgstr ""
 
-#: welcome/welcome.php:120
+#: welcome/welcome.php:131
 msgid "Get Started"
 msgstr ""
 
-#: welcome/welcome.php:121
+#: welcome/welcome.php:132
 #, php-format
 msgid ""
 "Here you will find all the necessary links and information on how to use %s."
 msgstr ""
 
-#: welcome/welcome.php:122
+#: welcome/welcome.php:133
 msgid "Go to Setting Page"
 msgstr ""
 
-#: welcome/welcome.php:126
+#: welcome/welcome.php:137
 msgid "Dismiss"
 msgstr ""
 
-#: welcome/welcome.php:137
+#: welcome/welcome.php:148
 msgid "Action Failed. Something is Wrong."
 msgstr ""
 
-#: welcome/welcome.php:146
+#: welcome/welcome.php:157
 msgid "Welcome"
 msgstr ""
 
-#: welcome/welcome.php:146
+#: welcome/welcome.php:157
 #, php-format
 msgid "%s Settings"
 msgstr ""
 
-#: welcome/welcome.php:177
+#: welcome/welcome.php:188
 msgid "Installing Demo Importer Plugin"
 msgstr ""
 
-#: welcome/welcome.php:178
+#: welcome/welcome.php:189
 msgid "Activating Demo Importer Plugin"
 msgstr ""
 
-#: welcome/welcome.php:179 welcome/welcome.php:271
+#: welcome/welcome.php:190 welcome/welcome.php:282
 msgid "Go to Demo Importer Page"
 msgstr ""
 
-#: welcome/welcome.php:181
+#: welcome/welcome.php:192
 msgid "Error! Reload the page and try again."
 msgstr ""
 
-#: welcome/welcome.php:255
+#: welcome/welcome.php:266
 #, php-format
 msgid ""
 "Please leave us a %s rating if you like our theme . A huge thank you from "
 "HashThemes in advance!"
 msgstr ""
 
-#: welcome/welcome.php:268
+#: welcome/welcome.php:279
 msgid "Activate Demo Importer Plugin"
 msgstr ""
 
-#: welcome/welcome.php:275
+#: welcome/welcome.php:286
 msgid "Install Demo Importer Plugin"
 msgstr ""
 
@@ -854,15 +854,15 @@ msgid ""
 "more features to the theme."
 msgstr ""
 
-#: welcome/sections/recommended_plugins.php:27
+#: welcome/sections/recommended_plugins.php:28
 msgid "Activate"
 msgstr ""
 
-#: welcome/sections/recommended_plugins.php:30
+#: welcome/sections/recommended_plugins.php:31
 msgid "Installed"
 msgstr ""
 
-#: welcome/sections/recommended_plugins.php:34
+#: welcome/sections/recommended_plugins.php:35
 msgid "Install Now"
 msgstr ""
 
@@ -1444,17 +1444,19 @@ msgstr ""
 
 #. Description of the theme
 msgid ""
-"Viral is a responsive magazine WordPress theme specially designed for "
+"Viral is a responsive magazine and news WordPress theme designed for "
 "magazine, newspaper, news portals, publishing, personal blogs, professional "
-"blogs, corporate blogs, and editorial style websites. The theme has "
-"repeatable drag and drop section that allows adding as many sections as you "
-"want with various beautifully designed layouts suitable for magazine, "
-"newspaper. The theme consists of 3 unique banner layout to highlight your "
-"featured content, 6 unique category section layout, news ticker, promotional "
-"headline. There are five different built-in widgets in the theme that can be "
-"used in the sidebar and footers. Moreover, the theme is built in the "
-"customizer that enables you to set up your website with live preview. For "
-"demo https://demo.hashthemes.com/viral/"
+"blogs, corporate blogs, gaming magazines, review sites, and editorial style "
+"websites. The theme supports the Elementor page builder plugin. Using it, "
+"you can create the website of your imagination. The theme has 20+ uniquely "
+"designed news/magazine elements for Elementor that you can shuffle to create "
+"a unique looking website. Most importantly, the theme is SEO friendly that "
+"will help you rank quickly in all search engines. The theme is also WPML, "
+"Gutenberg, translation, and RTL ready. There are five different built-in "
+"widgets in the theme that can be used in the sidebar and footers. Moreover, "
+"the theme is built in the customizer that enables you to set up your website "
+"with live preview. For more ease, the demos website can be imported with "
+"just one click. Check demos  https://demo.hashthemes.com/viral/"
 msgstr ""
 
 #. URI of the theme
