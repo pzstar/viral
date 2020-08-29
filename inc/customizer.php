@@ -40,7 +40,7 @@ function viral_customize_register($wp_customize) {
         'pro_text' => esc_html__('Import', 'viral'),
         'pro_url' => admin_url('admin.php?page=viral-welcome')
     )));
-    
+
     /* ============HOMEPAGE SETTINGS PANEL============ */
     $wp_customize->add_setting('viral_enable_frontpage', array(
         'sanitize_callback' => 'viral_sanitize_checkbox'
@@ -64,6 +64,7 @@ function viral_customize_register($wp_customize) {
     $wp_customize->get_control('header_text')->label = esc_html__('Display Site Title and Tagline(Only Displays if Logo is Removed)', 'viral');
     $wp_customize->get_section('colors')->panel = 'viral_general_settings_panel';
     $wp_customize->get_section('background_image')->panel = 'viral_general_settings_panel';
+    $wp_customize->get_section('background_image')->title = esc_html__('Background', 'viral');
     $wp_customize->get_control('background_color')->section = 'background_image';
 
     $wp_customize->add_section('viral_website_layout_sec', array(
@@ -95,6 +96,16 @@ function viral_customize_register($wp_customize) {
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'viral_template_color', array(
         'section' => 'colors',
         'label' => esc_html__('Template Color', 'viral')
+    )));
+
+    $wp_customize->add_setting('viral_content_color', array(
+        'default' => '#404040',
+        'sanitize_callback' => 'sanitize_hex_color'
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'viral_content_color', array(
+        'section' => 'colors',
+        'label' => esc_html__('Content Color', 'viral')
     )));
 
     $wp_customize->add_setting('viral_color_upgrade_text', array(
@@ -636,7 +647,7 @@ add_action('customize_preview_init', 'viral_customize_preview_js');
 
 function viral_customizer_script() {
     wp_enqueue_script('viral-customizer-script', get_template_directory_uri() . '/inc/js/customizer-scripts.js', array('jquery'), VIRAL_VERSION, true);
-    wp_enqueue_style('viral-customizer-style', get_template_directory_uri() . '/inc/css/customizer-style.css', array(),VIRAL_VERSION);
+    wp_enqueue_style('viral-customizer-style', get_template_directory_uri() . '/inc/css/customizer-style.css', array(), VIRAL_VERSION);
 }
 
 add_action('customize_controls_enqueue_scripts', 'viral_customizer_script');
@@ -967,7 +978,7 @@ if (class_exists('WP_Customize_Control')) {
         }
 
     }
-    
+
     class Viral_Toggle_Control extends WP_Customize_Control {
 
         /**

@@ -5,6 +5,8 @@
  */
 function viral_dymanic_styles() {
     $color = get_theme_mod('viral_template_color', '#0078af');
+    $content_color = get_theme_mod('viral_content_color', '#404040');
+    $bg_color = get_theme_mod('background_color', '#FFFFFF');
     $color = sanitize_hex_color($color); //Sanitized here so that variable can be used inside quote
     $header_typography = get_theme_mod('viral_header_typography', 'Roboto');
     $body_typography = get_theme_mod('viral_body_typography', 'Roboto');
@@ -17,6 +19,26 @@ input,
 select,
 textarea{
 font-family: '{$body_typography}', sans-serif;
+}
+
+body,
+button,
+input,
+select,
+textarea,
+.entry-header .entry-title a,
+.vl-share-buttons a,
+.entry-categories,
+.entry-categories a,
+.entry-footer .cat-links a, 
+.entry-footer .tags-links a, 
+.entry-footer .edit-link a,
+.widget-area a{
+    color: {$content_color}
+}
+
+.entry-figure + .entry-header{
+    background-color: #{$bg_color}
 }
 
 .vl-site-title,
@@ -59,7 +81,6 @@ body .he-title-style2.he-block-title span:before{
 }
 
 a,
-.entry-categories i,
 .vl-share-buttons a:hover,
 .widget-area a:hover,
 .comment-list a:hover,

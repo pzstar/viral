@@ -4,7 +4,7 @@ Theme URI: https://hashthemes.com/wordpress-theme/viral/
 Author: HashThemes
 Author URI: https://hashthemes.com
 Description: Viral is a responsive magazine and news WordPress theme designed for magazine, newspaper, news portals, publishing, personal blogs, professional blogs, corporate blogs, gaming magazines, review sites, and editorial style websites. The theme supports the Elementor page builder plugin. Using it, you can create the website of your imagination. The theme has 20+ uniquely designed news/magazine elements for Elementor that you can shuffle to create a unique looking website. Most importantly, the theme is SEO friendly that will help you rank quickly in all search engines. The theme is also WPML, Gutenberg, translation, and RTL ready. There are five different built-in widgets in the theme that can be used in the sidebar and footers. Moreover, the theme is built in the customizer that enables you to set up your website with live preview. For more ease, the demos website can be imported with just one click. Check demos  https://demo.hashthemes.com/viral/
-Version: 1.5.8
+Version: 1.5.9
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: viral
@@ -812,12 +812,11 @@ a:active {
 }
 
 .entry-categories i{
-    color: #0078af;
     margin-right: 5px;
 }
 
 .entry-categories a{
-    color: #666;
+    opacity: 0.8;
     text-decoration: none; 
 }
 
@@ -1525,7 +1524,7 @@ object {
     padding-left: 0;
 }
 
-.vl-main-navigation.vl-full-width-navigation ul{
+.vl-main-navigation.vl-full-width-navigation .vl-menu > ul{
     margin-left: -16px;
     margin-right: -16px;
 }
@@ -1775,6 +1774,8 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
     text-align: center;
     font-size: 14px;
     margin-left: 4px;
+    line-height: 22px;
+    padding: 0;
 }
 
 .vl-ticker .owl-prev:hover, 
@@ -2142,7 +2143,7 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 
 .posted-on{
     font-size: 13px;
-    color: #666;
+    opacity: 0.8;
 }
 
 .vl-middle-block{
@@ -2300,7 +2301,7 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 
 .vl-alt-post-item{
     width: 33.333%;
-    background: #F9F9F9;
+    background: rgba(255,255,255,0.05);
     display: -webkit-flex;
     display: flex;
     flex-direction: column;
@@ -2327,10 +2328,6 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 
 .vl-alt-post-item:nth-child(2){
     flex-direction: column-reverse;
-}
-
-.vl-alt-post-item:hover{
-    background: #F4F4F4;
 }
 
 .vl-alt-post-item .vl-post-content{
