@@ -178,6 +178,12 @@ function viral_widgets_updated_field_value($widget_field, $new_field_value) {
         // No allowed tags for all other fields
     } elseif ($viral_widgets_field_type == 'url') {
         return esc_url_raw($new_field_value);
+    } elseif ($viral_widgets_field_type == 'checkbox') {
+        if ($new_field_value) {
+            return '1';
+        } else {
+            return '0';
+        }
     } else {
         return strip_tags($new_field_value);
     }

@@ -59,7 +59,7 @@ function viral_customize_register($wp_customize) {
     ));
 
     $wp_customize->get_section('static_front_page')->priority = 1;
-    $wp_customize->get_section('title_tagline')->panel = 'viral_general_settings_panel';
+    $wp_customize->get_section('title_tagline')->panel = 'viral_header_setting_panel';
     $wp_customize->get_section('title_tagline')->title = esc_html__('Site Logo, Title and Tagline', 'viral');
     $wp_customize->get_control('header_text')->label = esc_html__('Display Site Title and Tagline(Only Displays if Logo is Removed)', 'viral');
     $wp_customize->get_section('colors')->panel = 'viral_general_settings_panel';

@@ -79,7 +79,7 @@ class viral_personal_info extends WP_Widget {
                 if ($image_id) {
                     $image_array = wp_get_attachment_image_src($image_id, 'thumbnail');
                     echo '<div class="vl-pi-image"><img alt="' . esc_html($title) . '" src="' . esc_url($image_array[0]) . '"/></div>';
-                }else{
+                } else {
                     echo '<div class="vl-pi-image"><img alt="' . esc_html($title) . '" src="' . esc_url($image) . '"/></div>';
                 }
             endif;
@@ -119,8 +119,9 @@ class viral_personal_info extends WP_Widget {
 
             extract($widget_field);
 
+            $new = isset($new_instance[$viral_widgets_name]) ? $new_instance[$viral_widgets_name] : '';
             // Use helper function to get updated field values
-            $instance[$viral_widgets_name] = viral_widgets_updated_field_value($widget_field, $new_instance[$viral_widgets_name]);
+            $instance[$viral_widgets_name] = viral_widgets_updated_field_value($widget_field, $new);
         }
 
         return $instance;

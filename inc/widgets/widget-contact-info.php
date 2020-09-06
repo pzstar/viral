@@ -136,8 +136,9 @@ class viral_contact_info extends WP_Widget {
 
             extract($widget_field);
 
+            $new = isset($new_instance[$viral_widgets_name]) ? $new_instance[$viral_widgets_name] : '';
             // Use helper function to get updated field values
-            $instance[$viral_widgets_name] = viral_widgets_updated_field_value($widget_field, $new_instance[$viral_widgets_name]);
+            $instance[$viral_widgets_name] = viral_widgets_updated_field_value($widget_field, $new);
         }
 
         return $instance;

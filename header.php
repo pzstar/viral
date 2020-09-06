@@ -52,7 +52,14 @@
 
                 <div class="vl-header">
                     <div class="vl-container">
-                        <div id="vl-site-branding">
+                        <?php
+                        if (!is_active_sidebar('viral-header-ads')) {
+                            $branding_class = 'vl-center-logo';
+                        } else {
+                            $branding_class = '';
+                        }
+                        ?>
+                        <div id="vl-site-branding" class="<?php echo esc_attr($branding_class); ?>">
                             <?php
                             if (function_exists('has_custom_logo') && has_custom_logo()) :
                                 the_custom_logo();
