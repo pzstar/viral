@@ -192,7 +192,7 @@ if (!class_exists('Viral_Welcome')) :
                     'error' => esc_html__('Error! Reload the page and try again.', 'viral'),
                 );
                 wp_enqueue_style('viral-welcome', get_template_directory_uri() . '/welcome/css/welcome.css', array(), VIRAL_VERSION);
-                wp_enqueue_script('viral-welcome', get_template_directory_uri() . '/welcome/js/welcome.js', array('plugin-install', 'updates'), VIRAL_VERSION);
+                wp_enqueue_script('viral-welcome', get_template_directory_uri() . '/welcome/js/welcome.js', array('plugin-install', 'updates'), VIRAL_VERSION, true);
                 wp_localize_script('viral-welcome', 'importer_params', $importer_params);
             }
         }
