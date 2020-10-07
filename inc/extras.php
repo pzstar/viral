@@ -281,7 +281,8 @@ function viral_premium_demo_config($demos) {
                 'premium' => 'Premium'
             ),
             'pagebuilder' => array(
-                'customizer' => 'Customizer'
+                'customizer' => 'Customizer',
+                'elementor' => 'Elementor'
             )
         ),
         'news' => array(
@@ -294,7 +295,8 @@ function viral_premium_demo_config($demos) {
                 'premium' => 'Premium'
             ),
             'pagebuilder' => array(
-                'customizer' => 'Customizer'
+                'customizer' => 'Customizer',
+                'elementor' => 'Elementor'
             )
         ),
         'viral-news-one' => array(
@@ -307,7 +309,8 @@ function viral_premium_demo_config($demos) {
                 'premium' => 'Premium'
             ),
             'pagebuilder' => array(
-                'customizer' => 'Customizer'
+                'customizer' => 'Customizer',
+                'elementor' => 'Elementor'
             )
         ),
         'viral-news-two' => array(
@@ -320,7 +323,8 @@ function viral_premium_demo_config($demos) {
                 'premium' => 'Premium'
             ),
             'pagebuilder' => array(
-                'customizer' => 'Customizer'
+                'customizer' => 'Customizer',
+                'elementor' => 'Elementor'
             )
         ),
         'viral-news-three' => array(
@@ -333,7 +337,8 @@ function viral_premium_demo_config($demos) {
                 'premium' => 'Premium'
             ),
             'pagebuilder' => array(
-                'customizer' => 'Customizer'
+                'customizer' => 'Customizer',
+                'elementor' => 'Elementor'
             )
         ),
         'viral-news-four' => array(
@@ -346,7 +351,8 @@ function viral_premium_demo_config($demos) {
                 'premium' => 'Premium'
             ),
             'pagebuilder' => array(
-                'customizer' => 'Customizer'
+                'customizer' => 'Customizer',
+                'elementor' => 'Elementor'
             )
         ),
         'sports' => array(
@@ -359,7 +365,8 @@ function viral_premium_demo_config($demos) {
                 'premium' => 'Premium'
             ),
             'pagebuilder' => array(
-                'customizer' => 'Customizer'
+                'customizer' => 'Customizer',
+                'elementor' => 'Elementor'
             )
         ),
         'technology' => array(
@@ -372,7 +379,8 @@ function viral_premium_demo_config($demos) {
                 'premium' => 'Premium'
             ),
             'pagebuilder' => array(
-                'customizer' => 'Customizer'
+                'customizer' => 'Customizer',
+                'elementor' => 'Elementor'
             )
         ),
         'illustration' => array(
@@ -385,7 +393,8 @@ function viral_premium_demo_config($demos) {
                 'premium' => 'Premium'
             ),
             'pagebuilder' => array(
-                'customizer' => 'Customizer'
+                'customizer' => 'Customizer',
+                'elementor' => 'Elementor'
             )
         ),
         'fashion' => array(
@@ -398,7 +407,8 @@ function viral_premium_demo_config($demos) {
                 'premium' => 'Premium'
             ),
             'pagebuilder' => array(
-                'customizer' => 'Customizer'
+                'customizer' => 'Customizer',
+                'elementor' => 'Elementor'
             )
         ),
         'travel' => array(
@@ -411,7 +421,8 @@ function viral_premium_demo_config($demos) {
                 'premium' => 'Premium'
             ),
             'pagebuilder' => array(
-                'customizer' => 'Customizer'
+                'customizer' => 'Customizer',
+                'elementor' => 'Elementor'
             )
         ),
         'rtl' => array(
@@ -424,7 +435,8 @@ function viral_premium_demo_config($demos) {
                 'premium' => 'Premium'
             ),
             'pagebuilder' => array(
-                'customizer' => 'Customizer'
+                'customizer' => 'Customizer',
+                'elementor' => 'Elementor'
             )
         )
     );
