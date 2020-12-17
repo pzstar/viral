@@ -6,7 +6,9 @@
  * @package Viral
  */
 if (!defined('VIRAL_VERSION')) {
-    define('VIRAL_VERSION', '1.6.3');
+    $viral_get_theme = wp_get_theme();
+    $viral_version = $viral_get_theme->Version;
+    define('VIRAL_VERSION', $viral_version);
 }
 
 if (!function_exists('viral_setup')) :
