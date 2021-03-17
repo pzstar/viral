@@ -23,7 +23,7 @@ function viral_customize_register($wp_customize) {
     // Register sections.
     $wp_customize->add_section(new Viral_Customize_Section_Pro($wp_customize, 'viral-pro-section', array(
         'priority' => 0,
-        'pro_text' => esc_html__('Christmas And New Year Discount. Get 40% Off on Upgrading to Pro', 'viral'),
+        'pro_text' => esc_html__('Upgrade to Pro', 'viral'),
         'pro_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=viral-customizer-button&utm_campaign=viral-upgrade'
     )));
 
