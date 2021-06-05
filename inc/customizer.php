@@ -36,7 +36,7 @@ function viral_customize_register($wp_customize) {
 
     $wp_customize->add_section(new Viral_Customize_Section_Pro($wp_customize, 'viral-demo-import-section', array(
         'title' => esc_html__('Import Demo Content', 'viral'),
-        'priority' => 1001,
+        'priority' => 0,
         'pro_text' => esc_html__('Import', 'viral'),
         'pro_url' => admin_url('admin.php?page=viral-welcome')
     )));
@@ -49,7 +49,7 @@ function viral_customize_register($wp_customize) {
     $wp_customize->add_control(new Viral_Toggle_Control($wp_customize, 'viral_enable_frontpage', array(
         'section' => 'static_front_page',
         'label' => esc_html__('Enable FrontPage', 'viral'),
-        'description' => esc_html__('Overwrites the homepage displays setting and shows the frontpage', 'viral')
+        'description' => sprintf(esc_html__('Overwrites the homepage displays setting and shows the frontpage for Customizer %s', 'viral'), '<a href="javascript:wp.customize.panel(\'viral_front_page_panel\').focus()">' . esc_html__('Front Page Sections', 'viral') . '</a>') . '<br/><br/>' . esc_html__('Do not enable this option if you want to use Elementor in home page.', 'viral')
     )));
 
     /* ============GENERAL SETTINGS PANEL============ */
@@ -1003,7 +1003,7 @@ if (class_exists('WP_Customize_Control')) {
                 <span class="customize-control-title toggle-title"><?php echo esc_html($this->label); ?></span>
                 <?php if (!empty($this->description)) { ?>
                     <span class="description customize-control-description">
-                        <?php echo wp_kses_post($this->description); ?>
+                        <?php echo $this->description; ?>
                     </span>
                 <?php } ?>
             </div>
