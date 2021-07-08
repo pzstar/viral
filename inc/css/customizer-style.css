@@ -468,6 +468,13 @@
     border: 1px solid #DDD;
 }
 
+.viral-multi-category-list {
+    max-height: 200px;
+    overflow-y: scroll;
+    border: 1px solid #EEE;
+    padding: 10px;
+}
+
 .customize-pane-parent .control-section .accordion-section-title:before{
     font-family: dashicons;
     content: "\f103";
