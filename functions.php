@@ -6,7 +6,9 @@
  * @package Viral
  */
 if (!defined('VIRAL_VERSION')) {
-    define('VIRAL_VERSION', '1.6.3');
+    $viral_get_theme = wp_get_theme();
+    $viral_version = $viral_get_theme->Version;
+    define('VIRAL_VERSION', $viral_version);
 }
 
 if (!function_exists('viral_setup')) :
@@ -50,6 +52,18 @@ if (!function_exists('viral_setup')) :
             'flex-width' => true,
             'header-text' => array('.vl-site-title', '.vl-site-description'),
         ));
+        
+        // Add support for Block Styles.
+        add_theme_support('wp-block-styles');
+
+        // Add support for full and wide align images.
+        add_theme_support('align-wide');
+
+        // Add theme support for selective refresh for widgets.
+        add_theme_support('customize-selective-refresh-widgets');
+        
+        // Add support for responsive embedded content.
+        add_theme_support('responsive-embeds');
     }
 
 endif; // viral_setup
@@ -194,6 +208,7 @@ if (!function_exists('viral_fonts_url')) :
             $fonts_url = add_query_arg(array(
                 'family' => urlencode(implode('|', $fonts)),
                 'subset' => urlencode($subsets),
+                'display' => 'swap',
                     ), '//fonts.googleapis.com/css');
         }
 
