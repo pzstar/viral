@@ -4,13 +4,13 @@ Theme URI: https://hashthemes.com/wordpress-theme/viral/
 Author: HashThemes
 Author URI: https://hashthemes.com
 Description: Viral is a responsive magazine and news WordPress theme designed for magazine, newspaper, news portals, publishing, personal blogs, professional blogs, corporate blogs, gaming magazines, review sites, and editorial style websites. The theme supports the Elementor page builder plugin. Using it, you can create the website of your imagination. The theme has 20+ uniquely designed news/magazine elements for Elementor that you can shuffle to create a unique looking website. Most importantly, the theme is SEO friendly that will help you rank quickly in all search engines. The theme is also WPML, Gutenberg, translation, and RTL ready. There are five different built-in widgets in the theme that can be used in the sidebar and footers. Moreover, the theme is built in the customizer that enables you to set up your website with live preview. For more ease, the demos website can be imported with just one click. Check demos  https://demo.hashthemes.com/viral/
-Version: 1.7.0
+Version: 1.7.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: viral
 Tags: blog, entertainment, news, two-columns, left-sidebar, right-sidebar, custom-background, custom-header, custom-logo, custom-menu, featured-image-header, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
-Tested up to: 5.6.2
-Requires PHP: 5.6
+Tested up to: 5.8
+Requires PHP: 5.0
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -2631,23 +2631,25 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 }
 
 @media screen and (max-width: 1200px){
-    .vl-container{
+    .vl-container,
+    .elementor-section.elementor-section-boxed.elementor-section-stretched>.elementor-container,
+    .elementor-template-full-width .elementor-section.elementor-section-boxed>.elementor-container{
         width: 100%;
-        padding: 0 5%;
+        padding: 0 30px;
     }
 
     #vl-site-navigation:not(.vl-full-width-navigation){
         width: auto;
-        margin: 0 5%;
+        margin: 0 30px;
     }
 
     body.vl-boxed .vl-ticker.vl-full-width-ticker {
-        margin-left: -5%;
-        margin-right: -5%;
+        margin-left: -30px;
+        margin-right: -30px;
     }
 
     .vl-ticker.vl-full-width-ticker{
-        padding: 10px 5%;
+        padding: 10px 30px;
     }
 
     .vl-ticker .vl-container,
@@ -2663,8 +2665,8 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 
 @media screen and (max-width: 1000px){
     #vl-site-navigation + img{
-        padding-left: 5%;
-        padding-right: 5%;
+        padding-left: 30px;
+        padding-right: 30px;
     }
 
     .vl-top-left-header > .vl-menu{
