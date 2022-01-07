@@ -5,9 +5,9 @@ Viral is distributed under the terms of the GNU GPL (http://www.gnu.org/licenses
 Contributors: HashThemes
 Tags: blog, entertainment, news, two-columns, left-sidebar, right-sidebar, custom-background, custom-header, custom-logo, custom-menu, featured-image-header, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
 
-Requires at least: 5.0
+Requires at least: 5.6
 Tested up to: 5.8
-Stable tag: 1.7.3
+Stable tag: 1.7.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,6 +21,12 @@ Viral is a responsive magazine WordPress theme specially designed for magazine, 
 
 
 == Changelog ==
+= 1.7.5 - Jan 07, 2022 =
+* New Year & Christmas discount removed
+
+= 1.7.4 - Dec 21, 2021 =
+* New Year & Christmas discount added
+
 = 1.7.3 - Dec 12, 2021 =
 * Black Friday discount removed
 
