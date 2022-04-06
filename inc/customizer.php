@@ -632,6 +632,38 @@ function viral_customize_register($wp_customize) {
             esc_html__('- Three Column Module', 'viral')
         )
     )));
+    
+    /* ============SINGLE POST SECTION============ */
+    $wp_customize->add_section('viral_single_post_sec', array(
+        'title' => esc_html__('Single Post Settings', 'viral'),
+        'priority' => 30
+    ));
+
+    $wp_customize->add_setting('viral_display_featured_image', array(
+        'sanitize_callback' => 'viral_sanitize_checkbox'
+    ));
+
+    $wp_customize->add_control(new Viral_Toggle_Control($wp_customize, 'viral_display_featured_image', array(
+        'section' => 'viral_single_post_sec',
+        'label' => esc_html__('Display Featured Image', 'viral'),
+        'description' => esc_html__('Displays Featured Image at the top of the post.', 'viral'),
+    )));
+
+    $wp_customize->add_setting('viral_single_post_sec_upgrade_text', array(
+        'sanitize_callback' => 'viral_sanitize_text'
+    ));
+
+    $wp_customize->add_control(new Viral_Upgrade_Text($wp_customize, 'viral_single_post_sec_upgrade_text', array(
+        'section' => 'viral_single_post_sec',
+        'label' => esc_html__('For more options,', 'viral'),
+        'choices' => array(
+            esc_html__('7 differently designed single post layouts', 'viral'),
+            esc_html__('Enable and disable every elements like author, date, comments, tags, categories', 'viral'),
+            esc_html__('Display reading time & post view counts', 'viral'),
+            esc_html__('Sticky & non sticky social share button', 'viral'),
+            esc_html__('Author box & 4 differently designed related posts', 'viral'),
+        )
+    )));
 }
 
 add_action('customize_register', 'viral_customize_register');

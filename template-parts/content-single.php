@@ -10,8 +10,16 @@
     </header>
 
     <div class="entry-content">
-        <?php the_content(); ?>
         <?php
+        $viral_display_featured_img = get_theme_mod('viral_display_featured_image');
+        if ($viral_display_featured_img) {
+            echo '<div class="single-featured-img">';
+            the_post_thumbnail('large');
+            echo '</div>';
+        }
+
+        the_content();
+
         wp_link_pages(array(
             'before' => '<div class="page-links">' . esc_html__('Pages:', 'viral'),
             'after' => '</div>',
