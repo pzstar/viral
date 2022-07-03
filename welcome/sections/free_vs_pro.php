@@ -33,9 +33,9 @@
     <tr>
         <td>
             <span><?php esc_html_e('One Click Demo Import', 'viral'); ?></span>
-            <p><?php esc_html_e('With one-click demo import, you can install the demo content with just one click. The Premium version has 8+ ready-made demo to choose from.', 'viral'); ?></td>
-        <td><?php esc_html_e('1 Demo Only', 'viral'); ?></td>
-        <td><?php esc_html_e('12 Demos', 'viral'); ?></td>
+            <p><?php esc_html_e('With one-click demo import, you can install the demo content with just one click. The Premium version has 13+ ready-made demo to choose from.', 'viral'); ?></td>
+        <td><?php esc_html_e('6 Demos', 'viral'); ?></td>
+        <td><?php esc_html_e('13 Demos', 'viral'); ?></td>
     </tr>
     <tr>
         <td>
@@ -64,6 +64,13 @@
             <p><?php esc_html_e('The theme has a huge collection of ready to use blocks with tons of options. Play with these blocks, build your own layout, change the background and colors, hide, and show different elements. Have it your Way!', 'viral'); ?></td>
         <td><?php esc_html_e('10+', 'viral'); ?></td>
         <td><?php esc_html_e('50+', 'viral'); ?></td>
+    </tr>
+    <tr>
+        <td>
+            <span><?php esc_html_e('Ajax Tabs and Pagination', 'viral'); ?></span>
+            <p><?php esc_html_e('Speed up your website by loading minimum content and then displaying them with Ajax Tabs and Pagination (Numbered Page, Prev/Next, Load More and Load on Scroll).', 'viral'); ?></td>
+        <td><img src="<?php echo esc_url(get_template_directory_uri() . '/welcome/css/no.png'); ?>" alt="<?php esc_attr_e('No', 'viral'); ?>"></td>
+        <td><img src="<?php echo esc_url(get_template_directory_uri() . '/welcome/css/yes.png'); ?>" alt="<?php esc_attr_e('Yes', 'viral'); ?>"></td>
     </tr>
     <tr>
         <td>
@@ -128,7 +135,6 @@
         <td><img src="<?php echo esc_url(get_template_directory_uri() . '/welcome/css/yes.png'); ?>" alt="<?php esc_attr_e('Yes', 'viral'); ?>"></td>
         <td><img src="<?php echo esc_url(get_template_directory_uri() . '/welcome/css/yes.png'); ?>" alt="<?php esc_attr_e('Yes', 'viral'); ?>"></td>
     </tr>
-
     <tr>
         <td>
             <span><?php esc_html_e('PreLoader Option', 'viral'); ?></span>

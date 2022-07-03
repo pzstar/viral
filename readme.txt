@@ -1,13 +1,13 @@
 === Viral ===
-Viral WordPress Theme, Copyright HashThemes 2021
+Viral WordPress Theme, Copyright HashThemes 2022
 Viral is distributed under the terms of the GNU GPL (http://www.gnu.org/licenses/gpl-2.0.html)
 
 Contributors: HashThemes
 Tags: blog, entertainment, news, two-columns, left-sidebar, right-sidebar, custom-background, custom-header, custom-logo, custom-menu, featured-image-header, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
 
 Requires at least: 5.6
-Tested up to: 5.9
-Stable tag: 1.7.6
+Tested up to: 6.0
+Stable tag: 1.7.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,6 +21,10 @@ Viral is a responsive magazine WordPress theme specially designed for magazine, 
 
 
 == Changelog ==
+= 1.7.7 - Jul 03, 2022 =
+* Pinterest Social Share icon displaying error when there is not featured image - fixed
+* Added option to hide all upgrade text - Added
+
 = 1.7.6 - Apr 06, 2022 =
 * Option to display featured image in the single post added
 
