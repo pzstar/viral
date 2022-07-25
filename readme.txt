@@ -1,4 +1,4 @@
-=== Viral ===
+admin   === Viral ===
 Viral WordPress Theme, Copyright HashThemes 2022
 Viral is distributed under the terms of the GNU GPL (http://www.gnu.org/licenses/gpl-2.0.html)
 
@@ -7,7 +7,7 @@ Tags: blog, entertainment, news, two-columns, left-sidebar, right-sidebar, custo
 
 Requires at least: 5.6
 Tested up to: 6.0
-Stable tag: 1.7.7
+Stable tag: 1.7.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,6 +21,9 @@ Viral is a responsive magazine WordPress theme specially designed for magazine, 
 
 
 == Changelog ==
+= 1.7.8 - Jul 25, 2022 =
+* Added Smart Block as a recommended plugin
+
 = 1.7.7 - Jul 03, 2022 =
 * Pinterest Social Share icon displaying error when there is not featured image - fixed
 * Added option to hide all upgrade text - Added
