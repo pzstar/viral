@@ -118,6 +118,24 @@ function viral_customize_register($wp_customize) {
             'boxed' => esc_html__('Boxed', 'viral'),
     )));
 
+    /* GOOGLE FONT SECTION */
+    $wp_customize->add_section('viral_google_font_section', array(
+        'title' => esc_html__('Google Fonts', 'viral'),
+        'panel' => 'viral_general_settings_panel',
+        'priority' => 1000
+    ));
+
+    $wp_customize->add_setting('viral_load_google_font_locally', array(
+        'sanitize_callback' => 'viral_sanitize_checkbox',
+        'default' => false
+    ));
+
+    $wp_customize->add_control(new Viral_Toggle_Control($wp_customize, 'viral_load_google_font_locally', array(
+        'section' => 'viral_google_font_section',
+        'label' => esc_html__('Load Google Fonts Locally', 'viral'),
+        'description' => esc_html__('It is required to load the Google Fonts locally in order to comply with GDPR. However, if your website is not required to comply with Google Fonts then you can check this field off. Loading the Fonts locally with lots of different Google fonts can decrease the speed of the website slightly.', 'viral'),
+    )));
+
     /* ============COLOR SETTING============ */
     $wp_customize->add_setting('viral_template_color', array(
         'default' => '#0078af',

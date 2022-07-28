@@ -215,7 +215,7 @@ if (!function_exists('viral_fonts_url')) :
                 'family' => urlencode(implode('|', $fonts)),
                 'subset' => urlencode($subsets),
                 'display' => 'swap',
-                    ), '//fonts.googleapis.com/css');
+                    ), 'https://fonts.googleapis.com/css');
         }
 
         return $fonts_url;
@@ -227,7 +227,6 @@ endif;
  * Enqueue scripts and styles.
  */
 function viral_scripts() {
-    wp_enqueue_style('viral-fonts', viral_fonts_url(), array(), NULL);
     wp_enqueue_style('materialdesignicons', get_template_directory_uri() . '/css/materialdesignicons.css', array(), VIRAL_VERSION);
     wp_enqueue_style('owl-carousel', get_template_directory_uri() . '/css/owl.carousel.css', array(), VIRAL_VERSION);
     wp_enqueue_style('viral-style', get_stylesheet_uri(), array(), VIRAL_VERSION);
@@ -240,6 +239,18 @@ function viral_scripts() {
 
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
+    }
+
+    $fonts_url = viral_fonts_url();
+    $load_font_locally = get_theme_mod('viral_load_google_font_locally', false);
+    if ($fonts_url && $load_font_locally) {
+        require_once get_theme_file_path('inc/wptt-webfont-loader.php');
+        $fonts_url = wptt_get_webfont_url($fonts_url);
+    }
+
+    // Load Fonts if necessary.
+    if ($fonts_url) {
+        wp_enqueue_style('viral-fonts', $fonts_url, array(), NULL);
     }
 }
 
