@@ -1,0 +1,57 @@
+.vl-main-navigation .vl-toggled-on .vl-menu{
+    display: block;
+}
+
+@media screen and (max-width: 1000px){
+    #vl-amp-navigation{
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+    }
+}
+
+/* AMP News Ticker */
+.vl-header-ticker-carousel, 
+.vl-ticker .owl-carousel {
+    overflow: hidden;
+}
+
+.vl-header-ticker-carousel .owl-carousel a, 
+.vl-ticker .owl-carousel a {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 0;
+    width: 100%;
+    line-height: 32px;
+    text-align: center;
+    margin: 0;
+}
+
+.vl-header-ticker-carousel .owl-carousel, .vl-ticker .owl-carousel {
+    display: flex;
+}
+
+@keyframes vpticker {
+    0% { transform: translate3d(100%, 0, 0); }
+    100% { transform: translate3d(-400%, 0, 0); }
+}
+
+.vl-header-ticker-carousel .owl-carousel a, 
+.vl-ticker .owl-carousel a { 
+    animation: vpticker linear 30s infinite; 
+}
+.vl-header-ticker-carousel .owl-carousel:hover a, 
+.vl-ticker .owl-carousel:hover a { 
+    animation-play-state: paused; 
+}
+
+
+/* Sticky Sidebar */
+.secondary.widget-area,
+#secondary{
+    position: sticky;
+    top: 0;
+    height: 100%;
+}

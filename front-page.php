@@ -58,11 +58,9 @@ if ($viral_enable_frontpage) {
                     </div>
                     <?php
                 endif;
-                ?>
-            <?php }
-            ?>
+            }
 
-            <?php get_template_part('home-parts/top-section'); ?>
+            get_template_part('home-parts/top-section'); ?>
         </div>
 
         <div id="vl-middle-section" class="vl-clearfix">

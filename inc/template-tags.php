@@ -249,3 +249,36 @@ function viral_category_transient_flusher() {
 
 add_action('edit_category', 'viral_category_transient_flusher');
 add_action('save_post', 'viral_category_transient_flusher');
+
+
+/**
+ * Determine whether this is an AMP response.
+ *
+ * Note that this must only be called after the parse_query action.
+ *
+ * @link https://github.com/Automattic/amp-wp
+ * @return bool Is AMP endpoint (and AMP plugin is active).
+ */
+function viral_is_amp() {
+    return function_exists( 'is_amp_endpoint' ) && is_amp_endpoint();
+}
+
+
+/**
+ * Adds amp support for menu toggle.
+ */
+function viral_amp_menu_toggle() {
+    if ( viral_is_amp() ) {
+        echo "[aria-expanded]=\"primaryMenuExpanded? 'true' : 'false'\" ";
+        echo 'on="tap:AMP.setState({primaryMenuExpanded: !primaryMenuExpanded})"';
+    }
+}
+
+/**
+ * Adds amp support for mobile dropdown navigation menu.
+ */
+function viral_amp_menu_is_toggled() {
+    if ( viral_is_amp() ) {
+        echo "[class]=\"( primaryMenuExpanded ? 'vl-toggled-on' : '' )\"";
+    }
+}

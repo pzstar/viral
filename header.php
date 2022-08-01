@@ -74,7 +74,7 @@
                             <?php endif; ?>
                         </div><!-- .site-branding -->
 
-                        <?php if (is_active_sidebar('viral-header-ads')) { ?> 
+                        <?php if (is_active_sidebar('viral-header-ads')) { ?>
                             <div class="vl-header-ads">
                                 <?php dynamic_sidebar('viral-header-ads'); ?>
                             </div>
@@ -82,21 +82,42 @@
                     </div>
                 </div>
 
-                <nav id="vl-site-navigation" class="vl-main-navigation <?php echo esc_attr($navigation_class); ?>">
-                    <div class="vl-container">
-                        <a href="#" class="vl-toggle-menu"><span></span></a>
-                        <?php
-                        wp_nav_menu(
+                <?php if (viral_is_amp()) { ?>
+                    <nav id="vl-site-navigation" class="vl-main-navigation <?php echo esc_attr($navigation_class); ?>">
+                        <div class="vl-container">
+                            <span class="vl-toggle-menu" aria-expanded="false" <?php viral_amp_menu_toggle(); ?>><span></span></span>
+
+                            <div id="vl-amp-navigation" <?php viral_amp_menu_is_toggled(); ?>>
+                                <?php
+                                wp_nav_menu(
+                                    array(
+                                        'theme_location' => 'primary',
+                                        'container_class' => 'vl-menu vl-clearfix',
+                                        'menu_class' => 'vl-clearfix',
+                                        'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                                    )
+                                );
+                                ?>
+                            </div>
+                        </div>
+                    </nav>
+                <?php } else { ?>
+                    <nav id="vl-site-navigation" class="vl-main-navigation <?php echo esc_attr($navigation_class); ?>">
+                        <div class="vl-container">
+                            <a href="#" class="vl-toggle-menu"><span></span></a>
+                            <?php
+                            wp_nav_menu(
                                 array(
                                     'theme_location' => 'primary',
                                     'container_class' => 'vl-menu vl-clearfix',
                                     'menu_class' => 'vl-clearfix',
                                     'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
                                 )
-                        );
-                        ?>
-                    </div>
-                </nav>
+                            );
+                            ?>
+                        </div>
+                    </nav>
+                <?php } ?>
                 <?php if (!$viral_disable_menu_shadow) { ?>
                     <img src="<?php echo esc_url(get_template_directory_uri() . '/images/shadow.png'); ?>" alt="<?php esc_attr_e('Shadow', 'viral'); ?>">
                 <?php } ?>
