@@ -326,7 +326,7 @@ if (!class_exists('Viral_Welcome')) :
             };
 
             if (get_option('viral_hide_notice') && !$this->is_dismissed('welcome')) {
-                delete_option('viral_dismissed_notices');
+                delete_option('viral_hide_notice');
                 self::dismiss('welcome');
             }
 
