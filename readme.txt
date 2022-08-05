@@ -7,7 +7,7 @@ Tags: blog, entertainment, news, two-columns, left-sidebar, right-sidebar, custo
 
 Requires at least: 5.6
 Tested up to: 6.0
-Stable tag: 1.7.8
+Stable tag: 1.7.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,6 +21,10 @@ Viral is a responsive magazine WordPress theme specially designed for magazine, 
 
 
 == Changelog ==
+= 1.7.9 - Aug 05, 2022 =
+* Compatible With AMP plugin
+* Added option to download the Google Font Locally to comply with GDPR
+
 = 1.7.8 - Jul 25, 2022 =
 * Added Smart Block as a recommended plugin
 
