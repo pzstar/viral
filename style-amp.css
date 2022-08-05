@@ -47,6 +47,10 @@
     animation-play-state: paused; 
 }
 
+.vl-ticker .owl-carousel a{
+    color: #FFF;
+}
+
 
 /* Sticky Sidebar */
 .secondary.widget-area,
