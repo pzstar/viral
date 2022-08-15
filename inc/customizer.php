@@ -133,7 +133,7 @@ function viral_customize_register($wp_customize) {
     $wp_customize->add_control(new Viral_Toggle_Control($wp_customize, 'viral_load_google_font_locally', array(
         'section' => 'viral_google_font_section',
         'label' => esc_html__('Load Google Fonts Locally', 'viral'),
-        'description' => esc_html__('It is required to load the Google Fonts locally in order to comply with GDPR. However, if your website is not required to comply with Google Fonts then you can check this field off. Loading the Fonts locally with lots of different Google fonts can decrease the speed of the website slightly.', 'viral'),
+        'description' => esc_html__('It is required to load the Google Fonts locally in order to comply with GDPR. However, if your website is not required to comply with GDPR then you can check this field off. Loading the Fonts locally with lots of different Google fonts can decrease the speed of the website slightly.', 'viral'),
     )));
 
     /* ============COLOR SETTING============ */
