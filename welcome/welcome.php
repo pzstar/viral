@@ -134,13 +134,10 @@ if (!class_exists('Viral_Welcome')) :
                             <p><a href="<?php echo esc_url(admin_url('admin.php?page=viral-welcome')); ?>" class="button button-primary"><?php esc_html_e('Go to Setting Page', 'viral'); ?></a></p>
                         </div>
                     </div>
-
                 </div>
-
             </div>
             <?php
         }
-
 
         /** Register Menu for Welcome Page */
         public function welcome_register_menu() {
@@ -278,41 +275,9 @@ if (!class_exists('Viral_Welcome')) :
             return '<a data-slug="' . esc_attr($slug) . '" data-filename="' . esc_attr($filename) . '" class="' . esc_attr($import_class) . '" href="' . $import_url . '">' . esc_html($import_button_text) . '</a>';
         }
 
-        /** Generate Plugin Thumb */
-        public function plugin_thumb($plugin_slug) {
-            if (empty($plugin_slug)) {
-                return;
-            }
-            /** Generate a key that would hold the plugin image url  */
-            $key = 'viral-' . $plugin_slug;
-
-            /** Check transient. If it's there - use that, if not re fetch the theme */
-            if (false === ( $image_url = get_transient($key) )) {
-                $image_types = array('icon-256x256.png', 'icon-256x256.jpg', 'icon-128x128.png', 'icon-128x128.jpg');
-
-                foreach ($image_types as $image_type) {
-                    $image_url = 'https://ps.w.org/' . $plugin_slug . '/assets/' . $image_type;
-                    if ($this->image_exist($image_url)) {
-                        set_transient($key, $image_url, 60 * 60 * 24 * 30);
-                        break;
-                    }
-                }
-            }
-
-            return $image_url;
-        }
-
-        /** Check for Available Image */
-        public function image_exist($url = NULL) {
-            if (!$url)
-                return FALSE;
-
-            $headers = get_headers($url);
-            return stripos($headers[0], "200 OK") ? TRUE : FALSE;
-        }
-
         public function erase_hide_notice() {
             delete_option('viral_dismissed_notices');
+            delete_option('viral_first_activation');
         }
 
         /**
@@ -321,7 +286,7 @@ if (!class_exists('Viral_Welcome')) :
          * @return void
          */
         public function welcome_init() {
-            if(!get_option('viral_first_activation')) {
+            if (!get_option('viral_first_activation')) {
                 update_option('viral_first_activation', time());
             };
 
@@ -334,7 +299,7 @@ if (!class_exists('Viral_Welcome')) :
                 $notice = sanitize_key($_GET['viral-hide-notice']);
                 check_admin_referer($notice, 'viral_notice_nonce');
                 self::dismiss($notice);
-                wp_safe_redirect(remove_query_arg(array('viral-hide-notice', 'viral_notice_nonce' ), wp_get_referer()));
+                wp_safe_redirect(remove_query_arg(array('viral-hide-notice', 'viral_notice_nonce'), wp_get_referer()));
                 exit;
             }
         }
@@ -347,17 +312,17 @@ if (!class_exists('Viral_Welcome')) :
         private function review_notice() {
             ?>
             <div class="viral-notice notice notice-info">
-            <?php $this->dismiss_button('review'); ?>
+                <?php $this->dismiss_button('review'); ?>
                 <p>
                     <?php
                     printf(
-                        /* translators: %1$s is link start tag, %2$s is link end tag. */
-                        esc_html__('We have noticed that you have been using Viral for some time. We hope you love it, and we would really appreciate it if you would %1$sgive us a 5 stars rating%2$s.', 'viral'),
-                        '<a href="https://wordpress.org/support/theme/viral/reviews/?rate=5#new-post">',
-                        '</a>'
+                            /* translators: %1$s is link start tag, %2$s is link end tag. */
+                            esc_html__('We have noticed that you have been using Viral for some time. We hope you love it, and we would really appreciate it if you would %1$sgive us a 5 stars rating%2$s.', 'viral'), '<a target="_blank" href="https://wordpress.org/support/theme/viral/reviews/?filter=5#new-post">', '</a>'
                     );
                     ?>
                 </p>
+                <a target="_blank" class="button action" href="https://wordpress.org/support/theme/viral/reviews/?filter=5#new-post"><?php echo esc_html__('Yes, of course', 'viral') ?></a> &nbsp;
+                <a class="button action" href="<?php echo esc_url(wp_nonce_url(add_query_arg('viral-hide-notice', 'review'), 'review', 'viral_notice_nonce')); ?>"><?php echo esc_html__('I have already rated', 'viral') ?></a>
             </div>
             <?php
         }
@@ -394,7 +359,7 @@ if (!class_exists('Viral_Welcome')) :
          * @return void
          */
         public function dismiss_button($name) {
-            printf('<a class="notice-dismiss" href="%s"><span class="screen-reader-text">%s</span></a>', esc_url(wp_nonce_url(add_query_arg('viral-hide-notice', $name), $name, 'viral_notice_nonce')), esc_html__( 'Dismiss this notice.', 'viral' )
+            printf('<a class="notice-dismiss" href="%s"><span class="screen-reader-text">%s</span></a>', esc_url(wp_nonce_url(add_query_arg('viral-hide-notice', $name), $name, 'viral_notice_nonce')), esc_html__('Dismiss this notice.', 'viral')
             );
         }
 
@@ -404,7 +369,7 @@ if (!class_exists('Viral_Welcome')) :
          * @param string $notice
          * @return void
          */
-        public static function dismiss( $notice ) {
+        public static function dismiss($notice) {
             $dismissed = get_option('viral_dismissed_notices', array());
 
             if (!in_array($notice, $dismissed)) {
