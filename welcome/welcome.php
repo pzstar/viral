@@ -177,6 +177,7 @@ if (!class_exists('Viral_Welcome')) :
                     'importer_page' => esc_html__('Go to Demo Importer Page', 'viral'),
                     'importer_url' => admin_url('themes.php?page=hdi-demo-importer'),
                     'error' => esc_html__('Error! Reload the page and try again.', 'viral'),
+                    'ajax_nonce' => wp_create_nonce('viral_activate_hdi_plugin')
                 );
                 wp_enqueue_style('viral-welcome', get_template_directory_uri() . '/welcome/css/welcome.css', array(), VIRAL_VERSION);
                 wp_enqueue_script('viral-welcome', get_template_directory_uri() . '/welcome/js/welcome.js', array('plugin-install', 'updates'), VIRAL_VERSION, true);
@@ -230,6 +231,12 @@ if (!class_exists('Viral_Welcome')) :
 
         /** Ajax Plugin Activation */
         public function activate_plugin() {
+            if (!current_user_can('manage_options')) {
+                return;
+            }
+
+            check_ajax_referer('viral_activate_hdi_plugin', 'security');
+            
             $slug = isset($_POST['slug']) ? $_POST['slug'] : '';
             $file = isset($_POST['file']) ? $_POST['file'] : '';
             $success = false;

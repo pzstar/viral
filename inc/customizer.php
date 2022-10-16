@@ -55,7 +55,6 @@ function viral_customize_register($wp_customize) {
         'priority' => 0,
         'pro_text' => esc_html__('Upgrade to Pro', 'viral'),
         'pro_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=viral-customizer-button&utm_campaign=viral-upgrade',
-        'active_callback' => 'viral_is_upgrade_notice_active'
     )));
 
     $wp_customize->add_section(new Viral_Customize_Section_Pro($wp_customize, 'viral-doc-section', array(
@@ -67,7 +66,7 @@ function viral_customize_register($wp_customize) {
 
     $wp_customize->add_section(new Viral_Customize_Section_Pro($wp_customize, 'viral-demo-import-section', array(
         'title' => esc_html__('Import Demo Content', 'viral'),
-        'priority' => 0,
+        'priority' => 999,
         'pro_text' => esc_html__('Import', 'viral'),
         'pro_url' => admin_url('admin.php?page=viral-welcome')
     )));
