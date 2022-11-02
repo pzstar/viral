@@ -47,7 +47,7 @@
     animation-play-state: paused; 
 }
 
-.vl-ticker .owl-carousel a{
+.vl-ticker.vl-dark-ticker .owl-carousel a{
     color: #FFF;
 }
 
