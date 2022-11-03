@@ -44,10 +44,10 @@ jQuery(document).ready(function ($) {
         });
     });
 
-    wp.customize('viral_content_color', function (value) {
+    wp.customize('background_color', function (value) {
         value.bind(function (to) {
-            var css = '--viral-content-color:' + to + ';';
-            viralDynamicCss('viral_content_color', css);
+            var css = '--viral-background-color:' + to + ';';
+            viralDynamicCss('background_color', css);
         });
     });
 });
