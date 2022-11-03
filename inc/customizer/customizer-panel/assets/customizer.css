@@ -35,15 +35,6 @@
     vertical-align: middle;
 }
 
-
-.customize-pane-parent .control-section .accordion-section-title:before{
-    font-family: dashicons;
-    content: "\f103";
-    font-size: 20px;
-    margin-right: 5px;
-    vertical-align: middle;
-}
-
 #accordion-section-static_front_page .accordion-section-title:before{
     content: "\f319";
 }

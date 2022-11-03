@@ -82,7 +82,7 @@ if (class_exists('WP_Customize_Section')) {
                 {{ key }}<br/>
                 <# }) #>
 
-                <a href="<?php echo esc_url('https://hashthemes.com/wordpress-theme/total/?utm_source=wordpress&utm_medium=hash-themes-link&utm_campaign=hash-themes-upgrade'); ?>" class="button button-primary" target="_blank"><?php echo esc_html__('Upgrade to Pro', 'viral'); ?></a>
+                <a href="<?php echo esc_url('https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=viral-link&utm_campaign=viral-upgrade'); ?>" class="button button-primary" target="_blank"><?php echo esc_html__('Upgrade to Pro', 'viral'); ?></a>
                 <# } #>
             </li>
             <?php
