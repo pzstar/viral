@@ -16,6 +16,24 @@ if (!function_exists('viral_widget_list')) {
 
 }
 
+if (!function_exists('viral_ticker_cat')) {
+
+    function viral_ticker_cat() {
+        $cat = array(
+            'none' => esc_html__('Don\'t Display'),
+            '-1' => esc_html__('Latest Posts')
+        );
+        $categories = get_categories(array('hide_empty' => 0));
+        if ($categories) {
+            foreach ($categories as $category) {
+                $cat[$category->term_id] = $category->cat_name;
+            }
+        }
+        return $cat;
+    }
+
+}
+
 if (!function_exists('viral_cat')) {
 
     function viral_cat() {

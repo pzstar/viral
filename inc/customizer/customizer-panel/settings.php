@@ -134,17 +134,6 @@ $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'viral_
     'label' => esc_html__('Template Color', 'viral')
 )));
 
-$wp_customize->add_setting('viral_content_color', array(
-    'default' => '#404040',
-    'sanitize_callback' => 'sanitize_hex_color',
-    'transport' => 'postMessage'
-));
-
-$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'viral_content_color', array(
-    'section' => 'colors',
-    'label' => esc_html__('Content Color', 'viral')
-)));
-
 $wp_customize->add_setting('viral_color_upgrade_text', array(
     'sanitize_callback' => 'viral_sanitize_text'
 ));
@@ -577,7 +566,7 @@ $wp_customize->add_control(new Viral_Chosen_Select_Control($wp_customize, 'viral
     'settings' => 'viral_ticker_category',
     'section' => 'viral_frontpage_top_sec',
     'label' => esc_html__('Choose Ticker Category', 'viral'),
-    'choices' => viral_cat()
+    'choices' => viral_ticker_cat()
 )));
 
 $wp_customize->add_setting('viral_frontpage_top_blocks', array(
