@@ -20,8 +20,8 @@ if (!function_exists('viral_ticker_cat')) {
 
     function viral_ticker_cat() {
         $cat = array(
-            'none' => esc_html__('Don\'t Display'),
-            '-1' => esc_html__('Latest Posts')
+            'none' => esc_html__('Don\'t Display', 'viral'),
+            '-1' => esc_html__('Latest Posts', 'viral')
         );
         $categories = get_categories(array('hide_empty' => 0));
         if ($categories) {
