@@ -243,10 +243,15 @@ button,
 input,
 select,
 textarea {
-    color: #404040;
-    font-size: 15px;
-    line-height: 1.6;
-    font-family: 'Roboto', sans-serif
+    color: var(--viral-body-color, #404040);
+    font-size: var(--viral-body-size, 15px);
+    letter-spacing: var(--viral-body-letter-spacing, 0);
+    line-height: var(--viral-body-line-height, 1.6);
+    font-family: var(--viral-body-family, 'Roboto', sans-serif);
+    font-weight: var(--viral-body-weight, 400);
+    font-style: var(--viral-body-style, normal);
+    text-decoration: var(--viral-body-text-decoration, none);
+    text-transform: var(--viral-body-text-transform, none);
 }
 
 h1,
@@ -255,10 +260,14 @@ h3,
 h4,
 h5,
 h6 {
+    font-family: var(--viral-header-family, 'Roboto', sans-serif);
+    letter-spacing: var(--viral-header-letter-spacing, 0);
+    line-height: var(--viral-header-line-height, 1.3);
+    font-weight: var(--viral-header-weight, 700);
+    font-style: var(--viral-header-style, normal);
+    text-decoration: var(--viral-header-text-decoration, none);
+    text-transform: var(--viral-header-text-transform, none);
     margin: 0;
-    font-weight: bold;
-    line-height: 1.3;
-    font-family: 'Roboto', sans-serif;
 }
 
 h1{
@@ -431,19 +440,16 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-    background: #0078af;
+    background: var(--viral-template-color, #0078af);
     color: #FFF;
-    padding: 0 20px;
+    padding: 10px 20px;
     border: 0;
-    height: 40px;
-    line-height: 40px;
 }
 
 button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-    background: #0E0E0E;
 }
 
 button:focus,
@@ -474,14 +480,12 @@ input[type="color"],
 textarea {
     border: 1px solid #EEE;
     width: 100%;
-    padding: 3px 10px;
-    height: 40px;
+    padding: 10px;
 }
 
 select {
     border: 1px solid #EEE;
-    padding: 3px;
-    height: 40px;
+    padding: 10px;
 }
 
 input[type="text"]:focus,
@@ -512,14 +516,14 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
-    color: #0078af;
+    color: var(--viral-body-color, #404040);
     text-decoration: none;
 }
 
 a:hover,
 a:focus,
 a:active {
-
+    color: var(--viral-template-color, #0078af);
 }
 
 a:focus {
@@ -649,16 +653,12 @@ a:active {
 
 .widget-title{
     font-weight: 700;
-    border-left: 6px solid #0078af;
+    border-left: 6px solid var(--viral-template-color, #0078af);
     padding-left: 10px;
     line-height: 1;
     text-transform: uppercase;
     font-size: 20px;
     margin-bottom: 25px;
-}
-
-.widget a{
-    color: #404040;
 }
 
 /*--------------------------------------------------------------
@@ -739,7 +739,7 @@ a:active {
 .vl-post-info{
     float: left;
     width: 75px;
-    background: #0078af;
+    background: var(--viral-template-color, #0078af);
     color: #FFF;
     text-align: center;
 }
@@ -799,12 +799,10 @@ a:active {
 
 .entry-header .entry-title a{
     text-decoration: none;
-    color: #0E0E0E;
 }
 
 .entry-categories{
     font-size: 14px;
-    color: #777;
     font-style: italic;
     margin-bottom: 15px;
 }
@@ -821,7 +819,7 @@ a:active {
 .entry-footer .cat-links,
 .entry-footer .tags-links,
 .entry-footer .edit-link{
-    font-size: 14px;
+    font-size: 0.8em;
     font-style: italic;
     margin-bottom: 10px;
 }
@@ -829,7 +827,7 @@ a:active {
 .entry-footer .cat-links a,
 .entry-footer .tags-links a,
 .entry-footer .edit-link a{
-    color: #0E0E0E;
+
 }
 
 .entry-footer .cat-links i,
@@ -847,13 +845,12 @@ a:active {
 }
 
 .entry-footer .vl-read-more{
-    background: #0078af;
-    height: 40px;
-    padding: 0 20px;
+    background: var(--viral-template-color, #0078af);
+    padding: 10px 20px;
     color: #FFF;
     display: inline-block;
-    line-height: 40px;
     float: right;
+    line-height: 1.2;
 }
 
 .entry-footer .vl-read-more:hover{
@@ -870,13 +867,12 @@ a:active {
 
 .vl-share-buttons a{
     padding: 0 5px;
-    font-size: 14px;
+    font-size: 1em;
     display: inline-block;
-    color: #666;
 }
 
 .vl-share-buttons a:hover{
-    color : #0078af;
+    color: var(--viral-template-color, #0078af);
 }
 
 .vl-share-buttons i{
@@ -885,13 +881,8 @@ a:active {
 }
 
 /* Single Page*/
-.vl-article-content{
-    font-size: 16px;
-    line-height: 1.8;
-}
-
 .vl-article-content .posted-on{
-    font-size: 15px;
+    font-size: 0.8em;
     margin-bottom: 20px;
     font-style: italic;
 }
@@ -937,11 +928,10 @@ a:active {
 
 .widget-area a{
     text-decoration: none;
-    color: #404040;
 }
 
 .widget-area a:hover{
-    color: #0078af;
+    color: var(--viral-template-color, #0078af);
 }
 
 .widget-area .widget{
@@ -1057,7 +1047,7 @@ a:active {
 }
 
 .vl-timeline .vl-post-item:hover:after{
-    background: #0078af;
+    background: var(--viral-template-color, #0078af);
 }
 
 .vl-timeline .posted-on{
@@ -1125,7 +1115,7 @@ a:active {
 h3#reply-title,
 h3.comments-title{
     font-weight: 700;
-    border-left: 6px solid #0078af;
+    border-left: 6px solid var(--viral-template-color, #0078af);
     padding-left: 10px;
     line-height: 1;
     text-transform: uppercase;
@@ -1165,7 +1155,7 @@ article.comment-body {
 }
 
 .comment-list a:hover{
-    color: #0078af;
+    color: var(--viral-template-color, #0078af);
 }
 
 .comment-list .comment-respond{
@@ -1218,7 +1208,7 @@ article.comment-body {
 
 .comment-navigation .nav-previous a,
 .comment-navigation .nav-next a{
-    background: #0078af;
+    background: var(--viral-template-color, #0078af);
     color: #FFF;
     display: inline-block;
     padding: 0 10px;
@@ -1234,7 +1224,7 @@ article.comment-body {
 .comment-navigation .nav-next a:after{
     content: "";
     position: absolute;
-    border-left: 11px solid #0078af;
+    border-left: 11px solid var(--viral-template-color, #0078af);
     border-top: 11px solid transparent;
     border-bottom: 11px solid transparent;
     top: 0;
@@ -1248,7 +1238,7 @@ article.comment-body {
 .comment-navigation .nav-previous a:after{
     content: "";
     position: absolute;
-    border-right: 11px solid #0078af;
+    border-right: 11px solid var(--viral-template-color, #0078af);
     border-top: 11px solid transparent;
     border-bottom: 11px solid transparent;
     top: 0;
@@ -1371,7 +1361,7 @@ object {
 
 .pagination a, 
 .pagination span{
-    background: #0078af;
+    background: var(--viral-template-color, #0078af);
     padding: 8px 20px;
     color: #FFF;
     display: inline-block;
@@ -1395,7 +1385,7 @@ object {
 }
 
 .vl-top-header{
-    background: #0078af;
+    background: var(--viral-template-color, #0078af);
     color: #F6F6F6;
     padding: 12px 0;
     font-size: 13px;
@@ -1474,11 +1464,11 @@ object {
 
 .vl-site-title a{
     text-decoration: none;
-    color: #0078af;
+    color: var(--viral-template-color, #0078af);
 }
 
 .vl-site-description{
-    color: #0078af;
+    color: var(--viral-template-color, #0078af);
     margin: 0;
     font-size: 14px;
     font-style: italic;
@@ -1502,7 +1492,7 @@ object {
 ## Menus
 --------------------------------------------------------------*/
 #vl-site-navigation{
-    background: #0078af;
+    background: var(--viral-template-color, #0078af);
     width: 1170px;
     margin: 0 auto;
     padding: 0 10px;
@@ -1527,6 +1517,7 @@ object {
     list-style: none;
     margin: 0;
     padding-left: 0;
+    font-family: var(--viral-menu-family, 'Roboto Condensed', sans-serif);
 }
 
 .vl-main-navigation.vl-full-width-navigation .vl-menu > ul{
@@ -1541,18 +1532,16 @@ object {
 
 .vl-main-navigation a {
     display: block;
-    text-decoration: none;
     color: #FFF;
     padding: 0 16px;
-    text-transform: uppercase;
-    font-size: 14px;
-    font-weight: 400;
     line-height: 58px;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
-
-.vl-main-navigation .vl-menu > ul > li > a{
-    letter-spacing: 0.5px;
+    letter-spacing: var(--viral-menu-letter-spacing, 0);
+    font-size: var(--viral-menu-size, 15px);
+    font-weight: var(--viral-menu-weight, 400);
+    font-style: var(--viral-menu-style, normal);
+    text-decoration: var(--viral-menu-text-decoration, none);
+    text-transform: var(--viral-menu-text-transform, uppercase);
 }
 
 .vl-main-navigation ul ul {
@@ -1560,7 +1549,7 @@ object {
     position: absolute;
     left: 0;
     top: 100% ;
-    background: #0078af;
+    background: var(--viral-template-color, #0078af);
     box-shadow: 2px 2px 3px rgba(0,0,0,0.2);
     min-width: 240px;
 }
@@ -1665,7 +1654,7 @@ object {
 }
 
 .post-navigation a:hover{
-    color: #0078af;
+    color: var(--viral-template-color, #0078af);
 }
 
 .post-navigation span{
@@ -1725,7 +1714,7 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 
 .vl-ticker-title{
     float: left;
-    background: #0078af;
+    background: var(--viral-template-color, #0078af);
     color: #FFF;
     line-height: 32px;
     white-space: nowrap;
@@ -1741,7 +1730,7 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
     top: 0;
     bottom: 0;
     left: 100%;
-    border-color: transparent transparent transparent #0078af;
+    border-color: transparent transparent transparent var(--viral-template-color, #0078af);
     border-width: 16px;
     border-style: solid;
 }
@@ -1760,7 +1749,7 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 }
 
 .vl-ticker .owl-item a:hover{
-    color: #0078af;
+    color: var(--viral-template-color, #0078af);
 }
 
 .vl-ticker .owl-nav{
@@ -1773,7 +1762,7 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 .vl-ticker .owl-next{
     height: 22px;
     width: 22px;
-    background: #0078af;
+    background: var(--viral-template-color, #0078af);
     color: #FFF;
     display: inline-block;
     text-align: center;
@@ -1961,7 +1950,7 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 }
 
 .vl-top-block .post-categories li a:hover{
-    background: #0078af;
+    background: var(--viral-template-color, #0078af);
 }
 
 /* Top Section Blocks style2 */
@@ -2067,7 +2056,7 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
     display: flex;
     font-size: 20px;
     text-transform: uppercase;
-    border-left: 10px solid #0078af;
+    border-left: 10px solid var(--viral-template-color, #0078af);
     margin-bottom: 30px;
     font-weight: bold;
     line-height: 1;
@@ -2103,7 +2092,7 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 }
 
 .vl-post-item h3 a:hover{
-    color: #0078af;
+    color: var(--viral-template-color, #0078af);
 }
 
 .vl-post-thumb a,
@@ -2539,7 +2528,7 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 }
 
 #vl-back-top{
-    background: #0078af;
+    background: var(--viral-template-color, #0078af);
     color: #FFF;
     height: 40px;
     width: 40px;

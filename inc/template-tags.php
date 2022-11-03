@@ -7,7 +7,7 @@
  *
  * @package Viral
  */
-if (!function_exists('viral_posted_on')) :
+if (!function_exists('viral_posted_on')) {
 
     /**
      * Prints HTML with meta information for the current post-date/time and author.
@@ -37,10 +37,10 @@ if (!function_exists('viral_posted_on')) :
         echo '<span class="entry-date published updated">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>' . $comment_link; // WPCS: XSS OK.
     }
 
-endif;
+}
 
 
-if (!function_exists('viral_post_date')) :
+if (!function_exists('viral_post_date')) {
 
     /**
      * Prints HTML with meta information for the current post-date/time and author.
@@ -61,9 +61,9 @@ if (!function_exists('viral_post_date')) :
         echo '<div class="posted-on"><i class="mdi mdi-clock-time-three-outline"></i>' . $posted_on . '<span class="byline"> ' . $byline . '</span></div>'; // WPCS: XSS OK.
     }
 
-endif;
+}
 
-if (!function_exists('viral_entry_footer')) :
+if (!function_exists('viral_entry_footer')) {
 
     /**
      * Prints HTML with meta information for the categories, tags and comments.
@@ -91,9 +91,9 @@ if (!function_exists('viral_entry_footer')) :
         }
     }
 
-endif;
+}
 
-if (!function_exists('viral_entry_category')) :
+if (!function_exists('viral_entry_category')) {
 
     /**
      * Prints HTML with meta information for the categories
@@ -109,7 +109,7 @@ if (!function_exists('viral_entry_category')) :
         }
     }
 
-endif;
+}
 
 /**
  * Returns true if a blog has more than 1 category.
@@ -141,7 +141,7 @@ function viral_categorized_blog() {
     }
 }
 
-if (!function_exists('viral_social_share')) :
+if (!function_exists('viral_social_share')) {
 
     /**
      * Prints HTML with social share
@@ -152,7 +152,7 @@ if (!function_exists('viral_social_share')) :
 
         // Get current page title
         $post_title = str_replace(' ', '%20', get_the_title());
-        
+
         $thumb = '';
         // Get Post Thumbnail for pinterest
         if (has_post_thumbnail($post->ID)) {
@@ -179,7 +179,7 @@ if (!function_exists('viral_social_share')) :
         echo $content;
     }
 
-endif;
+}
 
 if (!function_exists('viral_post_primary_category')) {
 
@@ -250,25 +250,20 @@ function viral_category_transient_flusher() {
 add_action('edit_category', 'viral_category_transient_flusher');
 add_action('save_post', 'viral_category_transient_flusher');
 
-
 /**
  * Determine whether this is an AMP response.
  *
- * Note that this must only be called after the parse_query action.
- *
- * @link https://github.com/Automattic/amp-wp
  * @return bool Is AMP endpoint (and AMP plugin is active).
  */
 function viral_is_amp() {
-    return function_exists( 'is_amp_endpoint' ) && is_amp_endpoint();
+    return function_exists('is_amp_endpoint') && is_amp_endpoint();
 }
-
 
 /**
  * Adds amp support for menu toggle.
  */
 function viral_amp_menu_toggle() {
-    if ( viral_is_amp() ) {
+    if (viral_is_amp()) {
         echo "[aria-expanded]=\"primaryMenuExpanded? 'true' : 'false'\" ";
         echo 'on="tap:AMP.setState({primaryMenuExpanded: !primaryMenuExpanded})"';
     }
@@ -278,7 +273,7 @@ function viral_amp_menu_toggle() {
  * Adds amp support for mobile dropdown navigation menu.
  */
 function viral_amp_menu_is_toggled() {
-    if ( viral_is_amp() ) {
+    if (viral_is_amp()) {
         echo "[class]=\"( primaryMenuExpanded ? 'vl-toggled-on' : '' )\"";
     }
 }

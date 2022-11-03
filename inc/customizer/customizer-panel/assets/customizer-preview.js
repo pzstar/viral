@@ -1,3 +1,11 @@
+function viralDynamicCss(control, style) {
+    jQuery('style.' + control).remove();
+
+    jQuery('head').append(
+            '<style class="' + control + '">:root{' + style + '}</style>'
+            );
+}
+
 jQuery(document).ready(function ($) {
     'use strict';
     // Site title and description.
@@ -26,6 +34,20 @@ jQuery(document).ready(function ($) {
                     'position': 'relative'
                 });
             }
+        });
+    });
+
+    wp.customize('viral_template_color', function (value) {
+        value.bind(function (to) {
+            var css = '--viral-template-color:' + to + ';';
+            viralDynamicCss('viral_template_color', css);
+        });
+    });
+
+    wp.customize('viral_content_color', function (value) {
+        value.bind(function (to) {
+            var css = '--viral-content-color:' + to + ';';
+            viralDynamicCss('viral_content_color', css);
         });
     });
 });

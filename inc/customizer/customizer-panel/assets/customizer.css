@@ -48,8 +48,8 @@
     content: "\f319";
 }
 
-#accordion-section-viral_typography_section .accordion-section-title:before{
-    content: "\f119";
+#accordion-panel-viral_typography_panel .accordion-section-title:before{
+    content: "\f464";
 }
 
 #accordion-panel-viral_general_settings_panel .accordion-section-title:before{
@@ -88,6 +88,14 @@
     content: "\f121";
 }
 
+#accordion-section-colors .accordion-section-title:before{
+    content: "\f309";
+}
+
+#accordion-section-viral_pro_feature_section .accordion-section-title:before{
+    content: "\f174";
+}
+
 .ht-implink{
     background: #0073aa;
     padding: 5px 10px;
@@ -108,6 +116,7 @@
 #customize-control-viral_enable_frontpage .ht--toggle-container{
     border: 1px solid #CCC;
     padding: 10px;
+    background: #FFF;
 }
 
 #accordion-section-viral-upgrade-section{

@@ -78,7 +78,8 @@ $wp_customize->get_section('static_front_page')->priority = 1;
 $wp_customize->get_section('title_tagline')->panel = 'viral_header_setting_panel';
 $wp_customize->get_section('title_tagline')->title = esc_html__('Site Logo, Title and Tagline', 'viral');
 $wp_customize->get_control('header_text')->label = esc_html__('Display Site Title and Tagline(Only Displays if Logo is Removed)', 'viral');
-//$wp_customize->get_section('colors')->panel = 'viral_general_settings_panel';
+$wp_customize->get_section('colors')->title = esc_html__('Color Settings', 'viral');
+$wp_customize->get_section('colors')->priority = 15;
 $wp_customize->get_section('background_image')->panel = 'viral_general_settings_panel';
 $wp_customize->get_section('background_image')->title = esc_html__('Background', 'viral');
 $wp_customize->get_control('background_color')->section = 'background_image';
@@ -124,7 +125,8 @@ $wp_customize->add_control(new Viral_Toggle_Control($wp_customize, 'viral_load_g
 /* ============COLOR SETTING============ */
 $wp_customize->add_setting('viral_template_color', array(
     'default' => '#0078af',
-    'sanitize_callback' => 'sanitize_hex_color'
+    'sanitize_callback' => 'sanitize_hex_color',
+    'transport' => 'postMessage'
 ));
 
 $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'viral_template_color', array(
@@ -134,7 +136,8 @@ $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'viral_
 
 $wp_customize->add_setting('viral_content_color', array(
     'default' => '#404040',
-    'sanitize_callback' => 'sanitize_hex_color'
+    'sanitize_callback' => 'sanitize_hex_color',
+    'transport' => 'postMessage'
 ));
 
 $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'viral_content_color', array(
@@ -154,50 +157,191 @@ $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_
 )));
 
 /* ============TYPOGRAPHY SETTING ============ */
-$wp_customize->add_section('viral_typography_section', array(
-    'title' => esc_html__('Typography Settings', 'viral'),
-    'priority' => 1
+$wp_customize->add_panel('viral_typography_panel', array(
+    'priority' => 10,
+    'title' => esc_html__('Typography Settings', 'viral')
 ));
 
-$wp_customize->add_setting('viral_header_typography', array(
-    'sanitize_callback' => 'viral_sanitize_choices',
-    'default' => 'Roboto'
-));
-
-$wp_customize->add_control('viral_header_typography', array(
-    'section' => 'viral_typography_section',
-    'type' => 'select',
-    'label' => esc_html__('Header Typography', 'viral'),
-    'choices' => array(
-        'Arial' => esc_html__('Arial', 'viral'),
-        'Georgia' => esc_html__('Georgia', 'viral'),
-        'Roboto' => esc_html__('Roboto', 'viral'),
-        'Oswald' => esc_html__('Oswald', 'viral'),
-        'Montserrat' => esc_html__('Montserrat', 'viral'),
-        'Poppins' => esc_html__('Poppins', 'viral'),
-        'Lora' => esc_html__('Lora', 'viral')
-    )
+// Add the body typography section.
+$wp_customize->add_section('viral_body_typography_section', array(
+    'panel' => 'viral_typography_panel',
+    'title' => esc_html__('Body', 'viral')
 ));
 
 $wp_customize->add_setting('viral_body_typography', array(
-    'sanitize_callback' => 'viral_sanitize_choices',
-    'default' => 'Roboto'
+    'default' => 'Roboto',
+    'sanitize_callback' => 'sanitize_text_field',
 ));
 
-$wp_customize->add_control('viral_body_typography', array(
-    'section' => 'viral_typography_section',
-    'type' => 'select',
-    'label' => esc_html__('Body Typography', 'viral'),
-    'choices' => array(
-        'Arial' => esc_html__('Arial', 'viral'),
-        'Georgia' => esc_html__('Georgia', 'viral'),
-        'Roboto' => esc_html__('Roboto', 'viral'),
-        'Open Sans' => esc_html__('Open Sans', 'viral'),
-        'Raleway' => esc_html__('Raleway', 'viral'),
-        'Poppins' => esc_html__('Poppins', 'viral'),
-        'Lora' => esc_html__('Lora', 'viral')
-    )
+$wp_customize->add_setting('viral_body_style', array(
+    'default' => '400',
+    'sanitize_callback' => 'sanitize_text_field',
 ));
+
+$wp_customize->add_setting('viral_body_text_decoration', array(
+    'default' => 'none',
+    'sanitize_callback' => 'sanitize_text_field',
+));
+
+$wp_customize->add_setting('viral_body_text_transform', array(
+    'default' => 'none',
+    'sanitize_callback' => 'sanitize_text_field',
+));
+
+$wp_customize->add_setting('viral_body_size', array(
+    'default' => '16',
+    'sanitize_callback' => 'absint',
+));
+
+$wp_customize->add_setting('viral_body_line_height', array(
+    'default' => '1.8',
+    'sanitize_callback' => 'sanitize_text_field',
+));
+
+$wp_customize->add_setting('viral_body_letter_spacing', array(
+    'default' => '0',
+    'sanitize_callback' => 'sanitize_text_field',
+));
+
+$wp_customize->add_setting('viral_body_color', array(
+    'default' => '#444444',
+    'sanitize_callback' => 'sanitize_hex_color',
+));
+
+$wp_customize->add_control(new Viral_Typography_Control($wp_customize, 'viral_body_typo', array(
+    'label' => esc_html__('Body Typography', 'viral'),
+    'description' => __('Select how you want your body to appear.', 'viral'),
+    'section' => 'viral_body_typography_section',
+    'settings' => array(
+        'family' => 'viral_body_typography',
+        'style' => 'viral_body_style',
+        'text_decoration' => 'viral_body_text_decoration',
+        'text_transform' => 'viral_body_text_transform',
+        'size' => 'viral_body_size',
+        'line_height' => 'viral_body_line_height',
+        'letter_spacing' => 'viral_body_letter_spacing',
+        'color' => 'viral_body_color'
+    ),
+    'input_attrs' => array(
+        'min' => 10,
+        'max' => 40,
+        'step' => 1
+    )
+)));
+
+
+// Add Header typography section.
+$wp_customize->add_section('viral_header_typography_section', array(
+    'panel' => 'viral_typography_panel',
+    'title' => esc_html__('Header', 'viral')
+));
+
+// Add H typography section.
+$wp_customize->add_setting('viral_header_typography', array(
+    'default' => 'Roboto Condensed',
+    'sanitize_callback' => 'sanitize_text_field',
+));
+
+$wp_customize->add_setting('viral_header_style', array(
+    'default' => '700',
+    'sanitize_callback' => 'sanitize_text_field',
+));
+
+$wp_customize->add_setting('viral_header_text_decoration', array(
+    'default' => 'none',
+    'sanitize_callback' => 'sanitize_text_field',
+));
+
+$wp_customize->add_setting('viral_header_text_transform', array(
+    'default' => 'none',
+    'sanitize_callback' => 'sanitize_text_field',
+));
+
+$wp_customize->add_setting('viral_header_line_height', array(
+    'default' => '1.2',
+    'sanitize_callback' => 'sanitize_text_field',
+));
+
+$wp_customize->add_setting('viral_header_letter_spacing', array(
+    'default' => '0',
+    'sanitize_callback' => 'sanitize_text_field',
+));
+
+$wp_customize->add_control(new Viral_Typography_Control($wp_customize, 'viral_header_typo', array(
+    'label' => esc_html__('Header Typography', 'viral'),
+    'description' => __('Select how you want your Header to appear.', 'viral'),
+    'section' => 'viral_header_typography_section',
+    'settings' => array(
+        'family' => 'viral_header_typography',
+        'style' => 'viral_header_style',
+        'text_decoration' => 'viral_header_text_decoration',
+        'text_transform' => 'viral_header_text_transform',
+        'line_height' => 'viral_header_line_height',
+        'letter_spacing' => 'viral_header_letter_spacing'
+    ),
+    'input_attrs' => array(
+        'min' => 10,
+        'max' => 100,
+        'step' => 1
+    )
+)));
+
+
+// Add Menu typography section.
+$wp_customize->add_section('viral_menu_typography_section', array(
+    'panel' => 'viral_typography_panel',
+    'title' => esc_html__('Menu', 'viral')
+));
+
+// Add Menu typography section.
+$wp_customize->add_setting('viral_menu_typography', array(
+    'default' => 'Roboto',
+    'sanitize_callback' => 'sanitize_text_field',
+));
+
+$wp_customize->add_setting('viral_menu_style', array(
+    'default' => '400',
+    'sanitize_callback' => 'sanitize_text_field',
+));
+
+$wp_customize->add_setting('viral_menu_text_decoration', array(
+    'default' => 'none',
+    'sanitize_callback' => 'sanitize_text_field',
+));
+
+$wp_customize->add_setting('viral_menu_text_transform', array(
+    'default' => 'uppercase',
+    'sanitize_callback' => 'sanitize_text_field',
+));
+
+$wp_customize->add_setting('viral_menu_size', array(
+    'default' => '15',
+    'sanitize_callback' => 'absint',
+));
+
+$wp_customize->add_setting('viral_menu_letter_spacing', array(
+    'default' => '0',
+    'sanitize_callback' => 'sanitize_text_field',
+));
+
+$wp_customize->add_control(new Viral_Typography_Control($wp_customize, 'viral_menu_typo', array(
+    'label' => esc_html__('Menu Typography', 'viral'),
+    'description' => __('Select how you want your menu to appear.', 'viral'),
+    'section' => 'viral_menu_typography_section',
+    'settings' => array(
+        'family' => 'viral_menu_typography',
+        'style' => 'viral_menu_style',
+        'text_decoration' => 'viral_menu_text_decoration',
+        'text_transform' => 'viral_menu_text_transform',
+        'size' => 'viral_menu_size',
+        'letter_spacing' => 'viral_menu_letter_spacing'
+    ),
+    'input_attrs' => array(
+        'min' => 10,
+        'max' => 100,
+        'step' => 1
+    )
+)));
 
 $wp_customize->add_setting('viral_typography_upgrade_text', array(
     'sanitize_callback' => 'viral_sanitize_text'
@@ -256,7 +400,6 @@ $wp_customize->add_setting('viral_left_header_menu', array(
 $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_left_header_menu', array(
     'settings' => 'viral_left_header_menu',
     'section' => 'viral_top_header_settings_sec',
-    'label' => esc_html__('Top Header Menu', 'viral'),
     'description' => esc_html__('To add the Menu, Go to Appearance -> Menu and save it as Top Menu', 'viral')
 )));
 

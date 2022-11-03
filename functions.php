@@ -177,22 +177,42 @@ if (!function_exists('viral_fonts_url')) :
      */
     function viral_fonts_url() {
         $fonts_url = '';
-        $fonts = array();
         $subsets = 'latin,latin-ext';
+        $fonts = $standard_font_family = $default_font_list = $font_family_array = $variants_array = $font_array = $google_fonts = array();
 
-        $viral_header_typography = get_theme_mod('viral_header_typography', 'Roboto Condensed');
-        $viral_body_typography = get_theme_mod('viral_body_typography', 'Roboto');
-        $standard_fonts = array('Arial', 'Georgia');
+        $customizer_fonts = apply_filters('viral_customizer_fonts', array(
+            'viral_header_typography' => 'Roboto Condensed',
+            'viral_body_typography' => 'Roboto',
+            'viral_menu_typography' => 'Roboto Condensed'
+        ));
 
-        if (!in_array($viral_header_typography, $standard_fonts)) {
-            $fonts[] = $viral_header_typography . ':400,400i,700';
+        $standard_font = viral_standard_font_array();
+        $google_font_list = viral_google_font_array();
+        $default_font_list = viral_default_font_array();
+
+        foreach ($standard_font as $key => $value) {
+            $standard_font_family[] = $value['family'];
         }
 
-        if (!in_array($viral_body_typography, $standard_fonts)) {
-            $fonts[] = $viral_body_typography . ':400,400i,700';
+        foreach ($default_font_list as $key => $value) {
+            $default_font_family[] = $value['family'];
         }
 
-        $fonts = array_unique($fonts);
+        foreach ($customizer_fonts as $key => $value) {
+            $font_family_array[] = get_theme_mod($key, $value);
+        }
+
+        $font_family_array = array_unique($font_family_array);
+        $font_family_array = array_diff($font_family_array, array_merge($standard_font_family, $default_font_family));
+
+        foreach ($font_family_array as $font_family) {
+            $font_array = viral_search_key($google_font_list, 'family', $font_family);
+            $variants_array = $font_array['0']['variants'];
+            $variants_keys = array_keys($variants_array);
+            $variants = implode(',', $variants_keys);
+
+            $fonts[] = $font_family . ':' . str_replace('italic', 'i', $variants);
+        }
 
         /*
          * Translators: To add an additional character subset specific to your language,

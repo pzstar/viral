@@ -112,7 +112,7 @@ function viral_sidebar_layout_save_meta_box($post_id) {
         update_post_meta($post_id, 'viral_sidebar_layout', $viral_data);
     }
 
-    $viral_data = isset($_POST['viral_hide_title']) ? true: false;
+    $viral_data = isset($_POST['viral_hide_title']) ? true : false;
     update_post_meta($post_id, 'viral_hide_title', $viral_data);
 }
 

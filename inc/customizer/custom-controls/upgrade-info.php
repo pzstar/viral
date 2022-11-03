@@ -6,18 +6,20 @@ class Viral_Upgrade_Info_Control extends WP_Customize_Control {
     public $type = 'ht--upgrade-info';
 
     public function render_content() {
-        ?>
-        <label>
-            <span class="dashicons dashicons-info"></span>
+        if ($this->label) {
+            ?>
+            <label>
+                <span class="dashicons dashicons-info"></span>
 
-            <?php if ($this->label) { ?>
+
                 <span>
                     <?php echo wp_kses_post($this->label); ?>
                 </span>
-            <?php } ?>
 
-            <a href="<?php echo esc_url('https://hashthemes.com/wordpress-theme/total/?utm_source=wordpress&utm_medium=hash-themes-link&utm_campaign=hash-themes-upgrade'); ?>" target="_blank"> <strong><?php echo esc_html__('Upgrade to PRO', 'viral'); ?></strong></a>
-        </label>
+
+                <a href="<?php echo esc_url('https://hashthemes.com/wordpress-theme/total/?utm_source=wordpress&utm_medium=hash-themes-link&utm_campaign=hash-themes-upgrade'); ?>" target="_blank"> <strong><?php echo esc_html__('Upgrade to PRO', 'viral'); ?></strong></a>
+            </label>
+        <?php } ?>
 
         <?php if ($this->description) { ?>
             <span class="description customize-control-description">
