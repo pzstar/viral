@@ -50,4 +50,22 @@ jQuery(document).ready(function ($) {
             viralDynamicCss('background_color', css);
         });
     });
+    // Site title and description.
+    wp.customize('blogname', function (value) {
+        value.bind(function (to) {
+            $('.vm-site-title a').text(to);
+        });
+    });
+
+    wp.customize('blogdescription', function (value) {
+        value.bind(function (to) {
+            $('.vm-site-description').text(to);
+        });
+    });
+
+    wp.customize('viral_mag_tagline_position', function (value) {
+        value.bind(function (to) {
+            $(' #vm-masthead').removeClass('vm-tagline-inline-logo vm-tagline-below-logo').addClass(to);
+        });
+    });
 });
