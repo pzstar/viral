@@ -77,13 +77,27 @@ $wp_customize->add_panel('viral_general_settings_panel', array(
 
 $wp_customize->get_section('static_front_page')->priority = 1;
 $wp_customize->get_section('title_tagline')->panel = 'viral_header_setting_panel';
-$wp_customize->get_section('title_tagline')->title = esc_html__('Site Logo, Title and Tagline', 'viral');
+$wp_customize->get_section('title_tagline')->title = esc_html__('Logo & Favicon', 'viral');
 $wp_customize->get_control('header_text')->label = esc_html__('Display Site Title and Tagline(Only Displays if Logo is Removed)', 'viral');
 $wp_customize->get_section('colors')->title = esc_html__('Color Settings', 'viral');
 $wp_customize->get_section('colors')->priority = 15;
-$wp_customize->get_section('background_image')->panel = 'viral_general_settings_panel';
-$wp_customize->get_section('background_image')->title = esc_html__('Background', 'viral');
-$wp_customize->get_control('background_color')->section = 'background_image';
+
+//MOVE BACKGROUND AND COLOR SETTING INTO GENERAL SETTING PANEL
+$wp_customize->get_control('background_color')->section = 'viral_website_layout_sec';
+$wp_customize->get_control('background_image')->section = 'viral_website_layout_sec';
+$wp_customize->get_control('background_preset')->section = 'viral_website_layout_sec';
+$wp_customize->get_control('background_position')->section = 'viral_website_layout_sec';
+$wp_customize->get_control('background_size')->section = 'viral_website_layout_sec';
+$wp_customize->get_control('background_repeat')->section = 'viral_website_layout_sec';
+$wp_customize->get_control('background_attachment')->section = 'viral_website_layout_sec';
+
+$wp_customize->get_control('background_color')->priority = 20;
+$wp_customize->get_control('background_image')->priority = 20;
+$wp_customize->get_control('background_preset')->priority = 20;
+$wp_customize->get_control('background_position')->priority = 20;
+$wp_customize->get_control('background_size')->priority = 20;
+$wp_customize->get_control('background_repeat')->priority = 20;
+$wp_customize->get_control('background_attachment')->priority = 20;
 
 $wp_customize->add_section('viral_website_layout_sec', array(
     'title' => esc_html__('Website Layout', 'viral'),
@@ -105,6 +119,33 @@ $wp_customize->add_control('viral_website_layout', array(
         'boxed' => esc_html__('Boxed', 'viral'),
 )));
 
+$wp_customize->add_setting('viral_background_heading', array(
+    'sanitize_callback' => 'viral_sanitize_text',
+));
+
+$wp_customize->add_control(new Viral_Heading_Control($wp_customize, 'viral_background_heading', array(
+    'section' => 'viral_website_layout_sec',
+    'label' => esc_html__('Background', 'viral'),
+)));
+
+$wp_customize->add_setting('viral_web_layout_upgrade_text', array(
+    'sanitize_callback' => 'viral_sanitize_text'
+));
+
+$wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_web_layout_upgrade_text', array(
+    'section' => 'viral_website_layout_sec',
+    'label' => esc_html__('For more options,', 'viral'),
+    'choices' => array(
+        esc_html__('Fuild Layout', 'viral'),
+        esc_html__('Set custom container & sidebar width', 'viral'),
+        esc_html__('16+ animated preloaders', 'viral'),
+        esc_html__('Admin page custom logo', 'viral'),
+        esc_html__('Show/Hide Back to Top button with advanced settings', 'viral')
+    ),
+    'priority' => 100,
+    'active_callback' => 'viral_is_upgrade_notice_active'
+)));
+
 /* GOOGLE FONT SECTION */
 $wp_customize->add_section('viral_google_font_section', array(
     'title' => esc_html__('Google Fonts', 'viral'),
@@ -121,6 +162,23 @@ $wp_customize->add_control(new Viral_Toggle_Control($wp_customize, 'viral_load_g
     'section' => 'viral_google_font_section',
     'label' => esc_html__('Load Google Fonts Locally', 'viral'),
     'description' => esc_html__('It is required to load the Google Fonts locally in order to comply with GDPR. However, if your website is not required to comply with GDPR then you can check this field off. Loading the Fonts locally with lots of different Google fonts can decrease the speed of the website slightly.', 'viral'),
+)));
+
+$wp_customize->add_setting('viral_title_tagline_upgrade_text', array(
+    'sanitize_callback' => 'viral_sanitize_text'
+));
+
+$wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_title_tagline_upgrade_text', array(
+    'section' => 'title_tagline',
+    'label' => esc_html__('For more options,', 'viral'),
+    'choices' => array(
+        esc_html__('Show/Hide title & tagline seperately', 'viral'),
+        esc_html__('Set title/tagline position', 'viral'),
+        esc_html__('Set logo height and top/bottom spacing', 'viral'),
+        esc_html__('Set title & tagline typography individually', 'viral'),
+    ),
+    'priority' => 100,
+    'active_callback' => 'viral_is_upgrade_notice_active'
 )));
 
 /* ============COLOR SETTING============ */
@@ -142,6 +200,11 @@ $wp_customize->add_setting('viral_color_upgrade_text', array(
 $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_color_upgrade_text', array(
     'section' => 'colors',
     'label' => esc_html__('For more color settings,', 'viral'),
+    'choices' => array(
+        esc_html__('Content text color', 'viral'),
+        esc_html__('Content link & link hover color', 'viral'),
+        esc_html__('Category tags color for front page blocks', 'viral'),
+    ),
     'priority' => 100,
     'active_callback' => 'viral_is_upgrade_notice_active'
 )));
@@ -482,6 +545,12 @@ $wp_customize->add_setting('viral_top_header_upgrade_text', array(
 $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_top_header_upgrade_text', array(
     'section' => 'viral_top_header_settings_sec',
     'label' => esc_html__('For more options,', 'viral'),
+    'choices' => array(
+        esc_html__('Set custom content for left & right header', 'viral'),
+        esc_html__('Custom content includes Social Icons, Menu, Widget, Html Text, Date & Time, News Ticker', 'viral'),
+        esc_html__('Set header height, custom background, border and text colors', 'viral'),
+        esc_html__('Unlimited social medias with custom icon selection', 'viral')
+    ),
     'priority' => 100,
     'active_callback' => 'viral_is_upgrade_notice_active'
 )));
@@ -528,7 +597,11 @@ $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_
         esc_html__('Search button', 'viral'),
         esc_html__('OffCanvas menu', 'viral'),
         esc_html__('Header color options', 'viral'),
-        esc_html__('10 Menu hover styles', 'viral')
+        esc_html__('10 Menu hover styles', 'viral'),
+        esc_html__('Menu color options', 'viral'),
+        esc_html__('Differently designed call to action button at the end of the menu', 'viral'),
+        esc_html__('Enable/Disable header breadcrumb', 'viral'),
+        esc_html__('Page title custom typography', 'viral'),
     ),
     'priority' => 100,
     'active_callback' => 'viral_is_upgrade_notice_active'
@@ -636,6 +709,18 @@ $wp_customize->add_setting('viral_top_section_upgrade_text', array(
 $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_top_section_upgrade_text', array(
     'section' => 'viral_frontpage_top_sec',
     'label' => esc_html__('For more block layouts and settings,', 'viral'),
+    'choices' => array(
+        esc_html__('30+ more block styles', 'viral'),
+        esc_html__('Show/Hide category, author and date', 'viral'),
+        esc_html__('Display Advertisement(image/Google ads) above and below the section', 'viral'),
+        esc_html__('Add color, image, gradient or video background for the section', 'viral'),
+        esc_html__('Set top and bottom margin & padding', 'viral'),
+        esc_html__('Set top and bottom SVG seperators', 'viral'),
+        esc_html__('12 heading styles with custom colors', 'viral'),
+        esc_html__('Lazy load for image', 'viral'),
+        esc_html__('10 image hover styles', 'viral'),
+        esc_html__('Set typography for heading and post titles', 'viral'),
+    ),
     'priority' => 100,
     'active_callback' => 'viral_is_upgrade_notice_active'
 )));
@@ -707,8 +792,36 @@ $wp_customize->add_setting('viral_middle_left_section_upgrade_text', array(
 $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_middle_left_section_upgrade_text', array(
     'section' => 'viral_frontpage_middle_left_sec',
     'label' => esc_html__('For more block layouts and settings,', 'viral'),
+    'choices' => array(
+        esc_html__('30+ more block styles', 'viral'),
+        esc_html__('Show/Hide category, author and date', 'viral'),
+        esc_html__('Display Advertisement(image/Google ads) above and below the section', 'viral'),
+        esc_html__('Add color, image, gradient or video background for the section', 'viral'),
+        esc_html__('Set top and bottom margin & padding', 'viral'),
+        esc_html__('Set top and bottom SVG seperators', 'viral'),
+        esc_html__('12 heading styles with custom colors', 'viral'),
+        esc_html__('Lazy load for image', 'viral'),
+        esc_html__('10 image hover styles', 'viral'),
+        esc_html__('Set typography for heading and post titles', 'viral'),
+    ),
     'priority' => 100,
     'active_callback' => 'viral_is_upgrade_notice_active'
+)));
+
+$wp_customize->add_section('viral_frontpage_middle_right_sec', array(
+    'title' => esc_html__('Home Middle Section - Right Sidebar', 'viral'),
+    'panel' => 'viral_front_page_panel',
+    'priority' => 20
+));
+
+$wp_customize->add_setting('viral_frontpage_middle_right_sec_text', array(
+    'sanitize_callback' => 'viral_news_sanitize_text'
+));
+
+$wp_customize->add_control(new Viral_Text_Info_Control($wp_customize, 'viral_frontpage_middle_right_sec_text', array(
+    'section' => 'viral_frontpage_middle_right_sec',
+    'label' => esc_html__('Note', 'viral'),
+    'description' => sprintf(esc_html__('For the right sidebar, add the widgets in the "Home Middle Section - Right Sidebar" in the %s page.', 'viral'), '<a href="' . admin_url('/widgets.php') . '" target="_blank">widget</a>'),
 )));
 
 /* ============FRONT PAGE BOTTOM SECTION============ */
@@ -786,6 +899,18 @@ $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_
     'section' => 'viral_frontpage_bottom_sec',
     'label' => esc_html__('For more block layouts and settings,', 'viral'),
     'priority' => 100,
+    'choices' => array(
+        esc_html__('30+ more block styles', 'viral'),
+        esc_html__('Show/Hide category, author and date', 'viral'),
+        esc_html__('Display Advertisement(image/Google ads) above and below the section', 'viral'),
+        esc_html__('Add color, image, gradient or video background for the section', 'viral'),
+        esc_html__('Set top and bottom margin & padding', 'viral'),
+        esc_html__('Set top and bottom SVG seperators', 'viral'),
+        esc_html__('12 heading styles with custom colors', 'viral'),
+        esc_html__('Lazy load for image', 'viral'),
+        esc_html__('10 image hover styles', 'viral'),
+        esc_html__('Set typography for heading and post titles', 'viral'),
+    ),
     'active_callback' => 'viral_is_upgrade_notice_active'
 )));
 
