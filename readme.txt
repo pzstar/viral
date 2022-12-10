@@ -1,15 +1,13 @@
-admin   === Viral ===
-Viral WordPress Theme, Copyright HashThemes 2022
-Viral is distributed under the terms of the GNU GPL (http://www.gnu.org/licenses/gpl-2.0.html)
-
-Contributors: HashThemes
-Tags: blog, entertainment, news, two-columns, left-sidebar, right-sidebar, custom-background, custom-header, custom-logo, custom-menu, featured-image-header, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
-
+=== Viral ===
+Contributors: hashthemes
 Requires at least: 5.6
 Tested up to: 6.1
-Stable tag: 1.8.15
+Stable tag: 1.8.17
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Viral WordPress Theme, Copyright HashThemes 2022
+Viral is distributed under the terms of the GNU GPL (http://www.gnu.org/licenses/gpl-2.0.html)
 
 == Description ==
 Viral is a responsive magazine WordPress theme specially designed for magazine, newspaper, news portals, publishing, personal blogs, professional blogs, corporate blogs, and editorial style websites. The theme has repeatable drag and drop section that allows adding as many sections as you want with various beautifully designed layouts suitable for magazine, newspaper. The theme consists of 3 unique banner layout to highlight your featured content, 6 unique category section layout, news ticker, promotional headline. There are five different built-in widgets in the theme that can be used in the sidebar and footers. Moreover, the theme is built in the customizer that enables you to set up your website with live preview.
@@ -21,6 +19,10 @@ Viral is a responsive magazine WordPress theme specially designed for magazine, 
 
 
 == Changelog ==
+= 1.8.17 - Dec 11, 2022 =
+* Google fonts for typography - Updated
+* Black Friday discout offer - Removed
+
 = 1.8.16 - Dec 7, 2022 =
 * Customizer panel refinement
 * Custom icon added for Viral Settings in menu
