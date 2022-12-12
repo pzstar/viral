@@ -25,15 +25,15 @@ function viral_default_font_array() {
         'Default' => array(
             'family' => 'Default',
             'variants' => array(
-                'Default' => esc_html__('Default', 'viral'),
-                '100' => esc_html__('Thin', 'viral'),
-                '300' => esc_html__('Light', 'viral'),
-                '400' => esc_html__('Normal', 'viral'),
-                '400italic' => esc_html__('Normal Italic', 'viral'),
-                '500' => esc_html__('Medium', 'viral'),
-                '600' => esc_html__('Semi Bold', 'viral'),
-                '700' => esc_html__('Bold', 'viral'),
-                '700italic' => esc_html__('Bold Italic', 'viral')
+                'Default' => 'Default',
+                '100' => 'Thin',
+                '300' => 'Light',
+                '400' => 'Normal',
+                '400italic' => 'Normal Italic',
+                '500' => 'Medium',
+                '600' => 'Semi Bold',
+                '700' => 'Bold',
+                '700italic' => 'Bold Italic'
             ),
             'subsets' => array(
                 'latin' => 'Latin'
