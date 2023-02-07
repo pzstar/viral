@@ -24,7 +24,6 @@ if (!class_exists('Viral_Register_Customizer_Controls')) {
         }
 
         public function enqueue_customize_preview_js() {
-            wp_enqueue_script('webfont', VIRAL_CUSTOMIZER_URL . 'custom-controls/typography/js/webfont.js', array('jquery'), VIRAL_VERSION, false);
             wp_enqueue_script('viral-customizer-preview', VIRAL_CUSTOMIZER_URL . 'customizer-panel/assets/customizer-preview.js', array('customize-preview'), VIRAL_VERSION, true);
         }
 
