@@ -128,6 +128,6 @@ if (!function_exists('viral_icon_choices')) {
 add_action('customize_controls_print_footer_scripts', 'viral_icon_choices');
 
 function viral_is_upgrade_notice_active() {
-    $show_upgrade_notice = get_theme_mod('viral_hide_upgrade_notice', false);
+    $show_upgrade_notice = apply_filters('viral_hide_upgrade_notice', get_theme_mod('viral_hide_upgrade_notice', false));
     return !$show_upgrade_notice;
 }

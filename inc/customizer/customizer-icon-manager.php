@@ -21,8 +21,8 @@ class Viral_Icon_Manager {
 
     public function icons() {
         $icons_args = array(
-            'hash-themes-mdi-icon' => array(
-                'name' => 'hash-themes-mdi-icon',
+            'viral-mdi-icon' => array(
+                'name' => 'viral-mdi-icon',
                 'label' => esc_html__('MaterialDesign', 'viral'),
                 'prefix' => 'mdi-',
                 'displayPrefix' => '',

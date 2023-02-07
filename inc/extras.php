@@ -329,6 +329,25 @@ function viral_typography_vars($keys) {
     return implode(';', $css);
 }
 
+if (!function_exists('viral_add_custom_fonts')) {
+
+    function viral_add_custom_fonts($fonts) {
+        if (class_exists('Hash_Custom_Font_Uploader_Public')) {
+            if (!empty(Hash_Custom_Font_Uploader_Public::get_all_fonts_list())) {
+                $new_fonts = array(
+                    'label' => esc_html__('Custom Fonts', 'viral'),
+                    'fonts' => Hash_Custom_Font_Uploader_Public::get_all_fonts_list()
+                );
+                array_unshift($fonts, $new_fonts);
+            }
+        }
+        return $fonts;
+    }
+
+}
+
+add_filter('viral_regsiter_fonts', 'viral_add_custom_fonts');
+
 function viral_premium_demo_config($demos) {
     $premium_demos = array(
         'magazine' => array(
