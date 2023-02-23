@@ -497,6 +497,14 @@ body.toplevel_page_viral-welcome #wpfooter a{
     font-size: 16px;
 }
 
+.viral-notice.notice .button .dashicons{
+    height: auto;
+    width: auto;
+    margin: 0 6px 0 0;
+    vertical-align: middle;
+    font-size: 16px;
+}
+
 .viral-notice a.notice-dismiss {
     text-decoration: none;
 }
@@ -542,7 +550,7 @@ body.toplevel_page_viral-welcome #wpfooter a{
     .plugin-title-wrap{
         padding: 16px 15px;
     }
-    
+
     .plugin-btn-wrapper{
         height: 58px;
     }

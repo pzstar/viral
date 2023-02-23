@@ -329,12 +329,12 @@ if (!class_exists('Viral_Welcome')) :
                         <?php
                         printf(
                                 /* translators: %1$s is link start tag, %2$s is link end tag. */
-                                esc_html__('Great to see that you have been using Viral for some time. We hope you love it, and we would really appreciate it if you would %1$sgive us a 5 stars rating%2$s.', 'viral'), '<a target="_blank" href="https://wordpress.org/support/theme/viral/reviews/?filter=5#new-post">', '</a>'
+                                esc_html__('Great to see that you have been using Viral for some time. We hope you love it, and we would really appreciate it if you would %1$sgive us a 5 stars rating%2$s and spread your words to the world.', 'viral'), '<a target="_blank" href="https://wordpress.org/support/theme/viral/reviews/?filter=5#new-post">', '</a>'
                         );
                         ?>
                     </p>
-                    <a target="_blank" class="button action" href="https://wordpress.org/support/theme/viral/reviews/?filter=5#new-post"><?php echo esc_html__('Yes, of course', 'viral') ?></a> &nbsp;
-                    <a class="button action" href="<?php echo esc_url(wp_nonce_url(add_query_arg('viral-hide-notice', 'review'), 'review', 'viral_notice_nonce')); ?>"><?php echo esc_html__('I have already rated', 'viral') ?></a>
+                    <a target="_blank" class="button action" href="https://wordpress.org/support/theme/viral/reviews/?filter=5#new-post"><span class="dashicons dashicons-thumbs-up"></span><?php echo esc_html__('Yes, of course', 'viral') ?></a> &nbsp;
+                    <a class="button action" href="<?php echo esc_url(wp_nonce_url(add_query_arg('viral-hide-notice', 'review'), 'review', 'viral_notice_nonce')); ?>"><span class="dashicons dashicons-yes"></span><?php echo esc_html__('I have already rated', 'viral') ?></a>
                 </div>
             </div>
             <?php
