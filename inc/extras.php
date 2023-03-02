@@ -167,22 +167,22 @@ if (!function_exists('viral_social_links')) {
         $instagram = get_theme_mod('viral_social_instagram', '#');
 
         if ($facebook)
-            echo '<a class="vl-facebook" href="' . esc_url($facebook) . '" target="_blank"><i class="mdi mdi-facebook"></i></a>';
+            echo '<a class="vl-facebook" href="' . esc_url($facebook) . '" target="_blank"><i class="mdi-facebook"></i></a>';
 
         if ($twitter)
-            echo '<a class="vl-twitter" href="' . esc_url($twitter) . '" target="_blank"><i class="mdi mdi-twitter"></i></a>';
+            echo '<a class="vl-twitter" href="' . esc_url($twitter) . '" target="_blank"><i class="mdi-twitter"></i></a>';
 
         if ($pinterest)
-            echo '<a class="vl-pinterest" href="' . esc_url($pinterest) . '" target="_blank"><i class="mdi mdi-pinterest"></i></a>';
+            echo '<a class="vl-pinterest" href="' . esc_url($pinterest) . '" target="_blank"><i class="mdi-pinterest"></i></a>';
 
         if ($youtube)
-            echo '<a class="vl-youtube" href="' . esc_url($youtube) . '" target="_blank"><i class="mdi mdi-youtube"></i></a>';
+            echo '<a class="vl-youtube" href="' . esc_url($youtube) . '" target="_blank"><i class="mdi-youtube"></i></a>';
 
         if ($linkedin)
-            echo '<a class="vl-linkedin" href="' . esc_url($linkedin) . '" target="_blank"><i class="mdi mdi-linkedin"></i></a>';
+            echo '<a class="vl-linkedin" href="' . esc_url($linkedin) . '" target="_blank"><i class="mdi-linkedin"></i></a>';
 
         if ($instagram)
-            echo '<a class="vl-instagram" href="' . esc_url($instagram) . '" target="_blank"><i class="mdi mdi-instagram"></i></a>';
+            echo '<a class="vl-instagram" href="' . esc_url($instagram) . '" target="_blank"><i class="mdi-instagram"></i></a>';
     }
 
 }
@@ -192,7 +192,7 @@ if (!function_exists('viral_show_date')) {
     function viral_show_date() {
         $viral_left_header_date = get_theme_mod('viral_left_header_date', true);
         if ($viral_left_header_date) {
-            echo '<span><i class="mdi mdi-clock-time-nine-outline"></i>';
+            echo '<span><i class="mdi-clock-time-nine-outline"></i>';
             echo date_i18n('l, F j', time());
             echo '</span>';
         }
@@ -206,7 +206,7 @@ if (!function_exists('viral_header_text')) {
         $viral_left_header_text = get_theme_mod('viral_left_header_text');
         if ($viral_left_header_text) {
             echo '<span>';
-            echo '<i class="mdi mdi-bookmark"></i>' . esc_html($viral_left_header_text);
+            echo '<i class="mdi-bookmark"></i>' . esc_html($viral_left_header_text);
             echo '</span>';
         }
     }

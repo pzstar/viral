@@ -58,7 +58,7 @@ if (!function_exists('viral_post_date')) {
                 esc_html_x('by %s', 'post author', 'viral'), '<span class="author vcard">' . esc_html(get_the_author()) . '</span>'
         );
 
-        echo '<div class="posted-on"><i class="mdi mdi-clock-time-three-outline"></i>' . $posted_on . '<span class="byline"> ' . $byline . '</span></div>'; // WPCS: XSS OK.
+        echo '<div class="posted-on"><i class="mdi-clock-time-three-outline"></i>' . $posted_on . '<span class="byline"> ' . $byline . '</span></div>'; // WPCS: XSS OK.
     }
 
 }
@@ -74,13 +74,13 @@ if (!function_exists('viral_entry_footer')) {
             /* translators: used between list items, there is a space after the comma */
             $categories_list = get_the_category_list(', ');
             if ($categories_list && viral_categorized_blog()) {
-                printf('<div class="cat-links"><i class="mdi mdi-book-open-outline"></i> ' . esc_html__('Posted in %1$s', 'viral') . '</div>', $categories_list); // WPCS: XSS OK.
+                printf('<div class="cat-links"><i class="mdi-book-open-outline"></i> ' . esc_html__('Posted in %1$s', 'viral') . '</div>', $categories_list); // WPCS: XSS OK.
             }
 
             /* translators: used between list items, there is a space after the comma */
             $tags_list = get_the_tag_list('', ', ');
             if ($tags_list) {
-                printf('<div class="tags-links"><i class="mdi mdi-tag-multiple-outline"></i> ' . esc_html__('Tagged %1$s', 'viral') . '</div>', $tags_list); // WPCS: XSS OK.
+                printf('<div class="tags-links"><i class="mdi-tag-multiple-outline"></i> ' . esc_html__('Tagged %1$s', 'viral') . '</div>', $tags_list); // WPCS: XSS OK.
             }
         }
 
@@ -104,7 +104,7 @@ if (!function_exists('viral_entry_category')) {
             /* translators: used between list items, there is a space after the comma */
             $categories_list = get_the_category_list(', ');
             if ($categories_list && viral_categorized_blog()) {
-                echo '<i class="mdi mdi-book-open-outline"></i> ' . $categories_list; // WPCS: XSS OK.
+                echo '<i class="mdi-book-open-outline"></i> ' . $categories_list; // WPCS: XSS OK.
             }
         }
     }
@@ -170,10 +170,10 @@ if (!function_exists('viral_social_share')) {
 
         $content = '<div class="vl-share-buttons">';
         $content .= '<span>' . esc_html__('SHARE', 'viral') . '</span>';
-        $content .= '<a title="' . esc_html__('Share on Facebook', 'viral') . '" href="' . $facebookURL . '" target="_blank"><i class="mdi mdi-facebook"></i></a>';
-        $content .= '<a title="' . esc_html__('Share on Twitter', 'viral') . '" href="' . $twitterURL . '" target="_blank"><i class="mdi mdi-twitter"></i></a>';
-        $content .= '<a title="' . esc_html__('Share on Pinterest', 'viral') . '" href="' . $pinterestURL . '" target="_blank"><i class="mdi mdi-pinterest"></i></a>';
-        $content .= '<a title="' . esc_html__('Email', 'viral') . '" href="' . $mailURL . '"><i class="mdi mdi-email"></i></a>';
+        $content .= '<a title="' . esc_html__('Share on Facebook', 'viral') . '" href="' . $facebookURL . '" target="_blank"><i class="mdi-facebook"></i></a>';
+        $content .= '<a title="' . esc_html__('Share on Twitter', 'viral') . '" href="' . $twitterURL . '" target="_blank"><i class="mdi-twitter"></i></a>';
+        $content .= '<a title="' . esc_html__('Share on Pinterest', 'viral') . '" href="' . $pinterestURL . '" target="_blank"><i class="mdi-pinterest"></i></a>';
+        $content .= '<a title="' . esc_html__('Email', 'viral') . '" href="' . $mailURL . '"><i class="mdi-email"></i></a>';
         $content .= '</div>';
 
         echo $content;

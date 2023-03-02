@@ -41,7 +41,7 @@
 </footer>
 </div>
 
-<div id="vl-back-top" class="vl-hide"><i class="mdi mdi-chevron-up"></i></div>
+<div id="vl-back-top" class="vl-hide"><i class="mdi-chevron-up"></i></div>
 
 <?php wp_footer(); ?>
 
