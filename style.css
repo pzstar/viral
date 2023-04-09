@@ -1762,28 +1762,24 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
     top: 5px;
 }
 
-.vl-ticker .owl-prev, 
-.vl-ticker .owl-next{
+.vl-ticker .owl-carousel .owl-nav .owl-prev, 
+.vl-ticker .owl-carousel .owl-nav .owl-next{
     height: 22px;
     width: 22px;
     background: var(--viral-template-color, #0078af);
     color: #FFF;
-    display: inline-block;
     text-align: center;
     font-size: 14px;
     margin-left: 4px;
-    line-height: 22px;
     padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.vl-ticker .owl-prev:hover, 
-.vl-ticker .owl-next:hover{
+.vl-ticker .owl-carousel .owl-nav .owl-prev:hover, 
+.vl-ticker .owl-carousel .owl-nav .owl-next:hover{
     background: #0E0E0E;
-}
-
-.vl-ticker .owl-prev i, 
-.vl-ticker .owl-next i{
-    line-height: 22px;
 }
 
 /* Top Section Blocks */
