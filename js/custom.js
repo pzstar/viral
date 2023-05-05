@@ -1,6 +1,7 @@
 jQuery(function ($) {
 
     $('.vl-ticker .owl-carousel').owlCarousel({
+        rtl: JSON.parse(viral_localize.is_rtl),
         margin: 10,
         loop: true,
         mouseDrag: false,

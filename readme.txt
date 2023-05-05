@@ -2,7 +2,7 @@
 Contributors: hashthemes
 Requires at least: 5.6
 Tested up to: 6.2
-Stable tag: 1.8.23
+Stable tag: 1.8.24
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -19,6 +19,9 @@ Viral is a responsive magazine WordPress theme specially designed for magazine, 
 
 
 == Changelog ==
+= 1.8.24 - May 5, 2023 =
+* RTL Ready - Updated
+
 = 1.8.23 - Apr 11, 2023 =
 * Minor CSS fixes
 * Active call back function added for Custom Font uploader
