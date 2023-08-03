@@ -17,7 +17,7 @@ if ($viral_sidebar_layout == "no-sidebar" || $viral_sidebar_layout == "no-sideba
 
 if (is_active_sidebar('viral-sidebar') && $viral_sidebar_layout == "right-sidebar") {
     ?>
-    <div id="secondary" class="widget-area">
+    <div id="secondary" class="widget-area" <?php echo viral_get_schema_attribute('sidebar'); ?>>
         <?php dynamic_sidebar('viral-sidebar'); ?>
     </div><!-- #secondary -->
     <?php
@@ -25,7 +25,7 @@ if (is_active_sidebar('viral-sidebar') && $viral_sidebar_layout == "right-sideba
 
 if (is_active_sidebar('viral-left-sidebar') && $viral_sidebar_layout == "left-sidebar") {
     ?>
-    <div id="secondary" class="widget-area">
+    <div id="secondary" class="widget-area" <?php echo viral_get_schema_attribute('sidebar'); ?>>
         <?php dynamic_sidebar('viral-left-sidebar'); ?>
     </div><!-- #secondary -->
     <?php

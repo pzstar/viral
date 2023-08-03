@@ -4,7 +4,7 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('vl-article-content'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('vl-article-content'); ?> <?php echo viral_get_schema_attribute('single'); ?>>
     <header class="entry-header">
         <?php viral_post_date(); ?>
     </header>

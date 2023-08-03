@@ -34,7 +34,7 @@ if (!function_exists('viral_posted_on')) {
         }
         $comment_link = '<a class="entry-comment" href="' . get_comments_link() . '">' . $comments . '</a>';
 
-        echo '<span class="entry-date published updated">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>' . $comment_link; // WPCS: XSS OK.
+        echo '<span class="entry-date published updated" ' . viral_get_schema_attribute('publish_date') . '>' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>' . $comment_link; // WPCS: XSS OK.
     }
 
 }
@@ -46,7 +46,7 @@ if (!function_exists('viral_post_date')) {
      * Prints HTML with meta information for the current post-date/time and author.
      */
     function viral_post_date() {
-        $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+        $time_string = '<time class="entry-date published updated" datetime="%1$s" ' . viral_get_schema_attribute('publish_date') . '>%2$s</time>';
         if (get_the_time('U') !== get_the_modified_time('U')) {
             $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
         }
@@ -275,5 +275,95 @@ function viral_amp_menu_toggle() {
 function viral_amp_menu_is_toggled() {
     if (viral_is_amp()) {
         echo "[class]=\"( primaryMenuExpanded ? 'vl-toggled-on' : '' )\"";
+    }
+}
+
+
+if(!function_exists('viral_get_schema_attribute')) {
+
+    function viral_get_schema_attribute($place) {
+        $schema_markup = get_theme_mod('viral_schema_markup', false);
+        if(!$schema_markup) {
+            return '';
+        }
+        $attrs = "";
+        switch($place) {
+            case 'single':
+                $itemscope = 'itemscope';
+                $itemtype = 'WebPage';
+                break;
+            case 'article':
+                $itemscope = 'itemscope';
+                $itemtype = 'Article';
+                break;
+            case 'blog':
+                $itemscope = 'itemscope';
+                $itemtype = 'Blog';
+                break;
+            case 'header':
+                $itemscope = '';
+                $itemtype = 'WPHeader';
+                break;
+            case 'logo':
+                $itemscope = 'itemscope';
+                $itemtype = 'Organization';
+                break;
+            case 'navigation':
+                $itemscope = '';
+                $itemtype = 'SiteNavigationElement';
+                break;
+            case 'breadcrumb':
+                $itemscope = '';
+                $itemtype = 'BreadcrumbList';
+                break;
+            case 'sidebar':
+                $itemscope = 'itemscope';
+                $itemtype = 'WPSideBar';
+                break;
+            case 'footer':
+                $itemscope = 'itemscope';
+                $itemtype = 'WPFooter';
+                break;
+            case 'author':
+                $itemprop = 'author';
+                $itemscope = '';
+                $itemtype = 'Person';
+                break;
+            case 'breadcrumb_list':
+                $itemscope = '';
+                $itemtype = 'BreadcrumbList';
+                break;
+            case 'breadcrumb_item':
+                $itemscope = '';
+                $itemprop = 'itemListElement';
+                $itemtype = 'ListItem';
+                break;
+            case 'author_name':
+                $itemprop = 'name';
+                break;
+            case 'author_link':
+                $itemprop = 'author';
+                break;
+            case 'author_url':
+                $itemprop = 'url';
+                break;
+            case 'publish_date':
+                $itemprop = 'datePublished';
+                break;
+            case 'modified_date':
+                $itemprop = 'dateModified';
+                break;
+            default:
+        }
+        if (isset($itemprop)) {
+            $attrs .= ' itemprop="' . $itemprop . '"';
+        }
+        if (isset($itemtype)) {
+            $attrs .= ' itemtype="https://schema.org/' . $itemtype . '"';
+        }
+        if (isset($itemscope)) {
+            $attrs .= ' itemscope="' . $itemscope . '"';
+        }
+        return apply_filters('viral_schema_' . $place . '_attributes', $attrs); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     }
 }

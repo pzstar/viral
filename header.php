@@ -23,7 +23,7 @@
         ?>
         <div id="vl-page">
             <a class="skip-link screen-reader-text" href="#sq-content"><?php esc_html_e('Skip to content', 'viral'); ?></a>
-            <header id="vl-masthead" class="vl-site-header <?php echo esc_attr($header_class); ?>">
+            <header id="vl-masthead" class="vl-site-header <?php echo esc_attr($header_class); ?>" <?php echo viral_get_schema_attribute('header'); ?>>
                 <div class="vl-top-header">
                     <div class="vl-container vl-clearfix">
                         <div class="vl-top-left-header">
@@ -59,7 +59,7 @@
                             $branding_class = '';
                         }
                         ?>
-                        <div id="vl-site-branding" class="<?php echo esc_attr($branding_class); ?>">
+                        <div id="vl-site-branding" class="<?php echo esc_attr($branding_class); ?>" <?php echo viral_get_schema_attribute('logo'); ?>>
                             <?php
                             if (function_exists('has_custom_logo') && has_custom_logo()) :
                                 the_custom_logo();
@@ -83,7 +83,7 @@
                 </div>
 
                 <?php if (viral_is_amp()) { ?>
-                    <nav id="vl-site-navigation" class="vl-main-navigation <?php echo esc_attr($navigation_class); ?>">
+                    <nav id="vl-site-navigation" class="vl-main-navigation <?php echo esc_attr($navigation_class); ?>" <?php echo viral_get_schema_attribute('navigation'); ?>>
                         <div class="vl-container">
                             <span class="vl-toggle-menu" aria-expanded="false" <?php viral_amp_menu_toggle(); ?>><span></span></span>
 
