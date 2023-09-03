@@ -170,7 +170,7 @@ if (!function_exists('viral_social_links')) {
             echo '<a class="vl-facebook" href="' . esc_url($facebook) . '" target="_blank"><i class="mdi-facebook"></i></a>';
 
         if ($twitter)
-            echo '<a class="vl-twitter" href="' . esc_url($twitter) . '" target="_blank"><i class="mdi-twitter"></i></a>';
+            echo '<a class="vl-twitter" href="' . esc_url($twitter) . '" target="_blank"><i class="ti-x-twitter"></i></a>';
 
         if ($pinterest)
             echo '<a class="vl-pinterest" href="' . esc_url($pinterest) . '" target="_blank"><i class="mdi-pinterest"></i></a>';

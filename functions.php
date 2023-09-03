@@ -242,6 +242,7 @@ function viral_scripts() {
     wp_enqueue_style('viral-style', get_stylesheet_uri(), array(), VIRAL_VERSION);
     wp_add_inline_style('viral-style', viral_dymanic_styles());
     wp_style_add_data('viral-style', 'rtl', 'replace');
+    wp_enqueue_style('twittericon', get_template_directory_uri() . '/css/twittericon.css', array(), VIRAL_VERSION);
     wp_enqueue_style('materialdesignicons', get_template_directory_uri() . '/css/materialdesignicons.css', array(), VIRAL_VERSION);
 
     if (viral_is_amp()) {

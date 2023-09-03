@@ -171,7 +171,7 @@ if (!function_exists('viral_social_share')) {
         $content = '<div class="vl-share-buttons">';
         $content .= '<span>' . esc_html__('SHARE', 'viral') . '</span>';
         $content .= '<a title="' . esc_html__('Share on Facebook', 'viral') . '" href="' . $facebookURL . '" target="_blank"><i class="mdi-facebook"></i></a>';
-        $content .= '<a title="' . esc_html__('Share on Twitter', 'viral') . '" href="' . $twitterURL . '" target="_blank"><i class="mdi-twitter"></i></a>';
+        $content .= '<a title="' . esc_html__('Share on Twitter', 'viral') . '" href="' . $twitterURL . '" target="_blank"><i class="ti-x-twitter"></i></a>';
         $content .= '<a title="' . esc_html__('Share on Pinterest', 'viral') . '" href="' . $pinterestURL . '" target="_blank"><i class="mdi-pinterest"></i></a>';
         $content .= '<a title="' . esc_html__('Email', 'viral') . '" href="' . $mailURL . '"><i class="mdi-email"></i></a>';
         $content .= '</div>';
