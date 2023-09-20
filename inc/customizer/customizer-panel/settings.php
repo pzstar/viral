@@ -1001,21 +1001,6 @@ $wp_customize->add_section('viral_single_post_sec', array(
     'priority' => 30
 ));
 
-$wp_customize->add_setting('viral_blog_display_date_option', array(
-    'default' => 'posted',
-    'sanitize_callback' => 'viral_sanitize_choices'
-));
-
-$wp_customize->add_control('viral_blog_display_date_option', array(
-    'section' => 'viral_single_post_sec',
-    'type' => 'radio',
-    'label' => esc_html__('Display Posted/Updated Date', 'viral'),
-    'choices' => array(
-        'posted' => esc_html__('Posted Date', 'viral'),
-        'updated' => esc_html__('Updated Date', 'viral')
-    )
-));
-
 $wp_customize->add_setting('viral_display_featured_image', array(
     'sanitize_callback' => 'viral_sanitize_checkbox'
 ));
@@ -1025,6 +1010,22 @@ $wp_customize->add_control(new Viral_Toggle_Control($wp_customize, 'viral_displa
     'label' => esc_html__('Display Featured Image', 'viral'),
     'description' => esc_html__('Displays Featured Image at the top of the post.', 'viral'),
 )));
+
+$wp_customize->add_setting('viral_blog_display_date_option', array(
+    'default' => 'posted',
+    'sanitize_callback' => 'viral_sanitize_choices'
+));
+
+$wp_customize->add_control('viral_blog_display_date_option', array(
+    'section' => 'viral_single_post_sec',
+    'type' => 'radio',
+    'label' => esc_html__('Display Posted/Updated Date', 'viral'),
+    'description' => esc_html__('Applies on Single and Archive Pages', 'viral'),
+    'choices' => array(
+        'posted' => esc_html__('Posted Date', 'viral'),
+        'updated' => esc_html__('Updated Date', 'viral')
+    )
+));
 
 $wp_customize->add_setting('viral_single_post_sec_upgrade_text', array(
     'sanitize_callback' => 'viral_sanitize_text'
