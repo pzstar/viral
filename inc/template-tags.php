@@ -13,9 +13,10 @@ if (!function_exists('viral_posted_on')) {
      * Prints HTML with meta information for the current post-date/time and author.
      */
     function viral_posted_on() {
+        $viral_is_updated_date = get_theme_mod('viral_blog_display_date_option', 'posted') == 'updated' ? true : false;
         $time_string = '<span class="vl-month">%1$s</span><span class="vl-day">%2$s</span><span class="vl-year">%3$s</span>';
 
-        $posted_on = sprintf($time_string, esc_attr(get_the_date('M')), esc_html(get_the_date('j')), esc_html(get_the_date('Y'))
+        $posted_on = sprintf($time_string, esc_attr($viral_is_updated_date ? get_the_modified_date('M') : get_the_date('M')), esc_html($viral_is_updated_date ? get_the_modified_date('j') : get_the_date('j')), esc_html($viral_is_updated_date ? get_the_modified_date('Y') : get_the_date('Y'))
         );
 
         $byline = sprintf(
@@ -46,19 +47,14 @@ if (!function_exists('viral_post_date')) {
      * Prints HTML with meta information for the current post-date/time and author.
      */
     function viral_post_date() {
-        $time_string = '<time class="entry-date published updated" datetime="%1$s" ' . viral_get_schema_attribute('publish_date') . '>%2$s</time>';
-        if (get_the_time('U') !== get_the_modified_time('U')) {
-            $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-        }
-
-        $posted_on = sprintf($time_string, esc_attr(get_the_date('c')), esc_html(get_the_date()), esc_attr(get_the_modified_date('c')), esc_html(get_the_modified_date())
-        );
+        $viral_is_updated_date = get_theme_mod('viral_blog_display_date_option', 'posted') == 'updated' ? true : false;
+        $time_string = '<time class="entry-date published updated" datetime="' . ($viral_is_updated_date ? get_the_modified_date('c') : get_the_date('c')) . '" ' . viral_get_schema_attribute('publish_date') . '>' . ($viral_is_updated_date ? get_the_modified_date() : get_the_date()) . '</time>';
 
         $byline = sprintf(
                 esc_html_x('by %s', 'post author', 'viral'), '<span class="author vcard">' . esc_html(get_the_author()) . '</span>'
         );
 
-        echo '<div class="posted-on"><i class="mdi-clock-time-three-outline"></i>' . $posted_on . '<span class="byline"> ' . $byline . '</span></div>'; // WPCS: XSS OK.
+        echo '<div class="posted-on"><i class="mdi-clock-time-three-outline"></i>' . $time_string . '<span class="byline"> ' . $byline . '</span></div>'; // WPCS: XSS OK.
     }
 
 }

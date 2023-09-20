@@ -870,7 +870,7 @@ $wp_customize->add_section('viral_frontpage_middle_right_sec', array(
 ));
 
 $wp_customize->add_setting('viral_frontpage_middle_right_sec_text', array(
-    'sanitize_callback' => 'viral_news_sanitize_text'
+    'sanitize_callback' => 'viral_sanitize_text'
 ));
 
 $wp_customize->add_control(new Viral_Text_Info_Control($wp_customize, 'viral_frontpage_middle_right_sec_text', array(
@@ -999,6 +999,21 @@ $wp_customize->add_section(new Viral_Upgrade_Section($wp_customize, 'viral-upgra
 $wp_customize->add_section('viral_single_post_sec', array(
     'title' => esc_html__('Single Post Settings', 'viral'),
     'priority' => 30
+));
+
+$wp_customize->add_setting('viral_blog_display_date_option', array(
+    'default' => 'posted',
+    'sanitize_callback' => 'viral_sanitize_choices'
+));
+
+$wp_customize->add_control('viral_blog_display_date_option', array(
+    'section' => 'viral_single_post_sec',
+    'type' => 'radio',
+    'label' => esc_html__('Display Posted/Updated Date', 'viral'),
+    'choices' => array(
+        'posted' => esc_html__('Posted Date', 'viral'),
+        'updated' => esc_html__('Updated Date', 'viral')
+    )
 ));
 
 $wp_customize->add_setting('viral_display_featured_image', array(
