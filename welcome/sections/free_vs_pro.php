@@ -39,8 +39,8 @@
     </tr>
     <tr>
         <td>
-            <span><?php esc_html_e('2) GDPR Compliance & Cookies Consent', 'square'); ?> - <a href="https://hashthemes.com/articles/configuring-gdpr-settings/" target="_blank"><?php esc_html_e('Detail', 'viral'); ?></a></span>
-            <p><?php esc_html_e('The Premium version is fully GDPR compliance. Means no data is collected if you use the theme alone. Also the premium version has option to add GDPR Compliance & Cookies Consent text with buttons.', 'square'); ?></p>
+            <span><?php esc_html_e('2) GDPR Compliance & Cookies Consent', 'viral'); ?> - <a href="https://hashthemes.com/articles/configuring-gdpr-settings/" target="_blank"><?php esc_html_e('Detail', 'viral'); ?></a></span>
+            <p><?php esc_html_e('The Premium version is fully GDPR compliance. Means no data is collected if you use the theme alone. Also the premium version has option to add GDPR Compliance & Cookies Consent text with buttons.', 'viral'); ?></p>
         </td>
         <td><img src="<?php echo esc_url(get_template_directory_uri() . '/welcome/css/no.png'); ?>" alt="No"></td>
         <td><img src="<?php echo esc_url(get_template_directory_uri() . '/welcome/css/yes.png'); ?>" alt="Yes"></td>
@@ -55,8 +55,8 @@
     </tr>
     <tr>
         <td>
-            <span><?php esc_html_e('4) Elementor Compatible', 'square'); ?></span>
-            <p><?php esc_html_e('Fan of Pagebuilder? No problem, with premium version you can create your website with Elementor. Elementor provides you with unlimited possibilities to create the website of your imagination.', 'square'); ?></p>
+            <span><?php esc_html_e('4) Elementor Compatible', 'viral'); ?></span>
+            <p><?php esc_html_e('Fan of Pagebuilder? No problem, with premium version you can create your website with Elementor. Elementor provides you with unlimited possibilities to create the website of your imagination.', 'viral'); ?></p>
         </td>
         <td><?php esc_html_e('Basic', 'viral'); ?></td>
         <td><?php esc_html_e('Advanced', 'viral'); ?></td>
@@ -260,7 +260,7 @@
             <p><?php esc_html_e('Want to monetize your content? Adding image banner ads or Adsense Code is easy with Viral Pro. There are numerous spots where you can display your ads easily using widgets.', 'viral'); ?></td>
         <td><?php esc_html_e('Basic', 'viral'); ?></td>
         <td><?php esc_html_e('Advanced', 'viral'); ?></td>
-    </tr>x
+    </tr>
     <tr>
         <td>
             <span><?php esc_html_e('31) Author Box, Social Share, and Related Post in the Single Post', 'viral'); ?></span>
