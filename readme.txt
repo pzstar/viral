@@ -6,7 +6,7 @@ Stable tag: 1.8.37
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Viral WordPress Theme, Copyright HashThemes 2023
+Viral WordPress Theme, Copyright HashThemes 2024
 Viral is distributed under the terms of the GNU GPL (http://www.gnu.org/licenses/gpl-2.0.html)
 
 == Description ==
