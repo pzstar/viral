@@ -58,7 +58,13 @@ if (!class_exists('Viral_Welcome')) :
                     'slug' => 'smart-blocks',
                     'filename' => 'smart-blocks',
                     'thumb_path' => 'https://ps.w.org/smart-blocks/assets/icon-256x256.png'
-                )
+                ),
+                'internal-linking-of-related-contents' => array(
+                    'name' => 'Internal Linking of Related Contents',
+                    'slug' => 'internal-linking-of-related-contents',
+                    'filename' => 'internal-linking-of-related-contents',
+                    'thumb_path' => 'https://ps.w.org/internal-linking-of-related-contents/assets/icon-256x256.png'
+                ),
             );
 
             /* Create a Welcome Page */
@@ -179,13 +185,14 @@ if (!class_exists('Viral_Welcome')) :
                     'error' => esc_html__('Error! Reload the page and try again.', 'viral'),
                     'ajax_nonce' => wp_create_nonce('viral_activate_hdi_plugin')
                 );
-                if (is_rtl()) {
-                    wp_enqueue_style('viral-welcome', get_template_directory_uri() . '/welcome/css/welcome.rtl.css', array(), VIRAL_VERSION);
-                } else {
-                    wp_enqueue_style('viral-welcome', get_template_directory_uri() . '/welcome/css/welcome.css', array(), VIRAL_VERSION);
-                }
                 wp_enqueue_script('viral-welcome', get_template_directory_uri() . '/welcome/js/welcome.js', array('plugin-install', 'updates'), VIRAL_VERSION, true);
                 wp_localize_script('viral-welcome', 'importer_params', $importer_params);
+            }
+
+            if (is_rtl()) {
+                wp_enqueue_style('viral-welcome', get_template_directory_uri() . '/welcome/css/welcome.rtl.css', array(), VIRAL_VERSION);
+            } else {
+                wp_enqueue_style('viral-welcome', get_template_directory_uri() . '/welcome/css/welcome.css', array(), VIRAL_VERSION);
             }
         }
 
