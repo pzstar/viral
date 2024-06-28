@@ -645,7 +645,6 @@ a:active {
 }
 
 .widget-title{
-    font-weight: 700;
     border-left: 6px solid var(--viral-template-color, #0078af);
     padding-left: 10px;
     line-height: 1;
@@ -1112,7 +1111,6 @@ body.vl-boxed .entry-figure + .entry-header{
 
 h3#reply-title,
 h3.comments-title{
-    font-weight: 700;
     border-left: 6px solid var(--viral-template-color, #0078af);
     padding-left: 10px;
     line-height: 1;
@@ -2046,6 +2044,10 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
     object-position: center
 }
 
+body .he-block-title {
+    font-weight: var(--viral-header-weight, 700);
+}
+
 .vl-block-title{
     position: relative;
     display: flex;
@@ -2053,7 +2055,7 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
     text-transform: uppercase;
     border-left: 10px solid var(--viral-template-color, #0078af);
     margin-bottom: 30px;
-    font-weight: bold;
+    font-weight: var(--viral-header-weight, 700);
     line-height: 1;
 }
 
@@ -2656,13 +2658,13 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
         width: 100%;
         padding: 0 30px;
     }
-    
+
     .e-con.e-parent>.e-con-inner{
         width: 100% !important;
         padding-left: 30px !important;
         padding-right: 30px !important;
     }
-    
+
     #vl-site-navigation:not(.vl-full-width-navigation){
         width: auto;
         margin: 0 30px;
