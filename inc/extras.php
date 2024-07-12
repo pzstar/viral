@@ -350,6 +350,20 @@ add_filter('viral_regsiter_fonts', 'viral_add_custom_fonts');
 
 function viral_premium_demo_config($demos) {
     $premium_demos = array(
+        'newspaper' => array(
+            'name' => 'Viral Pro - NewsPaper',
+            'type' => 'pro',
+            'buy_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/',
+            'image' => 'https://hashthemes.com/import-files/viral-pro/screen/newspaper.jpg',
+            'preview_url' => 'https://demo.hashthemes.com/viral-pro/newspaper/',
+            'tags' => array(
+                'premium' => 'Premium'
+            ),
+            'pagebuilder' => array(
+                'customizer' => 'Customizer',
+                'elementor' => 'Elementor'
+            )
+        ),
         'magazine' => array(
             'name' => 'Viral Pro - Magazine',
             'type' => 'pro',
