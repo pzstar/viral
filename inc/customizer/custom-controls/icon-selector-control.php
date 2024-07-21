@@ -23,16 +23,14 @@ class Viral_Icon_Selector_Control extends WP_Customize_Control {
     }
 
     public function wp_parse_args($icon_array) {
-        return wp_parse_args(
-            $icon_array,
-            array(
-                'name' => '',
-                'label' => '',
-                'prefix' => '',
-                'displayPrefix' => '',
-                'url' => '',
-                'icons' => array()
-            )
+        return wp_parse_args($icon_array, array(
+            'name' => '',
+            'label' => '',
+            'prefix' => '',
+            'displayPrefix' => '',
+            'url' => '',
+            'icons' => array()
+        )
         );
     }
 

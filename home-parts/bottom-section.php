@@ -13,8 +13,7 @@ $viral_frontpage_bottom_blocks = get_theme_mod('viral_frontpage_bottom_blocks', 
             'enable' => 'on'
         )
     )
-)
-);
+));
 
 if ($viral_frontpage_bottom_blocks) {
     $viral_frontpage_bottom_blocks = json_decode($viral_frontpage_bottom_blocks);

@@ -12,8 +12,7 @@ $viral_frontpage_middle_blocks = get_theme_mod('viral_frontpage_middle_blocks', 
             'enable' => 'on'
         )
     )
-)
-);
+));
 
 if ($viral_frontpage_middle_blocks) {
     $viral_frontpage_middle_blocks = json_decode($viral_frontpage_middle_blocks);

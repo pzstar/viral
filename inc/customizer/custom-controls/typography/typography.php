@@ -144,22 +144,20 @@ function viral_standard_fonts() {
 }
 
 function viral_register_fonts() {
-    return apply_filters(
-        'viral_regsiter_fonts',
+    return apply_filters('viral_regsiter_fonts', array(
         array(
-            array(
-                'label' => esc_html__('Default', 'viral'),
-                'fonts' => viral_default_fonts()
-            ),
-            array(
-                'label' => esc_html__('Standard Fonts', 'viral'),
-                'fonts' => viral_standard_fonts()
-            ),
-            array(
-                'label' => esc_html__('Google Fonts', 'viral'),
-                'fonts' => viral_google_fonts()
-            )
+            'label' => esc_html__('Default', 'viral'),
+            'fonts' => viral_default_fonts()
+        ),
+        array(
+            'label' => esc_html__('Standard Fonts', 'viral'),
+            'fonts' => viral_standard_fonts()
+        ),
+        array(
+            'label' => esc_html__('Google Fonts', 'viral'),
+            'fonts' => viral_google_fonts()
         )
+    )
     );
 }
 

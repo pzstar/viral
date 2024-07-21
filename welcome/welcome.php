@@ -212,14 +212,11 @@ if (!class_exists('Viral_Welcome')):
         public function plugin_generate_url($status, $slug, $file_name) {
             switch ($status) {
                 case 'install':
-                    return wp_nonce_url(
-                        add_query_arg(
-                            array(
-                                'action' => 'install-plugin',
-                                'plugin' => esc_attr($slug)
-                            ),
-                            network_admin_url('update.php')
-                        ), 'install-plugin_' . esc_attr($slug));
+                    return wp_nonce_url(add_query_arg(
+                        array(
+                            'action' => 'install-plugin',
+                            'plugin' => esc_attr($slug)
+                        ), network_admin_url('update.php')), 'install-plugin_' . esc_attr($slug));
                     break;
 
                 case 'inactive':
@@ -230,9 +227,7 @@ if (!class_exists('Viral_Welcome')):
                             'plugin_status' => 'all',
                             'paged' => '1',
                             '_wpnonce' => wp_create_nonce('deactivate-plugin_' . esc_attr($slug) . '/' . esc_attr($file_name) . '.php'),
-                        ),
-                        network_admin_url('plugins.php')
-                    );
+                        ), network_admin_url('plugins.php'));
                     break;
 
                 case 'active':
@@ -243,9 +238,7 @@ if (!class_exists('Viral_Welcome')):
                             'plugin_status' => 'all',
                             'paged' => '1',
                             '_wpnonce' => wp_create_nonce('activate-plugin_' . esc_attr($slug) . '/' . esc_attr($file_name) . '.php'),
-                        ),
-                        network_admin_url('plugins.php')
-                    );
+                        ), network_admin_url('plugins.php'));
                     break;
             }
         }
