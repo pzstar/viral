@@ -1,5 +1,5 @@
 /*! nouislider - 14.6.2 - 9/16/2020 */
-(function(factory) {
+(function (factory) {
     if (typeof define === "function" && define.amd) {
         // AMD. Register as an anonymous module.
         define([], factory);
@@ -10,7 +10,7 @@
         // Browser globals
         window.noUiSlider = factory();
     }
-})(function() {
+})(function () {
     "use strict";
 
     var VERSION = "14.6.2";
@@ -36,7 +36,7 @@
 
     // Removes duplicates from an array.
     function unique(array) {
-        return array.filter(function(a) {
+        return array.filter(function (a) {
             return !this[a] ? (this[a] = true) : false;
         }, {});
     }
@@ -74,7 +74,7 @@
     function addClassFor(element, className, duration) {
         if (duration > 0) {
             addClass(element, className);
-            setTimeout(function() {
+            setTimeout(function () {
                 removeClass(element, className);
             }, duration);
         }
@@ -155,21 +155,21 @@
         // a prefix, which breaks compatibility with the IE10 implementation.
         return window.navigator.pointerEnabled
             ? {
-                  start: "pointerdown",
-                  move: "pointermove",
-                  end: "pointerup"
-              }
+                start: "pointerdown",
+                move: "pointermove",
+                end: "pointerup"
+            }
             : window.navigator.msPointerEnabled
                 ? {
-                      start: "MSPointerDown",
-                      move: "MSPointerMove",
-                      end: "MSPointerUp"
-                  }
+                    start: "MSPointerDown",
+                    move: "MSPointerMove",
+                    end: "MSPointerUp"
+                }
                 : {
-                      start: "mousedown touchstart",
-                      move: "mousemove touchmove",
-                      end: "mouseup touchend"
-                  };
+                    start: "mousedown touchstart",
+                    move: "mousemove touchmove",
+                    end: "mouseup touchend"
+                };
     }
 
     // https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md
@@ -180,13 +180,13 @@
         /* eslint-disable */
         try {
             var opts = Object.defineProperty({}, "passive", {
-                get: function() {
+                get: function () {
                     supportsPassive = true;
                 }
             });
 
             window.addEventListener("test", null, opts);
-        } catch (e) {}
+        } catch (e) { }
         /* eslint-enable */
 
         return supportsPassive;
@@ -382,11 +382,11 @@
 
         // Sort all entries by value (numeric sort).
         if (ordered.length && typeof ordered[0][0] === "object") {
-            ordered.sort(function(a, b) {
+            ordered.sort(function (a, b) {
                 return a[0][0] - b[0][0];
             });
         } else {
-            ordered.sort(function(a, b) {
+            ordered.sort(function (a, b) {
                 return a[0] - b[0];
             });
         }
@@ -406,7 +406,7 @@
         }
     }
 
-    Spectrum.prototype.getDistance = function(value) {
+    Spectrum.prototype.getDistance = function (value) {
         var index;
         var distances = [];
 
@@ -417,10 +417,10 @@
             if (step && (value / step) % 1 !== 0) {
                 throw new Error(
                     "noUiSlider (" +
-                        VERSION +
-                        "): 'limit', 'margin' and 'padding' of " +
-                        this.xPct[index] +
-                        "% range must be divisible by step."
+                    VERSION +
+                    "): 'limit', 'margin' and 'padding' of " +
+                    this.xPct[index] +
+                    "% range must be divisible by step."
                 );
             }
 
@@ -433,7 +433,7 @@
 
     // Calculate the percentual distance over the whole scale of ranges.
     // direction: 0 = backwards / 1 = forwards
-    Spectrum.prototype.getAbsoluteDistance = function(value, distances, direction) {
+    Spectrum.prototype.getAbsoluteDistance = function (value, distances, direction) {
         var xPct_index = 0;
 
         // Calculate range where to start calculation
@@ -509,23 +509,23 @@
         return value + abs_distance_counter;
     };
 
-    Spectrum.prototype.toStepping = function(value) {
+    Spectrum.prototype.toStepping = function (value) {
         value = toStepping(this.xVal, this.xPct, value);
 
         return value;
     };
 
-    Spectrum.prototype.fromStepping = function(value) {
+    Spectrum.prototype.fromStepping = function (value) {
         return fromStepping(this.xVal, this.xPct, value);
     };
 
-    Spectrum.prototype.getStep = function(value) {
+    Spectrum.prototype.getStep = function (value) {
         value = getStep(this.xPct, this.xSteps, this.snap, value);
 
         return value;
     };
 
-    Spectrum.prototype.getDefaultStep = function(value, isDown, size) {
+    Spectrum.prototype.getDefaultStep = function (value, isDown, size) {
         var j = getJ(value, this.xPct);
 
         // When at the top or stepping down, look at the previous sub-range
@@ -536,7 +536,7 @@
         return (this.xVal[j] - this.xVal[j - 1]) / size;
     };
 
-    Spectrum.prototype.getNearbySteps = function(value) {
+    Spectrum.prototype.getNearbySteps = function (value) {
         var j = getJ(value, this.xPct);
 
         return {
@@ -558,13 +558,13 @@
         };
     };
 
-    Spectrum.prototype.countStepDecimals = function() {
+    Spectrum.prototype.countStepDecimals = function () {
         var stepDecimals = this.xNumSteps.map(countDecimals);
         return Math.max.apply(null, stepDecimals);
     };
 
     // Outside testing
-    Spectrum.prototype.convert = function(value) {
+    Spectrum.prototype.convert = function (value) {
         return this.getStep(this.toStepping(value));
     };
 
@@ -588,7 +588,7 @@
     //region Defaults
 
     var defaultFormatter = {
-        to: function(value) {
+        to: function (value) {
             return value !== undefined && value.toFixed(2);
         },
         from: Number
@@ -800,8 +800,8 @@
         if (!parsed.limit || parsed.handles < 2) {
             throw new Error(
                 "noUiSlider (" +
-                    VERSION +
-                    "): 'limit' option is only supported on linear sliders with 2 or more handles."
+                VERSION +
+                "): 'limit' option is only supported on linear sliders with 2 or more handles."
             );
         }
     }
@@ -922,7 +922,7 @@
                 throw new Error("noUiSlider (" + VERSION + "): must pass a formatter for all handles.");
             }
 
-            parsed.tooltips.forEach(function(formatter) {
+            parsed.tooltips.forEach(function (formatter) {
                 if (
                     typeof formatter !== "boolean" &&
                     (typeof formatter !== "object" || typeof formatter.to !== "function")
@@ -1046,7 +1046,7 @@
         // Run all options through a testing mechanism to ensure correct
         // input. It should be noted that options might get modified to
         // be handled properly. E.g. wrapping integers in arrays.
-        Object.keys(tests).forEach(function(name) {
+        Object.keys(tests).forEach(function (name) {
             // If the option isn't set, but it is required, throw an error.
             if (!isSet(options[name]) && defaults[name] === undefined) {
                 if (tests[name].r) {
@@ -1149,7 +1149,7 @@
                 // https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex
                 // 0 = focusable and reachable
                 handle.setAttribute("tabindex", "0");
-                handle.addEventListener("keydown", function(event) {
+                handle.addEventListener("keydown", function (event) {
                     return eventKeydown(event, handleNumber);
                 });
             }
@@ -1244,7 +1244,7 @@
         function removeTooltips() {
             if (scope_Tooltips) {
                 removeEvent("update.tooltips");
-                scope_Tooltips.forEach(function(tooltip) {
+                scope_Tooltips.forEach(function (tooltip) {
                     if (tooltip) {
                         removeElement(tooltip);
                     }
@@ -1260,7 +1260,7 @@
             // Tooltips are added with options.tooltips in original order.
             scope_Tooltips = scope_Handles.map(addTooltip);
 
-            bindEvent("update.tooltips", function(values, handleNumber, unencoded) {
+            bindEvent("update.tooltips", function (values, handleNumber, unencoded) {
                 if (!scope_Tooltips[handleNumber]) {
                     return;
                 }
@@ -1276,9 +1276,9 @@
         }
 
         function aria() {
-            bindEvent("update", function(values, handleNumber, unencoded, tap, positions) {
+            bindEvent("update", function (values, handleNumber, unencoded, tap, positions) {
                 // Update Aria Values for all handles, as a change in one changes min and max values for the next.
-                scope_HandleNumbers.forEach(function(index) {
+                scope_HandleNumbers.forEach(function (index) {
                     var handle = scope_Handles[index];
 
                     var min = checkHandlePosition(scope_Locations, index, 0, true, true, true);
@@ -1331,7 +1331,7 @@
 
             if (mode === "positions") {
                 // Map all percentages to on-range values.
-                return values.map(function(value) {
+                return values.map(function (value) {
                     return scope_Spectrum.fromStepping(stepped ? scope_Spectrum.getStep(value) : value);
                 });
             }
@@ -1339,7 +1339,7 @@
             if (mode === "values") {
                 // If the value must be stepped, it needs to be converted to a percentage first.
                 if (stepped) {
-                    return values.map(function(value) {
+                    return values.map(function (value) {
                         // Convert to percentage, apply step, return to value.
                         return scope_Spectrum.fromStepping(scope_Spectrum.getStep(scope_Spectrum.toStepping(value)));
                     });
@@ -1365,7 +1365,7 @@
 
             // Create a copy of the group, sort it and filter away all duplicates.
             group = unique(
-                group.slice().sort(function(a, b) {
+                group.slice().sort(function (a, b) {
                     return a - b;
                 })
             );
@@ -1382,7 +1382,7 @@
                 ignoreLast = true;
             }
 
-            group.forEach(function(current, index) {
+            group.forEach(function (current, index) {
                 // Get the current step and the lower + upper positions.
                 var step;
                 var i;
@@ -1521,7 +1521,7 @@
             }
 
             // Append all points.
-            Object.keys(spread).forEach(function(offset) {
+            Object.keys(spread).forEach(function (offset) {
                 addSpread(offset, spread[offset][0], spread[offset][1]);
             });
 
@@ -1567,7 +1567,7 @@
             // This function can be used to 'filter' events to the slider.
             // element is a node, not a nodeList
 
-            var method = function(e) {
+            var method = function (e) {
                 e = fixEvent(e, data.pageOffset, data.target || element);
 
                 // fixEvent returns false if this event has a different target
@@ -1615,7 +1615,7 @@
             var methods = [];
 
             // Bind a closure on the target for every event type.
-            events.split(" ").forEach(function(eventName) {
+            events.split(" ").forEach(function (eventName) {
                 element.addEventListener(eventName, method, supportsPassive ? { passive: true } : false);
                 methods.push([eventName, method]);
             });
@@ -1650,7 +1650,7 @@
             // The only thing one handle should be concerned about is the touches that originated on top of it.
             if (touch) {
                 // Returns true if a touch originated on the target.
-                var isTouchOnTarget = function(checkTouch) {
+                var isTouchOnTarget = function (checkTouch) {
                     return (
                         checkTouch.target === eventTarget ||
                         eventTarget.contains(checkTouch.target) ||
@@ -1716,7 +1716,7 @@
             var smallestDifference = 100;
             var handleNumber = false;
 
-            scope_Handles.forEach(function(handle, index) {
+            scope_Handles.forEach(function (handle, index) {
                 // Disabled handles are ignored
                 if (isHandleDisabled(index)) {
                     return;
@@ -1777,7 +1777,7 @@
             }
 
             // Unbind the move and end events, which are added on 'start'.
-            data.listeners.forEach(function(c) {
+            data.listeners.forEach(function (c) {
                 scope_DocumentElement.removeEventListener(c[0], c[1]);
             });
 
@@ -1793,7 +1793,7 @@
                 }
             }
 
-            data.handleNumbers.forEach(function(handleNumber) {
+            data.handleNumbers.forEach(function (handleNumber) {
                 fireEvent("change", handleNumber);
                 fireEvent("set", handleNumber);
                 fireEvent("end", handleNumber);
@@ -1880,7 +1880,7 @@
                 scope_Body.addEventListener("selectstart", preventDefault, false);
             }
 
-            data.handleNumbers.forEach(function(handleNumber) {
+            data.handleNumbers.forEach(function (handleNumber) {
                 fireEvent("start", handleNumber);
             });
         }
@@ -1925,9 +1925,9 @@
             var to = scope_Spectrum.getStep(proposal);
             var value = scope_Spectrum.fromStepping(to);
 
-            Object.keys(scope_Events).forEach(function(targetEvent) {
+            Object.keys(scope_Events).forEach(function (targetEvent) {
                 if ("hover" === targetEvent.split(".")[0]) {
-                    scope_Events[targetEvent].forEach(function(callback) {
+                    scope_Events[targetEvent].forEach(function (callback) {
                         callback.call(scope_Self, value);
                     });
                 }
@@ -2026,7 +2026,7 @@
         function bindSliderEvents(behaviour) {
             // Attach the standard drag event to the handles.
             if (!behaviour.fixed) {
-                scope_Handles.forEach(function(handle, index) {
+                scope_Handles.forEach(function (handle, index) {
                     // These events are only bound to the visual handle
                     // element, not the 'real' origin element.
                     attachEvent(actions.start, handle.children[0], eventStart, {
@@ -2049,7 +2049,7 @@
 
             // Make the range draggable.
             if (behaviour.drag) {
-                scope_Connects.forEach(function(connect, index) {
+                scope_Connects.forEach(function (connect, index) {
                     if (connect === false || index === 0 || index === scope_Connects.length - 1) {
                         return;
                     }
@@ -2069,7 +2069,7 @@
                         eventHolders.push(handleAfter.children[0]);
                     }
 
-                    eventHolders.forEach(function(eventHolder) {
+                    eventHolders.forEach(function (eventHolder) {
                         attachEvent(actions.start, eventHolder, eventStart, {
                             handles: [handleBefore, handleAfter],
                             handleNumbers: [index - 1, index]
@@ -2086,7 +2086,7 @@
 
             // If the event bound is 'update,' fire it immediately for all handles.
             if (namespacedEvent.split(".")[0] === "update") {
-                scope_Handles.forEach(function(a, index) {
+                scope_Handles.forEach(function (a, index) {
                     fireEvent("update", index);
                 });
             }
@@ -2097,7 +2097,7 @@
             var event = namespacedEvent && namespacedEvent.split(".")[0];
             var namespace = event && namespacedEvent.substring(event.length);
 
-            Object.keys(scope_Events).forEach(function(bind) {
+            Object.keys(scope_Events).forEach(function (bind) {
                 var tEvent = bind.split(".")[0];
                 var tNamespace = bind.substring(tEvent.length);
 
@@ -2109,11 +2109,11 @@
 
         // External event handling
         function fireEvent(eventName, handleNumber, tap) {
-            Object.keys(scope_Events).forEach(function(targetEvent) {
+            Object.keys(scope_Events).forEach(function (targetEvent) {
                 var eventType = targetEvent.split(".")[0];
 
                 if (eventName === eventType) {
-                    scope_Events[targetEvent].forEach(function(callback) {
+                    scope_Events[targetEvent].forEach(function (callback) {
                         callback.call(
                             // Use the slider public API as the scope ('this')
                             scope_Self,
@@ -2220,7 +2220,7 @@
 
             // Step 1: get the maximum percentage that any of the handles can move
             if (handleNumbers.length > 1) {
-                handleNumbers.forEach(function(handleNumber, o) {
+                handleNumbers.forEach(function (handleNumber, o) {
                     var to = checkHandlePosition(
                         proposals,
                         handleNumber,
@@ -2248,13 +2248,13 @@
             var state = false;
 
             // Step 2: Try to set the handles with the found percentage
-            handleNumbers.forEach(function(handleNumber, o) {
+            handleNumbers.forEach(function (handleNumber, o) {
                 state = setHandle(handleNumber, locations[handleNumber] + proposal, b[o], f[o]) || state;
             });
 
             // Step 3: If a handle moved, fire events
             if (state) {
-                handleNumbers.forEach(function(handleNumber) {
+                handleNumbers.forEach(function (handleNumber) {
                     fireEvent("update", handleNumber);
                     fireEvent("slide", handleNumber);
                 });
@@ -2290,7 +2290,7 @@
         // Handles after the middle later is lower
         // [[7] [8] .......... | .......... [5] [4]
         function setZindex() {
-            scope_HandleNumbers.forEach(function(handleNumber) {
+            scope_HandleNumbers.forEach(function (handleNumber) {
                 var dir = scope_Locations[handleNumber] > 50 ? -1 : 1;
                 var zIndex = 3 + (scope_Handles.length + dir * handleNumber);
                 scope_Handles[handleNumber].style.zIndex = zIndex;
@@ -2381,7 +2381,7 @@
             }
 
             // First pass, without lookAhead but with lookBackward. Values are set from left to right.
-            scope_HandleNumbers.forEach(function(handleNumber) {
+            scope_HandleNumbers.forEach(function (handleNumber) {
                 setHandle(handleNumber, resolveToValue(values[handleNumber], handleNumber), true, false, exactInput);
             });
 
@@ -2390,14 +2390,14 @@
             // Secondary passes. Now that all base values are set, apply constraints.
             // Iterate all handles to ensure constraints are applied for the entire slider (Issue #1009)
             for (; i < scope_HandleNumbers.length; ++i) {
-                scope_HandleNumbers.forEach(function(handleNumber) {
+                scope_HandleNumbers.forEach(function (handleNumber) {
                     setHandle(handleNumber, scope_Locations[handleNumber], true, true, exactInput);
                 });
             }
 
             setZindex();
 
-            scope_HandleNumbers.forEach(function(handleNumber) {
+            scope_HandleNumbers.forEach(function (handleNumber) {
                 fireEvent("update", handleNumber);
 
                 // Fire the event only for handles that received a new value, as per #579
@@ -2543,7 +2543,7 @@
             ];
 
             // Only change options that we're actually passed to update.
-            updateAble.forEach(function(name) {
+            updateAble.forEach(function (name) {
                 // Check for undefined. null removes the value.
                 if (optionsToUpdate[name] !== undefined) {
                     originalOptions[name] = optionsToUpdate[name];
@@ -2553,7 +2553,7 @@
             var newOptions = testOptions(originalOptions);
 
             // Load new options into the slider state
-            updateAble.forEach(function(name) {
+            updateAble.forEach(function (name) {
                 if (optionsToUpdate[name] !== undefined) {
                     options[name] = newOptions[name];
                 }
@@ -2623,7 +2623,7 @@
             setHandle: valueSetHandle,
             reset: valueReset,
             // Exposed for unit testing, don't use this in your application.
-            __moveHandles: function(a, b, c) {
+            __moveHandles: function (a, b, c) {
                 moveHandles(a, b, scope_Locations, c);
             },
             options: originalOptions, // Issue #600, #678
@@ -2631,10 +2631,10 @@
             target: scope_Target, // Issue #597
             removePips: removePips,
             removeTooltips: removeTooltips,
-            getTooltips: function() {
+            getTooltips: function () {
                 return scope_Tooltips;
             },
-            getOrigins: function() {
+            getOrigins: function () {
                 return scope_Handles;
             },
             pips: pips // Issue #594

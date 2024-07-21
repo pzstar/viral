@@ -12,9 +12,11 @@ class viral_category_block extends WP_Widget {
 
     public function __construct() {
         parent::__construct(
-                'viral_category_block', 'Viral : Category Block', array(
-            'description' => esc_html__('A widget to display posts filtered by category', 'viral')
-                )
+            'viral_category_block',
+            'Viral : Category Block',
+            array(
+                'description' => esc_html__('A widget to display posts filtered by category', 'viral')
+            )
         );
     }
 
@@ -93,7 +95,8 @@ class viral_category_block extends WP_Widget {
 
                 $query = new WP_Query($args);
 
-                while ($query->have_posts()): $query->the_post();
+                while ($query->have_posts()):
+                    $query->the_post();
                     ?>
                     <div class="vl-post-item vl-clearfix">
                         <div class="vl-post-thumb">
@@ -106,7 +109,7 @@ class viral_category_block extends WP_Widget {
                                         <img alt="<?php echo esc_attr(get_the_title()) ?>" src="<?php echo esc_url($image[0]) ?>">
                                     <?php }
                                     ?>
-                                </div>	
+                                </div>
                             </a>
                         </div>
 

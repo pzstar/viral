@@ -30,7 +30,7 @@ jQuery(function ($) {
 
     $('.vl-menu > ul').superfish({
         delay: 500,
-        animation: {opacity: 'show', height: 'show'},
+        animation: { opacity: 'show', height: 'show' },
         speed: 'fast'
     });
 
@@ -48,7 +48,7 @@ jQuery(function ($) {
     });
 
     $('#vl-back-top').click(function () {
-        $('html,body').animate({scrollTop: 0}, 800);
+        $('html,body').animate({ scrollTop: 0 }, 800);
     });
 
     var viralKeyboardLoop = function (elem) {

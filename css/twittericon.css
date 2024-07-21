@@ -1,24 +1,24 @@
 @font-face {
+    font-display: block;
     font-family: 'Twitter Icon';
+    font-style: normal;
+    font-weight: normal;
     src: url('../fonts/twittericon.ttf') format('truetype'),
         url('../fonts/twittericon.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
 }
 
 [class^="ti-"], [class*=" ti-"] {
     font-family: 'Twitter Icon' !important;
-    speak: never;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
 
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    speak: never;
+    text-transform: none;
 }
 
 .ti-square-x-twitter:before {

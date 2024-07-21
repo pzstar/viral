@@ -107,7 +107,7 @@
                 if (o.stickySidebar.length == 0) {
                     // Remove <script> tags, otherwise they will be run again when added to the stickySidebar.
                     var javaScriptMIMETypes = /(?:text|application)\/(?:x-)?(?:javascript|ecmascript)/i;
-                    o.sidebar.find('script').filter(function(index, script) {
+                    o.sidebar.find('script').filter(function (index, script) {
                         return script.type.length === 0 || script.type.match(javaScriptMIMETypes);
                     }).remove();
 
@@ -303,7 +303,7 @@
                 }(o));
                 $(window).resize(function (o) {
                     return function () {
-                        o.stickySidebar.css({'position': 'static'});
+                        o.stickySidebar.css({ 'position': 'static' });
                         o.onScroll(o);
                     };
                 }(o));
@@ -333,20 +333,20 @@
                 }
             });
         }
-        
+
         function getWidthForObject(object) {
             var width;
-            
+
             try {
                 width = object[0].getBoundingClientRect().width;
             }
-            catch(err) {
+            catch (err) {
             }
-            
+
             if (typeof width === "undefined") {
                 width = object.width();
             }
-            
+
             return width;
         }
     }

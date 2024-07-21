@@ -157,7 +157,8 @@ function viral_register_fonts() {
             'label' => esc_html__('Google Fonts', 'viral'),
             'fonts' => viral_google_fonts()
         )
-    ));
+    )
+    );
 }
 
 function viral_all_fonts() {

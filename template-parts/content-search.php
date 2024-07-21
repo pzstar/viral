@@ -13,4 +13,3 @@
         <?php the_excerpt(); ?>
     </div><!-- .entry-summary -->
 </article><!-- #post-## -->
-

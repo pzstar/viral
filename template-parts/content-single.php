@@ -20,10 +20,12 @@
 
         the_content();
 
-        wp_link_pages(array(
-            'before' => '<div class="page-links">' . esc_html__('Pages:', 'viral'),
-            'after' => '</div>',
-        ));
+        wp_link_pages(
+            array(
+                'before' => '<div class="page-links">' . esc_html__('Pages:', 'viral'),
+                'after' => '</div>',
+            )
+        );
         ?>
     </div><!-- .entry-content -->
 
@@ -31,4 +33,3 @@
         <?php viral_entry_footer(); ?>
     </footer><!-- .entry-footer -->
 </article><!-- #post-## -->
-

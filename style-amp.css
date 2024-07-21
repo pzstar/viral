@@ -4,8 +4,8 @@
 
 @media screen and (max-width: 1000px){
     #vl-amp-navigation{
-        position: absolute;
         left: 0;
+        position: absolute;
         right: 0;
         top: 100%;
     }
@@ -19,14 +19,14 @@
 
 .vl-header-ticker-carousel .owl-carousel a, 
 .vl-ticker .owl-carousel a {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     flex-shrink: 0;
-    width: 100%;
     line-height: 32px;
-    text-align: center;
     margin: 0;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
 }
 
 .vl-header-ticker-carousel .owl-carousel, .vl-ticker .owl-carousel {
@@ -55,7 +55,7 @@
 /* Sticky Sidebar */
 .secondary.widget-area,
 #secondary{
+    height: 100%;
     position: sticky;
     top: 0;
-    height: 100%;
 }

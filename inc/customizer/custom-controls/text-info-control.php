@@ -18,8 +18,8 @@ class Viral_Text_Info_Control extends WP_Customize_Control {
                 <?php echo wp_kses_post($this->description); ?>
             </span>
         <?php }
-        ?>
-        <?php
+    ?>
+    <?php
     }
 
 }

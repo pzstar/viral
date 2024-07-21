@@ -80,48 +80,50 @@ add_filter('get_the_archive_title', 'viral_filter_archive_title');
 if (!function_exists('viral_comment')) {
 
     function viral_comment($comment, $args, $depth) {
-        $tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
+        $tag = ('div' === $args['style']) ? 'div' : 'li';
         ?>
         <<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class(empty($args['has_children']) ? 'parent' : '', $comment); ?>>
-        <article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
-            <footer class="comment-meta">
-                <div class="comment-author vcard">
-                    <?php if (0 != $args['avatar_size']) echo get_avatar($comment, $args['avatar_size']); ?>
-                    <?php echo sprintf('<b class="fn">%s</b>', get_comment_author_link($comment)); ?>
-                </div><!-- .comment-author -->
+            <article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
+                <footer class="comment-meta">
+                    <div class="comment-author vcard">
+                        <?php if (0 != $args['avatar_size'])
+                            echo get_avatar($comment, $args['avatar_size']); ?>
+                        <?php echo sprintf('<b class="fn">%s</b>', get_comment_author_link($comment)); ?>
+                    </div><!-- .comment-author -->
 
-                <?php if ('0' == $comment->comment_approved) : ?>
-                    <p class="comment-awaiting-moderation"><?php esc_html_e('Your comment is awaiting moderation.', 'viral'); ?></p>
-                <?php endif; ?>
-                <?php edit_comment_link(esc_html__('Edit', 'viral'), '<span class="edit-link">', '</span>'); ?>
-            </footer><!-- .comment-meta -->
+                    <?php if ('0' == $comment->comment_approved): ?>
+                        <p class="comment-awaiting-moderation"><?php esc_html_e('Your comment is awaiting moderation.', 'viral'); ?></p>
+                    <?php endif; ?>
+                    <?php edit_comment_link(esc_html__('Edit', 'viral'), '<span class="edit-link">', '</span>'); ?>
+                </footer><!-- .comment-meta -->
 
-            <div class="comment-content">
-                <?php comment_text(); ?>
-            </div><!-- .comment-content -->
+                <div class="comment-content">
+                    <?php comment_text(); ?>
+                </div><!-- .comment-content -->
 
-            <div class="comment-metadata vl-clearfix">
-                <a href="<?php echo esc_url(get_comment_link($comment, $args)); ?>">
-                    <time datetime="<?php comment_time('c'); ?>">
-                        <?php
-                        /* translators: 1: comment date, 2: comment time */
-                        printf(esc_html__('%1$s at %2$s', 'viral'), get_comment_date('', $comment), get_comment_time());
-                        ?>
-                    </time>
-                </a>
+                <div class="comment-metadata vl-clearfix">
+                    <a href="<?php echo esc_url(get_comment_link($comment, $args)); ?>">
+                        <time datetime="<?php comment_time('c'); ?>">
+                            <?php
+                            /* translators: 1: comment date, 2: comment time */
+                            printf(esc_html__('%1$s at %2$s', 'viral'), get_comment_date('', $comment), get_comment_time());
+                            ?>
+                        </time>
+                    </a>
 
-                <?php
-                comment_reply_link(array_merge($args, array(
-                    'add_below' => 'div-comment',
-                    'depth' => $depth,
-                    'max_depth' => $args['max_depth'],
-                    'before' => '<div class="reply">',
-                    'after' => '</div>'
-                )));
-                ?>
-            </div><!-- .comment-metadata -->
-        </article><!-- .comment-body -->
-        <?php
+                    <?php
+                    comment_reply_link(array_merge($args, array(
+                        'add_below' => 'div-comment',
+                        'depth' => $depth,
+                        'max_depth' => $args['max_depth'],
+                        'before' => '<div class="reply">',
+                        'after' => '</div>'
+                    )
+                    ));
+                    ?>
+                </div><!-- .comment-metadata -->
+            </article><!-- .comment-body -->
+            <?php
     }
 
 }
@@ -130,9 +132,13 @@ add_filter('get_custom_logo', 'viral_remove_itemprop');
 
 function viral_remove_itemprop() {
     $custom_logo_id = get_theme_mod('custom_logo');
-    $html = sprintf('<a href="%1$s" class="custom-logo-link" rel="home">%2$s</a>', esc_url(home_url('/')), wp_get_attachment_image($custom_logo_id, 'full', false, array(
-        'class' => 'custom-logo',
-            ))
+    $html = sprintf(
+        '<a href="%1$s" class="custom-logo-link" rel="home">%2$s</a>',
+        esc_url(home_url('/')),
+        wp_get_attachment_image($custom_logo_id, 'full', false, array(
+            'class' => 'custom-logo',
+        )
+        )
     );
     return $html;
 }
@@ -217,14 +223,14 @@ if (!function_exists('viral_top_menu')) {
 
     function viral_top_menu() {
         wp_nav_menu(
-                array(
-                    'theme_location' => 'top-menu',
-                    'container_class' => 'vl-menu',
-                    'depth' => -1,
-                    'menu_class' => 'vl-clearfix',
-                    'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                    'fallback_cb' => false
-                )
+            array(
+                'theme_location' => 'top-menu',
+                'container_class' => 'vl-menu',
+                'depth' => -1,
+                'menu_class' => 'vl-clearfix',
+                'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                'fallback_cb' => false
+            )
         );
     }
 
@@ -248,7 +254,7 @@ function viral_css_strip_whitespace($css) {
         ";}" => "}", // Strip optional semicolons.
         ",\n" => ",", // Don't wrap multiple selectors.
         "\n}" => "}", // Don't wrap closing braces.
-            //"} " => "}\n", // Put each rule on it's own line.
+        //"} " => "}\n", // Put each rule on it's own line.
     );
     $search = array_keys($replace);
     $css = str_replace($search, $replace, $css);
