@@ -13,12 +13,7 @@ function viral_sidebar_layout_meta_box() {
     $screens = array('post', 'page');
 
     add_meta_box(
-        'viral_sidebar_layout',
-        esc_html__('Sidebar Layout', 'viral'),
-        'viral_sidebar_layout_meta_box_callback',
-        $screens,
-        'side',
-        'high'
+            'viral_sidebar_layout', esc_html__('Sidebar Layout', 'viral'), 'viral_sidebar_layout_meta_box_callback', $screens, 'side', 'high'
     );
 }
 

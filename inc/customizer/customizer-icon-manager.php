@@ -2,7 +2,7 @@
 
 class Viral_Icon_Manager {
 
-    private static $instance = NULL;
+    private static $instance = null;
 
     public static function instance() {
         if (is_null(self::$instance)) {

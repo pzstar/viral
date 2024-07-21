@@ -12,11 +12,9 @@ class viral_timeline extends WP_Widget {
 
     public function __construct() {
         parent::__construct(
-            'viral_timeline',
-            'Viral : TimeLine',
-            array(
-                'description' => esc_html__('A widget to display posts in timeline', 'viral')
-            )
+                'viral_timeline', 'Viral : TimeLine', array(
+            'description' => esc_html__('A widget to display posts in timeline', 'viral')
+                )
         );
     }
 
@@ -96,8 +94,7 @@ class viral_timeline extends WP_Widget {
 
                 $query = new WP_Query($args);
 
-                while ($query->have_posts()):
-                    $query->the_post();
+                while ($query->have_posts()): $query->the_post();
                     ?>
                     <div class="vl-post-item">
                         <?php echo viral_post_date(); ?>

@@ -237,12 +237,12 @@ input,
 select,
 textarea {
     color: var(--viral-body-color, #404040);
-    font-family: var(--viral-body-family, Roboto);
     font-size: var(--viral-body-size, 15px);
-    font-style: var(--viral-body-style, normal);
-    font-weight: var(--viral-body-weight, 400);
     letter-spacing: var(--viral-body-letter-spacing, 0);
     line-height: var(--viral-body-line-height, 1.6);
+    font-family: var(--viral-body-family, Roboto);
+    font-weight: var(--viral-body-weight, 400);
+    font-style: var(--viral-body-style, normal);
     text-decoration: var(--viral-body-text-decoration, none);
     text-transform: var(--viral-body-text-transform, none);
 }
@@ -254,13 +254,13 @@ h4,
 h5,
 h6 {
     font-family: var(--viral-header-family, Roboto);
-    font-style: var(--viral-header-style, normal);
-    font-weight: var(--viral-header-weight, 700);
     letter-spacing: var(--viral-header-letter-spacing, 0);
     line-height: var(--viral-header-line-height, 1.3);
-    margin: 0;
+    font-weight: var(--viral-header-weight, 700);
+    font-style: var(--viral-header-style, normal);
     text-decoration: var(--viral-header-text-decoration, none);
     text-transform: var(--viral-header-text-transform, none);
+    margin: 0;
 }
 
 h1{
@@ -305,8 +305,8 @@ i {
 }
 
 blockquote {
-    border-left: 5px solid #EEE;
     margin: 0 0 25px;
+    border-left: 5px solid #EEE;
     padding: 0 30px;
 }
 
@@ -383,8 +383,8 @@ hr {
     background-color: #EEE;
     border: 0;
     height: 1px;
-    margin-bottom: 25px;
     margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 ul,
@@ -434,9 +434,9 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"] {
     background: var(--viral-template-color, #0078af);
-    border: 0;
     color: #FFF;
     padding: 10px 20px;
+    border: 0;
 }
 
 button:hover,
@@ -472,8 +472,8 @@ input[type="datetime-local"],
 input[type="color"],
 textarea {
     border: 1px solid #EEE;
-    padding: 10px;
     width: 100%;
+    padding: 10px;
 }
 
 select {
@@ -501,8 +501,8 @@ select:focus {
 }
 
 textarea {
-    height: auto;
     width: 100%;
+    height: auto;
 }
 
 /*--------------------------------------------------------------
@@ -556,9 +556,9 @@ a:active {
     font-size: 0.875rem;
     font-weight: bold;
     height: auto;
+    right: 5px;
     line-height: normal;
     padding: 15px 23px 14px;
-    right: 5px;
     text-decoration: none;
     top: 5px;
     width: auto;
@@ -577,23 +577,23 @@ a:active {
 .alignleft {
     display: inline;
     float: left;
-    margin-bottom: 25px;
     margin-right: 15px;
+    margin-bottom: 25px;
 }
 
 .alignright {
     display: inline;
     float: right;
-    margin-bottom: 25px;
     margin-left: 15px;
+    margin-bottom: 25px;
 }
 
 .aligncenter {
     clear: both;
     display: block;
-    margin-bottom: 25px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 25px;
 }
 
 /*--------------------------------------------------------------
@@ -646,11 +646,11 @@ a:active {
 
 .widget-title{
     border-left: 6px solid var(--viral-template-color, #0078af);
-    font-size: 20px;
-    line-height: 1;
-    margin-bottom: 25px;
     padding-left: 10px;
+    line-height: 1;
     text-transform: uppercase;
+    font-size: 20px;
+    margin-bottom: 25px;
 }
 
 /*--------------------------------------------------------------
@@ -685,24 +685,24 @@ a:active {
 }
 
 #primary{
-    float: left;
     width: 69%;
+    float: left;
 }
 
 #secondary{
-    float: right;
     width: 27%;
+    float: right;
 }
 
 .viral-no-sidebar #primary{
-    float: none;
     width: auto;
+    float: none;
 }
 
 .viral-no-sidebar-condensed #primary{
+    width: 76%;
     float: none;
     margin: 0 auto;
-    width: 76%;
 }
 
 .viral-left-sidebar #primary{
@@ -729,11 +729,11 @@ a:active {
 /* Archive Page*/
 
 .vl-post-info{
+    float: left;
+    width: 75px;
     background: var(--viral-template-color, #0078af);
     color: #FFF;
-    float: left;
     text-align: center;
-    width: 75px;
 }
 
 .vl-post-info .entry-date{
@@ -753,12 +753,12 @@ a:active {
 }
 
 .vl-post-info a{
+    display: block;
     background: #EEE;
     color: #0E0E0E;
-    display: block;
+    text-decoration: none;
     line-height: 1.4;
     padding: 8px 10px;
-    text-decoration: none;
     text-transform: uppercase;
 }
 
@@ -773,8 +773,8 @@ a:active {
 
 .entry-figure{
     background: #F6F6F6;
-    margin-bottom: 15px;
     text-align: center;
+    margin-bottom: 15px;
 }
 
 .entry-header .entry-title{
@@ -783,10 +783,10 @@ a:active {
 
 .entry-figure + .entry-header{
     background: var(--viral-background-color, #FFF);
-    margin-top: -65px;
-    padding: 15px 0 1px;
     position: relative;
+    margin-top: -65px;
     width: 90%;
+    padding: 15px 0 1px;
     z-index: 9;
 }
 
@@ -843,11 +843,11 @@ body.vl-boxed .entry-figure + .entry-header{
 
 .entry-footer .vl-read-more{
     background: var(--viral-template-color, #0078af);
+    padding: 10px 20px;
     color: #FFF;
     display: inline-block;
     float: right;
     line-height: 1.2;
-    padding: 10px 20px;
 }
 
 .entry-footer .vl-read-more:hover{
@@ -863,9 +863,9 @@ body.vl-boxed .entry-figure + .entry-header{
 }
 
 .vl-share-buttons a{
-    display: inline-block;
-    font-size: 1em;
     padding: 0 5px;
+    font-size: 1em;
+    display: inline-block;
 }
 
 .vl-share-buttons a:hover{
@@ -873,15 +873,15 @@ body.vl-boxed .entry-figure + .entry-header{
 }
 
 .vl-share-buttons i{
-    display: block;
     line-height: 40px;
+    display: block;
 }
 
 /* Single Page*/
 .vl-article-content .posted-on{
     font-size: 0.8em;
-    font-style: italic;
     margin-bottom: 20px;
+    font-style: italic;
 }
 
 .vl-article-content p{
@@ -902,8 +902,8 @@ body.vl-boxed .entry-figure + .entry-header{
 --------------------------------------------------------------*/
 .widget-area ul{
     list-style: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
 }
 
 .widget-area ul ul{
@@ -941,8 +941,8 @@ body.vl-boxed .entry-figure + .entry-header{
 }
 
 .vl-contact-info ul li i{
-    float: left;
     margin-left: -30px;
+    float: left;
     margin-top: 2px;
 }
 
@@ -959,14 +959,14 @@ body.vl-boxed .entry-figure + .entry-header{
 .vl-personal-info .vl-pi-image img{
     border-radius: 50%;
     height: 150px;
+    width: 150px;
     object-fit: cover;
     object-position: center;
-    width: 150px;
 }
 
 .vl-personal-info .vl-pi-name{
-    font-size: 1.1em;
     margin-bottom: 15px;
+    font-size: 1.1em;
     text-align: center;
 }
 
@@ -975,27 +975,27 @@ body.vl-boxed .entry-figure + .entry-header{
 }
 
 .vl-personal-info .vl-pi-name span:after{
-    background: #444;
     content: "";
-    height: 2px;
+    position: absolute;
     left: 100%;
     margin-left: 10px;
-    margin-top: -1px;
-    position: absolute;
-    top: 50%;
     width: 20px;
+    height: 2px;
+    background: #444;
+    top: 50%;
+    margin-top: -1px;
 }
 
 .vl-personal-info .vl-pi-name span:before{
-    background: #444;
     content: "";
-    height: 2px;
-    margin-right: 10px;
-    margin-top: -1px;
     position: absolute;
     right: 100%;
-    top: 50%;
+    margin-right: 10px;
     width: 20px;
+    height: 2px;
+    background: #444;
+    top: 50%;
+    margin-top: -1px;
 }
 
 .vl-personal-info .vl-pi-intro{
@@ -1027,20 +1027,20 @@ body.vl-boxed .entry-figure + .entry-header{
 }
 
 .vl-timeline .vl-post-item{
-    margin-bottom: 30px;
     position: relative;
+    margin-bottom: 30px;
 }
 
 .vl-timeline .vl-post-item:after{
-    background: #FFF;
-    border: 5px solid #F0F0F0;
-    border-radius: 50%;
     content: "";
-    height: 20px;
-    left: -39px;
     position: absolute;
+    left: -39px;
     top: 0;
+    height: 20px;
     width: 20px;
+    background: #FFF;
+    border-radius: 50%;
+    border: 5px solid #F0F0F0;
 }
 
 .vl-timeline .vl-post-item:hover:after{
@@ -1112,11 +1112,11 @@ body.vl-boxed .entry-figure + .entry-header{
 h3#reply-title,
 h3.comments-title{
     border-left: 6px solid var(--viral-template-color, #0078af);
-    font-size: 20px;
-    line-height: 1;
-    margin-bottom: 30px;
     padding-left: 10px;
+    line-height: 1;
     text-transform: uppercase;
+    font-size: 20px;
+    margin-bottom: 30px;
 }
 
 .logged-in-as,
@@ -1136,9 +1136,9 @@ h3.comments-title{
 
 #comments li.comment .children{
     display: block;
-    list-style: none;
     margin: 30px 0 0 30px;
     padding: 0px;
+    list-style: none;
 }
 
 article.comment-body {
@@ -1164,8 +1164,8 @@ article.comment-body {
 }
 
 .comment-list .vcard .fn{
-    font-size: 16px;
     font-weight: normal;
+    font-size: 16px;
 }
 
 .comment-list .edit-link{
@@ -1175,8 +1175,8 @@ article.comment-body {
 }
 
 .comment-list .edit-link a{
-    display: inline-block;
     font-size: 13px;
+    display: inline-block;
     padding: 10px;
 }
 
@@ -1186,8 +1186,8 @@ article.comment-body {
 
 .comment-list .comment-metadata {
     border-top: 1px solid #EEE;
-    font-size: 13px;
     padding-top: 10px;
+    font-size: 13px;
 }
 
 .comment-list .comment-metadata a {
@@ -1207,9 +1207,9 @@ article.comment-body {
     background: var(--viral-template-color, #0078af);
     color: #FFF;
     display: inline-block;
+    padding: 0 10px;
     font-size: 12px;
     line-height: 22px;
-    padding: 0 10px;
     position: relative;
 }
 
@@ -1218,13 +1218,13 @@ article.comment-body {
 }
 
 .comment-navigation .nav-next a:after{
-    border-bottom: 11px solid transparent;
-    border-left: 11px solid var(--viral-template-color, #0078af);
-    border-top: 11px solid transparent;
     content: "";
     position: absolute;
-    right: -11px;
+    border-left: 11px solid var(--viral-template-color, #0078af);
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent;
     top: 0;
+    right: -11px;
 }
 
 .comment-navigation .nav-previous a{
@@ -1232,13 +1232,13 @@ article.comment-body {
 }
 
 .comment-navigation .nav-previous a:after{
-    border-bottom: 11px solid transparent;
+    content: "";
+    position: absolute;
     border-right: 11px solid var(--viral-template-color, #0078af);
     border-top: 11px solid transparent;
-    content: "";
-    left: -11px;
-    position: absolute;
+    border-bottom: 11px solid transparent;
     top: 0;
+    left: -11px;
 }
 
 /*--------------------------------------------------------------
@@ -1340,28 +1340,28 @@ object {
 }
 
 .vl-boxed #vl-page{
-    background: #FFF;
-    margin: 0 auto;
     width: 1250px;
+    margin: 0 auto;
+    background: #FFF;
 }
 
 .vl-container{
-    margin: 0 auto;
     width: 1170px;
+    margin: 0 auto;
 }
 
 .pagination{
-    margin-bottom: 40px;
     text-align: center;
+    margin-bottom: 40px;
 }
 
 .pagination a, 
 .pagination span{
     background: var(--viral-template-color, #0078af);
+    padding: 8px 20px;
     color: #FFF;
     display: inline-block;
     margin: 4px 2px;
-    padding: 8px 20px;
 }
 
 .pagination span.current,
@@ -1383,8 +1383,8 @@ object {
 .vl-top-header{
     background: var(--viral-template-color, #0078af);
     color: #F6F6F6;
-    font-size: 13px;
     padding: 12px 0;
+    font-size: 13px;
 }
 
 .vl-top-header a{
@@ -1392,18 +1392,18 @@ object {
 }
 
 .vl-top-left-header{
-    float: left;
     max-width: 60%;
+    float: left;
 }
 
 .vl-top-left-header > span{
-    display: inline-block;
     margin-right: 25px;
+    display: inline-block;
 }
 
 .vl-top-left-header > span i{
-    display: inline-block;
     margin-right: 6px;
+    display: inline-block;
 }
 
 .vl-top-left-header > .vl-menu{
@@ -1411,9 +1411,9 @@ object {
 }
 
 .vl-top-left-header .vl-menu ul{
-    list-style: none;
     margin: 0;
     padding: 0;
+    list-style: none;
 }
 
 .vl-top-left-header .vl-menu ul li{
@@ -1422,8 +1422,8 @@ object {
 }
 
 .vl-top-right-header{
-    float: right;
     max-width: 40%;
+    float: right;
 }
 
 .vl-top-right-header > a{
@@ -1435,10 +1435,10 @@ object {
 }
 
 .vl-header .vl-container{
-    align-items: center;
-    -webkit-align-items: center;
     display: -webkit-flex;
     display: flex;
+    align-items: center;
+    -webkit-align-items: center;
     justify-content: space-between;
 }
 
@@ -1453,23 +1453,23 @@ object {
 
 .vl-site-title{
     font-family: var(--viral-header-family, Roboto);
-    font-size: 40px;
     font-weight: bold;
-    line-height: 1;
     margin: 0 0 5px;
     text-transform: uppercase;
+    font-size: 40px;
+    line-height: 1;
 }
 
 .vl-site-title a{
-    color: var(--viral-template-color, #0078af);
     text-decoration: none;
+    color: var(--viral-template-color, #0078af);
 }
 
 .vl-site-description{
+    margin: 0;
     font-size: 14px;
     font-style: italic;
     line-height: 1;
-    margin: 0;
 }
 
 .vl-header-ads{
@@ -1490,31 +1490,31 @@ object {
 --------------------------------------------------------------*/
 #vl-site-navigation{
     background: var(--viral-template-color, #0078af);
+    width: 1170px;
     margin: 0 auto;
     padding: 0 10px;
-    width: 1170px;
 }
 
 #vl-site-navigation:not(.vl-full-width-navigation) .vl-container{
-    padding: 0;
     width: 100%;
+    padding: 0;
 }
 
 #vl-site-navigation.vl-full-width-navigation{
-    padding: 0;
     width: 100%;
+    padding: 0;
 }
 
 #vl-site-navigation + img{
-    display: block;
     margin: 0 auto;
+    display: block;
 }
 
 .vl-main-navigation ul {
-    font-family: var(--viral-menu-family, Roboto Condensed);
     list-style: none;
     margin: 0;
     padding-left: 0;
+    font-family: var(--viral-menu-family, Roboto Condensed);
 }
 
 .vl-main-navigation.vl-full-width-navigation .vl-menu > ul{
@@ -1528,27 +1528,27 @@ object {
 }
 
 .vl-main-navigation a {
-    color: #FFF;
     display: block;
-    font-size: var(--viral-menu-size, 15px);
-    font-style: var(--viral-menu-style, normal);
-    font-weight: var(--viral-menu-weight, 400);
-    letter-spacing: var(--viral-menu-letter-spacing, 0);
-    line-height: 58px;
+    color: #FFF;
     padding: 0 16px;
-    text-decoration: var(--viral-menu-text-decoration, none);
+    line-height: 58px;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    letter-spacing: var(--viral-menu-letter-spacing, 0);
+    font-size: var(--viral-menu-size, 15px);
+    font-weight: var(--viral-menu-weight, 400);
+    font-style: var(--viral-menu-style, normal);
+    text-decoration: var(--viral-menu-text-decoration, none);
     text-transform: var(--viral-menu-text-transform, uppercase);
 }
 
 .vl-main-navigation ul ul {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100% ;
     background: var(--viral-template-color, #0078af);
     box-shadow: 2px 2px 3px rgba(0,0,0,0.2);
-    display: none;
-    left: 0;
     min-width: 240px;
-    position: absolute;
-    top: 100% ;
 }
 
 .vl-main-navigation ul ul ul {
@@ -1557,15 +1557,15 @@ object {
 }
 
 .vl-main-navigation ul ul a {
-    font-size: 0.9em;
+    text-transform: none;
     line-height: 1.5;
     padding: 14px 20px;
-    text-transform: none;
+    font-size: 0.9em;
 }
 
 .vl-main-navigation ul ul li {
-    border-bottom: 1px solid rgba(0,0,0,0.05);
     float: none;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
 .vl-main-navigation ul ul li:last-child{
@@ -1584,29 +1584,29 @@ object {
 .vl-main-navigation .vl-menu > ul > .current-menu-item > a:after,
 .vl-main-navigation .vl-menu > ul > .current_page_ancestor > a:after,
 .vl-main-navigation .vl-menu > ul > li > a:after{
-    background: #FFF;
     content: "";
-    height: 5px;
+    position: absolute;
     left: 50%;
+    top: 100%;
+    background: #FFF;
+    width: 26px;
     margin-left: -13px;
+    height: 5px;
     margin-top: -7px;
     opacity: 1;
-    position: absolute;
-    top: 100%;
-    width: 26px;
 }
 
 .vl-main-navigation .vl-menu > ul > li > a:after{
-    opacity: 0;
     top: 90%;
+    opacity: 0;
     transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
     -webkit-transition: all 0.2s ease;
 }
 
 .vl-main-navigation .vl-menu > ul > li:hover > a:after{
-    opacity: 1;
     top: 100%;
+    opacity: 1;
 }
 
 .site-main .comment-navigation,
@@ -1619,25 +1619,25 @@ object {
 .comment-navigation .nav-previous,
 .posts-navigation .nav-previous,
 .post-navigation .nav-previous {
-    border-right: 1px solid #EEE;
     float: left;
-    padding: 20px;
-    text-align: right;
     width: 50%;
+    text-align: right;
+    padding: 20px;
+    border-right: 1px solid #EEE;
 }
 
 .comment-navigation .nav-next,
 .posts-navigation .nav-next,
 .post-navigation .nav-next {
     float: right;
-    padding: 20px;
-    text-align: left;
     width: 50%;
+    text-align: left;
+    padding: 20px;
 }
 
 .post-navigation{
-    border-bottom: 1px solid #EEE;
     border-top: 1px solid #EEE;
+    border-bottom: 1px solid #EEE;
     margin-bottom: 50px;
 }
 
@@ -1670,11 +1670,11 @@ object {
 ## Ticker
 --------------------------------------------------------------*/
 .vl-ticker{
+    position: relative;
     background: #F6F6F6;
+    padding: 10px;
     margin-bottom: 40px;
     overflow: hidden;
-    padding: 10px;
-    position: relative;
 }
 
 .vl-ticker.vl-dark-ticker{
@@ -1710,26 +1710,26 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 }
 
 .vl-ticker-title{
+    float: left;
     background: var(--viral-template-color, #0078af);
     color: #FFF;
-    float: left;
-    font-size: 1.1em;
     line-height: 32px;
-    margin-right: 40px;
-    padding: 0 15px;
-    position: relative;
     white-space: nowrap;
+    padding: 0 15px;
+    margin-right: 40px;
+    position: relative;
+    font-size: 1.1em;
 }
 
 .vl-ticker-title:after{
-    border-color: transparent transparent transparent var(--viral-template-color, #0078af);
-    border-style: solid;
-    border-width: 16px;
-    bottom: 0;
     content: "";
-    left: 100%;
     position: absolute;
     top: 0;
+    bottom: 0;
+    left: 100%;
+    border-color: transparent transparent transparent var(--viral-template-color, #0078af);
+    border-width: 16px;
+    border-style: solid;
 }
 
 .vl-ticker .owl-carousel{
@@ -1737,12 +1737,12 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 }
 
 .vl-ticker .owl-item a{
-    color: #444;
     display: block;
     line-height: 32px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    color: #444;
     white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .vl-ticker .owl-item a:hover{
@@ -1757,17 +1757,17 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 
 .vl-ticker .owl-carousel .owl-nav .owl-prev, 
 .vl-ticker .owl-carousel .owl-nav .owl-next{
-    align-items: center;
+    height: 22px;
+    width: 22px;
     background: var(--viral-template-color, #0078af);
     color: #FFF;
-    display: inline-flex;
+    text-align: center;
     font-size: 14px;
-    height: 22px;
-    justify-content: center;
     margin-left: 4px;
     padding: 0;
-    text-align: center;
-    width: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .vl-ticker .owl-carousel .owl-nav .owl-prev:hover, 
@@ -1782,13 +1782,13 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 
 .vl-half-container{
     float: left;
-    padding-right: 5px;
     width: 50%;
+    padding-right: 5px;
 }
 
 .vl-half-container:last-child{
-    padding-left: 5px;
     padding-right: 0;
+    padding-left: 5px;
 }
 
 .vl-big-thumb{
@@ -1799,47 +1799,47 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 
 .vl-medium-thumb{
     height: 245px;
-    margin-bottom: 5px;
     overflow: hidden;
+    margin-bottom: 5px;
 }
 
 .vl-small-thumb{
-    float: left;
     height: 250px;
+    width: 50%;
     overflow: hidden;
     padding-right: 5px;
+    float: left;
     padding-top: 5px;
-    width: 50%;
 }
 
 .vl-small-thumb:last-child{
-    padding-left: 5px;
     padding-right: 0;
+    padding-left: 5px;
 }
 
 .vl-thumb-inner{
-    height: 100%;
     position: relative;
+    height: 100%;
 }
 
 .vl-thumb-inner > a{
-    display: block;
-    height: 100%;
     position: relative;
+    height: 100%;
+    display: block;
 }
 
 .vl-thumb-inner > a:before{
-    background: transparent;
-    bottom: 0;
     content: "";
-    left: 0;
     position: absolute;
+    left: 0;
     right: 0;
     top: 0;
+    bottom: 0;
+    z-index: 1;
+    background: transparent;
     transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -webkit-transition: all 0.3s ease;
-    z-index: 1;
 }
 
 .vl-thumb-inner:hover > a:before{
@@ -1847,50 +1847,50 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 }
 
 .vl-thumb-inner img{
-    height: 100%;
     object-fit: cover;
-    object-position: center;
+    height: 100%;
     width: 100%;
+    object-position: center;
 }
 
 .vl-title-container{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #FFF;
+    z-index: 2;
     background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 25%, rgba(0,0,0,0.6) 100%);
     background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 25%,rgba(0,0,0,0.6) 100%);
     background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 25%,rgba(0,0,0,0.6) 100%);
-    bottom: 0;
-    color: #FFF;
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#99000000',GradientType=0 );
-    left: 0;
-    position: absolute;
-    right: 0;
-    z-index: 2;
 }
 
 .vl-title-container h3{
-    color: #FFF;
     font-size: 16px;
     font-weight: bold;
-    margin-bottom: 0;
-    position: relative;
-    text-shadow: 1px 1px 6px rgba(0,0,0,0.3);
     text-transform: capitalize;
+    color: #FFF;
+    margin-bottom: 0;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.3);
+    position: relative;
     transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -webkit-transition: all 0.3s ease;
 }
 
 .vl-title-container h3:after{
-    background: #FFF;
     content: "";
-    height: 1px;
-    left: 0;
-    margin-top: 6px;
     position: absolute;
+    height: 1px;
+    margin-top: 6px;
+    background: #FFF;
     top: 100%;
+    left: 0;
+    width: 0;
     transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -webkit-transition: all 0.3s ease;
-    width: 0;
 }
 
 .vl-big-thumb .vl-title-container h3{
@@ -1903,8 +1903,8 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 
 .vl-title-container > a{
     color: #FFF;
-    display: block;
     padding: 25px 25px 15px;
+    display: block;
 }
 
 .vl-title-container .posted-on{
@@ -1913,18 +1913,18 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 }
 
 .posted-on i{
-    font-size: 0.88em;
     margin-right: 5px;
+    font-size: 0.88em;
 }
 
 .vl-top-block .post-categories{
-    font-size: 0;
-    left: 20px;
-    margin: 0;
-    padding: 0;
     position: absolute;
     top: 20px;
+    left: 20px;
     z-index: 99;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
 }
 
 .vl-top-block .post-categories li{
@@ -1932,13 +1932,13 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 }
 
 .vl-top-block .post-categories li a{
+    display: block;
     background: #0E0E0E;
     color: #F0F0F0;
-    display: block;
     font-size: 10px;
-    line-height: 1.2;
-    margin: 0 4px 4px 0;
     padding: 4px 6px;
+    margin: 0 4px 4px 0;
+    line-height: 1.2;
     text-transform: uppercase;;
 }
 
@@ -1953,20 +1953,20 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 }
 
 .vl-top-block.style2 .vl-small-thumb:nth-child(odd){
-    padding-bottom: 5px;
     padding-right: 5px;
+    padding-bottom: 5px;
 }
 
 .vl-top-block.style2 .vl-small-thumb:nth-child(even){
-    padding-bottom: 5px;
-    padding-left: 5px;
     padding-right: 0;
+    padding-left: 5px;
+    padding-bottom: 5px;
 }
 
 .vl-top-block.style2 .vl-small-thumb:nth-child(3),
 .vl-top-block.style2 .vl-small-thumb:nth-child(4){
-    padding-bottom: 0;
     padding-top: 5px;
+    padding-bottom: 0;
 }
 
 .vl-top-block.style2 .vl-big-thumb{
@@ -1980,10 +1980,10 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 }
 
 .vl-top-block.style3 .vl-big-thumb{
+    width: 25%;
     float: left;
     height: 360px;
     padding-left: 10px;
-    width: 25%;
 }
 
 .vl-top-block.style3 .vl-big-thumb h3{
@@ -2000,8 +2000,8 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 }
 
 .vl-top-block.style4 .vl-post-thumb{
-    float: left;
     width: 120px;
+    float: left;
 }
 
 .vl-top-block.style4 .vl-post-thumb .vl-thumb-container{
@@ -2009,11 +2009,11 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 }
 
 .vl-top-block.style4 .vl-post-item{
+    width: 33.33%;
     float: left;
     margin-bottom: 0;
     padding: 0 15px;
     position: relative;
-    width: 33.33%;
 }
 
 .vl-top-block.style4 .vl-post-item .vl-post-content{
@@ -2026,22 +2026,22 @@ body.vl-boxed .vl-ticker.vl-full-width-ticker{
 }
 
 .vl-thumb-container {
+    position: relative;
+    padding-bottom: 70%;
     background: #f7f7f7;
     background-position: center;
     background-size: cover;
     overflow: hidden;
-    padding-bottom: 70%;
-    position: relative;
 }
 
 .vl-thumb-container img {
-    bottom: 0;
-    height: 100%;
-    left: 0;
-    object-fit: cover;
-    object-position: center;
     position: absolute;
-    width: 100%
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center
 }
 
 body .he-block-title {
@@ -2049,25 +2049,25 @@ body .he-block-title {
 }
 
 .vl-block-title{
-    border-left: 10px solid var(--viral-template-color, #0078af);
+    position: relative;
     display: flex;
     font-size: 20px;
+    text-transform: uppercase;
+    border-left: 10px solid var(--viral-template-color, #0078af);
+    margin-bottom: 30px;
     font-weight: var(--viral-header-weight, 700);
     line-height: 1;
-    margin-bottom: 30px;
-    position: relative;
-    text-transform: uppercase;
 }
 
 .vl-block-title span{
-    display: inline-block;
     padding: 0 20px 0 15px;
+    display: inline-block;
 }
 
 .vl-block-title:after{
-    background: rgba(0,0,0,0.03);
     content: "";
     flex-grow: 1;
+    background: rgba(0,0,0,0.03);
 }
 
 .vl-post-item{
@@ -2094,25 +2094,25 @@ body .he-block-title {
 
 .vl-post-thumb a,
 .entry-figure a{
+    position: relative;
     display: block;
     overflow: hidden;
-    position: relative;
 }
 
 .vl-post-thumb a:before,
 .entry-figure a:before{
-    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
-    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
-    content: '';
-    display: block;
-    height: 100%;
-    left: -75%;
     position: absolute;
     top: 0;
+    left: -75%;
+    z-index: 2;
+    display: block;
+    content: '';
+    width: 50%;
+    height: 100%;
+    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
     -webkit-transform: skewX(-25deg);
     transform: skewX(-25deg);
-    width: 50%;
-    z-index: 2;
 }
 
 .vl-post-thumb a:hover:before,
@@ -2147,15 +2147,15 @@ body .he-block-title {
 }
 
 .vl-big-small-block .vl-big-block{
+    width: 50%;
     float: left;
     padding: 0 15px;
-    width: 50%;
 }
 
 .vl-big-small-block .vl-small-block{
+    width: 50%;
     float: right;
     padding: 0 15px;
-    width: 50%;
 }
 
 .vl-big-small-block .vl-big-block .vl-post-item{
@@ -2198,14 +2198,14 @@ body .he-block-title {
 }
 
 .vl-grid-block {
-    margin-bottom: 20px;
-    padding: 0 10px;
     width: 33.33%;
+    padding: 0 10px;
+    margin-bottom: 20px;
 }
 
 .vl-grid-block-inner{
-    overflow: hidden;
     position: relative;
+    overflow: hidden;
 }
 
 .vl-grid-block h3{
@@ -2222,25 +2222,25 @@ body .he-block-title {
 }
 
 .vl-grid-block .vl-post-content{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 15px 15px 10px;
+    color: #FFF;
     background: -moz-linear-gradient(top,rgba(0,0,0,0) 20%,rgba(0,0,0,.7) 100%);
     background: -webkit-gradient(linear,left top,left bottom,color-stop(20%,rgba(0,0,0,0)),color-stop(100%,rgba(0,0,0,.7)));
     background: -webkit-linear-gradient(top,rgba(0,0,0,0) 20%,rgba(0,0,0,.7) 100%);
     background: -o-linear-gradient(top,rgba(0,0,0,0) 20%,rgba(0,0,0,.7) 100%);
     background: -ms-linear-gradient(top,rgba(0,0,0,0) 20%,rgba(0,0,0,.7) 100%);
     background: linear-gradient(to bottom,rgba(0,0,0,0) 20%,rgba(0,0,0,.7) 100%);
-    bottom: 0;
-    color: #FFF;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#b3000000', GradientType=0);
-    left: 0;
-    padding: 15px 15px 10px;
-    position: absolute;
-    right: 0
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#b3000000', GradientType=0)
 }
 
 .vl-grid-block .posted-on{
-    color: #F6F6F6;
-    margin-top: 5px;
     max-height: 0;
+    margin-top: 5px;
+    color: #F6F6F6;
     overflow: hidden;
     transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
@@ -2260,8 +2260,8 @@ body .he-block-title {
 }
 
 .vl-double-small-block .vl-post-item {
-    padding: 0 15px;
     width: 50%;
+    padding: 0 15px;
 }
 
 .vl-double-small-block .vl-post-item:nth-last-child(2){
@@ -2291,12 +2291,12 @@ body .he-block-title {
 }
 
 .vl-alt-post-item{
+    width: 33.333%;
     background: rgba(255,255,255,0.05);
     display: -webkit-flex;
     display: flex;
     flex-direction: column;
     margin: 0;
-    width: 33.333%;
 }
 
 .vl-alt-post-item .vl-post-thumb .vl-thumb-container{
@@ -2308,13 +2308,13 @@ body .he-block-title {
 }
 
 .vl-alt-post-item .vl-post-thumb a img{
-    bottom: 0;
-    height: 100%;
+    position: absolute;
     left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center;
-    position: absolute;
-    width: 100%;
 }
 
 .vl-alt-post-item:nth-child(2){
@@ -2322,17 +2322,17 @@ body .he-block-title {
 }
 
 .vl-alt-post-item .vl-post-content{
-    overflow: hidden;
     padding-bottom: 100%;
+    overflow: hidden;
     position: relative;
 }
 
 .vl-alt-post-item .vl-post-content .vl-post-content-inner{
-    align-items: center;
-    display: flex;
-    height: 100%;
-    padding: 20px;
     position: absolute;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    height: 100%;
 }
 
 .vl-alt-post-item .posted-on{
@@ -2354,8 +2354,8 @@ body .he-block-title {
 
 .vl-three-column-block{
     float: left;
-    padding: 0 15px;
     width: 33.33%;
+    padding: 0 15px;
 }
 
 .vl-big-post-item{
@@ -2363,8 +2363,8 @@ body .he-block-title {
 }
 
 .vl-big-post-item .vl-post-thumb{
-    overflow: hidden;
     position: relative;
+    overflow: hidden;
 }
 
 .vl-big-post-item .vl-post-thumb a{
@@ -2380,19 +2380,19 @@ body .he-block-title {
 }
 
 .vl-big-post-item .vl-post-content{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 25px 25px 15px;
+    color: #FFF;
     background: -moz-linear-gradient(top,rgba(0,0,0,0) 10%,rgba(0,0,0,.7) 100%);
     background: -webkit-gradient(linear,left top,left bottom,color-stop(10%,rgba(0,0,0,0)),color-stop(100%,rgba(0,0,0,.7)));
     background: -webkit-linear-gradient(top,rgba(0,0,0,0) 10%,rgba(0,0,0,.7) 100%);
     background: -o-linear-gradient(top,rgba(0,0,0,0) 10%,rgba(0,0,0,.7) 100%);
     background: -ms-linear-gradient(top,rgba(0,0,0,0) 10%,rgba(0,0,0,.7) 100%);
     background: linear-gradient(to bottom,rgba(0,0,0,0) 10%,rgba(0,0,0,.7) 100%);
-    bottom: 0;
-    color: #FFF;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#b3000000', GradientType=0);
-    left: 0;
-    padding: 25px 25px 15px;
-    position: absolute;
-    right: 0;
 }
 
 .vl-big-post-item h3{
@@ -2434,16 +2434,16 @@ body .he-block-title {
 /* Bottom Section style1 */
 
 .vl-four-column-block{
+    margin: 0 -15px;
     display: flex;
     flex-wrap: wrap;
-    margin: 0 -15px;
 }
 
 .vl-four-column-block .vl-post-item{
-    float: left;
-    margin-bottom: 0;
-    padding: 0 15px;
     width: 25%;
+    float: left;
+    padding: 0 15px;
+    margin-bottom: 0;
 }
 
 .vl-four-column-block .vl-post-thumb{
@@ -2482,9 +2482,9 @@ body .he-block-title {
 }
 
 .vl-footer-block{
-    float: left;
-    margin-left: 3%;
     width: 22%;
+    margin-left: 3%;
+    float: left;
 }
 
 .vl-footer-block .widget-title{
@@ -2493,13 +2493,13 @@ body .he-block-title {
 
 .vl-footer-block ul{
     list-style: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
 }
 
 .vl-footer-block li{
-    line-height: 1.3;
     padding: 5px 0;
+    line-height: 1.3;
 }
 
 .vl-footer-block .posted-on{
@@ -2516,8 +2516,8 @@ body .he-block-title {
 
 .vl-bottom-footer .vl-container{
     border-top: 1px solid #111;
-    font-size: 14px;
     padding: 20px 0;
+    font-size: 14px;
 }
 
 .vl-bottom-footer a{
@@ -2526,21 +2526,21 @@ body .he-block-title {
 
 #vl-back-top{
     background: var(--viral-template-color, #0078af);
-    bottom: 20px;
     color: #FFF;
-    cursor: pointer;
-    font-size: 20px;
     height: 40px;
+    width: 40px;
     position: fixed;
     right: 20px;
+    bottom: 20px;
     text-align: center;
+    font-size: 20px;
+    cursor: pointer;
     transform: scale(1);
     -ms-transform: scale(1);
     -webkit-transform: scale(1);
     transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
-    width: 40px;
 }
 
 #vl-back-top i{
@@ -2553,10 +2553,10 @@ body .he-block-title {
 
 #vl-back-top.vl-hide{
     opacity: 0;
+    visibility: hidden;
     transform: scale(0.5);
     -ms-transform: scale(0.5);
     -webkit-transform: scale(0.5);
-    visibility: hidden;
 }
 
 /*** arrows (for all except IE7) **/
@@ -2568,9 +2568,9 @@ body .he-block-title {
 .sf-arrows .sf-with-ul:before {
     content: '\F0140';
     font-family: "Material Design Icons";
-    height: 0;
     position: absolute;
     right: 1em;
+    height: 0;
     width: 0;
 }
 .sf-arrows > li > .sf-with-ul:focus:before,
@@ -2613,28 +2613,28 @@ body .he-block-title {
 
 /*Elementor Plugin Hack*/
 .elementor-section > .elementor-column-gap-default > .elementor-row {
-    margin: -10px;
     width: calc(100% + 20px);
+    margin: -10px;
 }
 
 .elementor-section > .elementor-column-gap-narrow > .elementor-row {
-    margin: -5px;
     width: calc(100% + 10px);
+    margin: -5px;
 }
 
 .elementor-section > .elementor-column-gap-extended > .elementor-row {
-    margin: -15px;
     width: calc(100% + 30px);
+    margin: -15px;
 }
 
 .elementor-section > .elementor-column-gap-wide > .elementor-row {
-    margin: -20px;
     width: calc(100% + 40px);
+    margin: -20px;
 }
 
 .elementor-section > .elementor-column-gap-wider > .elementor-row {
-    margin: -30px;
     width: calc(100% + 60px);
+    margin: -30px;
 }
 
 .elementor-element.e-con {
@@ -2655,19 +2655,19 @@ body .he-block-title {
     .vl-container,
     .elementor-section.elementor-section-boxed.elementor-section-stretched>.elementor-container,
     .elementor-template-full-width .elementor-section.elementor-section-boxed>.elementor-container{
-        padding: 0 30px;
         width: 100%;
+        padding: 0 30px;
     }
 
     .e-con.e-parent>.e-con-inner{
+        width: 100% !important;
         padding-left: 30px !important;
         padding-right: 30px !important;
-        width: 100% !important;
     }
 
     #vl-site-navigation:not(.vl-full-width-navigation){
-        margin: 0 30px;
         width: auto;
+        margin: 0 30px;
     }
 
     body.vl-boxed .vl-ticker.vl-full-width-ticker {
@@ -2681,8 +2681,8 @@ body .he-block-title {
 
     .vl-ticker .vl-container,
     .vl-ticker.vl-full-width-ticker .vl-container{
-        padding: 0;
         width: 100% !important;
+        padding: 0;
     }
 
     #vl-site-navigation.vl-full-width-navigation{
@@ -2701,27 +2701,27 @@ body .he-block-title {
     }
 
     #vl-site-navigation{
+        width: auto;
         height: 54px;
         margin: 0 20px;
         position: relative;
-        width: auto;
     }
 
     .vl-main-navigation .vl-menu{
-        background: #FFF;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         display: none;
+        background: #FFF;
         float: none;
-        left: 0;
         position: absolute;
+        top: 100%;
+        left: 0;
         right: 0;
         text-align: center;
-        top: 100%;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
 
     .vl-main-navigation li{
-        display: inline-block;
         float: none;
+        display: inline-block;
     }
 
     .vl-main-navigation ul ul li{
@@ -2738,23 +2738,23 @@ body .he-block-title {
     }
 
     .vl-toggle-menu{
-        cursor: pointer;
         display: block;
         float: right;
         height: 54px;
         width: 54px;
+        cursor: pointer;
     }
 
     .vl-toggle-menu span{
-        background: #FFF;
-        box-shadow: 0 10px 0px 0px #FFF, 0 -10px 0px 0px #FFF;
-        display: block;
-        height: 2px;
-        margin: 0 auto;
-        margin-top: -1px;
         position: relative;
-        top: 50%;
+        background: #FFF;
+        height: 2px;
         width: 32px;
+        margin: 0 auto;
+        display: block;
+        top: 50%;
+        margin-top: -1px;
+        box-shadow: 0 10px 0px 0px #FFF, 0 -10px 0px 0px #FFF;
     }
 
     .vl-main-navigation a{
@@ -2797,22 +2797,22 @@ body .he-block-title {
     }
 
     #vl-site-branding{
-        float: none;
-        padding: 0;
-        text-align: center;
         width: auto;
+        float: none;
+        text-align: center;
+        padding: 0;
     }
 
     .vl-header-ads{
-        float: none;
-        margin-left: 0;
-        margin-top: 20px;
         width: auto;
+        float: none;
+        margin-top: 20px;
+        margin-left: 0;
     }
 
     .vl-main-navigation li{
-        border-bottom: 1px solid #FAFAFA;
         display: block;
+        border-bottom: 1px solid #FAFAFA;
     }
 
     .vl-main-navigation a{
@@ -2822,9 +2822,9 @@ body .he-block-title {
 
     .vl-main-navigation ul ul{
         background: #FFF !important;
-        border-top: 1px solid #FAFAFA;
-        box-shadow: none;
         position: static;
+        box-shadow: none;
+        border-top: 1px solid #FAFAFA;
     }
 
     .vl-main-navigation ul ul li{
@@ -2832,8 +2832,8 @@ body .he-block-title {
     }
 
     .vl-main-navigation ul ul a{
-        color: #333;
         text-align: center;
+        color: #333;
     }
 
     .vl-menu > ul > li > a:after{
@@ -2841,9 +2841,9 @@ body .he-block-title {
     }
 
     .vl-half-container{
+        width: auto;
         float: none;
         padding: 0;
-        width: auto;
     }
 
     .vl-half-container:last-child{
@@ -2851,9 +2851,9 @@ body .he-block-title {
     }
 
     .vl-big-thumb{
+        width: auto;
         height: auto;
         margin-bottom: 10px;
-        width: auto;
     }
 
     .vl-thumb-inner > a{
@@ -2867,8 +2867,8 @@ body .he-block-title {
     }
 
     .vl-medium-thumb{
-        height: auto;
         width: auto;
+        height: auto;
     }
 
     .vl-small-thumb{
@@ -2885,8 +2885,8 @@ body .he-block-title {
     }
 
     .vl-top-block.style3 .vl-big-thumb img{
-        height: auto;
         position: static;
+        height: auto;
     }
 
     .vl-top-block.style4{
@@ -2894,8 +2894,8 @@ body .he-block-title {
     }
 
     .vl-top-block.style4 .vl-post-item{
-        margin-bottom: 30px;
         width: 100%;
+        margin-bottom: 30px;
     }
 
     .vl-top-block.style4 .vl-post-item:last-child{
@@ -2908,9 +2908,9 @@ body .he-block-title {
 
     .vl-three-column-block{
         float: none;
-        margin-bottom: 50px;
-        margin-left: 0;
         width: auto;
+        margin-left: 0;
+        margin-bottom: 50px;
     }
 
     .vl-three-column-block:last-child{
@@ -2922,8 +2922,8 @@ body .he-block-title {
     }
 
     .vl-four-column-block .vl-post-item{
-        margin-bottom: 30px;
         width: 50%;
+        margin-bottom: 30px;
     }
 
     .vl-alternate-block{
@@ -2931,8 +2931,8 @@ body .he-block-title {
     }
 
     .vl-alternate-block .vl-alt-post-item{
-        background: none;
         padding: 0 5px;
+        background: none;
     }
 
     .vl-alt-post-item:nth-child(2){
@@ -2945,18 +2945,18 @@ body .he-block-title {
     }
 
     .vl-alt-post-item .vl-post-content .vl-post-content-inner{
-        padding: 20px 0 0;
         position: static;
+        padding: 20px 0 0;
     }
 
     #primary{
-        float: none !important;
         width: auto !important;
+        float: none !important;
     }
 
     #secondary{
-        float: none !important;
         width: auto !important;
+        float: none !important;
     }
 
     .vl-top-footer-inner{
@@ -2964,10 +2964,10 @@ body .he-block-title {
     }
 
     .vl-footer-block{
+        width: auto;
+        margin-left: 0;
         float: none;
         margin-bottom: 40px;
-        margin-left: 0;
-        width: auto;
     }
 
     .vl-footer-block:last-child{
@@ -2986,9 +2986,9 @@ body .he-block-title {
     }
 
     .vl-top-right-header{
+        width: auto;
         float: none;
-        max-width: none;
-        width: auto;;
+        max-width: none;;
     }
 
     .vl-ticker{
@@ -2996,11 +2996,11 @@ body .he-block-title {
     }
 
     .vl-ticker-title{
-        display: block;
         float: none;
-        margin-bottom: 5px;
+        display: block;
         margin-right: 0;
         text-align: center;
+        margin-bottom: 5px;
     }
 
     .vl-ticker-title:after{
@@ -3008,19 +3008,19 @@ body .he-block-title {
     }
 
     .vl-top-block.style4 .vl-post-item{
-        float: none;
         width: auto;
+        float: none;
     }
 
     .vl-top-block.style4 .vl-post-item:after{
-        height: 0;
         position: static;
+        height: 0;
     }
 
     .vl-big-small-block .vl-big-block{
+        width: auto;
         float: none;
         margin-bottom: 30px;
-        width: auto;
     }
 
     .vl-big-small-block .vl-big-block img{
@@ -3028,8 +3028,8 @@ body .he-block-title {
     }
 
     .vl-big-small-block .vl-small-block{
-        float: none;
         width: auto;
+        float: none;
     }
 
     .vl-double-small-block{
@@ -3037,8 +3037,8 @@ body .he-block-title {
     }
 
     .vl-double-small-block .vl-post-item{
-        padding: 0;
         width: 100%;
+        padding: 0;
     }
 
     .vl-double-small-block .vl-post-item:nth-last-child(2){
@@ -3050,8 +3050,8 @@ body .he-block-title {
     }
 
     .vl-alt-post-item{
-        margin-bottom:30px;
         width: 100%;
+        margin-bottom:30px;
     }
 
     .vl-alternate-block{
@@ -3064,8 +3064,8 @@ body .he-block-title {
 
     .vl-small-thumb{
         float: none;
-        margin-bottom: 10px;
         padding: 0;
+        margin-bottom: 10px;
         width: auto;
     }
 
@@ -3080,8 +3080,8 @@ body .he-block-title {
     }
 
     .vl-top-block.style3 .vl-big-thumb{
-        float: none;
         width: auto;
+        float: none;
     }
 
     .vl-four-column-block .vl-post-item{
@@ -3094,8 +3094,8 @@ body .he-block-title {
     }
 
     .vl-grid-block{
-        padding: 0;
         width: auto;
+        padding: 0;
     }
 
     .vl-grid-block:last-child{
@@ -3114,8 +3114,8 @@ body .he-block-title {
 
     .vl-post-info{
         float: none;
-        margin-bottom: 20px;
         width: 100%;
+        margin-bottom: 20px;
     }
 
     .vl-post-info .entry-date span{
@@ -3156,8 +3156,8 @@ body .he-block-title {
     .comment-form-author, 
     .comment-form-email, 
     .comment-form-url{
-        margin-left: 0;
         width: auto;
+        margin-left: 0;
     }
 }
 

@@ -18,15 +18,15 @@
 .ht--typography-font-family,
 .ht--typography-text-transform{
     float: left;
-    margin-bottom: 10px;
     width: 48%;
+    margin-bottom: 10px;
 }
 
 .ht--typography-font-style,
 .ht--typography-text-decoration{
     float: right;
-    margin-bottom: 10px;
     width: 48%;
+    margin-bottom: 10px;
 }
 
 .ht--typography-color{

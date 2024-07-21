@@ -3,17 +3,14 @@
 /**
  * @package Viral
  */
-$viral_frontpage_bottom_blocks = get_theme_mod('viral_frontpage_bottom_blocks', json_encode(
+$viral_frontpage_bottom_blocks = get_theme_mod('viral_frontpage_bottom_blocks', json_encode(array(
     array(
-        array(
-            'category1' => '-1',
-            'category2' => '-1',
-            'category3' => '-1',
-            'layout' => 'style1',
-            'enable' => 'on'
-        )
-    )
-));
+        'category1' => '-1',
+        'category2' => '-1',
+        'category3' => '-1',
+        'layout' => 'style1',
+        'enable' => 'on'
+        ))));
 
 if ($viral_frontpage_bottom_blocks) {
     $viral_frontpage_bottom_blocks = json_decode($viral_frontpage_bottom_blocks);

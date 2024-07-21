@@ -3,15 +3,12 @@
 /**
  * @package Viral
  */
-$viral_frontpage_top_blocks = get_theme_mod('viral_frontpage_top_blocks', json_encode(
+$viral_frontpage_top_blocks = get_theme_mod('viral_frontpage_top_blocks', json_encode(array(
     array(
-        array(
-            'category' => '',
-            'layout' => 'style1',
-            'enable' => 'on'
-        )
-    )
-));
+        'category' => '',
+        'layout' => 'style1',
+        'enable' => 'on'
+        ))));
 
 if ($viral_frontpage_top_blocks) {
     $viral_frontpage_top_blocks = json_decode($viral_frontpage_top_blocks);

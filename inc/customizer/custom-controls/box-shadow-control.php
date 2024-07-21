@@ -78,56 +78,56 @@ class Viral_Box_Shadow_Control extends WP_Customize_Control {
     protected function content_template() {
         ?>
         <# if ( data.label ) { #>
-            <span class="customize-control-title">{{ data.label }}</span>
-            <# } #>
+        <span class="customize-control-title">{{ data.label }}</span>
+        <# } #>
+        <ul>
+            <li class="ht--box-shadow-values">
+                <span class="customize-control-title">
+                    {{{ data.l10n['box_shadow'] }}}
+                </span>
+
                 <ul>
-                    <li class="ht--box-shadow-values">
-                        <span class="customize-control-title">
-                            {{{ data.l10n['box_shadow'] }}}
-                        </span>
-
-                        <ul>
-                            <li class="ht--dimension-wrap">
-                                <input type="number" value="{{ data.x.value }}" {{{ data.x.link }}} />
-                                <span class="ht--dimension-label">{{ data.l10n['x'] }}</span>
-                            </li>
-                            <li class="ht--dimension-wrap">
-                                <input type="number" value="{{ data.y.value }}" {{{ data.y.link }}} />
-                                <span class="ht--dimension-label">{{ data.l10n['y'] }}</span>
-                            </li>
-                            <li class="ht--dimension-wrap">
-                                <input type="number" value="{{ data.blur.value }}" {{{ data.blur.link }}} />
-                                <span class="ht--dimension-label">{{ data.l10n['blur'] }}</span>
-                            </li>
-                            <li class="ht--dimension-wrap">
-                                <input type="number" value="{{ data.spread.value }}" {{{ data.spread.link }}} />
-                                <span class="ht--dimension-label">{{ data.l10n['spread'] }}</span>
-                            </li>
-                        </ul>
+                    <li class="ht--dimension-wrap">
+                        <input type="number" value="{{ data.x.value }}" {{{ data.x.link }}} />
+                               <span class="ht--dimension-label">{{ data.l10n['x'] }}</span>
                     </li>
-                    <li class="ht--box-shadow-inset">
-                        <div class="ht--toggle-container">
-                            <div class="ht--toggle">
-                                <input class="ht--toggle-checkbox" type="checkbox" id="{{ data.inset.id }}" name="<?php echo esc_attr($this->id); ?>" value="{{ data.inset.value }}" {{{ data.inset.link }}} {{ data.inset.value ? 'checked' : '' }} />
-                                <label class="ht--toggle-label" for="{{ data.inset.id }}"></label>
-                            </div>
-                            <span class="customize-control-title ht--toggle-title">{{ data.l10n['inset'] }}</span>
-                        </div>
+                    <li class="ht--dimension-wrap">
+                        <input type="number" value="{{ data.y.value }}" {{{ data.y.link }}} />
+                               <span class="ht--dimension-label">{{ data.l10n['y'] }}</span>
                     </li>
-
-                    <# if ( data.color ) { #>
-                        <li class="ht--box-shadow-color">
-                            <span class="customize-control-title">
-                                {{{ data.l10n['color'] }}}
-                            </span>
-
-                            <div class="customize-control-content">
-                                <input class="ht--color-picker-hex" type="text" maxlength="7" placeholder="<?php esc_attr_e('Hex Value', 'viral'); ?>" {{{ data.color.link }}} value="{{ data.color.value }}" />
-                            </div>
-                        </li>
-                        <# } #>
+                    <li class="ht--dimension-wrap">
+                        <input type="number" value="{{ data.blur.value }}" {{{ data.blur.link }}} />
+                               <span class="ht--dimension-label">{{ data.l10n['blur'] }}</span>
+                    </li>
+                    <li class="ht--dimension-wrap">
+                        <input type="number" value="{{ data.spread.value }}" {{{ data.spread.link }}} />
+                               <span class="ht--dimension-label">{{ data.l10n['spread'] }}</span>
+                    </li>
                 </ul>
-                <?php
+            </li>
+            <li class="ht--box-shadow-inset">
+                <div class="ht--toggle-container">
+                    <div class="ht--toggle">
+                        <input class="ht--toggle-checkbox" type="checkbox" id="{{ data.inset.id }}" name="<?php echo esc_attr($this->id); ?>" value="{{ data.inset.value }}" {{{ data.inset.link }}} {{ data.inset.value ? 'checked' : '' }} />
+                               <label class="ht--toggle-label" for="{{ data.inset.id }}"></label>
+                    </div>
+                    <span class="customize-control-title ht--toggle-title">{{ data.l10n['inset'] }}</span>
+                </div>
+            </li>
+
+            <# if ( data.color ) { #>
+            <li class="ht--box-shadow-color">
+                <span class="customize-control-title">
+                    {{{ data.l10n['color'] }}}
+                </span>
+
+                <div class="customize-control-content">
+                    <input class="ht--color-picker-hex" type="text" maxlength="7" placeholder="<?php esc_attr_e('Hex Value', 'viral'); ?>" {{{ data.color.link }}} value="{{ data.color.value }}"  />
+                </div>
+            </li>
+            <# } #>
+        </ul>
+        <?php
     }
 
 }
