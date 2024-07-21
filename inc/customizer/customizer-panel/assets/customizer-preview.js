@@ -2,8 +2,8 @@ function viralDynamicCss(control, style) {
     jQuery('style.' + control).remove();
 
     jQuery('head').append(
-            '<style class="' + control + '">:root{' + style + '}</style>'
-            );
+        '<style class="' + control + '">:root{' + style + '}</style>'
+    );
 }
 
 jQuery(document).ready(function ($) {

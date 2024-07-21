@@ -8,7 +8,8 @@ get_header();
 <div class="vl-container vl-clearfix">
     <div id="primary" class="content-area">
         <?php
-        while (have_posts()) : the_post();
+        while (have_posts()):
+            the_post();
 
             $viral_hide_title = get_post_meta($post->ID, 'viral_hide_title', true);
 
@@ -26,7 +27,7 @@ get_header();
             <nav class="navigation post-navigation">
                 <div class="nav-links">
                     <div class="nav-previous">
-                        <?php previous_post_link('%link', '<span><i class="mdi-chevron-left"></i>' . esc_html__('Prev', 'viral') . '</span>%title'); ?> 
+                        <?php previous_post_link('%link', '<span><i class="mdi-chevron-left"></i>' . esc_html__('Prev', 'viral') . '</span>%title'); ?>
                     </div>
 
                     <div class="nav-next">
@@ -37,7 +38,7 @@ get_header();
 
             <?php
             // If comments are open or we have at least one comment, load up the comment template.
-            if (comments_open() || get_comments_number()) :
+            if (comments_open() || get_comments_number()):
                 comments_template();
             endif;
             ?>
