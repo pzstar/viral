@@ -112,14 +112,18 @@ if (!function_exists('viral_comment')) {
                     </a>
 
                     <?php
-                    comment_reply_link(array_merge($args, array(
-                        'add_below' => 'div-comment',
-                        'depth' => $depth,
-                        'max_depth' => $args['max_depth'],
-                        'before' => '<div class="reply">',
-                        'after' => '</div>'
-                    )
-                    ));
+                    comment_reply_link(
+                        array_merge(
+                            $args,
+                            array(
+                                'add_below' => 'div-comment',
+                                'depth' => $depth,
+                                'max_depth' => $args['max_depth'],
+                                'before' => '<div class="reply">',
+                                'after' => '</div>'
+                            )
+                        )
+                    );
                     ?>
                 </div><!-- .comment-metadata -->
             </article><!-- .comment-body -->
@@ -135,9 +139,13 @@ function viral_remove_itemprop() {
     $html = sprintf(
         '<a href="%1$s" class="custom-logo-link" rel="home">%2$s</a>',
         esc_url(home_url('/')),
-        wp_get_attachment_image($custom_logo_id, 'full', false, array(
-            'class' => 'custom-logo',
-        )
+        wp_get_attachment_image(
+            $custom_logo_id,
+            'full',
+            false,
+            array(
+                'class' => 'custom-logo',
+            )
         )
     );
     return $html;

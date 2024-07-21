@@ -34,30 +34,37 @@ if (!function_exists('viral_setup')):
             )
         );
 
-        add_theme_support('html5', array(
-            'search-form',
-            'comment-form',
-            'comment-list',
-            'gallery',
-            'caption',
-            'style',
-            'script'
+        add_theme_support(
+            'html5',
+            array(
+                'search-form',
+                'comment-form',
+                'comment-list',
+                'gallery',
+                'caption',
+                'style',
+                'script'
+            )
+        );
+
+        add_theme_support('custom-background', apply_filters(
+            'viral_custom_background_args',
+            array(
+                'default-color' => 'ffffff',
+                'default-image' => '',
+            )
         )
         );
 
-        add_theme_support('custom-background', apply_filters('viral_custom_background_args', array(
-            'default-color' => 'ffffff',
-            'default-image' => '',
-        )
-        ));
-
-        add_theme_support('custom-logo', array(
-            'height' => 60,
-            'width' => 300,
-            'flex-height' => true,
-            'flex-width' => true,
-            'header-text' => array('.vl-site-title', '.vl-site-description'),
-        )
+        add_theme_support(
+            'custom-logo',
+            array(
+                'height' => 60,
+                'width' => 300,
+                'flex-height' => true,
+                'flex-width' => true,
+                'header-text' => array('.vl-site-title', '.vl-site-description'),
+            )
         );
 
         // Add theme support for selective refresh for widgets.
@@ -208,11 +215,13 @@ if (!function_exists('viral_fonts_url')):
         $all_fonts = viral_all_fonts();
         $google_fonts = viral_google_fonts();
 
-        $customizer_fonts = apply_filters('viral_customizer_fonts', array(
-            'viral_header_typography' => 'Roboto Condensed',
-            'viral_body_typography' => 'Roboto',
-            'viral_menu_typography' => 'Roboto Condensed'
-        )
+        $customizer_fonts = apply_filters(
+            'viral_customizer_fonts',
+            array(
+                'viral_header_typography' => 'Roboto Condensed',
+                'viral_body_typography' => 'Roboto',
+                'viral_menu_typography' => 'Roboto Condensed'
+            )
         );
 
         foreach ($customizer_fonts as $key => $value) {
@@ -240,7 +249,9 @@ if (!function_exists('viral_fonts_url')):
                         'family' => urlencode(implode('|', $fonts)),
                         'subset' => urlencode($subsets),
                         'display' => 'swap',
-                    ), 'https://fonts.googleapis.com/css');
+                    ),
+                    'https://fonts.googleapis.com/css'
+                );
             }
         }
         return $fonts_url;
@@ -268,9 +279,12 @@ function viral_scripts() {
         wp_enqueue_script('theia-sticky-sidebar', get_template_directory_uri() . '/js/theia-sticky-sidebar.js', array('jquery'), VIRAL_VERSION, true);
         wp_enqueue_script('jquery-superfish', get_template_directory_uri() . '/js/jquery.superfish.js', array('jquery'), VIRAL_VERSION, true);
         wp_enqueue_script('viral-custom', get_template_directory_uri() . '/js/custom.js', array('jquery'), VIRAL_VERSION, true);
-        wp_localize_script('viral-custom', 'viral_localize', array(
-            'is_rtl' => is_rtl() ? 'true' : 'false'
-        )
+        wp_localize_script(
+            'viral-custom',
+            'viral_localize',
+            array(
+                'is_rtl' => is_rtl() ? 'true' : 'false'
+            )
         );
 
         if (is_singular() && comments_open() && get_option('thread_comments')) {
