@@ -41,16 +41,16 @@ class Viral_Typography_Control extends WP_Customize_Control {
         parent::__construct($manager, $id, $args);
         // Make sure we have labels.
         $this->l10n = wp_parse_args(
-            $this->l10n, array(
-                'family' => esc_html__('Font Family', 'viral'),
-                'style' => esc_html__('Font Weight/Style', 'viral'),
-                'text_transform' => esc_html__('Text Transform', 'viral'),
-                'text_decoration' => esc_html__('Text Decoration', 'viral'),
-                'size' => esc_html__('Font Size', 'viral'),
-                'line_height' => esc_html__('Line Height', 'viral'),
-                'letter_spacing' => esc_html__('Letter Spacing', 'viral'),
-                'color' => esc_html__('Font Color', 'viral')
-            )
+                $this->l10n, array(
+            'family' => esc_html__('Font Family', 'viral'),
+            'style' => esc_html__('Font Weight/Style', 'viral'),
+            'text_transform' => esc_html__('Text Transform', 'viral'),
+            'text_decoration' => esc_html__('Text Decoration', 'viral'),
+            'size' => esc_html__('Font Size', 'viral'),
+            'line_height' => esc_html__('Line Height', 'viral'),
+            'letter_spacing' => esc_html__('Letter Spacing', 'viral'),
+            'color' => esc_html__('Font Color', 'viral')
+                )
         );
     }
 
@@ -134,247 +134,252 @@ class Viral_Typography_Control extends WP_Customize_Control {
     public function content_template() {
         ?>
         <# if ( data.label ) { #>
-            <span class="customize-control-title ht--typography-customize-control-title">{{ data.label }}</span>
+        <span class="customize-control-title ht--typography-customize-control-title">{{ data.label }}</span>
+        <# } #>
+
+        <# if ( data.description ) { #>
+        <span class="description customize-control-description">{{{ data.description }}}</span>
+        <# } #>
+
+        <ul>
+            <# if ( data.family ) { #>
+            <li class="ht--typography-font-family">
+                <# if ( data.family.label ) { #>
+                <span class="customize-control-title">{{ data.family.label }}</span>
+                <# } #>
+
+                <select {{{ data.family.link }}} data-default="{{data.family.default}}">
+                    <# if ( data.family.choices ) { 
+                    _.each(data.family.choices, function(options){
+                    #>
+                    <optgroup label="{{options.label}}">
+                        <# _.each( options.fonts, function( label, value ) { #>
+                        <option value="{{ label.family }}" <# if ( label.family === data.family.value ) { #> selected="selected" <# } #>>{{ label.family }}</option>
+                        <# } ) #>
+                    </optgroup>
+                    <#
+                    })
+                    }
+                    #>
+                </select>
+            </li>
             <# } #>
 
-                <# if ( data.description ) { #>
-                    <span class="description customize-control-description">{{{ data.description }}}</span>
+            <# if ( data.style && data.style.choices ) { #>
+            <li class="ht--typography-font-style">
+                <# if ( data.style.label ) { #>
+                <span class="customize-control-title">{{ data.style.label }}</span>
+                <# } #>
+                <select {{{ data.style.link }}}>
+                    <# _.each( data.style.choices, function( label, choice ) { #>
+                    <option value="{{ choice }}" <# if ( choice === data.style.value ) { #> selected="selected" <# } #>>{{ label }}</option>
+                    <# } ) #>
+                </select>
+            </li>
+            <# } #>
+
+            <# if ( data.text_transform && data.text_transform.choices ) { #>
+            <li class="ht--typography-text-transform">
+                <# if ( data.text_transform.label ) { #>
+                <span class="customize-control-title">{{ data.text_transform.label }}</span>
+                <# } #>
+                <select {{{ data.text_transform.link }}}>
+                    <# _.each( data.text_transform.choices, function( label, choice ) { #>
+                    <option value="{{ choice }}" <# if ( choice === data.text_transform.value ) { #> selected="selected" <# } #>>{{ label }}</option>
+                    <# } ) #>
+                </select>
+            </li>
+            <# } #>
+
+            <# if ( data.text_decoration && data.text_decoration.choices ) { #>
+            <li class="ht--typography-text-decoration">
+                <# if ( data.text_decoration.label ) { #>
+                <span class="customize-control-title">{{ data.text_decoration.label }}</span>
+                <# } #>
+                <select {{{ data.text_decoration.link }}}>
+                    <# _.each( data.text_decoration.choices, function( label, choice ) { #>
+                    <option value="{{ choice }}" <# if ( choice === data.text_decoration.value ) { #> selected="selected" <# } #>>{{ label }}</option>
+                    <# } ) #>
+                </select>
+            </li>
+            <# } #>
+
+            <# if ( !_.isEmpty(data.size) ) { #>
+            <li class="ht--typography-font-size">
+                <# if ( data.size.label ) { #>
+                <span class="customize-control-title">
+                    <span>{{ data.size.label }} (px)</span>
+                    <# if ( !_.isEmpty(data.size_tablet) && !_.isEmpty(data.size_mobile) ) { #>
+                    <ul class="responsive-switchers">
+                        <li class="desktop">
+                            <button type="button" class="preview-desktop active" data-device="desktop">
+                                <i class="dashicons dashicons-desktop"></i>
+                            </button>
+                        </li>
+                        <li class="tablet">
+                            <button type="button" class="preview-tablet" data-device="tablet">
+                                <i class="dashicons dashicons-tablet"></i>
+                            </button>
+                        </li>
+                        <li class="mobile">
+                            <button type="button" class="preview-mobile" data-device="mobile">
+                                <i class="dashicons dashicons-smartphone"></i>
+                            </button>
+                        </li>
+                    </ul>
                     <# } #>
+                </span>
+                <# } #>
 
-                        <ul>
-                            <# if ( data.family ) { #>
-                                <li class="ht--typography-font-family">
-                                    <# if ( data.family.label ) { #>
-                                        <span class="customize-control-title">{{ data.family.label }}</span>
-                                        <# } #>
+                <div class="ht--range-slider-control-wrap<# if ( !_.isEmpty(data.size_tablet) && !_.isEmpty(data.size_mobile) ) { #> desktop control-wrap active<# } #>">
+                    <div class="ht--range-slider"></div>
+                    <div class="ht--range-slider-input">
+                        <input type="number" value="{{ data.size.value }}" {{{ data.size.link }}} {{{ data.inputAttrs }}} />
+                    </div>
+                </div>
 
-                                            <select {{{ data.family.link }}} data-default="{{data.family.default}}">
-                                                <# if ( data.family.choices ) { _.each(data.family.choices, function(options){ #>
-                                                    <optgroup label="{{options.label}}">
-                                                        <# _.each( options.fonts, function( label, value ) { #>
-                                                            <option value="{{ label.family }}" <# if ( label.family===data.family.value ) { #> selected="selected" <# } #>>{{ label.family }}</option>
-                                                            <# } ) #>
-                                                    </optgroup>
-                                                    <# }) } #>
-                                            </select>
-                                </li>
-                                <# } #>
+                <# if ( !_.isEmpty(data.size_tablet) ) { #>
+                <div class="tablet ht--range-slider-control-wrap control-wrap">
+                    <div class="ht--range-slider"></div>
+                    <div class="ht--range-slider-input">
+                        <input type="number" value="{{ data.size_tablet.value }}" {{{ data.size_tablet.link }}} {{{ data.inputAttrs }}} />
+                    </div>
+                </div>
+                <# } #>
 
-                                    <# if ( data.style && data.style.choices ) { #>
-                                        <li class="ht--typography-font-style">
-                                            <# if ( data.style.label ) { #>
-                                                <span class="customize-control-title">{{ data.style.label }}</span>
-                                                <# } #>
-                                                    <select {{{ data.style.link }}}>
-                                                        <# _.each( data.style.choices, function( label, choice ) { #>
-                                                            <option value="{{ choice }}" <# if ( choice===data.style.value ) { #> selected="selected" <# } #>>{{ label }}</option>
-                                                            <# } ) #>
-                                                    </select>
-                                        </li>
-                                        <# } #>
+                <# if ( !_.isEmpty(data.size_mobile) ) { #>
+                <div class="mobile ht--range-slider-control-wrap control-wrap">
+                    <div class="ht--range-slider"></div>
+                    <div class="ht--range-slider-input">
+                        <input type="number" value="{{ data.size_mobile.value }}" {{{ data.size_mobile.link }}} {{{ data.inputAttrs }}} />
+                    </div>
+                </div>
+                <# } #>
+            </li>
+            <# } #>
 
-                                            <# if ( data.text_transform && data.text_transform.choices ) { #>
-                                                <li class="ht--typography-text-transform">
-                                                    <# if ( data.text_transform.label ) { #>
-                                                        <span class="customize-control-title">{{ data.text_transform.label }}</span>
-                                                        <# } #>
-                                                            <select {{{ data.text_transform.link }}}>
-                                                                <# _.each( data.text_transform.choices, function( label, choice ) { #>
-                                                                    <option value="{{ choice }}" <# if ( choice===data.text_transform.value ) { #> selected="selected" <# } #>>{{ label }}</option>
-                                                                    <# } ) #>
-                                                            </select>
-                                                </li>
-                                                <# } #>
+            <# if ( !_.isEmpty(data.letter_spacing) ) { #>
+            <li class="ht--typography-letter-spacing">
+                <# if ( data.letter_spacing.label ) { #>
+                <span class="customize-control-title">
+                    <span>{{ data.letter_spacing.label }} (px)</span>
+                    <# if ( !_.isEmpty(data.letter_spacing_tablet) && !_.isEmpty(data.letter_spacing_mobile) ) { #>
+                    <ul class="responsive-switchers">
+                        <li class="desktop">
+                            <button type="button" class="preview-desktop active" data-device="desktop">
+                                <i class="dashicons dashicons-desktop"></i>
+                            </button>
+                        </li>
+                        <li class="tablet">
+                            <button type="button" class="preview-tablet" data-device="tablet">
+                                <i class="dashicons dashicons-tablet"></i>
+                            </button>
+                        </li>
+                        <li class="mobile">
+                            <button type="button" class="preview-mobile" data-device="mobile">
+                                <i class="dashicons dashicons-smartphone"></i>
+                            </button>
+                        </li>
+                    </ul>
+                    <# } #>
+                </span>
+                <# } #>
 
-                                                    <# if ( data.text_decoration && data.text_decoration.choices ) { #>
-                                                        <li class="ht--typography-text-decoration">
-                                                            <# if ( data.text_decoration.label ) { #>
-                                                                <span class="customize-control-title">{{ data.text_decoration.label }}</span>
-                                                                <# } #>
-                                                                    <select {{{ data.text_decoration.link }}}>
-                                                                        <# _.each( data.text_decoration.choices, function( label, choice ) { #>
-                                                                            <option value="{{ choice }}" <# if ( choice===data.text_decoration.value ) { #> selected="selected" <# } #>>{{ label }}</option>
-                                                                            <# } ) #>
-                                                                    </select>
-                                                        </li>
-                                                        <# } #>
+                <div class="ht--range-slider-control-wrap<# if ( !_.isEmpty(data.letter_spacing_tablet) && !_.isEmpty(data.letter_spacing_mobile) ) { #> desktop control-wrap active <# } #>">
+                    <div class="ht--range-slider"></div>
+                    <div class="ht--range-slider-input">
+                        <input type="number" value="{{ data.letter_spacing.value }}" min="-10" max="10" step="0.1" {{{ data.letter_spacing.link }}} />
+                    </div>
+                </div>
 
-                                                            <# if ( !_.isEmpty(data.size) ) { #>
-                                                                <li class="ht--typography-font-size">
-                                                                    <# if ( data.size.label ) { #>
-                                                                        <span class="customize-control-title">
-                                                                            <span>{{ data.size.label }} (px)</span>
-                                                                            <# if ( !_.isEmpty(data.size_tablet) && !_.isEmpty(data.size_mobile) ) { #>
-                                                                                <ul class="responsive-switchers">
-                                                                                    <li class="desktop">
-                                                                                        <button type="button" class="preview-desktop active" data-device="desktop">
-                                                                                            <i class="dashicons dashicons-desktop"></i>
-                                                                                        </button>
-                                                                                    </li>
-                                                                                    <li class="tablet">
-                                                                                        <button type="button" class="preview-tablet" data-device="tablet">
-                                                                                            <i class="dashicons dashicons-tablet"></i>
-                                                                                        </button>
-                                                                                    </li>
-                                                                                    <li class="mobile">
-                                                                                        <button type="button" class="preview-mobile" data-device="mobile">
-                                                                                            <i class="dashicons dashicons-smartphone"></i>
-                                                                                        </button>
-                                                                                    </li>
-                                                                                </ul>
-                                                                                <# } #>
-                                                                        </span>
-                                                                        <# } #>
+                <# if ( !_.isEmpty(data.letter_spacing_tablet) ) { #>
+                <div class="tablet ht--range-slider-control-wrap control-wrap">
+                    <div class="ht--range-slider"></div>
+                    <div class="ht--range-slider-input">
+                        <input type="number" value="{{ data.letter_spacing_tablet.value }}" min="-10" max="10" step="0.1" {{{ data.letter_spacing_tablet.link }}} />
+                    </div>
+                </div>
+                <# } #>
 
-                                                                            <div class="ht--range-slider-control-wrap<# if ( !_.isEmpty(data.size_tablet) && !_.isEmpty(data.size_mobile) ) { #> desktop control-wrap active<# } #>">
-                                                                                <div class="ht--range-slider"></div>
-                                                                                <div class="ht--range-slider-input">
-                                                                                    <input type="number" value="{{ data.size.value }}" {{{ data.size.link }}} {{{ data.inputAttrs }}} />
-                                                                                </div>
-                                                                            </div>
+                <# if ( !_.isEmpty(data.letter_spacing_mobile) ) { #>
+                <div class="mobile ht--range-slider-control-wrap control-wrap">
+                    <div class="ht--range-slider"></div>
+                    <div class="ht--range-slider-input">
+                        <input type="number" value="{{ data.letter_spacing_mobile.value }}" min="-10" max="10" step="0.1" {{{ data.letter_spacing_mobile.link }}} />
+                    </div>
+                </div>
+                <# } #>
+            </li>
+            <# } #>
 
-                                                                            <# if ( !_.isEmpty(data.size_tablet) ) { #>
-                                                                                <div class="tablet ht--range-slider-control-wrap control-wrap">
-                                                                                    <div class="ht--range-slider"></div>
-                                                                                    <div class="ht--range-slider-input">
-                                                                                        <input type="number" value="{{ data.size_tablet.value }}" {{{ data.size_tablet.link }}} {{{ data.inputAttrs }}} />
-                                                                                    </div>
-                                                                                </div>
-                                                                                <# } #>
+            <# if ( !_.isEmpty(data.line_height) ) { #>
+            <li class="ht--typography-line-height">
+                <# if ( data.line_height.label ) { #>
+                <span class="customize-control-title">
+                    <span>{{ data.line_height.label }}</span>
+                    <# if ( !_.isEmpty(data.line_height_tablet) && !_.isEmpty(data.line_height_mobile) ) { #>
+                    <ul class="responsive-switchers">
+                        <li class="desktop">
+                            <button type="button" class="preview-desktop active" data-device="desktop">
+                                <i class="dashicons dashicons-desktop"></i>
+                            </button>
+                        </li>
+                        <li class="tablet">
+                            <button type="button" class="preview-tablet" data-device="tablet">
+                                <i class="dashicons dashicons-tablet"></i>
+                            </button>
+                        </li>
+                        <li class="mobile">
+                            <button type="button" class="preview-mobile" data-device="mobile">
+                                <i class="dashicons dashicons-smartphone"></i>
+                            </button>
+                        </li>
+                    </ul>
+                    <# } #>
+                </span>
+                <# } #>
 
-                                                                                    <# if ( !_.isEmpty(data.size_mobile) ) { #>
-                                                                                        <div class="mobile ht--range-slider-control-wrap control-wrap">
-                                                                                            <div class="ht--range-slider"></div>
-                                                                                            <div class="ht--range-slider-input">
-                                                                                                <input type="number" value="{{ data.size_mobile.value }}" {{{ data.size_mobile.link }}} {{{ data.inputAttrs }}} />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <# } #>
-                                                                </li>
-                                                                <# } #>
+                <div class="ht--range-slider-control-wrap<# if ( !_.isEmpty(data.line_height_tablet) && !_.isEmpty(data.line_height_mobile) ) { #> desktop control-wrap active <# } #>">
+                    <div class="ht--range-slider"></div>
+                    <div class="ht--range-slider-input">
+                        <input type="number" value="{{ data.line_height.value }}" min="0.8" max="5" step="0.1" {{{ data.line_height.link }}} />
+                    </div>
+                </div>
 
-                                                                    <# if ( !_.isEmpty(data.letter_spacing) ) { #>
-                                                                        <li class="ht--typography-letter-spacing">
-                                                                            <# if ( data.letter_spacing.label ) { #>
-                                                                                <span class="customize-control-title">
-                                                                                    <span>{{ data.letter_spacing.label }} (px)</span>
-                                                                                    <# if ( !_.isEmpty(data.letter_spacing_tablet) && !_.isEmpty(data.letter_spacing_mobile) ) { #>
-                                                                                        <ul class="responsive-switchers">
-                                                                                            <li class="desktop">
-                                                                                                <button type="button" class="preview-desktop active" data-device="desktop">
-                                                                                                    <i class="dashicons dashicons-desktop"></i>
-                                                                                                </button>
-                                                                                            </li>
-                                                                                            <li class="tablet">
-                                                                                                <button type="button" class="preview-tablet" data-device="tablet">
-                                                                                                    <i class="dashicons dashicons-tablet"></i>
-                                                                                                </button>
-                                                                                            </li>
-                                                                                            <li class="mobile">
-                                                                                                <button type="button" class="preview-mobile" data-device="mobile">
-                                                                                                    <i class="dashicons dashicons-smartphone"></i>
-                                                                                                </button>
-                                                                                            </li>
-                                                                                        </ul>
-                                                                                        <# } #>
-                                                                                </span>
-                                                                                <# } #>
+                <# if ( !_.isEmpty(data.line_height_tablet) ) { #>
+                <div class="tablet ht--range-slider-control-wrap control-wrap">
+                    <div class="ht--range-slider"></div>
+                    <div class="ht--range-slider-input">
+                        <input type="number" value="{{ data.line_height_tablet.value }}" min="0.8" max="5" step="0.1" {{{ data.line_height_tablet.link }}} />
+                    </div>
+                </div>
+                <# } #>
 
-                                                                                    <div class="ht--range-slider-control-wrap<# if ( !_.isEmpty(data.letter_spacing_tablet) && !_.isEmpty(data.letter_spacing_mobile) ) { #> desktop control-wrap active <# } #>">
-                                                                                        <div class="ht--range-slider"></div>
-                                                                                        <div class="ht--range-slider-input">
-                                                                                            <input type="number" value="{{ data.letter_spacing.value }}" min="-10" max="10" step="0.1" {{{ data.letter_spacing.link }}} />
-                                                                                        </div>
-                                                                                    </div>
+                <# if ( !_.isEmpty(data.line_height_mobile) ) { #>
+                <div class="mobile ht--range-slider-control-wrap control-wrap">
+                    <div class="ht--range-slider"></div>
+                    <div class="ht--range-slider-input">
+                        <input type="number" value="{{ data.line_height_mobile.value }}" min="0.8" max="5" step="0.1" {{{ data.line_height_mobile.link }}} />
+                    </div>
+                </div>
+                <# } #>
+            </li>
+            <# } #>
 
-                                                                                    <# if ( !_.isEmpty(data.letter_spacing_tablet) ) { #>
-                                                                                        <div class="tablet ht--range-slider-control-wrap control-wrap">
-                                                                                            <div class="ht--range-slider"></div>
-                                                                                            <div class="ht--range-slider-input">
-                                                                                                <input type="number" value="{{ data.letter_spacing_tablet.value }}" min="-10" max="10" step="0.1" {{{ data.letter_spacing_tablet.link }}} />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <# } #>
+            <# if ( data.color ) { #>
+            <li class="ht--typography-color">
+                <# if ( data.color.label ) { #>
+                <span class="customize-control-title">{{{ data.color.label }}}</span>
+                <# } #>
 
-                                                                                            <# if ( !_.isEmpty(data.letter_spacing_mobile) ) { #>
-                                                                                                <div class="mobile ht--range-slider-control-wrap control-wrap">
-                                                                                                    <div class="ht--range-slider"></div>
-                                                                                                    <div class="ht--range-slider-input">
-                                                                                                        <input type="number" value="{{ data.letter_spacing_mobile.value }}" min="-10" max="10" step="0.1" {{{ data.letter_spacing_mobile.link }}} />
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <# } #>
-                                                                        </li>
-                                                                        <# } #>
+                <div class="customize-control-content">
+                    <input class="ht--color-picker-hex" type="text" maxlength="7" placeholder="<?php esc_attr_e('Hex Value', 'viral'); ?>" {{{ data.color.link }}} value="{{ data.color.value }}"  />
+                </div>
+            </li>
+            <# } #>
 
-                                                                            <# if ( !_.isEmpty(data.line_height) ) { #>
-                                                                                <li class="ht--typography-line-height">
-                                                                                    <# if ( data.line_height.label ) { #>
-                                                                                        <span class="customize-control-title">
-                                                                                            <span>{{ data.line_height.label }}</span>
-                                                                                            <# if ( !_.isEmpty(data.line_height_tablet) && !_.isEmpty(data.line_height_mobile) ) { #>
-                                                                                                <ul class="responsive-switchers">
-                                                                                                    <li class="desktop">
-                                                                                                        <button type="button" class="preview-desktop active" data-device="desktop">
-                                                                                                            <i class="dashicons dashicons-desktop"></i>
-                                                                                                        </button>
-                                                                                                    </li>
-                                                                                                    <li class="tablet">
-                                                                                                        <button type="button" class="preview-tablet" data-device="tablet">
-                                                                                                            <i class="dashicons dashicons-tablet"></i>
-                                                                                                        </button>
-                                                                                                    </li>
-                                                                                                    <li class="mobile">
-                                                                                                        <button type="button" class="preview-mobile" data-device="mobile">
-                                                                                                            <i class="dashicons dashicons-smartphone"></i>
-                                                                                                        </button>
-                                                                                                    </li>
-                                                                                                </ul>
-                                                                                                <# } #>
-                                                                                        </span>
-                                                                                        <# } #>
-
-                                                                                            <div class="ht--range-slider-control-wrap<# if ( !_.isEmpty(data.line_height_tablet) && !_.isEmpty(data.line_height_mobile) ) { #> desktop control-wrap active <# } #>">
-                                                                                                <div class="ht--range-slider"></div>
-                                                                                                <div class="ht--range-slider-input">
-                                                                                                    <input type="number" value="{{ data.line_height.value }}" min="0.8" max="5" step="0.1" {{{ data.line_height.link }}} />
-                                                                                                </div>
-                                                                                            </div>
-
-                                                                                            <# if ( !_.isEmpty(data.line_height_tablet) ) { #>
-                                                                                                <div class="tablet ht--range-slider-control-wrap control-wrap">
-                                                                                                    <div class="ht--range-slider"></div>
-                                                                                                    <div class="ht--range-slider-input">
-                                                                                                        <input type="number" value="{{ data.line_height_tablet.value }}" min="0.8" max="5" step="0.1" {{{ data.line_height_tablet.link }}} />
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <# } #>
-
-                                                                                                    <# if ( !_.isEmpty(data.line_height_mobile) ) { #>
-                                                                                                        <div class="mobile ht--range-slider-control-wrap control-wrap">
-                                                                                                            <div class="ht--range-slider"></div>
-                                                                                                            <div class="ht--range-slider-input">
-                                                                                                                <input type="number" value="{{ data.line_height_mobile.value }}" min="0.8" max="5" step="0.1" {{{ data.line_height_mobile.link }}} />
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <# } #>
-                                                                                </li>
-                                                                                <# } #>
-
-                                                                                    <# if ( data.color ) { #>
-                                                                                        <li class="ht--typography-color">
-                                                                                            <# if ( data.color.label ) { #>
-                                                                                                <span class="customize-control-title">{{{ data.color.label }}}</span>
-                                                                                                <# } #>
-
-                                                                                                    <div class="customize-control-content">
-                                                                                                        <input class="ht--color-picker-hex" type="text" maxlength="7" placeholder="<?php esc_attr_e('Hex Value', 'viral'); ?>" {{{ data.color.link }}} value="{{ data.color.value }}" />
-                                                                                                    </div>
-                                                                                        </li>
-                                                                                        <# } #>
-
-                        </ul>
-                        <?php
+        </ul>
+        <?php
     }
 
     /**

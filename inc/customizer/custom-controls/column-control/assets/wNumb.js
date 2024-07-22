@@ -1,4 +1,4 @@
-(function (factory) {
+(function(factory) {
   if (typeof define === "function" && define.amd) {
     // AMD. Register as an anonymous module.
     define([], factory);
@@ -9,7 +9,7 @@
     // Browser globals
     window.wNumb = factory();
   }
-})(function () {
+})(function() {
   "use strict";
 
   var FormatOptions = [
@@ -367,12 +367,12 @@
     options = validate(options);
 
     // Call 'formatTo' with proper arguments.
-    this.to = function (input) {
+    this.to = function(input) {
       return passAll(options, formatTo, input);
     };
 
     // Call 'formatFrom' with proper arguments.
-    this.from = function (input) {
+    this.from = function(input) {
       return passAll(options, formatFrom, input);
     };
   }

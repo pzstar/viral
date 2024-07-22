@@ -44,8 +44,7 @@ get_header();
                         </span>
                         <div class="owl-carousel">
                             <?php
-                            while ($query->have_posts()):
-                                $query->the_post();
+                            while ($query->have_posts()): $query->the_post();
                                 echo '<a href="' . esc_url(get_permalink()) . '">' . esc_html(get_the_title()) . '</a>';
                             endwhile;
                             wp_reset_postdata();

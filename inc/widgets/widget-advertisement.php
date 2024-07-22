@@ -12,9 +12,9 @@ class viral_advertisement extends WP_Widget {
 
     public function __construct() {
         parent::__construct(
-            'viral_advertisement', 'Viral : Advertisement', array(
-                'description' => esc_html__('A widget to display Advertisement', 'viral')
-            ));
+                'viral_advertisement', 'Viral : Advertisement', array(
+            'description' => esc_html__('A widget to display Advertisement', 'viral')
+        ));
     }
 
     /**

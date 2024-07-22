@@ -11,7 +11,7 @@ if (!defined('VIRAL_VERSION')) {
     define('VIRAL_VERSION', $viral_version);
 }
 
-if (!function_exists('viral_setup')):
+if (!function_exists('viral_setup')) :
 
     function viral_setup() {
 
@@ -173,7 +173,7 @@ function viral_widgets_init() {
 
 add_action('widgets_init', 'viral_widgets_init');
 
-if (!function_exists('viral_fonts_url')):
+if (!function_exists('viral_fonts_url')) :
 
     /**
      * Register Google fonts for Viral.
@@ -217,7 +217,7 @@ if (!function_exists('viral_fonts_url')):
                     'family' => urlencode(implode('|', $fonts)),
                     'subset' => urlencode($subsets),
                     'display' => 'swap',
-                ), 'https://fonts.googleapis.com/css');
+                        ), 'https://fonts.googleapis.com/css');
             }
         }
         return $fonts_url;
@@ -287,7 +287,7 @@ function viral_admin_scripts() {
     wp_enqueue_media();
     wp_enqueue_script('viral-admin-scripts', get_template_directory_uri() . '/inc/js/admin-scripts.js', array('jquery'), VIRAL_VERSION, true);
     wp_enqueue_style('viral-admin-style', get_template_directory_uri() . '/inc/css/admin-style.css', array(), VIRAL_VERSION);
-
+    
     $fonts_url = viral_fonts_url();
 
     // Load Fonts if necessary.
