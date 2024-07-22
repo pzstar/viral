@@ -12,20 +12,20 @@
 
 (function () {
     var $, AbstractChosen, Chosen, SelectParser, _ref,
-            __hasProp = {}.hasOwnProperty,
-            __extends = function (child, parent) {
-                for (var key in parent) {
-                    if (__hasProp.call(parent, key))
-                        child[key] = parent[key];
-                }
-                function ctor() {
-                    this.constructor = child;
-                }
-                ctor.prototype = parent.prototype;
-                child.prototype = new ctor();
-                child.__super__ = parent.prototype;
-                return child;
-            };
+        __hasProp = {}.hasOwnProperty,
+        __extends = function (child, parent) {
+            for (var key in parent) {
+                if (__hasProp.call(parent, key))
+                    child[key] = parent[key];
+            }
+            function ctor() {
+                this.constructor = child;
+            }
+            ctor.prototype = parent.prototype;
+            child.prototype = new ctor();
+            child.__super__ = parent.prototype;
+            return child;
+        };
 
     SelectParser = (function () {
         function SelectParser() {
@@ -975,7 +975,7 @@
 
         Chosen.prototype.choice_build = function (item) {
             var choice, close_link,
-                    _this = this;
+                _this = this;
             choice = $('<li />', {
                 "class": "search-choice"
             }).html("<span>" + (this.choice_label(item)) + "</span>");

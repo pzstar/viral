@@ -29,7 +29,8 @@ class Viral_Dimensions_Control extends WP_Customize_Control {
         $id = 'customize-control-' . str_replace(array('[', ']'), array('-', ''), $this->id);
         $switcher_class = $this->responsive ? ' has-switchers' : '';
         $class = 'customize-control customize-control-' . $this->type . $switcher_class;
-        ?><li id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($class); ?>">
+        ?>
+        <li id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($class); ?>">
             <?php $this->render_content(); ?>
         </li><?php
     }
@@ -58,7 +59,7 @@ class Viral_Dimensions_Control extends WP_Customize_Control {
 
         foreach ($this->settings as $setting_key => $setting) {
 
-            list( $_key ) = explode('_', $setting_key);
+            list($_key) = explode('_', $setting_key);
 
             $this->json[$_key][$setting_key] = array(
                 'id' => $setting->id,
@@ -81,88 +82,88 @@ class Viral_Dimensions_Control extends WP_Customize_Control {
     protected function content_template() {
         ?>
         <# if ( data.label ) { #>
-        <span class="customize-control-title">
-            <span>{{{ data.label }}}</span>
+            <span class="customize-control-title">
+                <span>{{{ data.label }}}</span>
 
-            <# if ( data.responsive ) { #>
-            <ul class="responsive-switchers">
-                <li class="desktop">
-                    <button type="button" class="preview-desktop active" data-device="desktop">
-                        <i class="dashicons dashicons-desktop"></i>
-                    </button>
-                </li>
-                <li class="tablet">
-                    <button type="button" class="preview-tablet" data-device="tablet">
-                        <i class="dashicons dashicons-tablet"></i>
-                    </button>
-                </li>
-                <li class="mobile">
-                    <button type="button" class="preview-mobile" data-device="mobile">
-                        <i class="dashicons dashicons-smartphone"></i>
-                    </button>
-                </li>
-            </ul>
+                <# if ( data.responsive ) { #>
+                    <ul class="responsive-switchers">
+                        <li class="desktop">
+                            <button type="button" class="preview-desktop active" data-device="desktop">
+                                <i class="dashicons dashicons-desktop"></i>
+                            </button>
+                        </li>
+                        <li class="tablet">
+                            <button type="button" class="preview-tablet" data-device="tablet">
+                                <i class="dashicons dashicons-tablet"></i>
+                            </button>
+                        </li>
+                        <li class="mobile">
+                            <button type="button" class="preview-mobile" data-device="mobile">
+                                <i class="dashicons dashicons-smartphone"></i>
+                            </button>
+                        </li>
+                    </ul>
+                    <# } #>
+            </span>
             <# } #>
-        </span>
-        <# } #>
 
-        <# if ( data.description ) { #>
-        <span class="description customize-control-description">{{{ data.description }}}</span>
-        <# } #>
+                <# if ( data.description ) { #>
+                    <span class="description customize-control-description">{{{ data.description }}}</span>
+                    <# } #>
 
-        <ul class="desktop control-wrap active">
-            <# _.each( data.desktop, function( args, key ) { #>
-            <li class="ht--dimension-wrap {{ key }}">
-                <input {{{ data.inputAttrs }}} type="number" class="ht--dimension-{{ key }}" {{{ args.link }}} value="{{{ args.value }}}" />
-                    <span class="ht--dimension-label">{{ data.l10n[ key ] }}</span>
-            </li>
-            <# } ); #>
+                        <ul class="desktop control-wrap active">
+                            <# _.each( data.desktop, function( args, key ) { #>
+                                <li class="ht--dimension-wrap {{ key }}">
+                                    <input {{{ data.inputAttrs }}} type="number" class="ht--dimension-{{ key }}" {{{ args.link }}} value="{{{ args.value }}}" />
+                                    <span class="ht--dimension-label">{{ data.l10n[ key ] }}</span>
+                                </li>
+                                <# } ); #>
 
-            <li class="ht--dimension-wrap">
-                <div class="ht--link-dimensions">
-                    <span class="dashicons dashicons-admin-links ht--linked" data-element="{{ data.id }}" title="{{ data.title }}"></span>
-                    <span class="dashicons dashicons-editor-unlink ht--unlinked" data-element="{{ data.id }}" title="{{ data.title }}"></span>
-                </div>
-            </li>
-        </ul>
+                                    <li class="ht--dimension-wrap">
+                                        <div class="ht--link-dimensions">
+                                            <span class="dashicons dashicons-admin-links ht--linked" data-element="{{ data.id }}" title="{{ data.title }}"></span>
+                                            <span class="dashicons dashicons-editor-unlink ht--unlinked" data-element="{{ data.id }}" title="{{ data.title }}"></span>
+                                        </div>
+                                    </li>
+                        </ul>
 
-        <# if ( data.responsive ) { #>
-        <ul class="tablet control-wrap">
-            <# _.each( data.tablet, function( args, key ) { #>
-            <li class="ht--dimension-wrap {{ key }}">
-                <input {{{ data.inputAttrs }}} type="number" class="ht--dimension-{{ key }}" {{{ args.link }}} value="{{{ args.value }}}" />
-                    <span class="ht--dimension-label">{{ data.l10n[ key ] }}</span>
-            </li>
-            <# } ); #>
+                        <# if ( data.responsive ) { #>
+                            <ul class="tablet control-wrap">
+                                <# _.each( data.tablet, function( args, key ) { #>
+                                    <li class="ht--dimension-wrap {{ key }}">
+                                        <input {{{ data.inputAttrs }}} type="number" class="ht--dimension-{{ key }}" {{{ args.link }}} value="{{{ args.value }}}" />
+                                        <span class="ht--dimension-label">{{ data.l10n[ key ] }}</span>
+                                    </li>
+                                    <# } ); #>
 
-            <li class="ht--dimension-wrap">
-                <div class="ht--link-dimensions">
-                    <span class="dashicons dashicons-admin-links ht--linked" data-element="{{ data.id }}_tablet" title="{{ data.title }}"></span>
-                    <span class="dashicons dashicons-editor-unlink ht--unlinked" data-element="{{ data.id }}_tablet" title="{{ data.title }}"></span>
-                </div>
-            </li>
-        </ul>
-        <# } #>
+                                        <li class="ht--dimension-wrap">
+                                            <div class="ht--link-dimensions">
+                                                <span class="dashicons dashicons-admin-links ht--linked" data-element="{{ data.id }}_tablet" title="{{ data.title }}"></span>
+                                                <span class="dashicons dashicons-editor-unlink ht--unlinked" data-element="{{ data.id }}_tablet" title="{{ data.title }}"></span>
+                                            </div>
+                                        </li>
+                            </ul>
+                            <# } #>
 
-        <# if ( data.responsive ) { #>
-        <ul class="mobile control-wrap">
-            <# _.each( data.mobile, function( args, key ) { #>
-            <li class="ht--dimension-wrap {{ key }}">
-                <input {{{ data.inputAttrs }}} type="number" class="ht--dimension-{{ key }}" {{{ args.link }}} value="{{{ args.value }}}" />
-                    <span class="ht--dimension-label">{{ data.l10n[ key ] }}</span>
-            </li>
-            <# } ); #>
+                                <# if ( data.responsive ) { #>
+                                    <ul class="mobile control-wrap">
+                                        <# _.each( data.mobile, function( args, key ) { #>
+                                            <li class="ht--dimension-wrap {{ key }}">
+                                                <input {{{ data.inputAttrs }}} type="number" class="ht--dimension-{{ key }}" {{{ args.link }}} value="{{{ args.value }}}" />
+                                                <span class="ht--dimension-label">{{ data.l10n[ key ] }}</span>
+                                            </li>
+                                            <# } ); #>
 
-            <li class="ht--dimension-wrap">
-                <div class="ht--link-dimensions">
-                    <span class="dashicons dashicons-admin-links ht--linked" data-element="{{ data.id }}_mobile" title="{{ data.title }}"></span>
-                    <span class="dashicons dashicons-editor-unlink ht--unlinked" data-element="{{ data.id }}_mobile" title="{{ data.title }}"></span>
-                </div>
-            </li>
-        </ul>
-        <# } #>
+                                                <li class="ht--dimension-wrap">
+                                                    <div class="ht--link-dimensions">
+                                                        <span class="dashicons dashicons-admin-links ht--linked" data-element="{{ data.id }}_mobile" title="{{ data.title }}"></span>
+                                                        <span class="dashicons dashicons-editor-unlink ht--unlinked" data-element="{{ data.id }}_mobile" title="{{ data.title }}"></span>
+                                                    </div>
+                                                </li>
+                                    </ul>
+                                    <# } #>
 
-        <?php
+                                        <?php
     }
 
     /**

@@ -20,7 +20,7 @@ if (!function_exists('viral_posted_on')) {
         );
 
         $byline = sprintf(
-                esc_html_x('by %s', 'post author', 'viral'), '<span class="author vcard"><a class="url fn n" href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">' . esc_html(get_the_author()) . '</a></span>'
+            esc_html_x('by %s', 'post author', 'viral'), '<span class="author vcard"><a class="url fn n" href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">' . esc_html(get_the_author()) . '</a></span>'
         );
 
         $comment_count = get_comments_number(); // get_comments_number returns only a numeric value
@@ -51,7 +51,7 @@ if (!function_exists('viral_post_date')) {
         $time_string = '<time class="entry-date published updated" datetime="' . ($viral_is_updated_date ? get_the_modified_date('c') : get_the_date('c')) . '" ' . viral_get_schema_attribute('publish_date') . '>' . ($viral_is_updated_date ? get_the_modified_date() : get_the_date()) . '</time>';
 
         $byline = sprintf(
-                esc_html_x('by %s', 'post author', 'viral'), '<span class="author vcard">' . esc_html(get_the_author()) . '</span>'
+            esc_html_x('by %s', 'post author', 'viral'), '<span class="author vcard">' . esc_html(get_the_author()) . '</span>'
         );
 
         echo '<div class="posted-on"><i class="mdi-clock-time-three-outline"></i>' . $time_string . '<span class="byline"> ' . $byline . '</span></div>'; // WPCS: XSS OK.
@@ -80,7 +80,7 @@ if (!function_exists('viral_entry_footer')) {
             }
         }
 
-        if (!is_single() && !post_password_required() && ( comments_open() || get_comments_number() )) {
+        if (!is_single() && !post_password_required() && (comments_open() || get_comments_number())) {
             echo '<span class="comments-link">';
             comments_popup_link(esc_html__('Leave a comment', 'viral'), esc_html__('1 Comment', 'viral'), esc_html__('% Comments', 'viral'));
             echo '</span>';
@@ -113,7 +113,7 @@ if (!function_exists('viral_entry_category')) {
  * @return bool
  */
 function viral_categorized_blog() {
-    if (false === ( $all_the_cool_cats = get_transient('viral_categories') )) {
+    if (false === ($all_the_cool_cats = get_transient('viral_categories'))) {
         // Create an array of all the categories that are attached to posts.
         $all_the_cool_cats = get_categories(array(
             'fields' => 'ids',
@@ -275,15 +275,15 @@ function viral_amp_menu_is_toggled() {
 }
 
 
-if(!function_exists('viral_get_schema_attribute')) {
+if (!function_exists('viral_get_schema_attribute')) {
 
     function viral_get_schema_attribute($place) {
         $schema_markup = get_theme_mod('viral_schema_markup', false);
-        if(!$schema_markup) {
+        if (!$schema_markup) {
             return '';
         }
         $attrs = "";
-        switch($place) {
+        switch ($place) {
             case 'single':
                 $itemscope = 'itemscope';
                 $itemtype = 'WebPage';

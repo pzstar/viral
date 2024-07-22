@@ -113,100 +113,100 @@ class Viral_Background_Image_Control extends WP_Customize_Control {
     public function content_template() {
         ?>
         <# if ( data.label ) { #>
-        <span class="customize-control-title">{{{ data.label }}}</span>
-        <# } #>
-
-        <div class="ht--placeholder <# if ( data.image_url.value ) { #>hidden<# } #>">
-            {{{ data.button_label.select }}}
-        </div>
-
-        <div class="ht--thumbnail">
-            <# if ( data.image_url.value ) { #>
-            <img src='{{ data.image_url.value }}'>
-            <# } #>
-        </div>
-
-        <div class="ht--actions ht--clearfix">
-            <button type="button" class="button ht--upload-button align-left">{{{ data.button_label.select }}}</button>
-            <button type="button" class="button ht--remove-button alignright">{{{ data.button_label.remove }}}</button>
-        </div>
-
-        <input class="ht--background-image-url" type="hidden" value="{{ data.image_url.value }}" {{{ data.image_url.link }}}>
-
-               <input class="ht--background-image-id" type="hidden" value="{{ data.image_id.value }}" {{{ data.image_id.link }}}>
-
-               <div class="ht--background-image-fields" <# if ( !data.image_url.value ) { #> style="display:none "<# } #>>
-               <# if ( data.repeat && data.repeat.choices ) { #>
-               <li class="ht--background-image-repeat">
-                <# if ( data.repeat.label ) { #>
-                <span class="customize-control-title">{{ data.repeat.label }}</span>
-                <# } #>
-                <select {{{ data.repeat.link }}}>
-                    <# _.each( data.repeat.choices, function( label, choice ) { #>
-                    <option value="{{ choice }}" <# if ( choice === data.repeat.value ) { #> selected="selected" <# } #>>{{ label }}</option>
-                    <# } ) #>
-                </select>
-            </li>
+            <span class="customize-control-title">{{{ data.label }}}</span>
             <# } #>
 
-            <# if ( data.size && data.size.choices ) { #>
-            <li class="ht--background-image-size">
-                <# if ( data.size.label ) { #>
-                <span class="customize-control-title">{{ data.size.label }}</span>
-                <# } #>
-                <select {{{ data.size.link }}}>
-                    <# _.each( data.size.choices, function( label, choice ) { #>
-                    <option value="{{ choice }}" <# if ( choice === data.size.value ) { #> selected="selected" <# } #>>{{ label }}</option>
-                    <# } ) #>
-                </select>
-            </li>
-            <# } #>
+                <div class="ht--placeholder <# if ( data.image_url.value ) { #>hidden<# } #>">
+                    {{{ data.button_label.select }}}
+                </div>
 
-            <# if ( data.position && data.position.choices ) { #>
-            <li class="ht--background-image-position">
-                <# if ( data.position.label ) { #>
-                <span class="customize-control-title">{{ data.position.label }}</span>
-                <# } #>
-                <select {{{ data.position.link }}}>
-                    <# _.each( data.position.choices, function( label, choice ) { #>
-                    <option value="{{ choice }}" <# if ( choice === data.position.value ) { #> selected="selected" <# } #>>{{ label }}</option>
-                    <# } ) #>
-                </select>
-            </li>
-            <# } #>
+                <div class="ht--thumbnail">
+                    <# if ( data.image_url.value ) { #>
+                        <img src='{{ data.image_url.value }}'>
+                        <# } #>
+                </div>
 
-            <# if ( data.attachment && data.attachment.choices ) { #>
-            <li class="ht--background-image-attachment">
-                <# if ( data.attachment.label ) { #>
-                <span class="customize-control-title">{{ data.attachment.label }}</span>
-                <# } #>
-                <select {{{ data.attachment.link }}}>
-                    <# _.each( data.attachment.choices, function( label, choice ) { #>
-                    <option value="{{ choice }}" <# if ( choice === data.attachment.value ) { #> selected="selected" <# } #>>{{ label }}</option>
-                    <# } ) #>
-                </select>
-            </li>
-            <# } #>
+                <div class="ht--actions ht--clearfix">
+                    <button type="button" class="button ht--upload-button align-left">{{{ data.button_label.select }}}</button>
+                    <button type="button" class="button ht--remove-button alignright">{{{ data.button_label.remove }}}</button>
+                </div>
 
-            <# if ( data.overlay ) { #>
-            <li class="ht--background-image-overlay">
-                <# if ( data.overlay.label ) { #>
-                <span class="customize-control-title">{{ data.overlay.label }}</span>
-                <# } #>
-                <input data-alpha-color-type="hex" data-alpha-enabled="true" type="text" value="{{ data.overlay.value }}" {{{ data.overlay.link }}} />
-            </li>
-            <# } #>
-        </div>
+                <input class="ht--background-image-url" type="hidden" value="{{ data.image_url.value }}" {{{ data.image_url.link }}}>
 
-        <# if ( data.color ) { #>
-        <div class="ht--background-image-color">
-            <# if ( data.color.label ) { #>
-            <span class="customize-control-title">{{ data.color.label }}</span>
-            <# } #>
-            <input data-alpha-color-type="hex" data-alpha-enabled="true" type="text" value="{{ data.color.value }}" {{{ data.color.link }}} /> 
-        </div>
-        <# } #>
-        <?php
+                <input class="ht--background-image-id" type="hidden" value="{{ data.image_id.value }}" {{{ data.image_id.link }}}>
+
+                <div class="ht--background-image-fields" <# if ( !data.image_url.value ) { #> style="display:none "<# } #>>
+                        <# if ( data.repeat && data.repeat.choices ) { #>
+                            <li class="ht--background-image-repeat">
+                                <# if ( data.repeat.label ) { #>
+                                    <span class="customize-control-title">{{ data.repeat.label }}</span>
+                                    <# } #>
+                                        <select {{{ data.repeat.link }}}>
+                                            <# _.each( data.repeat.choices, function( label, choice ) { #>
+                                                <option value="{{ choice }}" <# if ( choice===data.repeat.value ) { #> selected="selected" <# } #>>{{ label }}</option>
+                                                <# } ) #>
+                                        </select>
+                            </li>
+                            <# } #>
+
+                                <# if ( data.size && data.size.choices ) { #>
+                                    <li class="ht--background-image-size">
+                                        <# if ( data.size.label ) { #>
+                                            <span class="customize-control-title">{{ data.size.label }}</span>
+                                            <# } #>
+                                                <select {{{ data.size.link }}}>
+                                                    <# _.each( data.size.choices, function( label, choice ) { #>
+                                                        <option value="{{ choice }}" <# if ( choice===data.size.value ) { #> selected="selected" <# } #>>{{ label }}</option>
+                                                        <# } ) #>
+                                                </select>
+                                    </li>
+                                    <# } #>
+
+                                        <# if ( data.position && data.position.choices ) { #>
+                                            <li class="ht--background-image-position">
+                                                <# if ( data.position.label ) { #>
+                                                    <span class="customize-control-title">{{ data.position.label }}</span>
+                                                    <# } #>
+                                                        <select {{{ data.position.link }}}>
+                                                            <# _.each( data.position.choices, function( label, choice ) { #>
+                                                                <option value="{{ choice }}" <# if ( choice===data.position.value ) { #> selected="selected" <# } #>>{{ label }}</option>
+                                                                <# } ) #>
+                                                        </select>
+                                            </li>
+                                            <# } #>
+
+                                                <# if ( data.attachment && data.attachment.choices ) { #>
+                                                    <li class="ht--background-image-attachment">
+                                                        <# if ( data.attachment.label ) { #>
+                                                            <span class="customize-control-title">{{ data.attachment.label }}</span>
+                                                            <# } #>
+                                                                <select {{{ data.attachment.link }}}>
+                                                                    <# _.each( data.attachment.choices, function( label, choice ) { #>
+                                                                        <option value="{{ choice }}" <# if ( choice===data.attachment.value ) { #> selected="selected" <# } #>>{{ label }}</option>
+                                                                        <# } ) #>
+                                                                </select>
+                                                    </li>
+                                                    <# } #>
+
+                                                        <# if ( data.overlay ) { #>
+                                                            <li class="ht--background-image-overlay">
+                                                                <# if ( data.overlay.label ) { #>
+                                                                    <span class="customize-control-title">{{ data.overlay.label }}</span>
+                                                                    <# } #>
+                                                                        <input data-alpha-color-type="hex" data-alpha-enabled="true" type="text" value="{{ data.overlay.value }}" {{{ data.overlay.link }}} />
+                                                            </li>
+                                                            <# } #>
+                </div>
+
+                <# if ( data.color ) { #>
+                    <div class="ht--background-image-color">
+                        <# if ( data.color.label ) { #>
+                            <span class="customize-control-title">{{ data.color.label }}</span>
+                            <# } #>
+                                <input data-alpha-color-type="hex" data-alpha-enabled="true" type="text" value="{{ data.color.value }}" {{{ data.color.link }}} />
+                    </div>
+                    <# } #>
+                        <?php
     }
 
     /**
