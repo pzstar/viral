@@ -28,8 +28,8 @@ class Viral_Group_Control extends WP_Customize_Control {
         <div class="ht--group-wrap">
             <div class="ht--group-heading">
                 <# if ( data.heading ) { #>
-                    <label>{{{ data.heading }}}</label>
-                    <# } #>
+                <label>{{{ data.heading }}}</label>
+                <# } #>
             </div>
 
             <div class="ht--group-content"></div>

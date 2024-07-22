@@ -30,7 +30,7 @@ if (class_exists('WP_Customize_Section')) {
          * @var    string
          */
         public $upgrade_url = '';
-
+        
         public $options = array();
 
         /**
@@ -63,29 +63,29 @@ if (class_exists('WP_Customize_Section')) {
 
             <li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }} cannot-expand {{data.class}}">
                 <# if ( _.isEmpty(data.options) ) { #>
-                    <h3 class="accordion-section-title">
-                        <# if ( data.title ) { #>
-                            {{{ data.title }}}
-                            <# } #>
-                                <# if ( data.upgrade_text && data.upgrade_url ) { #>
-                                    <a href="{{ data.upgrade_url }}" class="button button-primary" target="_blank">{{ data.upgrade_text }}</a>
-                                    <# } #>
-                    </h3>
-                    <# }else{ #>
-                        <label>
-                            <# if ( data.title ) { #>
-                                {{ data.title }}
-                                <# } #>
-                        </label>
+                <h3 class="accordion-section-title">
+                    <# if ( data.title ) { #>
+                    {{{ data.title }}}
+                    <# } #>
+                    <# if ( data.upgrade_text && data.upgrade_url ) { #>
+                    <a href="{{ data.upgrade_url }}" class="button button-primary" target="_blank">{{ data.upgrade_text }}</a>
+                    <# } #>
+                </h3>
+                <# }else{ #>
+                <label>
+                    <# if ( data.title ) { #>
+                    {{ data.title }}
+                    <# } #>
+                </label>
 
-                        <# _.each( data.options, function(key, value) { #>
-                            {{ key }}<br />
-                            <# }) #>
+                <# _.each( data.options, function(key, value) { #>
+                {{ key }}<br/>
+                <# }) #>
 
-                                <# if ( data.upgrade_text && data.upgrade_url ) { #>
-                                    <a href="{{ data.upgrade_url }}" class="button button-primary" target="_blank">{{ data.upgrade_text }}</a>
-                                    <# } #>
-                                        <# } #>
+                <# if ( data.upgrade_text && data.upgrade_url ) { #>
+                <a href="{{ data.upgrade_url }}" class="button button-primary" target="_blank">{{ data.upgrade_text }}</a>
+                <# } #>
+                <# } #>
             </li>
             <?php
         }

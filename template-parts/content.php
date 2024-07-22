@@ -5,7 +5,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('vl-archive-post'); ?> <?php echo viral_get_schema_attribute('archive'); ?>>
-    <?php if ('post' == get_post_type()): ?>
+    <?php if ('post' == get_post_type()) : ?>
         <div class="entry-meta vl-post-info">
             <?php viral_posted_on(); ?>
         </div><!-- .entry-meta -->

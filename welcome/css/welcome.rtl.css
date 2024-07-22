@@ -19,25 +19,25 @@
 }
 
 .welcome-wrap{
-    color: #555d66;
-    font-size: 15px;
-    line-height: 1.5;
+    position: relative;
     margin: 25px 20px 0 40px;
     max-width: 1150px;
-    position: relative
+    font-size: 15px;
+    line-height: 1.5;
+    color: #555d66
 }
 
 .welcome-wrap p{
-    color: #555d66;
     font-size: 15px;
-    line-height: 1.5
+    line-height: 1.5;
+    color: #555d66
 }
 
 .welcome-main-content,
 .welcome-footer-content{
     background: #FFF;
-    margin-bottom: 50px;
     padding: 50px;
+    margin-bottom: 50px;
 }
 
 .welcome-footer-content{
@@ -50,9 +50,9 @@
 }
 
 .welcome-intro{
+    width: 70%;
     float: right;
     font-size: 18px;
-    width: 70%;
 }
 
 .welcome-intro h2{
@@ -65,77 +65,77 @@
 }
 
 .free-pro-demos a.button{
-    font-weight: bold;
-    line-height: 42px;
-    margin-left: 20px;
     padding: 0 20px;
+    line-height: 42px;
+    font-weight: bold;
+    margin-left: 20px;
 }
 
 .free-pro-demos a.button .dashicons{
     height: auto;
+    width: auto;
     line-height: 42px;
     margin-left: 8px;
-    width: auto;
 }
 
 .welcome-promo-banner{
+    width: 25%;
     background: #fff;
     border: 1px solid #EEE;
-    float: left;
     padding: 20px;
+    float: left;
     text-align: center;
-    width: 25%;
 }
 
 .welcome-promo-banner p {
-    font-size: 20px;
     font-weight: bold;
+    font-size: 20px;
 }
 
 .welcome-promo-banner a.upgrade-btn {
     display: block !important;
-    font-weight: bold;
-    padding: 10px 20px;
-    white-space: normal;
     width: 100%;
+    padding: 10px 20px;
+    font-weight: bold;
+    white-space: normal;
 }
 
 .welcome-promo-offer {
-    background: #f4fcff;
-    border: 2px dashed #dad5d5;
     display: block !important;
-    font-size: 16px;
-    line-height: 1.8em;
     margin-bottom: 15px;
     padding: 15px;
+    border: 2px dashed #dad5d5;
+    background: #f4fcff;
     text-decoration: none;
+    font-size: 16px;
+    line-height: 1.8em;
 }
 
 .welcome-promo-offer span{
-    display: block;
     font-size: 40px;
-    font-weight: bold;
+    display: block;
     margin: 20px 0;
+    font-weight: bold;
 }
 
 /** Nav **/
 .welcome-nav-wrapper{
-    background: #EEE;
     display: flex;
-    margin-bottom: 50px;
+    background: #EEE;
     padding: 15px 15px 0 15px;
+    margin-bottom: 50px;
 }
 
 .welcome-nav-wrapper .welcome-nav-tab{
-    background: #FFF;
-    border-radius: 5px 5px 0 0;
-    box-shadow: none;
-    color: #333;
-    font-weight: bold;
-    margin-left: 10px;
     padding: 14px 30px;
     text-decoration: none;
+    background: #FFF;
+    color: #333;
     text-transform: uppercase;
+    margin-left: 10px;
+    font-weight: bold;
+    border-radius: 5px 5px 0 0;
+    box-shadow: none;
 }
 
 .welcome-nav-wrapper .welcome-nav-tab:hover{
@@ -155,18 +155,18 @@
 
 .welcome-manual-setup,
 .welcome-demo-import{
+    width: 48%;
+    padding: 30px;
     border: 1px solid #EEE;
     box-shadow: -4px 4px 4px rgba(0,0,0,.04);
-    padding: 30px;
-    width: 48%;
 }
 
 .welcome-getting-started h3{
-    border-bottom: 1px solid #eee;
-    font-size: 18px;
-    line-height: 30px;
     margin: 0 0 20px;
+    font-size: 18px;
+    border-bottom: 1px solid #eee;
     padding: 0 0 20px;
+    line-height: 30px;
 }
 
 .welcome-getting-started ol{
@@ -183,20 +183,20 @@
 }
 
 .welcome-theme-thumb{
-    margin-bottom: 20px;
-    overflow: hidden;
     padding-bottom: 72%;
     position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
 }
 
 .welcome-theme-thumb img{
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
     position: absolute;
     right: 0;
     top: 0;
+    object-fit: cover;
+    height: 100%;
     width: 100%;
+    object-position: top center;
 }
 
 /** Recommende Plugins **/
@@ -214,39 +214,39 @@
 .recommended-plugins{
     background: #fff;
     border: 1px solid #EEE;
+    width: 29.33%;
     float: right;
     margin-right: 4%;
     margin-top: 50px;
-    width: 29.33%;
 }
 
 .plugin-image img{
-    padding: 10px;
     width: 100%;
+    padding: 10px;
 }
 
 .plugin-title-wrap{
-    border-top: 1px solid #EEE;
+    position: relative;
     font-size: 14px;
     font-weight: 600;
     line-height: 26px;
-    overflow: hidden;
     padding: 10px 15px;
-    position: relative;
-    text-overflow: ellipsis;
+    border-top: 1px solid #EEE;
+    overflow: hidden;
     white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .plugin-btn-wrapper{
-    background: rgba(244,244,244,.7);
-    border-right: 1px solid rgba(0,0,0,.05);
-    bottom: 0;
-    height: 46px;
-    left: 0;
-    padding: 10px 20px;
+    transition: opacity .1s ease-in-out;
     position: absolute;
     top: 0;
-    transition: opacity .1s ease-in-out;
+    bottom: 0;
+    left: 0;
+    height: 46px;
+    padding: 10px 20px;
+    background: rgba(244,244,244,.7);
+    border-right: 1px solid rgba(0,0,0,.05);
 }
 
 /** Support **/
@@ -257,11 +257,11 @@
 }
 
 .support-wrap .support-col{
-    border: 1px solid #EEE;
-    box-shadow: -4px 4px 4px rgba(0,0,0,.04);
-    margin: 0 15px;
-    padding: 30px;
     width: 50%;
+    border: 1px solid #EEE;
+    padding: 30px;
+    margin: 0 15px;
+    box-shadow: -4px 4px 4px rgba(0,0,0,.04);
 }
 
 .support-wrap .support-col h3{
@@ -276,12 +276,12 @@
 
 .free-vs-pro-info{
     border: 1px solid #EEE;
-    box-shadow: -4px 4px 4px rgba(0,0,0,.04);
-    flex-basis: 0;
-    flex-grow: 1;
-    margin: 0 15px;
     padding: 20px;
+    flex-grow: 1;
+    flex-basis: 0;
+    margin: 0 15px;
     text-align: center;
+    box-shadow: -4px 4px 4px rgba(0,0,0,.04);
 }
 
 .free-vs-pro-info h4{
@@ -295,8 +295,8 @@
 
 table.comparison-table {
     border:#EEE 1px solid;
-    border-collapse: collapse;
     width: 100%;
+    border-collapse: collapse;
 }
 
 table.comparison-table th,
@@ -339,12 +339,12 @@ table.comparison-table td:nth-child(3) img{
 }
 
 a.buy-pro-btn {
+    display: block;
     background: #b92424;
     color: #fff;
-    display: block;
+    text-decoration: none;
     padding: 15px 20px;
     text-align: center;
-    text-decoration: none;
     white-space: nowrap;
 }
 
@@ -354,9 +354,9 @@ a.buy-pro-btn:hover{
 
 /** Upgrade Section **/
 .welcome-upgrade-header{
-    margin: 0 auto;
     text-align: center;
     width: 90%;
+    margin: 0 auto;
 }
 
 .welcome-upgrade-header h3{
@@ -368,11 +368,11 @@ a.buy-pro-btn:hover{
 }
 
 .welcome-upgrade-box{
-    background: #F6F6F6;
     border: 2px dashed #DDD;
-    margin-top: 50px;
     padding: 40px 100px;
     text-align: center;
+    margin-top: 50px;
+    background: #F6F6F6;
 }
 
 .upgrade-box-text h3{
@@ -386,20 +386,20 @@ a.buy-pro-btn:hover{
 }
 
 .welcome-upgrade-box .upgrade-button{
+    display: inline-block;
+    padding: 14px 30px;
     background: #0185ba;
     color: #FFF;
-    display: inline-block;
-    font-weight: bold;
-    margin-top: 15px;
-    padding: 14px 30px;
-    text-decoration: none;
     text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 15px;
+    font-weight: bold;
 }
 
 /** Welcome Notice **/
 .viral-welcome-notice-wrap{
-    padding: 20px;
     position: relative;
+    padding: 20px;
 }
 
 .viral-welcome-notice-wrap h2{
@@ -417,19 +417,19 @@ a.buy-pro-btn:hover{
 }
 
 .viral-welcome-info .viral-welcome-thumb{
-    margin-left: 40px;
     width: 200px;
+    margin-left: 40px;
 }
 
 .viral-welcome-info > .viral-welcome-import,
 .viral-welcome-info > .viral-welcome-getting-started{
-    margin-left: 40px;
     width: 340px;
+    margin-left: 40px;
 }
 
 .viral-welcome-thumb img{
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
     width: 100%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 .viral-welcome-info h3{
@@ -441,17 +441,17 @@ a.buy-pro-btn:hover{
 }
 
 .viral-welcome-info .button{
-    height: auto;
-    line-height: 1.5;
     margin: 0;
     padding: 12px 36px;
+    height: auto;
+    line-height: 1.5;
     white-space: normal;
 }
 
 .viral-welcome-info .button-primary.updating-message:before{
-    font-size: 18px;
-    height: auto;
     margin: 0px 0 0 5px;
+    height: auto;
+    font-size: 18px;
 }
 
 #adminmenu .toplevel_page_viral-welcome div.wp-menu-image.svg{
@@ -460,12 +460,12 @@ a.buy-pro-btn:hover{
 
 /** Footer Review **/
 body.toplevel_page_viral-welcome #wpfooter{
+    position: fixed;
     background: #23282e;
     color: #FFF;
-    margin-left: 40px;
     max-width: 1110px;
-    position: fixed;
     right: 40px;
+    margin-left: 40px;
 }
 
 body.toplevel_page_viral-welcome #wpfooter a{
@@ -474,35 +474,35 @@ body.toplevel_page_viral-welcome #wpfooter a{
 
 /** Admin Notice **/
 .viral-notice.notice {
-    align-items: center;
     display: flex;
     gap: 20px;
+    align-items: center;
     padding: 20px 20px 20px 40px !important;
     position: relative;
 }
 
 .viral-notice.notice .viral-notice-logo{
-    flex: 84px 0 0;
     width: 84px;
+    flex: 84px 0 0;
 }
 
 .viral-notice.notice .viral-notice-logo svg{
-    display: block;
     fill: #72aee6;
+    display: block;
 }
 
 .viral-notice.notice p{
-    font-size: 16px;
-    margin: 0 0 15px;
     padding: 0;
+    margin: 0 0 15px;
+    font-size: 16px;
 }
 
 .viral-notice.notice .button .dashicons{
-    font-size: 16px;
     height: auto;
+    width: auto;
     margin: 0 0 0 6px;
     vertical-align: middle;
-    width: auto;
+    font-size: 16px;
 }
 
 .viral-notice a.notice-dismiss {
@@ -522,8 +522,8 @@ body.toplevel_page_viral-welcome #wpfooter a{
 
     .welcome-intro,
     .welcome-promo-banner{
-        float: none;
         width: auto;
+        float: none;
     }
 
     .welcome-intro{
@@ -536,15 +536,15 @@ body.toplevel_page_viral-welcome #wpfooter a{
     }
 
     .welcome-nav-wrapper .welcome-nav-tab{
-        border-radius: 4px;
         display: block;
         margin: 0 0 5px;
+        border-radius: 4px;
         text-align: center;
     }
 
     .recommended-plugins{
-        margin-top: 30px;
         width: 46%;
+        margin-top: 30px;
     }
 
     .plugin-title-wrap{
@@ -572,8 +572,8 @@ body.toplevel_page_viral-welcome #wpfooter a{
 
     .welcome-manual-setup, 
     .welcome-demo-import{
-        padding: 20px;
         width: auto;
+        padding: 20px;
     }
 
     .welcome-manual-setup{
@@ -585,11 +585,11 @@ body.toplevel_page_viral-welcome #wpfooter a{
     }
 
     .recommended-plugins{
-        float: none;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 320px;
         width: auto;
+        float: none;
+        max-width: 320px;
+        margin-right: auto;
+        margin-left: auto;
     }
 
     .support-wrap,
@@ -599,8 +599,8 @@ body.toplevel_page_viral-welcome #wpfooter a{
 
     .support-wrap .support-col,
     .free-vs-pro-info{
-        margin-bottom: 40px;
         width: auto;
+        margin-bottom: 40px;
     }
 
     .support-wrap .support-col:last-child,
@@ -611,8 +611,8 @@ body.toplevel_page_viral-welcome #wpfooter a{
     table.comparison-table th, 
     table.comparison-table td{
         display: block;
-        text-align: right !important;
         width: 100% !important;
+        text-align: right !important;
     }
 
     .viral-welcome-info{
@@ -621,8 +621,8 @@ body.toplevel_page_viral-welcome #wpfooter a{
 
     .viral-welcome-info > .viral-welcome-import, 
     .viral-welcome-info > .viral-welcome-getting-started{
-        margin: 0 0 30px;
         width: auto;
+        margin: 0 0 30px;
     }
 
     .viral-welcome-info > .viral-welcome-getting-started{
