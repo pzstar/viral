@@ -90,77 +90,77 @@ class Viral_Border_Control extends WP_Customize_Control {
     public function content_template() {
         ?>
         <# if ( data.label ) { #>
-        <span class="customize-control-title">{{ data.label }}</span>
-        <# } #>
-
-        <ul>
-            <li class="ht--border-type">
-                <span class="customize-control-title">
-                    {{{ data.l10n['border_type'] }}}
-                </span>
-
-                <select {{{ data.border_type.link }}} data-default="{{data.border_type.default}}">
-
-                    <# if ( data.border_type.default_choices ) { #>
-                    <# _.each( data.border_type.default_choices, function( label, choice ) { #>
-                    <option value="{{ choice }}" <# if ( choice === data.border_type.value ) { #> selected="selected" <# } #>>{{ label }}</option>
-                    <# } ) #>
-                    <# } #>
-
-                </select>
-            </li>
-
-            <li class="ht--border-width">
-                <span class="customize-control-title">
-                    {{{ data.l10n['border_width'] }}}
-                </span>
-
-                <ul>
-                    <li class="ht--dimension-wrap top">
-                        <input {{{ data.inputAttrs }}} type="number" class="ht--dimension-top" {{{ data.top.link }}} value="{{{ data.top.value }}}" />
-                            <span class="ht--dimension-label">{{ data.l10n[ 'top' ] }}</span>
-                    </li>
-
-                    <li class="ht--dimension-wrap right">
-                        <input {{{ data.inputAttrs }}} type="number" class="ht--dimension-right" {{{ data.right.link }}} value="{{{ data.right.value }}}" />
-                            <span class="ht--dimension-label">{{ data.l10n[ 'right' ] }}</span>
-                    </li>
-
-                    <li class="ht--dimension-wrap bottom">
-                        <input {{{ data.inputAttrs }}} type="number" class="ht--dimension-bottom" {{{ data.bottom.link }}} value="{{{ data.bottom.value }}}" />
-                            <span class="ht--dimension-label">{{ data.l10n[ 'bottom' ] }}</span>
-                    </li>
-
-                    <li class="ht--dimension-wrap left">
-                        <input {{{ data.inputAttrs }}} type="number" class="ht--dimension-left" {{{ data.left.link }}} value="{{{ data.left.value }}}" />
-                            <span class="ht--dimension-label">{{ data.l10n[ 'left' ] }}</span>
-                    </li>
-
-                    <li class="ht--dimension-wrap">
-                        <div class="ht--link-dimensions">
-                            <span class="dashicons dashicons-admin-links ht--linked" data-element="{{ data.id }}" title="{{ data.title }}"></span>
-                            <span class="dashicons dashicons-editor-unlink ht--unlinked" data-element="{{ data.id }}" title="{{ data.title }}"></span>
-                        </div>
-                    </li>
-                </ul>
-
-            </li>
-
-            <# if ( data.color ) { #>
-            <li class="ht--border-color">
-                <span class="customize-control-title">
-                    {{{ data.l10n['color'] }}}
-                </span>
-
-                <div class="customize-control-content">
-                    <input class="ht--color-picker-hex" type="text" maxlength="7" placeholder="<?php esc_attr_e('Hex Value', 'viral'); ?>" {{{ data.color.link }}} value="{{ data.color.value }}"  />
-                </div>
-            </li>
+            <span class="customize-control-title">{{ data.label }}</span>
             <# } #>
 
-        </ul>
+                <ul>
+                    <li class="ht--border-type">
+                        <span class="customize-control-title">
+                            {{{ data.l10n['border_type'] }}}
+                        </span>
 
-        <?php
+                        <select {{{ data.border_type.link }}} data-default="{{data.border_type.default}}">
+
+                            <# if ( data.border_type.default_choices ) { #>
+                                <# _.each( data.border_type.default_choices, function( label, choice ) { #>
+                                    <option value="{{ choice }}" <# if ( choice===data.border_type.value ) { #> selected="selected" <# } #>>{{ label }}</option>
+                                    <# } ) #>
+                                        <# } #>
+
+                        </select>
+                    </li>
+
+                    <li class="ht--border-width">
+                        <span class="customize-control-title">
+                            {{{ data.l10n['border_width'] }}}
+                        </span>
+
+                        <ul>
+                            <li class="ht--dimension-wrap top">
+                                <input {{{ data.inputAttrs }}} type="number" class="ht--dimension-top" {{{ data.top.link }}} value="{{{ data.top.value }}}" />
+                                <span class="ht--dimension-label">{{ data.l10n[ 'top' ] }}</span>
+                            </li>
+
+                            <li class="ht--dimension-wrap right">
+                                <input {{{ data.inputAttrs }}} type="number" class="ht--dimension-right" {{{ data.right.link }}} value="{{{ data.right.value }}}" />
+                                <span class="ht--dimension-label">{{ data.l10n[ 'right' ] }}</span>
+                            </li>
+
+                            <li class="ht--dimension-wrap bottom">
+                                <input {{{ data.inputAttrs }}} type="number" class="ht--dimension-bottom" {{{ data.bottom.link }}} value="{{{ data.bottom.value }}}" />
+                                <span class="ht--dimension-label">{{ data.l10n[ 'bottom' ] }}</span>
+                            </li>
+
+                            <li class="ht--dimension-wrap left">
+                                <input {{{ data.inputAttrs }}} type="number" class="ht--dimension-left" {{{ data.left.link }}} value="{{{ data.left.value }}}" />
+                                <span class="ht--dimension-label">{{ data.l10n[ 'left' ] }}</span>
+                            </li>
+
+                            <li class="ht--dimension-wrap">
+                                <div class="ht--link-dimensions">
+                                    <span class="dashicons dashicons-admin-links ht--linked" data-element="{{ data.id }}" title="{{ data.title }}"></span>
+                                    <span class="dashicons dashicons-editor-unlink ht--unlinked" data-element="{{ data.id }}" title="{{ data.title }}"></span>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </li>
+
+                    <# if ( data.color ) { #>
+                        <li class="ht--border-color">
+                            <span class="customize-control-title">
+                                {{{ data.l10n['color'] }}}
+                            </span>
+
+                            <div class="customize-control-content">
+                                <input class="ht--color-picker-hex" type="text" maxlength="7" placeholder="<?php esc_attr_e('Hex Value', 'viral'); ?>" {{{ data.color.link }}} value="{{ data.color.value }}" />
+                            </div>
+                        </li>
+                        <# } #>
+
+                </ul>
+
+                <?php
     }
 
     /**

@@ -53,27 +53,27 @@ class Viral_Sortable_Control extends WP_Customize_Control {
                 {{{ data.label }}}
             </span>
             <# if ( data.description ) { #>
-            <span class="description customize-control-description">{{{ data.description }}}</span>
-            <# } #>
-
-            <ul class="ht--sortable">
-                <# _.each( data.value, function( choiceID ) { #>
-                <li {{{ data.inputAttrs }}} class='ht--sortable-item' data-value='{{ choiceID }}'>
-                    <i class='dashicons dashicons-menu'></i>
-                    <i class="dashicons dashicons-visibility visibility"></i>
-                    {{{ data.choices[ choiceID ] }}}
-                </li>
-                <# }); #>
-                <# _.each( data.choices, function( choiceLabel, choiceID ) { #>
-                <# if ( -1 === data.value.indexOf( choiceID ) ) { #>
-                <li {{{ data.inputAttrs }}} class='ht--sortable-item invisible' data-value='{{ choiceID }}'>
-                    <i class='dashicons dashicons-menu'></i>
-                    <i class="dashicons dashicons-visibility visibility"></i>
-                    {{{ data.choices[ choiceID ] }}}
-                </li>
+                <span class="description customize-control-description">{{{ data.description }}}</span>
                 <# } #>
-                <# }); #>
-            </ul>
+
+                    <ul class="ht--sortable">
+                        <# _.each( data.value, function( choiceID ) { #>
+                            <li {{{ data.inputAttrs }}} class='ht--sortable-item' data-value='{{ choiceID }}'>
+                                <i class='dashicons dashicons-menu'></i>
+                                <i class="dashicons dashicons-visibility visibility"></i>
+                                {{{ data.choices[ choiceID ] }}}
+                            </li>
+                            <# }); #>
+                                <# _.each( data.choices, function( choiceLabel, choiceID ) { #>
+                                    <# if ( -1===data.value.indexOf( choiceID ) ) { #>
+                                        <li {{{ data.inputAttrs }}} class='ht--sortable-item invisible' data-value='{{ choiceID }}'>
+                                            <i class='dashicons dashicons-menu'></i>
+                                            <i class="dashicons dashicons-visibility visibility"></i>
+                                            {{{ data.choices[ choiceID ] }}}
+                                        </li>
+                                        <# } #>
+                                            <# }); #>
+                    </ul>
         </label>
         <?php
     }
@@ -84,7 +84,7 @@ class Viral_Sortable_Control extends WP_Customize_Control {
      * @see WP_Customize_Control::render_content()
      */
     protected function render_content() {
-        
+
     }
 
 }

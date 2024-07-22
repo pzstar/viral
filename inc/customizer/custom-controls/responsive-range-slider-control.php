@@ -77,71 +77,71 @@ class Viral_Responsive_Range_Slider_Control extends WP_Customize_Control {
     protected function content_template() {
         ?>
         <# if ( data.label ) { #>
-        <span class="customize-control-title">
-            <span>{{{ data.label }}}</span>
+            <span class="customize-control-title">
+                <span>{{{ data.label }}}</span>
 
-            <ul class="responsive-switchers">
-                <li class="desktop">
-                    <button type="button" class="preview-desktop active" data-device="desktop">
-                        <i class="dashicons dashicons-desktop"></i>
-                    </button>
-                </li>
-                <li class="tablet">
-                    <button type="button" class="preview-tablet" data-device="tablet">
-                        <i class="dashicons dashicons-tablet"></i>
-                    </button>
-                </li>
-                <li class="mobile">
-                    <button type="button" class="preview-mobile" data-device="mobile">
-                        <i class="dashicons dashicons-smartphone"></i>
-                    </button>
-                </li>
-            </ul>
+                <ul class="responsive-switchers">
+                    <li class="desktop">
+                        <button type="button" class="preview-desktop active" data-device="desktop">
+                            <i class="dashicons dashicons-desktop"></i>
+                        </button>
+                    </li>
+                    <li class="tablet">
+                        <button type="button" class="preview-tablet" data-device="tablet">
+                            <i class="dashicons dashicons-tablet"></i>
+                        </button>
+                    </li>
+                    <li class="mobile">
+                        <button type="button" class="preview-mobile" data-device="mobile">
+                            <i class="dashicons dashicons-smartphone"></i>
+                        </button>
+                    </li>
+                </ul>
 
-        </span>
-        <# } #>
-
-        <# if ( data.description ) { #>
-        <span class="description customize-control-description">{{{ data.description }}}</span>
-        <# } #>
-
-        <# if ( data.desktop ) { #>
-        <div class="ht--range-slider-control-wrap desktop control-wrap active">
-            <div class="ht--range-slider"></div>
-            <div class="ht--range-slider-input">
-                <input {{{ data.inputAttrs }}} type="number" value="{{ data.desktop.value }}" {{{ data.desktop.link }}} />
-            </div>
-            <# if ( data.unit ) { #>
-            <div class="ht--range-slider-unit">{{{ data.unit }}}</div>
+            </span>
             <# } #>
-        </div>
-        <# } #>
 
-        <# if ( data.tablet ) { #>
-        <div class="ht--range-slider-control-wrap tablet control-wrap">
-            <div class="ht--range-slider"></div>
-            <div class="ht--range-slider-input">
-                <input {{{ data.inputAttrs }}} type="number" value="{{ data.tablet.value }}" {{{ data.tablet.link }}} />
-            </div>
-            <# if ( data.unit ) { #>
-            <div class="ht--range-slider-unit">{{{ data.unit }}}</div>
-            <# } #>
-        </div>
-        <# } #>
+                <# if ( data.description ) { #>
+                    <span class="description customize-control-description">{{{ data.description }}}</span>
+                    <# } #>
 
-        <# if ( data.mobile ) { #>
-        <div class="ht--range-slider-control-wrap mobile control-wrap">
-            <div class="ht--range-slider"></div>
-            <div class="ht--range-slider-input">
-                <input {{{ data.inputAttrs }}} type="number" value="{{ data.mobile.value }}" {{{ data.mobile.link }}} />
-            </div>
-            <# if ( data.unit ) { #>
-            <div class="ht--range-slider-unit">{{{ data.unit }}}</div>
-            <# } #>
-        </div>
-        <# } #>
+                        <# if ( data.desktop ) { #>
+                            <div class="ht--range-slider-control-wrap desktop control-wrap active">
+                                <div class="ht--range-slider"></div>
+                                <div class="ht--range-slider-input">
+                                    <input {{{ data.inputAttrs }}} type="number" value="{{ data.desktop.value }}" {{{ data.desktop.link }}} />
+                                </div>
+                                <# if ( data.unit ) { #>
+                                    <div class="ht--range-slider-unit">{{{ data.unit }}}</div>
+                                    <# } #>
+                            </div>
+                            <# } #>
 
-        <?php
+                                <# if ( data.tablet ) { #>
+                                    <div class="ht--range-slider-control-wrap tablet control-wrap">
+                                        <div class="ht--range-slider"></div>
+                                        <div class="ht--range-slider-input">
+                                            <input {{{ data.inputAttrs }}} type="number" value="{{ data.tablet.value }}" {{{ data.tablet.link }}} />
+                                        </div>
+                                        <# if ( data.unit ) { #>
+                                            <div class="ht--range-slider-unit">{{{ data.unit }}}</div>
+                                            <# } #>
+                                    </div>
+                                    <# } #>
+
+                                        <# if ( data.mobile ) { #>
+                                            <div class="ht--range-slider-control-wrap mobile control-wrap">
+                                                <div class="ht--range-slider"></div>
+                                                <div class="ht--range-slider-input">
+                                                    <input {{{ data.inputAttrs }}} type="number" value="{{ data.mobile.value }}" {{{ data.mobile.link }}} />
+                                                </div>
+                                                <# if ( data.unit ) { #>
+                                                    <div class="ht--range-slider-unit">{{{ data.unit }}}</div>
+                                                    <# } #>
+                                            </div>
+                                            <# } #>
+
+                                                <?php
     }
 
 }

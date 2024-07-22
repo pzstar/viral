@@ -9,7 +9,8 @@ get_header();
     <div id="primary" class="content-area">
 
         <?php
-        while (have_posts()) : the_post();
+        while (have_posts()):
+            the_post();
 
             $viral_hide_title = get_post_meta($post->ID, 'viral_hide_title', true);
 
@@ -26,7 +27,7 @@ get_header();
 
             <?php
             // If comments are open or we have at least one comment, load up the comment template.
-            if (comments_open() || get_comments_number()) :
+            if (comments_open() || get_comments_number()):
                 comments_template();
             endif;
             ?>

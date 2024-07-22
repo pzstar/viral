@@ -125,27 +125,27 @@
          */
         _addInputListeners: function (input) {
             var self = this,
-                    debounceTimeout = 100,
-                    callback = function (event) {
-                        var val = input.val(),
-                                color = new Color(val),
-                                val = val.replace(/^(#|(rgb|hsl)a?)/, ''),
-                                type = self.alphaOptions.alphaColorType;
+                debounceTimeout = 100,
+                callback = function (event) {
+                    var val = input.val(),
+                        color = new Color(val),
+                        val = val.replace(/^(#|(rgb|hsl)a?)/, ''),
+                        type = self.alphaOptions.alphaColorType;
 
-                        input.removeClass('iris-error');
+                    input.removeClass('iris-error');
 
-                        if (!color.error) {
-                            // let's not do this on keyup for hex shortcodes
-                            if ('hex' !== type || !(event.type === 'keyup' && val.match(/^[0-9a-fA-F]{3}$/))) {
-                                // Compare color ( #AARRGGBB )
-                                if (color.toIEOctoHex() !== self._color.toIEOctoHex()) {
-                                    self._setOption('color', self._getColor(color));
-                                }
+                    if (!color.error) {
+                        // let's not do this on keyup for hex shortcodes
+                        if ('hex' !== type || !(event.type === 'keyup' && val.match(/^[0-9a-fA-F]{3}$/))) {
+                            // Compare color ( #AARRGGBB )
+                            if (color.toIEOctoHex() !== self._color.toIEOctoHex()) {
+                                self._setOption('color', self._getColor(color));
                             }
-                        } else if (val !== '') {
-                            input.addClass('iris-error');
                         }
-                    };
+                    } else if (val !== '') {
+                        input.addClass('iris-error');
+                    }
+                };
 
             input.on('change', callback).on('keyup', self._debounce(callback, debounceTimeout));
 
@@ -170,12 +170,12 @@
             if (this.alphaOptions.alphaEnabled) {
                 // Create Alpha controls
                 var self = this,
-                        stripAlpha = self.controls.strip.clone(false, false),
-                        stripAlphaSlider = stripAlpha.find('.iris-slider-offset'),
-                        controls = {
-                            stripAlpha: stripAlpha,
-                            stripAlphaSlider: stripAlphaSlider
-                        };
+                    stripAlpha = self.controls.strip.clone(false, false),
+                    stripAlphaSlider = stripAlpha.find('.iris-slider-offset'),
+                    controls = {
+                        stripAlpha: stripAlpha,
+                        stripAlphaSlider: stripAlphaSlider
+                    };
 
                 stripAlpha.addClass('iris-strip-alpha');
                 stripAlphaSlider.addClass('iris-slider-offset-alpha');
@@ -217,11 +217,11 @@
 
             if (this.alphaOptions.alphaEnabled) {
                 var self = this,
-                        opts = self.options,
-                        controls = self.controls,
-                        square = controls.square,
-                        strip = self.picker.find('.iris-strip'),
-                        innerWidth, squareWidth, stripWidth, stripMargin, totalWidth;
+                    opts = self.options,
+                    controls = self.controls,
+                    square = controls.square,
+                    strip = self.picker.find('.iris-strip'),
+                    innerWidth, squareWidth, stripWidth, stripMargin, totalWidth;
 
                 /**
                  * I use Math.round() to avoid possible size errors,
@@ -265,19 +265,19 @@
          */
         _change: function () {
             var self = this,
-                    active = self.active;
+                active = self.active;
 
             self._super();
 
             if (self.alphaOptions.alphaEnabled) {
                 var controls = self.controls,
-                        alpha = parseInt(self._color._alpha * 100),
-                        color = self._color.toRgb(),
-                        gradient = [
-                            'rgb(' + color.r + ',' + color.g + ',' + color.b + ') 0%',
-                            'rgba(' + color.r + ',' + color.g + ',' + color.b + ', 0) 100%'
-                        ],
-                        target = self.picker.closest('.wp-picker-container').find('.wp-color-result');
+                    alpha = parseInt(self._color._alpha * 100),
+                    color = self._color.toRgb(),
+                    gradient = [
+                        'rgb(' + color.r + ',' + color.g + ',' + color.b + ') 0%',
+                        'rgba(' + color.r + ',' + color.g + ',' + color.b + ', 0) 100%'
+                    ],
+                    target = self.picker.closest('.wp-picker-container').find('.wp-color-result');
 
                 self.options.color = self._getColor();
                 // Generate background slider alpha, only for CSS3.
@@ -314,7 +314,7 @@
          */
         _paintDimension: function (origin, control) {
             var self = this,
-                    color = false;
+                color = false;
 
             // Fix for slider hue opacity.
             if (self.alphaOptions.alphaEnabled && 'strip' === control) {
@@ -401,15 +401,15 @@
          */
         _getAlphaOptions: function () {
             var el = this.element,
-                    type = (el.data('type') || this.options.type),
-                    color = (el.data('defaultColor') || el.val()),
-                    options = {
-                        alphaEnabled: (el.data('alphaEnabled') || false),
-                        alphaCustomWidth: 130,
-                        alphaReset: false,
-                        alphaColorType: 'rgb',
-                        alphaColorWithSpace: false,
-                    };
+                type = (el.data('type') || this.options.type),
+                color = (el.data('defaultColor') || el.val()),
+                options = {
+                    alphaEnabled: (el.data('alphaEnabled') || false),
+                    alphaCustomWidth: 130,
+                    alphaReset: false,
+                    alphaColorType: 'rgb',
+                    alphaColorWithSpace: false,
+                };
 
             if (options.alphaEnabled) {
                 options.alphaEnabled = (el.is('input') && 'full' === type);
@@ -482,8 +482,8 @@
             }
 
             var self = this,
-                    el = self.element,
-                    isDeprecated = self.toggler.is('a');
+                el = self.element,
+                isDeprecated = self.toggler.is('a');
 
             this.alphaOptions.defaultWidth = el.width();
             if (this.alphaOptions.alphaCustomWidth) {
