@@ -30,6 +30,7 @@ if (class_exists('WP_Customize_Section')) {
          * @var    string
          */
         public $upgrade_url = '';
+        
         public $options = array();
 
         /**
@@ -78,7 +79,7 @@ if (class_exists('WP_Customize_Section')) {
                 </label>
 
                 <# _.each( data.options, function(key, value) { #>
-                {{ key }}<br />
+                {{ key }}<br/>
                 <# }) #>
 
                 <# if ( data.upgrade_text && data.upgrade_url ) { #>

@@ -5,7 +5,6 @@
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
-
     <head>
         <meta charset="<?php bloginfo('charset'); ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,7 +35,7 @@
                              * @hooked - viral_top_menu - 10
                              */
                             do_action('viral_left_header_content')
-                                ?>
+                            ?>
                         </div>
 
                         <div class="vl-top-right-header">
@@ -46,7 +45,7 @@
                              * @hooked - viral_social_links - 10
                              */
                             do_action('viral_right_header_content')
-                                ?>
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -62,13 +61,13 @@
                         ?>
                         <div id="vl-site-branding" class="<?php echo esc_attr($branding_class); ?>" <?php echo viral_get_schema_attribute('logo'); ?>>
                             <?php
-                            if (function_exists('has_custom_logo') && has_custom_logo()):
+                            if (function_exists('has_custom_logo') && has_custom_logo()) :
                                 the_custom_logo();
-                            else:
-                                if (is_front_page()):
+                            else :
+                                if (is_front_page()) :
                                     ?>
                                     <h1 class="vl-site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
-                                <?php else: ?>
+                                <?php else : ?>
                                     <p class="vl-site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></p>
                                 <?php endif; ?>
                                 <p class="vl-site-description"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('description'); ?></a></p>

@@ -8,7 +8,7 @@ $viral_frontpage_top_blocks = get_theme_mod('viral_frontpage_top_blocks', json_e
         'category' => '',
         'layout' => 'style1',
         'enable' => 'on'
-    ))));
+        ))));
 
 if ($viral_frontpage_top_blocks) {
     $viral_frontpage_top_blocks = json_decode($viral_frontpage_top_blocks);

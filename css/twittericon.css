@@ -7,8 +7,7 @@
     font-display: block;
 }
 
-[class^="ti-"],
-[class*=" ti-"] {
+[class^="ti-"], [class*=" ti-"] {
     font-family: 'Twitter Icon' !important;
     speak: never;
     font-style: normal;
@@ -25,7 +24,6 @@
 .ti-square-x-twitter:before {
     content: "\e900";
 }
-
 .ti-x-twitter:before {
     content: "\e901";
 }
