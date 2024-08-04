@@ -14,9 +14,10 @@ get_header();
             ?>
         </header><!-- .vl-main-header -->
 
-        <?php if (have_posts()) : ?>
+        <?php if (have_posts()): ?>
 
-            <?php while (have_posts()) : the_post(); ?>
+            <?php while (have_posts()):
+                the_post(); ?>
 
                 <?php
                 get_template_part('template-parts/content');
@@ -26,7 +27,7 @@ get_header();
 
             <?php the_posts_pagination(); ?>
 
-        <?php else : ?>
+        <?php else: ?>
 
             <?php get_template_part('template-parts/content', 'none'); ?>
 

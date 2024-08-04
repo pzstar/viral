@@ -32,7 +32,8 @@ if (!function_exists('viral_top_section_style1')) {
                 );
                 $query = new WP_Query($args);
 
-                while ($query->have_posts()): $query->the_post();
+                while ($query->have_posts()):
+                    $query->the_post();
                     ?>
                     <div class="vl-big-thumb">
                         <div class="vl-thumb-inner">
@@ -40,8 +41,8 @@ if (!function_exists('viral_top_section_style1')) {
                                 <?php
                                 if (has_post_thumbnail()) {
                                     $image = wp_get_attachment_image_src(get_post_thumbnail_id(), 'viral-600x600')
-                                    ?>
-                                    <img alt="<?php echo esc_attr(get_the_title()) ?>" src="<?php echo esc_url($image[0]); ?>"/>
+                                        ?>
+                                    <img alt="<?php echo esc_attr(get_the_title()) ?>" src="<?php echo esc_url($image[0]); ?>" />
                                 <?php } ?>
                             </a>
 
@@ -71,7 +72,8 @@ if (!function_exists('viral_top_section_style1')) {
                 );
                 $query = new WP_Query($args);
 
-                while ($query->have_posts()): $query->the_post();
+                while ($query->have_posts()):
+                    $query->the_post();
                     ?>
                     <div class="vl-medium-thumb">
                         <div class="vl-thumb-inner">
@@ -79,8 +81,8 @@ if (!function_exists('viral_top_section_style1')) {
                                 <?php
                                 if (has_post_thumbnail()) {
                                     $image = wp_get_attachment_image_src(get_post_thumbnail_id(), 'viral-600x600')
-                                    ?>
-                                    <img alt="<?php echo esc_attr(get_the_title()) ?>" src="<?php echo esc_url($image[0]); ?>"/>
+                                        ?>
+                                    <img alt="<?php echo esc_attr(get_the_title()) ?>" src="<?php echo esc_url($image[0]); ?>" />
                                 <?php } ?>
                             </a>
 
@@ -106,7 +108,8 @@ if (!function_exists('viral_top_section_style1')) {
                 );
                 $query = new WP_Query($args);
 
-                while ($query->have_posts()): $query->the_post();
+                while ($query->have_posts()):
+                    $query->the_post();
                     ?>
                     <div class="vl-small-thumb">
                         <div class="vl-thumb-inner">
@@ -114,8 +117,8 @@ if (!function_exists('viral_top_section_style1')) {
                                 <?php
                                 if (has_post_thumbnail()) {
                                     $image = wp_get_attachment_image_src(get_post_thumbnail_id(), 'viral-600x600')
-                                    ?>
-                                    <img alt="<?php echo esc_attr(get_the_title()) ?>" src="<?php echo esc_url($image[0]); ?>"/>
+                                        ?>
+                                    <img alt="<?php echo esc_attr(get_the_title()) ?>" src="<?php echo esc_url($image[0]); ?>" />
                                 <?php } ?>
                             </a>
 
@@ -158,7 +161,8 @@ if (!function_exists('viral_top_section_style2')) {
                 );
                 $query = new WP_Query($args);
 
-                while ($query->have_posts()): $query->the_post();
+                while ($query->have_posts()):
+                    $query->the_post();
                     ?>
                     <div class="vl-big-thumb">
                         <div class="vl-thumb-inner">
@@ -166,8 +170,8 @@ if (!function_exists('viral_top_section_style2')) {
                                 <?php
                                 if (has_post_thumbnail()) {
                                     $image = wp_get_attachment_image_src(get_post_thumbnail_id(), 'viral-600x600')
-                                    ?>
-                                    <img alt="<?php echo esc_attr(get_the_title()) ?>" src="<?php echo esc_url($image[0]); ?>"/>
+                                        ?>
+                                    <img alt="<?php echo esc_attr(get_the_title()) ?>" src="<?php echo esc_url($image[0]); ?>" />
                                 <?php } ?>
                             </a>
 
@@ -198,7 +202,8 @@ if (!function_exists('viral_top_section_style2')) {
                 $query = new WP_Query($args);
 
                 if ($query->have_posts()):
-                    while ($query->have_posts()): $query->the_post();
+                    while ($query->have_posts()):
+                        $query->the_post();
                         ?>
                         <div class="vl-small-thumb">
                             <div class="vl-thumb-inner">
@@ -206,8 +211,8 @@ if (!function_exists('viral_top_section_style2')) {
                                     <?php
                                     if (has_post_thumbnail()) {
                                         $image = wp_get_attachment_image_src(get_post_thumbnail_id(), 'viral-600x600')
-                                        ?>
-                                        <img alt="<?php echo esc_attr(get_the_title()) ?>" src="<?php echo esc_url($image[0]); ?>"/>
+                                            ?>
+                                        <img alt="<?php echo esc_attr(get_the_title()) ?>" src="<?php echo esc_url($image[0]); ?>" />
                                     <?php } ?>
                                 </a>
 
@@ -250,16 +255,17 @@ if (!function_exists('viral_top_section_style3')) {
             );
             $query = new WP_Query($args);
 
-            while ($query->have_posts()): $query->the_post();
-                ?>	
+            while ($query->have_posts()):
+                $query->the_post();
+                ?>
                 <div class="vl-big-thumb">
                     <div class="vl-thumb-inner">
                         <a href="<?php the_permalink(); ?>">
                             <?php
                             if (has_post_thumbnail()) {
                                 $image = wp_get_attachment_image_src(get_post_thumbnail_id(), 'viral-600x600')
-                                ?>
-                                <img alt="<?php echo esc_attr(get_the_title()) ?>" src="<?php echo esc_url($image[0]); ?>"/>
+                                    ?>
+                                <img alt="<?php echo esc_attr(get_the_title()) ?>" src="<?php echo esc_url($image[0]); ?>" />
                             <?php } ?>
                         </a>
 
@@ -300,8 +306,9 @@ if (!function_exists('viral_top_section_style4')) {
             );
             $query = new WP_Query($args);
 
-            while ($query->have_posts()): $query->the_post();
-                ?>	
+            while ($query->have_posts()):
+                $query->the_post();
+                ?>
                 <div class="vl-post-item vl-clearfix">
                     <div class="vl-post-thumb">
                         <a href="<?php the_permalink(); ?>">
@@ -358,7 +365,8 @@ if (!function_exists('viral_middle_section_style1')) {
 
                 $query = new WP_Query($args);
 
-                while ($query->have_posts()): $query->the_post();
+                while ($query->have_posts()):
+                    $query->the_post();
                     ?>
                     <div class="vl-big-block">
                         <div class="vl-post-item vl-clearfix">
@@ -403,7 +411,8 @@ if (!function_exists('viral_middle_section_style1')) {
 
                     $query = new WP_Query($args);
 
-                    while ($query->have_posts()): $query->the_post();
+                    while ($query->have_posts()):
+                        $query->the_post();
                         ?>
                         <div class="vl-post-item vl-clearfix">
                             <div class="vl-post-thumb">
@@ -463,7 +472,8 @@ if (!function_exists('viral_middle_section_style2')) {
             <?php } ?>
             <div class="vl-grid-blocks">
                 <?php
-                while ($query->have_posts()): $query->the_post();
+                while ($query->have_posts()):
+                    $query->the_post();
                     ?>
                     <div class="vl-grid-block">
                         <div class="vl-grid-block-inner">
@@ -524,7 +534,8 @@ if (!function_exists('viral_middle_section_style3')) {
 
                 $query = new WP_Query($args);
 
-                while ($query->have_posts()): $query->the_post();
+                while ($query->have_posts()):
+                    $query->the_post();
                     ?>
                     <div class="vl-post-item vl-clearfix">
                         <div class="vl-post-thumb">
@@ -584,7 +595,8 @@ if (!function_exists('viral_middle_section_style4')) {
 
             <div class="vl-alternate-block">
                 <?php
-                while ($query->have_posts()): $query->the_post();
+                while ($query->have_posts()):
+                    $query->the_post();
                     ?>
                     <div class="vl-alt-post-item vl-post-item vl-clearfix">
                         <div class="vl-post-thumb">
@@ -643,7 +655,7 @@ if (!function_exists('viral_bottom_section_style1')) {
                 <div class="vl-clearfix vl-three-column-block">
                     <?php
                     if ($cat) {
-                        $cat_name = ($cat != -1 ) ? get_cat_name($cat) : esc_html__('Latest', 'viral');
+                        $cat_name = ($cat != -1) ? get_cat_name($cat) : esc_html__('Latest', 'viral');
                         ?>
                         <h2 class="vl-block-title"><span><?php echo esc_html($cat_name); ?></span></h2>
 
@@ -658,7 +670,8 @@ if (!function_exists('viral_bottom_section_style1')) {
                         }
 
                         $query = new WP_Query($args);
-                        while ($query->have_posts()): $query->the_post();
+                        while ($query->have_posts()):
+                            $query->the_post();
                             ?>
                             <div class="vl-big-post-item vl-clearfix">
                                 <div class="vl-post-thumb">
@@ -701,7 +714,8 @@ if (!function_exists('viral_bottom_section_style1')) {
                         }
 
                         $query = new WP_Query($args);
-                        while ($query->have_posts()): $query->the_post();
+                        while ($query->have_posts()):
+                            $query->the_post();
                             ?>
                             <div class="vl-post-item vl-clearfix">
                                 <div class="vl-post-thumb">
@@ -749,8 +763,8 @@ if (!function_exists('viral_bottom_section_style2')) {
             return;
 
         if ($cat) {
-            $cat_name = ($cat != -1 ) ? get_cat_name($cat) : esc_html__('Latest', 'viral')
-            ?>
+            $cat_name = ($cat != -1) ? get_cat_name($cat) : esc_html__('Latest', 'viral')
+                ?>
             <div class="vl-bottom-block vl-clearfix <?php echo esc_attr($layout); ?>">
                 <h2 class="vl-block-title"><span><?php echo esc_html($cat_name); ?></span></h2>
                 <div class="vl-four-column-block">
@@ -765,7 +779,8 @@ if (!function_exists('viral_bottom_section_style2')) {
                     }
 
                     $query = new WP_Query($args);
-                    while ($query->have_posts()): $query->the_post();
+                    while ($query->have_posts()):
+                        $query->the_post();
                         ?>
                         <div class="vl-post-item vl-clearfix">
                             <div class="vl-post-thumb">
@@ -778,9 +793,9 @@ if (!function_exists('viral_bottom_section_style2')) {
                                             <img alt="<?php echo esc_attr(get_the_title()) ?>" src="<?php echo esc_url($image[0]) ?>">
                                         <?php }
                                         ?>
-                                    </div>	
+                                    </div>
                                 </a>
-                            </div>	
+                            </div>
 
                             <div class="vl-post-content">
                                 <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
@@ -788,7 +803,7 @@ if (!function_exists('viral_bottom_section_style2')) {
                                 <div class="vl-post-excerpt">
                                     <?php echo viral_excerpt(get_the_content(), 120); ?>
                                 </div>
-                            </div>					
+                            </div>
                         </div>
                         <?php
                     endwhile;

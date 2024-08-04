@@ -48,7 +48,8 @@ if ($viral_enable_frontpage) {
                             </span>
                             <div class="owl-carousel">
                                 <?php
-                                while ($query->have_posts()): $query->the_post();
+                                while ($query->have_posts()):
+                                    $query->the_post();
                                     echo '<a href="' . esc_url(get_permalink()) . '">' . esc_html(get_the_title()) . '</a>';
                                 endwhile;
                                 wp_reset_postdata();
@@ -80,9 +81,9 @@ if ($viral_enable_frontpage) {
     <?php
 } else {
     if ('posts' == get_option('show_on_front')) {
-        include( get_home_template() );
+        include (get_home_template());
     } else {
-        include( get_page_template() );
+        include (get_page_template());
     }
 }
 
