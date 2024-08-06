@@ -42,7 +42,7 @@ if (!function_exists('viral_excerpt')) {
 
     function viral_excerpt($content, $letter_count) {
         $new_content = strip_shortcodes($content);
-        $new_content = strip_tags($new_content);
+        $new_content = wp_strip_all_tags($new_content);
         $content = mb_substr($new_content, 0, $letter_count);
 
         if (($letter_count !== 0) && (strlen($new_content) > $letter_count)) {
