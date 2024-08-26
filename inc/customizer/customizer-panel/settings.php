@@ -117,7 +117,7 @@ $wp_customize->add_control('viral_website_layout', array(
     'choices' => array(
         'fullwidth' => esc_html__('Full Width', 'viral'),
         'boxed' => esc_html__('Boxed', 'viral'),
-)));
+    )));
 
 $wp_customize->add_setting('viral_background_heading', array(
     'sanitize_callback' => 'viral_sanitize_text',
@@ -723,7 +723,7 @@ $wp_customize->add_control(new Viral_Repeater_Control($wp_customize, 'viral_fron
     'settings' => 'viral_frontpage_top_blocks',
     'box_label' => esc_html__('News Section', 'viral'),
     'add_label' => esc_html__('Add Section', 'viral'),
-        ), array(
+), array(
     'category' => array(
         'type' => 'multicategory',
         'label' => esc_html__('Select Category', 'viral'),
@@ -803,7 +803,7 @@ $wp_customize->add_control(new Viral_Repeater_Control($wp_customize, 'viral_fron
     'settings' => 'viral_frontpage_middle_blocks',
     'box_label' => esc_html__('News Section', 'viral'),
     'add_label' => esc_html__('Add Section', 'viral'),
-        ), array(
+), array(
     'title' => array(
         'type' => 'text',
         'label' => esc_html__('Title', 'viral'),
@@ -905,7 +905,7 @@ $wp_customize->add_control(new Viral_Repeater_Control($wp_customize, 'viral_fron
     'settings' => 'viral_frontpage_bottom_blocks',
     'box_label' => esc_html__('News Section', 'viral'),
     'add_label' => esc_html__('Add Section', 'viral'),
-        ), array(
+), array(
     'category1' => array(
         'type' => 'category',
         'label' => esc_html__('Category', 'viral'),
