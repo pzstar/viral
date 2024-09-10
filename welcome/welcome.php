@@ -108,8 +108,6 @@ if (!class_exists('Viral_Welcome')):
             if ('appearance_page_viral-welcome' === $screen->id || (isset($screen->parent_file) && 'plugins.php' === $screen->parent_file && 'update' === $screen->id) || 'theme-install' === $screen->id) {
                 return;
             }
-
-            $slug = $filename = 'hashthemes-demo-importer';
             ?>
             <div class="updated notice viral-welcome-notice viral-notice">
                 <?php $this->dismiss_button('welcome'); ?>
@@ -347,7 +345,7 @@ if (!class_exists('Viral_Welcome')):
                         <?php
                         printf(
                             /* translators: %1$s is link start tag, %2$s is link end tag. */
-                            esc_html__('Great to see that you have been using Viral for some time. We hope you love it, and we would really appreciate it if you would %1$sgive us a 5 stars rating%2$s and spread your words to the world.', 'viral'), '<a target="_blank" href="https://wordpress.org/support/theme/viral/reviews/?filter=5#new-post">', '</a>'
+                            esc_html__('Great to see that you have been using Viral Theme for some time. We hope you love it, and we would really appreciate it if you would %1$sgive us a %3$s rating%2$s. Your valuable review will inspire us to make it more better.', 'viral'), '<a style="text-decoration:none;font-weight:bold;" target="_blank" href="https://wordpress.org/support/theme/viral/reviews/?filter=5#new-post">', '</a>', '<span class="viral-notice-star"><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span></span>'
                         );
                         ?>
                     </p>
