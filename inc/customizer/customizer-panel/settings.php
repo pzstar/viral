@@ -8,11 +8,11 @@ $wp_customize->get_setting('custom_logo')->transport = 'refresh';
 
 $viral_pro_features = '<ul class="upsell-features">
 	<li>' . esc_html__("13 more demos that can be imported with one click", "viral") . '</li>
-        <li>' . esc_html__("Elementor compatible - Built your Home Page with Customizer or Elementor whichever you like", "viral") . '</li>
+    <li>' . esc_html__("Elementor compatible - Built your Home Page with Customizer or Elementor whichever you like", "viral") . '</li>
 	<li>' . esc_html__("50+ magazine blocks for customizer", "viral") . '</li>
 	<li>' . esc_html__("Customizer home page section reorder", "viral") . '</li>
 	<li>' . esc_html__("45+ magazine widgets for Elementor", "viral") . '</li>
-        <li>' . esc_html__("Ajax Tabs and Ajax Paginations for all Elementor widgets", "viral") . '</li>
+    <li>' . esc_html__("Ajax Tabs and Ajax Paginations for all Elementor widgets", "viral") . '</li>
 	<li>' . esc_html__("7 differently designed Blog/Archive layouts", "viral") . '</li>
 	<li>' . esc_html__("7 differently designed Single Article/Post layouts", "viral") . '</li>
 	<li>' . esc_html__("22 custom widgets", "viral") . '</li>
@@ -31,16 +31,16 @@ $viral_pro_features = '<ul class="upsell-features">
 	<li>' . esc_html__("WooCommerce compatible", "viral") . '</li>
 	<li>' . esc_html__("Fully multilingual and translation ready", "viral") . '</li>
 	<li>' . esc_html__("Fully RTL(right to left) languages compatible", "viral") . '</li>
-        <li>' . esc_html__("Maintenance mode option", "viral") . '</li>
-        <li>' . esc_html__("Remove footer credit text", "viral") . '</li>
+    <li>' . esc_html__("Maintenance mode option", "viral") . '</li>
+    <li>' . esc_html__("Remove footer credit text", "viral") . '</li>
 	</ul>
 	<a class="ht-implink" href="' . admin_url('admin.php?page=viral-welcome&section=free_vs_pro') . '" target="_blank">' . esc_html__("Comparision - Free Vs Pro", "viral") . '</a>';
 
 // Register sections.
 $wp_customize->add_section(new Viral_Upgrade_Section($wp_customize, 'viral-pro-section', array(
     'priority' => 0,
-    //'title' => esc_html__('Christmas & New Year Deal. Use Coupon Code: HOLIDAY', 'viral'),
-    'upgrade_text' => esc_html__('Upgrade to Pro', 'viral'),
+    'title' => esc_html__('Black Friday Jackpot! Don\'t Miss!', 'viral'),
+    'upgrade_text' => esc_html__('Upgrade to Pro - 40% OFF', 'viral'),
     'upgrade_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=viral-customizer-button&utm_campaign=viral-upgrade',
 )));
 
