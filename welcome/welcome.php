@@ -305,7 +305,6 @@ if (!class_exists('Viral_Welcome')):
             if (!get_option('viral_first_activation')) {
                 update_option('viral_first_activation', time());
             }
-            ;
 
             if (get_option('viral_hide_notice') && !$this->is_dismissed('welcome')) {
                 delete_option('viral_hide_notice');
