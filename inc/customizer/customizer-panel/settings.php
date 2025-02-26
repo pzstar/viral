@@ -289,7 +289,7 @@ $wp_customize->add_setting('viral_body_color', array(
 
 $wp_customize->add_control(new Viral_Typography_Control($wp_customize, 'viral_body_typo', array(
     'label' => esc_html__('Body Typography', 'viral'),
-    'description' => __('Select how you want your body to appear.', 'viral'),
+    'description' => esc_html__('Select how you want your body to appear.', 'viral'),
     'section' => 'viral_body_typography_section',
     'settings' => array(
         'family' => 'viral_body_typography',
@@ -347,7 +347,7 @@ $wp_customize->add_setting('viral_header_letter_spacing', array(
 
 $wp_customize->add_control(new Viral_Typography_Control($wp_customize, 'viral_header_typo', array(
     'label' => esc_html__('Header Typography', 'viral'),
-    'description' => __('Select how you want your Header to appear.', 'viral'),
+    'description' => esc_html__('Select how you want your Header to appear.', 'viral'),
     'section' => 'viral_header_typography_section',
     'settings' => array(
         'family' => 'viral_header_typography',
@@ -403,7 +403,7 @@ $wp_customize->add_setting('viral_menu_letter_spacing', array(
 
 $wp_customize->add_control(new Viral_Typography_Control($wp_customize, 'viral_menu_typo', array(
     'label' => esc_html__('Menu Typography', 'viral'),
-    'description' => __('Select how you want your menu to appear.', 'viral'),
+    'description' => esc_html__('Select how you want your menu to appear.', 'viral'),
     'section' => 'viral_menu_typography_section',
     'settings' => array(
         'family' => 'viral_menu_typography',
