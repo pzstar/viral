@@ -2,7 +2,7 @@
 Contributors: hashthemes
 Requires at least: 6.3
 Tested up to: 6.7
-Stable tag: 1.8.50
+Stable tag: 1.8.51
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -20,6 +20,9 @@ Viral is a responsive magazine WordPress theme specially designed for magazine, 
 
 
 == Changelog ==
+= 1.8.51 - Feb 28, 2025 =
+* Translation text escaping added
+
 = 1.8.50 - Jan 30, 2025 =
 * Christmas & New Year discount baner removed on welcome page
 
