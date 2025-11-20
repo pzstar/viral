@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: _s 1.0.0\n"
 "Report-Msgid-Bugs-To: http://hashthemes.com\n"
-"POT-Creation-Date: 2024-09-10 05:59+0000\n"
+"POT-Creation-Date: 2025-11-20 12:12+0000\n"
 "POT-Revision-Date: Sun Sep 04 2016 23:59:35 GMT+0545 (Nepal Standard Time)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Hash Themes <hashthemes@gmail.com>\n"
@@ -33,7 +33,7 @@ msgstr ""
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: welcome/welcome.php:116
+#: welcome/welcome.php:106
 #, php-format
 msgid ""
 "%1$s is now installed and ready to use. You can start either by importing "
@@ -45,7 +45,7 @@ msgstr ""
 msgid "%s Demo"
 msgstr ""
 
-#: welcome/welcome.php:148
+#: welcome/welcome.php:138
 #, php-format
 msgid "%s Settings"
 msgstr ""
@@ -401,11 +401,11 @@ msgstr ""
 msgid "Activate"
 msgstr ""
 
-#: welcome/welcome.php:282
+#: welcome/welcome.php:278
 msgid "Activate Demo Importer Plugin"
 msgstr ""
 
-#: welcome/welcome.php:180
+#: welcome/welcome.php:176
 msgid "Activating Demo Importer Plugin"
 msgstr ""
 
@@ -511,6 +511,10 @@ msgstr ""
 #: welcome/sections/free_vs_pro.php:214 welcome/sections/free_vs_pro.php:262
 #: welcome/sections/free_vs_pro.php:270 welcome/sections/free_vs_pro.php:326
 msgid "Basic"
+msgstr ""
+
+#: inc/customizer/customizer-panel/settings.php:42
+msgid "Black Friday & Cyber Monday Discount!"
 msgstr ""
 
 #. Name of the template
@@ -623,7 +627,7 @@ msgstr ""
 msgid "Choose Ticker Category"
 msgstr ""
 
-#: welcome/welcome.php:128
+#: welcome/welcome.php:118
 msgid "Click below to install and active HashThemes Demo Importer Plugin."
 msgstr ""
 
@@ -675,7 +679,7 @@ msgstr[1] ""
 msgid "Comparision - Free Vs Pro"
 msgstr ""
 
-#: welcome/welcome.php:115
+#: welcome/welcome.php:105
 msgid "Congratulations!"
 msgstr ""
 
@@ -791,7 +795,7 @@ msgstr ""
 msgid "Disable Shadow Below Menu"
 msgstr ""
 
-#: welcome/welcome.php:391
+#: welcome/welcome.php:386
 msgid "Dismiss this notice."
 msgstr ""
 
@@ -866,7 +870,7 @@ msgid ""
 "your imagination."
 msgstr ""
 
-#: comments.php:58 inc/template-tags.php:172
+#: comments.php:58 inc/template-tags.php:142
 #: inc/widgets/widget-contact-info.php:39
 msgid "Email"
 msgstr ""
@@ -901,7 +905,7 @@ msgstr ""
 msgid "Enable/Disable header breadcrumb"
 msgstr ""
 
-#: welcome/welcome.php:183
+#: welcome/welcome.php:179
 msgid "Error! Reload the page and try again."
 msgstr ""
 
@@ -1049,7 +1053,7 @@ msgstr ""
 msgid "FREE UPDATES FOR LIFETIME"
 msgstr ""
 
-#: welcome/welcome.php:27
+#: welcome/welcome.php:148
 msgid "Free Vs Pro"
 msgstr ""
 
@@ -1110,11 +1114,11 @@ msgstr ""
 msgid "General Settings"
 msgstr ""
 
-#: welcome/welcome.php:136
+#: welcome/welcome.php:126
 msgid "Get Started"
 msgstr ""
 
-#: welcome/welcome.php:24
+#: welcome/welcome.php:145
 msgid "Getting Started"
 msgstr ""
 
@@ -1122,11 +1126,11 @@ msgstr ""
 msgid "Go to Appearance > Customize"
 msgstr ""
 
-#: welcome/welcome.php:181 welcome/welcome.php:285
+#: welcome/welcome.php:177 welcome/welcome.php:281
 msgid "Go to Demo Importer Page"
 msgstr ""
 
-#: welcome/welcome.php:138
+#: welcome/welcome.php:128
 msgid "Go to Setting Page"
 msgstr ""
 
@@ -1140,7 +1144,7 @@ msgid "Gradient Preview"
 msgstr ""
 
 #. %1$s is link start tag, %2$s is link end tag.
-#: welcome/welcome.php:348
+#: welcome/welcome.php:343
 #, php-format
 msgid ""
 "Great to see that you have been using Viral Theme for some time. We hope you "
@@ -1184,7 +1188,7 @@ msgstr ""
 msgid "here"
 msgstr ""
 
-#: welcome/welcome.php:137
+#: welcome/welcome.php:127
 #, php-format
 msgid ""
 "Here you will find all the necessary links and information on how to use %s."
@@ -1249,7 +1253,7 @@ msgstr ""
 msgid "Huge collection of custom widgets for magazine websites."
 msgstr ""
 
-#: welcome/welcome.php:353
+#: welcome/welcome.php:348
 msgid "I have already rated"
 msgstr ""
 
@@ -1268,7 +1272,7 @@ msgstr ""
 msgid "Import"
 msgstr ""
 
-#: welcome/welcome.php:127
+#: welcome/welcome.php:117
 msgid "Import Demo"
 msgstr ""
 
@@ -1293,7 +1297,7 @@ msgstr ""
 msgid "Instagram"
 msgstr ""
 
-#: welcome/welcome.php:289
+#: welcome/welcome.php:285
 msgid "Install Demo Importer Plugin"
 msgstr ""
 
@@ -1305,7 +1309,7 @@ msgstr ""
 msgid "Installed"
 msgstr ""
 
-#: welcome/welcome.php:179
+#: welcome/welcome.php:175
 msgid "Installing Demo Importer Plugin"
 msgstr ""
 
@@ -1621,7 +1625,7 @@ msgid ""
 "more features to the theme."
 msgstr ""
 
-#: welcome/welcome.php:269
+#: welcome/welcome.php:265
 #, php-format
 msgid ""
 "Please leave us a %s rating if you like our theme . A huge thank you from "
@@ -1709,7 +1713,7 @@ msgstr ""
 msgid "Recommended Plugin page"
 msgstr ""
 
-#: welcome/welcome.php:25 welcome/sections/recommended_plugins.php:6
+#: welcome/welcome.php:146 welcome/sections/recommended_plugins.php:6
 msgid "Recommended Plugins"
 msgstr ""
 
@@ -1866,19 +1870,19 @@ msgstr ""
 msgid "Shadow"
 msgstr ""
 
-#: inc/template-tags.php:168
+#: inc/template-tags.php:138
 msgid "SHARE"
 msgstr ""
 
-#: inc/template-tags.php:169
+#: inc/template-tags.php:139
 msgid "Share on Facebook"
 msgstr ""
 
-#: inc/template-tags.php:171
+#: inc/template-tags.php:141
 msgid "Share on Pinterest"
 msgstr ""
 
-#: inc/template-tags.php:170
+#: inc/template-tags.php:140
 msgid "Share on Twitter"
 msgstr ""
 
@@ -1974,7 +1978,7 @@ msgid ""
 "solve your problem."
 msgstr ""
 
-#: welcome/welcome.php:26
+#: welcome/welcome.php:147
 msgid "Support"
 msgstr ""
 
@@ -2243,7 +2247,6 @@ msgid "UPGRADE TO PRO"
 msgstr ""
 
 #: welcome/sections/free_vs_pro.php:21 welcome/sections/free_vs_pro.php:388
-#: inc/customizer/customizer-panel/settings.php:43
 #: inc/customizer/customizer-panel/settings.php:146
 #: inc/customizer/customizer-panel/settings.php:203
 #: inc/customizer/customizer-panel/settings.php:233
@@ -2256,6 +2259,10 @@ msgstr ""
 #: inc/customizer/customizer-panel/settings.php:993
 #: inc/customizer/customizer-panel/settings.php:1044
 msgid "Upgrade to Pro"
+msgstr ""
+
+#: inc/customizer/customizer-panel/settings.php:43
+msgid "Upgrade to Pro (40% OFF)"
 msgstr ""
 
 #: welcome/sections/free_vs_pro.php:22 welcome/sections/free_vs_pro.php:389
@@ -2293,7 +2300,7 @@ msgstr ""
 msgid "Viral"
 msgstr ""
 
-#: welcome/welcome.php:120 welcome/sections/getting_started.php:6
+#: welcome/welcome.php:110 welcome/sections/getting_started.php:6
 #: welcome/sections/footer.php:10 welcome/sections/footer.php:23
 #: welcome/sections/footer.php:166 welcome/sections/footer.php:179
 msgid "Viral Demo"
@@ -2301,19 +2308,25 @@ msgstr ""
 
 #. Description of the theme
 msgid ""
-"Viral is a responsive magazine and news WordPress theme designed for "
-"magazine, newspaper, news portals, publishing, personal blogs, professional "
-"blogs, corporate blogs, gaming magazines, review sites, and editorial style "
-"websites. The theme supports the Elementor page builder plugin. Using it, "
-"you can create the website of your imagination. The theme has 20+ uniquely "
-"designed news/magazine elements for Elementor that you can shuffle to create "
-"a unique looking website. Most importantly, the theme is SEO friendly that "
-"will help you rank quickly in all search engines. The theme is also WPML, "
-"Gutenberg, translation, and RTL ready. There are five different built-in "
-"widgets in the theme that can be used in the sidebar and footers. Moreover, "
-"the theme is built in the customizer that enables you to set up your website "
-"with live preview. For more ease, the demos website can be imported with "
-"just one click. Check demos  https://demo.hashthemes.com/viral/"
+"Viral is a powerful, SEO-optimized, and fully responsive WordPress theme, "
+"perfect for creating modern news portals, online magazines, editorial "
+"websites, viral content blogs, and entertainment platforms. Designed with "
+"speed, flexibility, and user engagement in mind, Viral comes packed with "
+"over 20 custom Elementor widgets that let you build professional-looking "
+"layouts without writing any code. Whether you’re publishing breaking news, "
+"trending articles, or lifestyle content, the theme’s visually engaging and "
+"mobile-friendly design ensures an excellent reading experience on all "
+"devices. Viral is fully compatible with WordPress Gutenberg editor, "
+"Elementor page builder, and multilingual plugins like WPML and Polylang, "
+"making it ideal for global audiences. It also supports RTL (Right-to-Left) "
+"languages, enhancing accessibility for non-Latin script users. The theme "
+"includes five custom widgets for sidebars and footers, offers flexible "
+"header and layout options, and allows easy customization of colors, fonts, "
+"and background settings. With built-in social media integration, one-click "
+"demo import, custom logo support, and translation readiness, Viral provides "
+"all the essential tools to launch a fast-loading, engaging, and high-"
+"performing WordPress news or magazine website. Check demos  https://demo."
+"hashthemes.com/viral/"
 msgstr ""
 
 #: welcome/sections/footer.php:36 welcome/sections/footer.php:49
@@ -2365,7 +2378,7 @@ msgstr ""
 msgid "Website layout (fullwidth or boxed)"
 msgstr ""
 
-#: welcome/welcome.php:148
+#: welcome/welcome.php:138
 msgid "Welcome"
 msgstr ""
 
@@ -2419,7 +2432,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: welcome/welcome.php:352
+#: welcome/welcome.php:347
 msgid "Yes, of course"
 msgstr ""
 
