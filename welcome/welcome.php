@@ -49,12 +49,12 @@ if (!class_exists('Viral_Welcome')):
                     'filename' => 'smart-blocks',
                     'thumb_path' => 'https://ps.w.org/smart-blocks/assets/icon-256x256.png'
                 ),
-                'internal-linking-of-related-contents' => array(
-                    'name' => 'Internal Linking of Related Contents',
-                    'slug' => 'internal-linking-of-related-contents',
-                    'filename' => 'internal-linking-of-related-contents',
-                    'thumb_path' => 'https://ps.w.org/internal-linking-of-related-contents/assets/icon-256x256.png'
-                ),
+                'onyx-dark-mode-switcher' => array(
+                    'name' => 'Onyx Dark Mode Switcher',
+                    'slug' => 'onyx-dark-mode-switcher',
+                    'filename' => 'onyx-dark-mode-switcher',
+                    'thumb_path' => 'https://ps.w.org/onyx-dark-mode-switcher/assets/icon-256x256.png'
+                )
             );
 
             /* Create a Welcome Page */
