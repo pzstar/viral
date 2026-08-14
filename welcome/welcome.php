@@ -79,6 +79,8 @@ if (!class_exists('Viral_Welcome')):
         /** Trigger Welcome Message Notification */
         public function admin_notice() {
             add_action('admin_notices', array($this, 'admin_notice_content'));
+            add_action('in_admin_header', array($this, 'screen_notice_header'));
+            add_action('admin_enqueue_scripts', array($this, 'block_widgets_notice'), 20);
         }
 
         /** Welcome Message Notification */
@@ -90,6 +92,158 @@ if (!class_exists('Viral_Welcome')):
             if (!$this->is_dismissed('review') && !empty(get_option('viral_first_activation')) && time() > get_option('viral_first_activation') + 15 * DAY_IN_SECONDS) {
                 $this->review_notice();
             }
+
+            if (!$this->is_dismissed('upgrade') && !empty(get_option('viral_first_activation')) && time() > get_option('viral_first_activation') + 30 * DAY_IN_SECONDS) {
+                $this->upgrade_notice();
+            }
+
+            $this->screen_notice('admin_notices');
+        }
+
+        /**
+         * Renders the widgets-screen prompt.
+         *
+         * The block-based widget editor drops everything hooked to
+         * admin_notices, so that screen is served from in_admin_header
+         * instead, which fires outside the editor's root element.
+         *
+         * @return void
+         */
+        public function screen_notice_header() {
+            // The block widget editor mounts over anything printed here, so let
+            // block_widgets_notice() handle that case through the editor's own store.
+            if (function_exists('wp_use_widgets_block_editor') && wp_use_widgets_block_editor()) {
+                $screen = get_current_screen();
+
+                if ($screen && 'widgets' === $screen->id) {
+                    return;
+                }
+            }
+
+            $this->screen_notice('in_admin_header');
+        }
+
+        /**
+         * Widgets prompt for the block-based widget editor.
+         *
+         * That screen discards markup from admin_notices and in_admin_header
+         * alike, so the notice is pushed into the editor's core/notices store
+         * where it renders natively. The "Don't show again" action reuses the
+         * same nonce-checked dismiss route as every other notice, so dismissing
+         * here also dismisses the classic-screen version.
+         *
+         * @return void
+         */
+        public function block_widgets_notice() {
+            $screen = get_current_screen();
+
+            if (!$screen || 'widgets' !== $screen->id) {
+                return;
+            }
+
+            if (!function_exists('wp_use_widgets_block_editor') || !wp_use_widgets_block_editor()) {
+                return;
+            }
+
+            if ($this->is_dismissed('screen-widgets') || !wp_script_is('wp-edit-widgets', 'enqueued')) {
+                return;
+            }
+
+            // Built with add_query_arg rather than wp_nonce_url because that helper
+            // HTML-escapes its return value, which would put a literal &amp; in the
+            // JSON string and break the nonce parameter. Strings stay unescaped too -
+            // wp_json_encode handles JS quoting and the editor escapes on render.
+            $dismiss_url = add_query_arg(array(
+                'viral-hide-notice' => 'screen-widgets',
+                'viral_notice_nonce' => wp_create_nonce('screen-widgets')
+                    ), admin_url('widgets.php'));
+
+            wp_add_inline_script('wp-edit-widgets', sprintf(
+                    'wp.domReady( function () {
+                        if ( ! wp.data || ! wp.data.dispatch( "core/notices" ) ) { return; }
+                        wp.data.dispatch( "core/notices" ).createInfoNotice( %1$s, {
+                            isDismissible: true,
+                            actions: [
+                                { url: %2$s, label: %3$s },
+                                { url: %4$s, label: %5$s }
+                            ]
+                        } );
+                    } );', wp_json_encode(__('Viral Pro adds 23 magazine widgets and lets you create unlimited widget areas, each with its own sidebar layout.', 'viral')), wp_json_encode(viral_upgrade_url('screen-widgets', 'viral-admin-screen')), wp_json_encode(__('See what Viral Pro adds', 'viral')), wp_json_encode($dismiss_url), wp_json_encode(__('Don\'t show again', 'viral'))
+            ));
+        }
+
+        /**
+         * Contextual prompts on the two admin screens where users run into
+         * Pro-only limits - widget areas and menus. Neither screen carried
+         * any prompt before.
+         *
+         * @param string $hook Which hook is currently rendering.
+         * @return void
+         */
+        private function screen_notice($hook) {
+            $screen = get_current_screen();
+
+            if (!$screen) {
+                return;
+            }
+
+            $screens = array(
+                'widgets' => array(
+                    'hook' => 'in_admin_header',
+                    'placement' => 'screen-widgets',
+                    'text' => esc_html__('Viral Pro adds 23 magazine widgets and lets you create unlimited widget areas, each with its own sidebar layout.', 'viral')
+                ),
+                'nav-menus' => array(
+                    'hook' => 'admin_notices',
+                    'placement' => 'screen-menus',
+                    'text' => esc_html__('Viral Pro adds an in-built MegaMenu and an Off Canvas menu, plus 10 menu hover styles and full menu colour control.', 'viral')
+                )
+            );
+
+            if (!isset($screens[$screen->id]) || $screens[$screen->id]['hook'] !== $hook || $this->is_dismissed('screen-' . $screen->id)) {
+                return;
+            }
+
+            $notice = $screens[$screen->id];
+            ?>
+            <div class="viral-notice notice notice-info">
+                <?php $this->dismiss_button('screen-' . $screen->id); ?>
+                <div class="viral-notice-content">
+                    <p><?php echo esc_html($notice['text']); ?></p>
+                    <a target="_blank" class="button action" href="<?php echo esc_url(viral_upgrade_url($notice['placement'], 'viral-admin-screen')); ?>"><?php echo esc_html__('See what Viral Pro adds', 'viral'); ?></a>
+                </div>
+            </div>
+            <?php
+        }
+
+        /**
+         * Displays an upgrade prompt once the theme has been in use for a while.
+         *
+         * @return void
+         */
+        private function upgrade_notice() {
+            $screen = get_current_screen();
+
+            if ($screen && 'appearance_page_viral-welcome' === $screen->id) {
+                return;
+            }
+            ?>
+            <div class="viral-notice notice notice-info">
+                <?php $this->dismiss_button('upgrade'); ?>
+                <div class="viral-notice-content">
+                    <p>
+                        <?php
+                        printf(
+                            /* translators: %1$s is link start tag, %2$s is link end tag. */
+                            esc_html__('You have been running Viral for a month now. %1$sViral Pro%2$s adds 50+ magazine blocks, 7 header layouts, 7 blog and 7 single post layouts, and a lot more - $69 one-time, unlimited sites, lifetime updates, no renewal fees.', 'viral'), '<a style="text-decoration:none;font-weight:bold;" target="_blank" href="' . esc_url(viral_upgrade_url('notice-30day', 'viral-admin-notice')) . '">', '</a>'
+                        );
+                        ?>
+                    </p>
+                    <a target="_blank" class="button action" href="<?php echo esc_url(viral_upgrade_url('notice-30day-btn', 'viral-admin-notice')); ?>"><span class="dashicons dashicons-cart"></span><?php echo esc_html__('See Free vs Pro', 'viral'); ?></a> &nbsp;
+                    <a class="button action" href="<?php echo esc_url(wp_nonce_url(add_query_arg('viral-hide-notice', 'upgrade'), 'upgrade', 'viral_notice_nonce')); ?>"><span class="dashicons dashicons-no"></span><?php echo esc_html__('No thanks', 'viral'); ?></a>
+                </div>
+            </div>
+            <?php
         }
 
         public function welcome_notice() {

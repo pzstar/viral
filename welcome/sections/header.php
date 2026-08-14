@@ -1,5 +1,17 @@
 <div class="welcome-header clearfix">
-    <!--<a href="<?php echo esc_url('https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=viral-blackfriday&utm_campaign=viral-upgrade'); ?>" target="_blank"><img style="width:100%;margin-bottom:40px;display:block;" src="<?php echo esc_url(get_template_directory_uri() . '/welcome/css/christmas-sale.jpg'); ?>"></a>-->
+    <?php
+    // Seasonal sale banner. Renders only while a campaign window is open and
+    // only if its artwork actually ships, so a missing file can never show up broken.
+    $viral_campaign = viral_get_active_campaign();
+
+    if ($viral_campaign && !empty($viral_campaign['image']) && file_exists(get_template_directory() . '/welcome/css/' . $viral_campaign['image'])) {
+        ?>
+        <a href="<?php echo esc_url(viral_upgrade_url('welcome-banner-' . $viral_campaign['id'], 'viral-welcome')); ?>" target="_blank">
+            <img style="width:100%;margin-bottom:40px;display:block;" src="<?php echo esc_url(get_template_directory_uri() . '/welcome/css/' . $viral_campaign['image']); ?>" alt="<?php echo esc_attr($viral_campaign['title']); ?>">
+        </a>
+        <?php
+    }
+    ?>
     <div class="welcome-intro">
         <h2><?php
         printf(// WPCS: XSS OK.
@@ -21,8 +33,8 @@
     </div>
 
     <div class="welcome-promo-banner">
-        <a class="welcome-promo-offer" href="<?php echo esc_url('https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=viral-welcome&utm_campaign=viral-upgrade'); ?>" target="_blank"><?php echo esc_html__('Unlock all the possibilities with Viral Pro.', 'viral'); ?></a>
-        <a href="<?php echo esc_url('https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=viral-welcome&utm_campaign=viral-upgrade'); ?>" target="_blank" class="button button-primary upgrade-btn"><?php echo esc_html__('UPGRADE TO PRO', 'viral'); ?></a>
+        <a class="welcome-promo-offer" href="<?php echo esc_url(viral_upgrade_url('welcome-promo', 'viral-welcome')); ?>" target="_blank"><?php echo esc_html__('Unlock all the possibilities with Viral Pro.', 'viral'); ?></a>
+        <a href="<?php echo esc_url(viral_upgrade_url('welcome-header-btn', 'viral-welcome')); ?>" target="_blank" class="button button-primary upgrade-btn"><?php echo esc_html__('UPGRADE TO PRO', 'viral'); ?></a>
     </div>
 </div>
 

@@ -17,7 +17,11 @@ $viral_pro_features = '<p><strong>' . esc_html__("$69 once. No subscription, no 
 	<li>' . esc_html__("12 title bar styles and 10 thumbnail hover effects for magazine blocks", "viral") . '</li>
 	<li>' . esc_html__("7 differently designed Blog/Archive layouts", "viral") . '</li>
 	<li>' . esc_html__("7 differently designed Single Article/Post layouts", "viral") . '</li>
+	<li>' . esc_html__("Dedicated author page template", "viral") . '</li>
+	<li>' . esc_html__("Prev/Next post navigation and category exclusion for blog & archive", "viral") . '</li>
+	<li>' . esc_html__("Placeholder image for posts with no featured image", "viral") . '</li>
 	<li>' . esc_html__("23 custom widgets", "viral") . '</li>
+	<li>' . esc_html__("20 widget areas including header, below menu, off canvas and before/after article", "viral") . '</li>
 	<li>' . esc_html__("Table of contents for single posts", "viral") . '</li>
 	<li>' . esc_html__("NewsArticle structured data in JSON-LD with speakable markup", "viral") . '</li>
 	<li>' . esc_html__("Google News sitemap", "viral") . '</li>
@@ -31,6 +35,10 @@ $viral_pro_features = '<p><strong>' . esc_html__("$69 once. No subscription, no 
 	<li>' . esc_html__("Advanced typography options", "viral") . '</li>
 	<li>' . esc_html__("Advanced color options", "viral") . '</li>
 	<li>' . esc_html__("Preloader option", "viral") . '</li>
+	<li>' . esc_html__("Scroll to top button with advanced settings", "viral") . '</li>
+	<li>' . esc_html__("Video, image motion and gradient backgrounds for front page sections", "viral") . '</li>
+	<li>' . esc_html__("SVG shape dividers between front page sections", "viral") . '</li>
+	<li>' . esc_html__("8 sidebar styles with widget title typography and colors", "viral") . '</li>
 	<li>' . esc_html__("Sidebar layout options", "viral") . '</li>
 	<li>' . esc_html__("Website layout (fullwidth or boxed)", "viral") . '</li>
 	<li>' . esc_html__("Advanced blog & article settings", "viral") . '</li>
@@ -38,27 +46,34 @@ $viral_pro_features = '<p><strong>' . esc_html__("$69 once. No subscription, no 
 	<li>' . esc_html__("Advanced advertising & monetization options", "viral") . '</li>
 	<li>' . esc_html__("Blog single page - Author Box, Social Share and Related Post", "viral") . '</li>
 	<li>' . esc_html__("WooCommerce compatible", "viral") . '</li>
-	<li>' . esc_html__("Fully multilingual and translation ready", "viral") . '</li>
+	<li>' . esc_html__("Fully multilingual and translation ready, with built in Polylang support", "viral") . '</li>
 	<li>' . esc_html__("Fully RTL(right to left) languages compatible", "viral") . '</li>
     <li>' . esc_html__("Maintenance mode option", "viral") . '</li>
+    <li>' . esc_html__("Per post control - content width, hide header, footer or table of contents", "viral") . '</li>
+    <li>' . esc_html__("System status panel to check your server setup", "viral") . '</li>
     <li>' . esc_html__("Remove footer credit text", "viral") . '</li>
 	</ul>
-	<a class="ht-implink" href="https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=viral-link&utm_campaign=viral-upgrade" target="_blank">' . esc_html__("Get Viral Pro - $69", "viral") . '</a>
+	<a class="ht-implink" href="' . esc_url(viral_upgrade_url('why-upgrade-cta', 'viral-customizer')) . '" target="_blank">' . esc_html__("Get Viral Pro - $69", "viral") . '</a>
 	<p style="text-align:center;margin:10px 0 0"><a href="' . admin_url('admin.php?page=viral-welcome&section=free_vs_pro') . '" target="_blank">' . esc_html__("Compare Free vs Pro", "viral") . '</a></p>';
 
 // Register sections.
+// Seasonal campaigns swap the banner copy automatically - see viral_get_active_campaign().
+$viral_campaign = viral_get_active_campaign();
+$viral_banner_title = $viral_campaign ? $viral_campaign['title'] : esc_html__('One-time payment. Unlimited sites. Lifetime updates.', 'viral');
+$viral_banner_button = $viral_campaign ? $viral_campaign['button'] : esc_html__('Get Viral Pro - $69', 'viral');
+
 $wp_customize->add_section(new Viral_Upgrade_Section($wp_customize, 'viral-pro-section', array(
     'priority' => 0,
-    'title' => esc_html__('One-time payment. Unlimited sites. Lifetime updates.', 'viral'),
-    // Seasonal campaign: replace the title above with e.g.
-    // esc_html__('Christmas & New Year Discount!', 'viral')
-    'upgrade_text' => esc_html__('Get Viral Pro - $69', 'viral'),
-    'upgrade_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=viral-customizer-button&utm_campaign=viral-upgrade',
+    'title' => $viral_banner_title,
+    'upgrade_text' => $viral_banner_button,
+    'upgrade_url' => viral_upgrade_url($viral_campaign ? 'banner-' . $viral_campaign['id'] : 'banner', 'viral-customizer-button'),
+    'active_callback' => 'viral_is_upgrade_notice_active'
 )));
 
 $wp_customize->add_section(new Viral_Upgrade_Section($wp_customize, 'viral-doc-section', array(
     'title' => esc_html__('Documentation', 'viral'),
     'priority' => 1000,
+    'class' => 'ht--single-row',
     'upgrade_text' => esc_html__('View', 'viral'),
     'upgrade_url' => 'https://hashthemes.com/documentation/viral-documentation/'
 )));
@@ -66,6 +81,7 @@ $wp_customize->add_section(new Viral_Upgrade_Section($wp_customize, 'viral-doc-s
 $wp_customize->add_section(new Viral_Upgrade_Section($wp_customize, 'viral-demo-import-section', array(
     'title' => esc_html__('Import Demo Content', 'viral'),
     'priority' => 999,
+    'class' => 'ht--single-row',
     'upgrade_text' => esc_html__('Import', 'viral'),
     'upgrade_url' => admin_url('admin.php?page=viral-welcome')
 )));
@@ -156,7 +172,7 @@ $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_
     ),
     'priority' => 100,
     'upgrade_text' => esc_html__('Unlock in Viral Pro', 'viral'),
-    'upgrade_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=viral-link&utm_campaign=viral-upgrade',
+    'upgrade_url' => viral_upgrade_url('website-layout', 'viral-customizer'),
     'active_callback' => 'viral_is_upgrade_notice_active'
 )));
 
@@ -179,6 +195,25 @@ $wp_customize->add_control(new Viral_Toggle_Control($wp_customize, 'viral_load_g
     'description' => esc_html__('It is required to load the Google Fonts locally in order to comply with GDPR. However, if your website is not required to comply with GDPR then you can check this field off. Loading the Fonts locally with lots of different Google fonts can decrease the speed of the website slightly.', 'viral'),
 )));
 
+$wp_customize->add_setting('viral_google_font_upgrade_text', array(
+    'sanitize_callback' => 'viral_sanitize_text'
+));
+
+$wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_google_font_upgrade_text', array(
+    'section' => 'viral_google_font_section',
+    'label' => esc_html__('For more font and icon control,', 'viral'),
+    'choices' => array(
+        esc_html__('800+ Google fonts to choose from', 'viral'),
+        esc_html__('Disable Google fonts completely to load only system fonts', 'viral'),
+        esc_html__('Choose which icon library to load and skip the rest', 'viral'),
+        esc_html__('Upload and use your own custom fonts', 'viral')
+    ),
+    'priority' => 100,
+    'upgrade_text' => esc_html__('Unlock in Viral Pro', 'viral'),
+    'upgrade_url' => viral_upgrade_url('google-fonts', 'viral-customizer'),
+    'active_callback' => 'viral_is_upgrade_notice_active'
+)));
+
 /* SEO SECTION */
 $wp_customize->add_section('viral_seo_section', array(
     'title' => esc_html__('SEO', 'viral'),
@@ -198,6 +233,48 @@ $wp_customize->add_control(new Viral_Toggle_Control($wp_customize, 'viral_schema
     'description' => esc_html__('Enable Schema.org markup feature for your site. You can disable this option if if you use a SEO plugin.', 'viral'),
 )));
 
+$wp_customize->add_setting('viral_seo_upgrade_text', array(
+    'sanitize_callback' => 'viral_sanitize_text'
+));
+
+$wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_seo_upgrade_text', array(
+    'section' => 'viral_seo_section',
+    'label' => esc_html__('For more SEO options,', 'viral'),
+    'choices' => array(
+        esc_html__('NewsArticle structured data in JSON-LD with speakable markup', 'viral'),
+        esc_html__('Google News sitemap so your posts get picked up faster', 'viral'),
+        esc_html__('Breadcrumb structured data', 'viral'),
+        esc_html__('Speculative loading - the next article opens instantly', 'viral'),
+        esc_html__('Print stylesheet for articles', 'viral')
+    ),
+    'priority' => 100,
+    'upgrade_text' => esc_html__('Unlock in Viral Pro', 'viral'),
+    'upgrade_url' => viral_upgrade_url('seo', 'viral-customizer'),
+    'active_callback' => 'viral_is_upgrade_notice_active'
+)));
+
+/* SIDEBAR SETTINGS - PRO ONLY */
+$wp_customize->add_section(new Viral_Upgrade_Section($wp_customize, 'viral-sidebar-upgrade-section', array(
+    'title' => esc_html__('Sidebar Settings', 'viral'),
+    'panel' => 'viral_general_settings_panel',
+    'priority' => 900,
+    'upgrade_text' => esc_html__('Get Pro', 'viral'),
+    'class' => 'ht--single-row',
+    'upgrade_url' => viral_upgrade_url('sec-sidebar', 'viral-customizer'),
+    'active_callback' => 'viral_is_upgrade_notice_active'
+)));
+
+/* GDPR, MAINTENANCE & PERFORMANCE - PRO ONLY */
+$wp_customize->add_section(new Viral_Upgrade_Section($wp_customize, 'viral-site-tools-upgrade-section', array(
+    'title' => esc_html__('GDPR & Maintenance', 'viral'),
+    'panel' => 'viral_general_settings_panel',
+    'priority' => 1002,
+    'upgrade_text' => esc_html__('Get Pro', 'viral'),
+    'class' => 'ht--single-row',
+    'upgrade_url' => viral_upgrade_url('sec-gdpr-maintenance', 'viral-customizer'),
+    'active_callback' => 'viral_is_upgrade_notice_active'
+)));
+
 $wp_customize->add_setting('viral_title_tagline_upgrade_text', array(
     'sanitize_callback' => 'viral_sanitize_text'
 ));
@@ -213,7 +290,7 @@ $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_
     ),
     'priority' => 100,
     'upgrade_text' => esc_html__('Unlock in Viral Pro', 'viral'),
-    'upgrade_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=viral-link&utm_campaign=viral-upgrade',
+    'upgrade_url' => viral_upgrade_url('logo-favicon', 'viral-customizer'),
     'active_callback' => 'viral_is_upgrade_notice_active'
 )));
 
@@ -243,7 +320,7 @@ $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_
     ),
     'priority' => 100,
     'upgrade_text' => esc_html__('Unlock in Viral Pro', 'viral'),
-    'upgrade_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=viral-link&utm_campaign=viral-upgrade',
+    'upgrade_url' => viral_upgrade_url('colors', 'viral-customizer'),
     'active_callback' => 'viral_is_upgrade_notice_active'
 )));
 
@@ -437,7 +514,7 @@ $wp_customize->add_setting('viral_typography_upgrade_text', array(
 ));
 
 $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_typography_upgrade_text', array(
-    'section' => 'viral_typography_section',
+    'section' => 'viral_body_typography_section',
     'label' => esc_html__('For more fonts and settings,', 'viral'),
     'choices' => array(
         esc_html__('800+ Google fonts', 'viral'),
@@ -446,7 +523,45 @@ $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_
     ),
     'priority' => 100,
     'upgrade_text' => esc_html__('Unlock in Viral Pro', 'viral'),
-    'upgrade_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=viral-link&utm_campaign=viral-upgrade',
+    'upgrade_url' => viral_upgrade_url('typo-body', 'viral-customizer'),
+    'active_callback' => 'viral_is_upgrade_notice_active'
+)));
+
+$wp_customize->add_setting('viral_header_typography_upgrade_text', array(
+    'sanitize_callback' => 'viral_sanitize_text'
+));
+
+$wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_header_typography_upgrade_text', array(
+    'section' => 'viral_header_typography_section',
+    'label' => esc_html__('For more heading options,', 'viral'),
+    'choices' => array(
+        esc_html__('Set H1, H2, H3, H4, H5 and H6 typography individually', 'viral'),
+        esc_html__('Separate typography for Page Title, Block Title and Widget Title', 'viral'),
+        esc_html__('Font size, line height and letter spacing per device - desktop, tablet and mobile', 'viral'),
+        esc_html__('Custom heading color for each heading level', 'viral')
+    ),
+    'priority' => 100,
+    'upgrade_text' => esc_html__('Unlock in Viral Pro', 'viral'),
+    'upgrade_url' => viral_upgrade_url('typo-header', 'viral-customizer'),
+    'active_callback' => 'viral_is_upgrade_notice_active'
+)));
+
+$wp_customize->add_setting('viral_menu_typography_upgrade_text', array(
+    'sanitize_callback' => 'viral_sanitize_text'
+));
+
+$wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_menu_typography_upgrade_text', array(
+    'section' => 'viral_menu_typography_section',
+    'label' => esc_html__('For more menu options,', 'viral'),
+    'choices' => array(
+        esc_html__('Separate typography for the sub menu and the mobile menu', 'viral'),
+        esc_html__('10 menu hover styles', 'viral'),
+        esc_html__('Menu text, hover and background color options', 'viral'),
+        esc_html__('In-built MegaMenu and OffCanvas menu', 'viral')
+    ),
+    'priority' => 100,
+    'upgrade_text' => esc_html__('Unlock in Viral Pro', 'viral'),
+    'upgrade_url' => viral_upgrade_url('typo-menu', 'viral-customizer'),
     'active_callback' => 'viral_is_upgrade_notice_active'
 )));
 
@@ -604,7 +719,7 @@ $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_
     ),
     'priority' => 100,
     'upgrade_text' => esc_html__('Unlock in Viral Pro', 'viral'),
-    'upgrade_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=viral-link&utm_campaign=viral-upgrade',
+    'upgrade_url' => viral_upgrade_url('top-header', 'viral-customizer'),
     'active_callback' => 'viral_is_upgrade_notice_active'
 )));
 
@@ -637,6 +752,30 @@ $wp_customize->add_control('viral_disable_menu_shadow', array(
     'label' => esc_html__('Disable Shadow Below Menu', 'viral')
 ));
 
+$wp_customize->add_setting('viral_main_header_preview', array(
+    'sanitize_callback' => 'viral_sanitize_text'
+));
+
+$wp_customize->add_control(new Viral_Pro_Preview_Control($wp_customize, 'viral_main_header_preview', array(
+    'section' => 'viral_main_header_settings_sec',
+    'priority' => 99,
+    'label' => esc_html__('7 header layouts in Viral Pro', 'viral'),
+    'columns' => 2,
+    'images' => array(
+        'headers/header-1.png',
+        'headers/header-2.png',
+        'headers/header-3.png',
+        'headers/header-4.png',
+        'headers/header-5.png',
+        'headers/header-6.png',
+        'headers/header-7.png'
+    ),
+    'more_count' => 0,
+    'upgrade_text' => esc_html__('Unlock these layouts', 'viral'),
+    'upgrade_url' => viral_upgrade_url('preview-header', 'viral-customizer'),
+    'active_callback' => 'viral_is_upgrade_notice_active'
+)));
+
 $wp_customize->add_setting('viral_main_header_upgrade_text', array(
     'sanitize_callback' => 'viral_sanitize_text'
 ));
@@ -658,9 +797,18 @@ $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_
     ),
     'priority' => 100,
     'upgrade_text' => esc_html__('Unlock in Viral Pro', 'viral'),
-    'upgrade_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=viral-link&utm_campaign=viral-upgrade',
+    'upgrade_url' => viral_upgrade_url('main-header', 'viral-customizer'),
     'active_callback' => 'viral_is_upgrade_notice_active'
 )));
+
+/* Shared Pro block-style previews. 33 block thumbnails ship in images/pro/;
+   11 are shown and the rest are summarised by the "+N more" tile. */
+$viral_pro_block_images = array(
+    'news/style1.png', 'news/style2.png', 'news/style3.png',
+    'tile/style1.png', 'tile/style2.png', 'tile/style3.png',
+    'slider/style1.png', 'slider/style2.png',
+    'carousel/style1.png', 'ticker/style1.png', 'ticker/style2.png'
+);
 
 /* ============FRONT PAGE PANEL============ */
 $wp_customize->add_panel('viral_front_page_panel', array(
@@ -765,6 +913,21 @@ $wp_customize->add_control(new Viral_Repeater_Control($wp_customize, 'viral_fron
     )
 )));
 
+$wp_customize->add_setting('viral_top_section_preview', array(
+    'sanitize_callback' => 'viral_sanitize_text'
+));
+
+$wp_customize->add_control(new Viral_Pro_Preview_Control($wp_customize, 'viral_top_section_preview', array(
+    'section' => 'viral_frontpage_top_sec',
+    'priority' => 99,
+    'label' => esc_html__('More block styles in Viral Pro', 'viral'),
+    'images' => $viral_pro_block_images,
+    'more_count' => 22,
+    'upgrade_text' => esc_html__('Unlock these layouts', 'viral'),
+    'upgrade_url' => viral_upgrade_url('preview-home-top', 'viral-customizer'),
+    'active_callback' => 'viral_is_upgrade_notice_active'
+)));
+
 $wp_customize->add_setting('viral_top_section_upgrade_text', array(
     'sanitize_callback' => 'viral_sanitize_text'
 ));
@@ -786,7 +949,7 @@ $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_
     ),
     'priority' => 100,
     'upgrade_text' => esc_html__('Unlock in Viral Pro', 'viral'),
-    'upgrade_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=viral-link&utm_campaign=viral-upgrade',
+    'upgrade_url' => viral_upgrade_url('home-top', 'viral-customizer'),
     'active_callback' => 'viral_is_upgrade_notice_active'
 )));
 
@@ -850,6 +1013,21 @@ $wp_customize->add_control(new Viral_Repeater_Control($wp_customize, 'viral_fron
     )
 )));
 
+$wp_customize->add_setting('viral_middle_left_preview', array(
+    'sanitize_callback' => 'viral_sanitize_text'
+));
+
+$wp_customize->add_control(new Viral_Pro_Preview_Control($wp_customize, 'viral_middle_left_preview', array(
+    'section' => 'viral_frontpage_middle_left_sec',
+    'priority' => 99,
+    'label' => esc_html__('More block styles in Viral Pro', 'viral'),
+    'images' => $viral_pro_block_images,
+    'more_count' => 22,
+    'upgrade_text' => esc_html__('Unlock these layouts', 'viral'),
+    'upgrade_url' => viral_upgrade_url('preview-home-middle', 'viral-customizer'),
+    'active_callback' => 'viral_is_upgrade_notice_active'
+)));
+
 $wp_customize->add_setting('viral_middle_left_section_upgrade_text', array(
     'sanitize_callback' => 'viral_sanitize_text'
 ));
@@ -871,7 +1049,7 @@ $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_
     ),
     'priority' => 100,
     'upgrade_text' => esc_html__('Unlock in Viral Pro', 'viral'),
-    'upgrade_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=viral-link&utm_campaign=viral-upgrade',
+    'upgrade_url' => viral_upgrade_url('home-middle-left', 'viral-customizer'),
     'active_callback' => 'viral_is_upgrade_notice_active'
 )));
 
@@ -889,6 +1067,26 @@ $wp_customize->add_control(new Viral_Text_Info_Control($wp_customize, 'viral_fro
     'section' => 'viral_frontpage_middle_right_sec',
     'label' => esc_html__('Note', 'viral'),
     'description' => sprintf(esc_html__('For the right sidebar, add the widgets in the "Home Middle Section - Right Sidebar" in the %s page.', 'viral'), '<a href="' . admin_url('/widgets.php') . '" target="_blank">widget</a>'),
+)));
+
+$wp_customize->add_setting('viral_middle_right_section_upgrade_text', array(
+    'sanitize_callback' => 'viral_sanitize_text'
+));
+
+$wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_middle_right_section_upgrade_text', array(
+    'section' => 'viral_frontpage_middle_right_sec',
+    'label' => esc_html__('For more sidebar options,', 'viral'),
+    'choices' => array(
+        esc_html__('Place the sidebar on the left or the right of the middle section', 'viral'),
+        esc_html__('Set a custom sidebar width', 'viral'),
+        esc_html__('Sticky sidebar that follows the reader', 'viral'),
+        esc_html__('23 custom widgets built for magazine layouts', 'viral'),
+        esc_html__('Create unlimited custom widget areas', 'viral')
+    ),
+    'priority' => 100,
+    'upgrade_text' => esc_html__('Unlock in Viral Pro', 'viral'),
+    'upgrade_url' => viral_upgrade_url('home-middle-right', 'viral-customizer'),
+    'active_callback' => 'viral_is_upgrade_notice_active'
 )));
 
 /* ============FRONT PAGE BOTTOM SECTION============ */
@@ -958,6 +1156,21 @@ $wp_customize->add_control(new Viral_Repeater_Control($wp_customize, 'viral_fron
     )
 )));
 
+$wp_customize->add_setting('viral_bottom_section_preview', array(
+    'sanitize_callback' => 'viral_sanitize_text'
+));
+
+$wp_customize->add_control(new Viral_Pro_Preview_Control($wp_customize, 'viral_bottom_section_preview', array(
+    'section' => 'viral_frontpage_bottom_sec',
+    'priority' => 99,
+    'label' => esc_html__('More block styles in Viral Pro', 'viral'),
+    'images' => $viral_pro_block_images,
+    'more_count' => 22,
+    'upgrade_text' => esc_html__('Unlock these layouts', 'viral'),
+    'upgrade_url' => viral_upgrade_url('preview-home-bottom', 'viral-customizer'),
+    'active_callback' => 'viral_is_upgrade_notice_active'
+)));
+
 $wp_customize->add_setting('viral_bottom_section_upgrade_text', array(
     'sanitize_callback' => 'viral_sanitize_text'
 ));
@@ -979,7 +1192,7 @@ $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_
         esc_html__('Set typography for heading and post titles', 'viral'),
     ),
     'upgrade_text' => esc_html__('Unlock in Viral Pro', 'viral'),
-    'upgrade_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=viral-link&utm_campaign=viral-upgrade',
+    'upgrade_url' => viral_upgrade_url('home-bottom', 'viral-customizer'),
     'active_callback' => 'viral_is_upgrade_notice_active'
 )));
 
@@ -1000,10 +1213,10 @@ $wp_customize->add_section(new Viral_Upgrade_Section($wp_customize, 'viral-upgra
         esc_html__('- Full Width News Module', 'viral'),
         esc_html__('- Featured Image Module', 'viral'),
         esc_html__('- Three Column Module', 'viral'),
-        esc_html__('- Google Ads/Image Ads in betweeen Modules', 'viral')
+        esc_html__('- Google Ads/Image Ads in between Modules', 'viral')
     ),
     'upgrade_text' => esc_html__('Unlock in Viral Pro', 'viral'),
-    'upgrade_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=viral-link&utm_campaign=viral-upgrade',
+    'upgrade_url' => viral_upgrade_url('sec-frontpage-modules', 'viral-customizer'),
     'active_callback' => 'viral_is_upgrade_notice_active'
 )));
 
@@ -1039,6 +1252,29 @@ $wp_customize->add_control('viral_blog_display_date_option', array(
     )
 ));
 
+$wp_customize->add_setting('viral_single_post_preview', array(
+    'sanitize_callback' => 'viral_sanitize_text'
+));
+
+$wp_customize->add_control(new Viral_Pro_Preview_Control($wp_customize, 'viral_single_post_preview', array(
+    'section' => 'viral_single_post_sec',
+    'priority' => 99,
+    'label' => esc_html__('7 single post layouts in Viral Pro', 'viral'),
+    'images' => array(
+        'single-layouts/layout1.png',
+        'single-layouts/layout2.png',
+        'single-layouts/layout3.png',
+        'single-layouts/layout4.png',
+        'single-layouts/layout5.png',
+        'single-layouts/layout6.png',
+        'single-layouts/layout7.png'
+    ),
+    'more_count' => 0,
+    'upgrade_text' => esc_html__('Unlock these layouts', 'viral'),
+    'upgrade_url' => viral_upgrade_url('preview-single-post', 'viral-customizer'),
+    'active_callback' => 'viral_is_upgrade_notice_active'
+)));
+
 $wp_customize->add_setting('viral_single_post_sec_upgrade_text', array(
     'sanitize_callback' => 'viral_sanitize_text'
 ));
@@ -1054,7 +1290,44 @@ $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_
         esc_html__('Author box & 4 differently designed related posts', 'viral'),
     ),
     'upgrade_text' => esc_html__('Unlock in Viral Pro', 'viral'),
-    'upgrade_url' => 'https://hashthemes.com/wordpress-theme/viral-pro/?utm_source=wordpress&utm_medium=viral-link&utm_campaign=viral-upgrade',
+    'upgrade_url' => viral_upgrade_url('single-post', 'viral-customizer'),
+    'active_callback' => 'viral_is_upgrade_notice_active'
+)));
+
+/* ============PRO ONLY FEATURE AREAS============ */
+$wp_customize->add_section(new Viral_Upgrade_Section($wp_customize, 'viral-blog-upgrade-section', array(
+    'title' => esc_html__('Blog & Archive Settings', 'viral'),
+    'priority' => 31,
+    'upgrade_text' => esc_html__('Get Pro', 'viral'),
+    'class' => 'ht--single-row',
+    'upgrade_url' => viral_upgrade_url('sec-blog-archive', 'viral-customizer'),
+    'active_callback' => 'viral_is_upgrade_notice_active'
+)));
+
+$wp_customize->add_section(new Viral_Upgrade_Section($wp_customize, 'viral-footer-upgrade-section', array(
+    'title' => esc_html__('Footer Settings', 'viral'),
+    'priority' => 32,
+    'upgrade_text' => esc_html__('Get Pro', 'viral'),
+    'class' => 'ht--single-row',
+    'upgrade_url' => viral_upgrade_url('sec-footer', 'viral-customizer'),
+    'active_callback' => 'viral_is_upgrade_notice_active'
+)));
+
+$wp_customize->add_section(new Viral_Upgrade_Section($wp_customize, 'viral-ads-upgrade-section', array(
+    'title' => esc_html__('Advertising & Monetization', 'viral'),
+    'priority' => 33,
+    'upgrade_text' => esc_html__('Get Pro', 'viral'),
+    'class' => 'ht--single-row',
+    'upgrade_url' => viral_upgrade_url('sec-advertising', 'viral-customizer'),
+    'active_callback' => 'viral_is_upgrade_notice_active'
+)));
+
+$wp_customize->add_section(new Viral_Upgrade_Section($wp_customize, 'viral-woocommerce-upgrade-section', array(
+    'title' => esc_html__('WooCommerce', 'viral'),
+    'priority' => 34,
+    'upgrade_text' => esc_html__('Get Pro', 'viral'),
+    'class' => 'ht--single-row',
+    'upgrade_url' => viral_upgrade_url('sec-woocommerce', 'viral-customizer'),
     'active_callback' => 'viral_is_upgrade_notice_active'
 )));
 
@@ -1069,8 +1342,10 @@ $wp_customize->add_setting('viral_hide_upgrade_notice', array(
     'default' => false,
 ));
 
+// Features render first (priority 10) so the section does not open with its own opt-out.
 $wp_customize->add_control(new Viral_Toggle_Control($wp_customize, 'viral_hide_upgrade_notice', array(
     'section' => 'viral_pro_feature_section',
+    'priority' => 20,
     'label' => esc_html__('Hide all Upgrade Notices from Customizer', 'viral'),
     'description' => esc_html__('If you don\'t want to upgrade to premium version then you can turn off all the upgrade notices. However you can turn it on anytime if you make mind to upgrade to premium version.', 'viral')
 )));
@@ -1082,6 +1357,7 @@ $wp_customize->add_setting('viral_pro_features', array(
 $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_pro_features', array(
     'settings' => 'viral_pro_features',
     'section' => 'viral_pro_feature_section',
+    'priority' => 10,
     'description' => $viral_pro_features,
     'active_callback' => 'viral_is_upgrade_notice_active'
 )));
