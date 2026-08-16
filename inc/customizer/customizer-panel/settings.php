@@ -53,7 +53,7 @@ $viral_pro_features = '<p><strong>' . esc_html__("$69 once. No subscription, no 
     <li>' . esc_html__("System status panel to check your server setup", "viral") . '</li>
     <li>' . esc_html__("Remove footer credit text", "viral") . '</li>
 	</ul>
-	<a class="ht-implink" href="' . esc_url(viral_upgrade_url('why-upgrade-cta', 'viral-customizer')) . '" target="_blank">' . esc_html__("Get Viral Pro - $69", "viral") . '</a>
+	<a class="ht-implink button button-primary" href="' . esc_url(viral_upgrade_url('why-upgrade-cta', 'viral-customizer')) . '" target="_blank">' . esc_html__("Get Viral Pro - $69", "viral") . '</a>
 	<p style="text-align:center;margin:10px 0 0"><a href="' . admin_url('admin.php?page=viral-welcome&section=free_vs_pro') . '" target="_blank">' . esc_html__("Compare Free vs Pro", "viral") . '</a></p>';
 
 // Register sections.
@@ -166,7 +166,7 @@ $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_
     'choices' => array(
         esc_html__('Fuild Layout', 'viral'),
         esc_html__('Set custom container & sidebar width', 'viral'),
-        esc_html__('16+ animated preloaders', 'viral'),
+        esc_html__('16 animated preloaders, or upload your own image', 'viral'),
         esc_html__('Admin page custom logo', 'viral'),
         esc_html__('Show/Hide Back to Top button with advanced settings', 'viral')
     ),
@@ -203,10 +203,9 @@ $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_
     'section' => 'viral_google_font_section',
     'label' => esc_html__('For more font and icon control,', 'viral'),
     'choices' => array(
-        esc_html__('800+ Google fonts to choose from', 'viral'),
-        esc_html__('Disable Google fonts completely to load only system fonts', 'viral'),
-        esc_html__('Choose which icon library to load and skip the rest', 'viral'),
-        esc_html__('Upload and use your own custom fonts', 'viral')
+        esc_html__('Switch off the icon libraries you do not use - they leave the page and the icon picker', 'viral'),
+        esc_html__('Request only the Google font weights your site actually uses', 'viral'),
+        esc_html__('Preconnect to the Google font hosts for a faster first paint', 'viral')
     ),
     'priority' => 100,
     'upgrade_text' => esc_html__('Unlock in Viral Pro', 'viral'),
@@ -243,7 +242,6 @@ $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_
     'choices' => array(
         esc_html__('NewsArticle structured data in JSON-LD with speakable markup', 'viral'),
         esc_html__('Google News sitemap so your posts get picked up faster', 'viral'),
-        esc_html__('Breadcrumb structured data', 'viral'),
         esc_html__('Speculative loading - the next article opens instantly', 'viral'),
         esc_html__('Print stylesheet for articles', 'viral')
     ),
@@ -517,9 +515,9 @@ $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_
     'section' => 'viral_body_typography_section',
     'label' => esc_html__('For more fonts and settings,', 'viral'),
     'choices' => array(
-        esc_html__('800+ Google fonts', 'viral'),
-        esc_html__('Seperate Typography settings for Menu, Header Titles(H1, H2, H3, H4, H5, H6), Page Title, Block Title, Widget Title and other', 'viral'),
-        esc_html__('More advanced Typography options like font family, font weight, text transform, text dectoration, font size, line height, letter spacing', 'viral')
+        esc_html__('Separate typography for the site title, tagline and page title', 'viral'),
+        esc_html__('Block title, widget title and sidebar title typography', 'viral'),
+        esc_html__('Table of contents title and list typography', 'viral')
     ),
     'priority' => 100,
     'upgrade_text' => esc_html__('Unlock in Viral Pro', 'viral'),
@@ -537,7 +535,7 @@ $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_
     'choices' => array(
         esc_html__('Set H1, H2, H3, H4, H5 and H6 typography individually', 'viral'),
         esc_html__('Separate typography for Page Title, Block Title and Widget Title', 'viral'),
-        esc_html__('Font size, line height and letter spacing per device - desktop, tablet and mobile', 'viral'),
+        esc_html__('Font size control for every heading level', 'viral'),
         esc_html__('Custom heading color for each heading level', 'viral')
     ),
     'priority' => 100,
@@ -554,7 +552,7 @@ $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_
     'section' => 'viral_menu_typography_section',
     'label' => esc_html__('For more menu options,', 'viral'),
     'choices' => array(
-        esc_html__('Separate typography for the sub menu and the mobile menu', 'viral'),
+        esc_html__('Sub menu text, hover and background colors', 'viral'),
         esc_html__('10 menu hover styles', 'viral'),
         esc_html__('Menu text, hover and background color options', 'viral'),
         esc_html__('In-built MegaMenu and OffCanvas menu', 'viral')
@@ -922,7 +920,7 @@ $wp_customize->add_control(new Viral_Pro_Preview_Control($wp_customize, 'viral_t
     'priority' => 99,
     'label' => esc_html__('More block styles in Viral Pro', 'viral'),
     'images' => $viral_pro_block_images,
-    'more_count' => 22,
+    'more_count' => 38,
     'upgrade_text' => esc_html__('Unlock these layouts', 'viral'),
     'upgrade_url' => viral_upgrade_url('preview-home-top', 'viral-customizer'),
     'active_callback' => 'viral_is_upgrade_notice_active'
@@ -1022,7 +1020,7 @@ $wp_customize->add_control(new Viral_Pro_Preview_Control($wp_customize, 'viral_m
     'priority' => 99,
     'label' => esc_html__('More block styles in Viral Pro', 'viral'),
     'images' => $viral_pro_block_images,
-    'more_count' => 22,
+    'more_count' => 38,
     'upgrade_text' => esc_html__('Unlock these layouts', 'viral'),
     'upgrade_url' => viral_upgrade_url('preview-home-middle', 'viral-customizer'),
     'active_callback' => 'viral_is_upgrade_notice_active'
@@ -1165,7 +1163,7 @@ $wp_customize->add_control(new Viral_Pro_Preview_Control($wp_customize, 'viral_b
     'priority' => 99,
     'label' => esc_html__('More block styles in Viral Pro', 'viral'),
     'images' => $viral_pro_block_images,
-    'more_count' => 22,
+    'more_count' => 38,
     'upgrade_text' => esc_html__('Unlock these layouts', 'viral'),
     'upgrade_url' => viral_upgrade_url('preview-home-bottom', 'viral-customizer'),
     'active_callback' => 'viral_is_upgrade_notice_active'
