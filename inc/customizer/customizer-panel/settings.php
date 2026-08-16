@@ -215,10 +215,30 @@ $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_
 
 /* SEO SECTION */
 $wp_customize->add_section('viral_seo_section', array(
-    'title' => esc_html__('SEO', 'viral'),
+    'title' => esc_html__('SEO and Performance', 'viral'),
     'panel' => 'viral_general_settings_panel',
     'priority' => 1000
 ));
+
+$wp_customize->add_section(new Viral_Upgrade_Section($wp_customize, 'viral-preloader-upgrade-section', array(
+    'title' => esc_html__('Preloader Settings', 'viral'),
+    'panel' => 'viral_general_settings_panel',
+    'priority' => 1001,
+    'upgrade_text' => esc_html__('Get Pro', 'viral'),
+    'class' => 'ht--single-row ht--pro-row',
+    'upgrade_url' => viral_upgrade_url('sec-preloader', 'viral-customizer'),
+    'active_callback' => 'viral_is_upgrade_notice_active'
+)));
+
+$wp_customize->add_section(new Viral_Upgrade_Section($wp_customize, 'viral-toc-upgrade-section', array(
+    'title' => esc_html__('Table of Contents', 'viral'),
+    'panel' => 'viral_general_settings_panel',
+    'priority' => 1002,
+    'upgrade_text' => esc_html__('Get Pro', 'viral'),
+    'class' => 'ht--single-row ht--pro-row',
+    'upgrade_url' => viral_upgrade_url('sec-table-of-contents', 'viral-customizer'),
+    'active_callback' => 'viral_is_upgrade_notice_active'
+)));
 
 $wp_customize->add_setting('viral_schema_markup', array(
     'sanitize_callback' => 'viral_sanitize_checkbox',
@@ -257,7 +277,7 @@ $wp_customize->add_section(new Viral_Upgrade_Section($wp_customize, 'viral-sideb
     'panel' => 'viral_general_settings_panel',
     'priority' => 900,
     'upgrade_text' => esc_html__('Get Pro', 'viral'),
-    'class' => 'ht--single-row',
+    'class' => 'ht--single-row ht--pro-row',
     'upgrade_url' => viral_upgrade_url('sec-sidebar', 'viral-customizer'),
     'active_callback' => 'viral_is_upgrade_notice_active'
 )));
@@ -265,10 +285,9 @@ $wp_customize->add_section(new Viral_Upgrade_Section($wp_customize, 'viral-sideb
 /* GDPR, MAINTENANCE & PERFORMANCE - PRO ONLY */
 $wp_customize->add_section(new Viral_Upgrade_Section($wp_customize, 'viral-site-tools-upgrade-section', array(
     'title' => esc_html__('GDPR & Maintenance', 'viral'),
-    'panel' => 'viral_general_settings_panel',
-    'priority' => 1002,
+    'priority' => 34,
     'upgrade_text' => esc_html__('Get Pro', 'viral'),
-    'class' => 'ht--single-row',
+    'class' => 'ht--single-row ht--pro-row',
     'upgrade_url' => viral_upgrade_url('sec-gdpr-maintenance', 'viral-customizer'),
     'active_callback' => 'viral_is_upgrade_notice_active'
 )));
@@ -1297,7 +1316,7 @@ $wp_customize->add_section(new Viral_Upgrade_Section($wp_customize, 'viral-blog-
     'title' => esc_html__('Blog & Archive Settings', 'viral'),
     'priority' => 31,
     'upgrade_text' => esc_html__('Get Pro', 'viral'),
-    'class' => 'ht--single-row',
+    'class' => 'ht--single-row ht--pro-row',
     'upgrade_url' => viral_upgrade_url('sec-blog-archive', 'viral-customizer'),
     'active_callback' => 'viral_is_upgrade_notice_active'
 )));
@@ -1306,7 +1325,7 @@ $wp_customize->add_section(new Viral_Upgrade_Section($wp_customize, 'viral-foote
     'title' => esc_html__('Footer Settings', 'viral'),
     'priority' => 32,
     'upgrade_text' => esc_html__('Get Pro', 'viral'),
-    'class' => 'ht--single-row',
+    'class' => 'ht--single-row ht--pro-row',
     'upgrade_url' => viral_upgrade_url('sec-footer', 'viral-customizer'),
     'active_callback' => 'viral_is_upgrade_notice_active'
 )));
@@ -1315,17 +1334,8 @@ $wp_customize->add_section(new Viral_Upgrade_Section($wp_customize, 'viral-ads-u
     'title' => esc_html__('Advertising & Monetization', 'viral'),
     'priority' => 33,
     'upgrade_text' => esc_html__('Get Pro', 'viral'),
-    'class' => 'ht--single-row',
+    'class' => 'ht--single-row ht--pro-row',
     'upgrade_url' => viral_upgrade_url('sec-advertising', 'viral-customizer'),
-    'active_callback' => 'viral_is_upgrade_notice_active'
-)));
-
-$wp_customize->add_section(new Viral_Upgrade_Section($wp_customize, 'viral-woocommerce-upgrade-section', array(
-    'title' => esc_html__('WooCommerce', 'viral'),
-    'priority' => 34,
-    'upgrade_text' => esc_html__('Get Pro', 'viral'),
-    'class' => 'ht--single-row',
-    'upgrade_url' => viral_upgrade_url('sec-woocommerce', 'viral-customizer'),
     'active_callback' => 'viral_is_upgrade_notice_active'
 )));
 
