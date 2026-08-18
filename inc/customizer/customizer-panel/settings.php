@@ -8,8 +8,8 @@ $wp_customize->get_setting('custom_logo')->transport = 'refresh';
 
 $viral_pro_features = '<p><strong>' . esc_html__("$69 once. No subscription, no renewal fees.", "viral") . '</strong><br>' . esc_html__("Use Viral Pro on unlimited websites, keep every future update free, and get support replies in 10 hours or less.", "viral") . '</p>
     <ul class="upsell-features">
-	<li>' . esc_html__("11 more demos that can be imported with one click", "viral") . '</li>
-    <li>' . esc_html__("Elementor compatible - Built your Home Page with Customizer or Elementor whichever you like", "viral") . '</li>
+	<li>' . esc_html__("17 ready-made demos that can be imported with one click", "viral") . '</li>
+    <li>' . esc_html__("Elementor widgets built into the theme - no companion plugin needed", "viral") . '</li>
 	<li>' . esc_html__("50+ magazine blocks for customizer", "viral") . '</li>
 	<li>' . esc_html__("Customizer home page section reorder", "viral") . '</li>
 	<li>' . esc_html__("45+ magazine widgets for Elementor", "viral") . '</li>
@@ -19,7 +19,7 @@ $viral_pro_features = '<p><strong>' . esc_html__("$69 once. No subscription, no 
 	<li>' . esc_html__("7 differently designed Single Article/Post layouts", "viral") . '</li>
 	<li>' . esc_html__("Dedicated author page template", "viral") . '</li>
 	<li>' . esc_html__("Prev/Next post navigation and category exclusion for blog & archive", "viral") . '</li>
-	<li>' . esc_html__("Placeholder image for posts with no featured image", "viral") . '</li>
+	<li>' . esc_html__("Placeholder image and lazy loading for post thumbnails", "viral") . '</li>
 	<li>' . esc_html__("23 custom widgets", "viral") . '</li>
 	<li>' . esc_html__("20 widget areas including header, below menu, off canvas and before/after article", "viral") . '</li>
 	<li>' . esc_html__("Table of contents for single posts", "viral") . '</li>
@@ -37,21 +37,24 @@ $viral_pro_features = '<p><strong>' . esc_html__("$69 once. No subscription, no 
 	<li>' . esc_html__("Preloader option", "viral") . '</li>
 	<li>' . esc_html__("Scroll to top button with advanced settings", "viral") . '</li>
 	<li>' . esc_html__("Video, image motion and gradient backgrounds for front page sections", "viral") . '</li>
-	<li>' . esc_html__("SVG shape dividers between front page sections", "viral") . '</li>
+	<li>' . esc_html__("16 SVG shape dividers between front page sections", "viral") . '</li>
 	<li>' . esc_html__("8 sidebar styles with widget title typography and colors", "viral") . '</li>
 	<li>' . esc_html__("Sidebar layout options", "viral") . '</li>
-	<li>' . esc_html__("Website layout (fullwidth or boxed)", "viral") . '</li>
 	<li>' . esc_html__("Advanced blog & article settings", "viral") . '</li>
 	<li>' . esc_html__("Advanced footer setting", "viral") . '</li>
 	<li>' . esc_html__("Advanced advertising & monetization options", "viral") . '</li>
 	<li>' . esc_html__("Blog single page - Author Box, Social Share and Related Post", "viral") . '</li>
 	<li>' . esc_html__("WooCommerce compatible", "viral") . '</li>
-	<li>' . esc_html__("Fully multilingual and translation ready, with built in Polylang support", "viral") . '</li>
-	<li>' . esc_html__("Fully RTL(right to left) languages compatible", "viral") . '</li>
+	<li>' . esc_html__("Fully compatible with WPML and Polylang", "viral") . '</li>
     <li>' . esc_html__("Maintenance mode option", "viral") . '</li>
     <li>' . esc_html__("Per post control - content width, hide header, footer or table of contents", "viral") . '</li>
     <li>' . esc_html__("System status panel to check your server setup", "viral") . '</li>
     <li>' . esc_html__("Remove footer credit text", "viral") . '</li>
+	<li>' . esc_html__("Create your own custom widget areas", "viral") . '</li>
+	<li>' . esc_html__("Front page sections with full screen height", "viral") . '</li>
+	<li>' . esc_html__("Custom background and text color for each post and page", "viral") . '</li>
+	<li>' . esc_html__("Sticky header and sticky sidebar", "viral") . '</li>
+	<li>' . esc_html__("Reading time and post view counts", "viral") . '</li>
 	</ul>
 	<a class="ht-implink button button-primary" href="' . esc_url(viral_upgrade_url('why-upgrade-cta', 'viral-customizer')) . '" target="_blank">' . esc_html__("Get Viral Pro - $69", "viral") . '</a>
 	<p style="text-align:center;margin:10px 0 0"><a href="' . admin_url('admin.php?page=viral-welcome&section=free_vs_pro') . '" target="_blank">' . esc_html__("Compare Free vs Pro", "viral") . '</a></p>';
@@ -1367,5 +1370,29 @@ $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_
     'section' => 'viral_pro_feature_section',
     'priority' => 10,
     'description' => $viral_pro_features,
+    'active_callback' => 'viral_is_upgrade_notice_active'
+)));
+
+$wp_customize->add_setting('viral_blog_layout_preview', array(
+    'sanitize_callback' => 'viral_sanitize_text'
+));
+
+$wp_customize->add_control(new Viral_Pro_Preview_Control($wp_customize, 'viral_blog_layout_preview', array(
+    'section' => 'viral_single_post_sec',
+    'priority' => 98,
+    'label' => esc_html__('7 blog and archive layouts in Viral Pro', 'viral'),
+    'columns' => 3,
+    'images' => array(
+        'blog-layouts/layout1.png',
+        'blog-layouts/layout2.png',
+        'blog-layouts/layout3.png',
+        'blog-layouts/layout4.png',
+        'blog-layouts/layout5.png',
+        'blog-layouts/layout6.png',
+        'blog-layouts/layout7.png'
+    ),
+    'more_count' => 0,
+    'upgrade_text' => esc_html__('Unlock these layouts', 'viral'),
+    'upgrade_url' => viral_upgrade_url('preview-blog-layouts', 'viral-customizer'),
     'active_callback' => 'viral_is_upgrade_notice_active'
 )));

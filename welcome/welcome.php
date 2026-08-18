@@ -224,7 +224,7 @@ if (!class_exists('Viral_Welcome')):
         private function upgrade_notice() {
             $screen = get_current_screen();
 
-            if ($screen && 'appearance_page_viral-welcome' === $screen->id) {
+            if ($screen && 'toplevel_page_viral-welcome' === $screen->id) {
                 return;
             }
             ?>
@@ -249,7 +249,7 @@ if (!class_exists('Viral_Welcome')):
         public function welcome_notice() {
             $screen = get_current_screen();
 
-            if ('appearance_page_viral-welcome' === $screen->id || (isset($screen->parent_file) && 'plugins.php' === $screen->parent_file && 'update' === $screen->id) || 'theme-install' === $screen->id) {
+            if ('toplevel_page_viral-welcome' === $screen->id || (isset($screen->parent_file) && 'plugins.php' === $screen->parent_file && 'update' === $screen->id) || 'theme-install' === $screen->id) {
                 return;
             }
             ?>

@@ -25,6 +25,8 @@ Viral is a responsive magazine WordPress theme specially designed for magazine, 
 * Customizer upgrade section now shows the price and licence terms up front with clearer calls to action - Changed
 * Upgrade notices checked against the premium theme; claims the free theme already provides have been removed - Fixed
 * Pro preview thumbnail count corrected - Fixed
+* Pro blog and archive layout previews added to the single post settings - Added
+* Upgrade feature list expanded with premium features it was not mentioning - Added
 
 = 1.8.57 - Mar 19, 2026 =
 * New Premium demo added
