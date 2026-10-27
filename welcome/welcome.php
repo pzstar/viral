@@ -44,7 +44,7 @@ if (!class_exists('Viral_Welcome')):
                     'thumb_path' => 'https://ps.w.org/simple-floating-menu/assets/icon-256x256.png'
                 ),
                 'smart-blocks' => array(
-                    'name' => 'Smart Blocks - Wordpress Gutenberg Blocks',
+                    'name' => 'Smart Blocks - WordPress Gutenberg Blocks',
                     'slug' => 'smart-blocks',
                     'filename' => 'smart-blocks',
                     'thumb_path' => 'https://ps.w.org/smart-blocks/assets/icon-256x256.png'
@@ -168,7 +168,7 @@ if (!class_exists('Viral_Welcome')):
                                 { url: %4$s, label: %5$s }
                             ]
                         } );
-                    } );', wp_json_encode(__('Viral Pro adds 23 magazine widgets and lets you create unlimited widget areas, each with its own sidebar layout.', 'viral')), wp_json_encode(viral_upgrade_url('screen-widgets', 'viral-admin-screen')), wp_json_encode(__('See what Viral Pro adds', 'viral')), wp_json_encode($dismiss_url), wp_json_encode(__('Don\'t show again', 'viral'))
+                    } );', wp_json_encode(__('Viral Pro adds 20+ magazine widgets and lets you create unlimited widget areas, each with its own sidebar layout.', 'viral')), wp_json_encode(viral_upgrade_url('screen-widgets', 'viral-admin-screen')), wp_json_encode(__('See what Viral Pro adds', 'viral')), wp_json_encode($dismiss_url), wp_json_encode(__('Don\'t show again', 'viral'))
             ));
         }
 
@@ -191,12 +191,12 @@ if (!class_exists('Viral_Welcome')):
                 'widgets' => array(
                     'hook' => 'in_admin_header',
                     'placement' => 'screen-widgets',
-                    'text' => esc_html__('Viral Pro adds 23 magazine widgets and lets you create unlimited widget areas, each with its own sidebar layout.', 'viral')
+                    'text' => esc_html__('Viral Pro adds 20+ magazine widgets and lets you create unlimited widget areas, each with its own sidebar layout.', 'viral')
                 ),
                 'nav-menus' => array(
                     'hook' => 'admin_notices',
                     'placement' => 'screen-menus',
-                    'text' => esc_html__('Viral Pro adds an in-built MegaMenu and an Off Canvas menu, plus 10 menu hover styles and full menu colour control.', 'viral')
+                    'text' => esc_html__('Viral Pro adds an in-built MegaMenu and an Off Canvas menu, plus 10 menu hover styles and full menu color control.', 'viral')
                 )
             );
 
@@ -235,7 +235,7 @@ if (!class_exists('Viral_Welcome')):
                         <?php
                         printf(
                             /* translators: %1$s is link start tag, %2$s is link end tag. */
-                            esc_html__('You have been running Viral for a month now. %1$sViral Pro%2$s adds 50+ magazine blocks, 7 header layouts, 7 blog and 7 single post layouts, and a lot more - $69 one-time, unlimited sites, lifetime updates, no renewal fees.', 'viral'), '<a style="text-decoration:none;font-weight:bold;" target="_blank" href="' . esc_url(viral_upgrade_url('notice-30day', 'viral-admin-notice')) . '">', '</a>'
+                            esc_html__('You have been running Viral for a month now. %1$sViral Pro%2$s adds 50+ magazine blocks, 7 header layouts, 7 blog and 7 single post layouts, and a lot more - a one-time payment from $69, with lifetime updates and no renewal fees.', 'viral'), '<a style="text-decoration:none;font-weight:bold;" target="_blank" href="' . esc_url(viral_upgrade_url('notice-30day', 'viral-admin-notice')) . '">', '</a>'
                         );
                         ?>
                     </p>

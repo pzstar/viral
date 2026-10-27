@@ -64,6 +64,9 @@
                             <?php
                             if (function_exists('has_custom_logo') && has_custom_logo()):
                                 the_custom_logo();
+                            elseif (($viral_logo_id = get_theme_mod('custom_logo')) && ($viral_logo = wp_get_attachment_image_src($viral_logo_id, 'full'))):
+                                // The WordPress.org theme preview fakes starter content attachments, so has_custom_logo() fails there while the image source resolves.
+                                printf('<a href="%1$s" class="custom-logo-link" rel="home"><img src="%2$s" class="custom-logo" alt="%3$s" /></a>', esc_url(home_url('/')), esc_url($viral_logo[0]), esc_attr(get_bloginfo('name')));
                             else:
                                 if (is_front_page()):
                                     ?>
