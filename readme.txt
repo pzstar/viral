@@ -1,7 +1,7 @@
 === Viral ===
 Contributors: hashthemes
 Requires at least: 6.3
-Tested up to: 7.0
+Tested up to: 7.1
 Stable tag: 1.8.59
 Requires PHP: 7.2
 License: GPLv2 or later
