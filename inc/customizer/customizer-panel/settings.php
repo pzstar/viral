@@ -37,7 +37,7 @@ $viral_pro_features = '<p><strong>' . esc_html__("One-time payment: 1 site $69, 
 	<li>' . esc_html__("20+ custom widgets", "viral") . '</li>
 	<li>' . esc_html__("20 widget areas, plus your own custom widget areas", "viral") . '</li>
 	<li>' . esc_html__("GDPR compliance & cookies consent", "viral") . '</li>
-	<li>' . esc_html__("Advanced typography options with 1,400+ Google Fonts", "viral") . '</li>
+	<li>' . esc_html__("Advanced typography options with 1,900+ Google Fonts", "viral") . '</li>
 	<li>' . esc_html__("Advanced color options, including offcanvas panel and form fields", "viral") . '</li>
 	<li>' . esc_html__("Corner radius for images, buttons, form fields and labels", "viral") . '</li>
 	<li>' . esc_html__("Accessibility ready - keyboard focus outline and reduced-motion support", "viral") . '</li>
@@ -66,15 +66,26 @@ $viral_pro_features = '<p><strong>' . esc_html__("One-time payment: 1 site $69, 
 
 // Register sections.
 // Seasonal campaigns swap the banner copy automatically - see viral_get_active_campaign().
+// During a sale the card leads with the sale and drops the list price, which
+// would contradict the discount shown at checkout.
 $viral_campaign = viral_get_active_campaign();
-$viral_banner_title = $viral_campaign ? $viral_campaign['title'] : esc_html__('One-time payment. Lifetime updates and support.', 'viral');
-$viral_banner_button = $viral_campaign ? $viral_campaign['button'] : esc_html__('Get Viral Pro - From $69', 'viral');
 
-$wp_customize->add_section(new Viral_Upgrade_Section($wp_customize, 'viral-pro-section', array(
+$wp_customize->add_section(new Viral_Pro_Banner_Section($wp_customize, 'viral-pro-section', array(
     'priority' => 0,
-    'title' => $viral_banner_title,
-    'upgrade_text' => $viral_banner_button,
+    'badge' => $viral_campaign ? $viral_campaign['badge'] : esc_html__('Viral Pro', 'viral'),
+    'title' => $viral_campaign ? $viral_campaign['title'] : esc_html__('Run a better news site', 'viral'),
+    'points' => array(
+        esc_html__('50+ magazine blocks', 'viral'),
+        esc_html__('7 header, blog and post layouts', 'viral'),
+        esc_html__('19 one-click demos', 'viral')
+    ),
+    'price' => $viral_campaign ? '' : '$69',
+    'price_prefix' => esc_html__('From', 'viral'),
+    'price_note' => esc_html__('one-time · no renewals', 'viral'),
+    'upgrade_text' => $viral_campaign ? $viral_campaign['button'] : esc_html__('Upgrade to Viral Pro', 'viral'),
     'upgrade_url' => viral_upgrade_url($viral_campaign ? 'banner-' . $viral_campaign['id'] : 'banner', 'viral-customizer-button'),
+    'note' => esc_html__('7-day money-back guarantee', 'viral'),
+    'is_sale' => (bool) $viral_campaign,
     'active_callback' => 'viral_is_upgrade_notice_active'
 )));
 
@@ -202,7 +213,7 @@ $wp_customize->add_setting('viral_load_google_font_locally', array(
 $wp_customize->add_control(new Viral_Toggle_Control($wp_customize, 'viral_load_google_font_locally', array(
     'section' => 'viral_google_font_section',
     'label' => esc_html__('Load Google Fonts Locally', 'viral'),
-    'description' => esc_html__('It is required to load the Google Fonts locally in order to comply with GDPR. However, if your website is not required to comply with GDPR then you can check this field off. Loading the Fonts locally with lots of different Google fonts can decrease the speed of the website slightly.', 'viral'),
+    'description' => esc_html__('It is required to load the Google Fonts locally in order to comply with GDPR. However, if your website is not required to comply with GDPR then you can turn this off. Loading the Fonts locally with lots of different Google fonts can decrease the speed of the website slightly.', 'viral'),
 )));
 
 $wp_customize->add_setting('viral_google_font_upgrade_text', array(
@@ -624,12 +635,11 @@ $wp_customize->add_setting('viral_left_header_date', array(
     'sanitize_callback' => 'viral_sanitize_checkbox'
 ));
 
-$wp_customize->add_control('viral_left_header_date', array(
-    'type' => 'checkbox',
+$wp_customize->add_control(new Viral_Toggle_Control($wp_customize, 'viral_left_header_date', array(
     'settings' => 'viral_left_header_date',
     'section' => 'viral_top_header_settings_sec',
     'label' => esc_html__('Show Date in Header', 'viral')
-));
+)));
 
 $wp_customize->add_setting('viral_left_header_text', array(
     'sanitize_callback' => 'viral_sanitize_text'
@@ -707,7 +717,7 @@ $wp_customize->add_control('viral_social_youtube', array(
     'settings' => 'viral_social_youtube',
     'section' => 'viral_top_header_settings_sec',
     'type' => 'url',
-    'label' => esc_html__('Youtube', 'viral')
+    'label' => esc_html__('YouTube', 'viral')
 ));
 
 $wp_customize->add_setting('viral_social_linkedin', array(
@@ -719,7 +729,7 @@ $wp_customize->add_control('viral_social_linkedin', array(
     'settings' => 'viral_social_linkedin',
     'section' => 'viral_top_header_settings_sec',
     'type' => 'url',
-    'label' => esc_html__('Linkedin', 'viral')
+    'label' => esc_html__('LinkedIn', 'viral')
 ));
 
 $wp_customize->add_setting('viral_social_instagram', array(
@@ -763,24 +773,22 @@ $wp_customize->add_setting('viral_full_width_menu_bar', array(
     'sanitize_callback' => 'viral_sanitize_checkbox'
 ));
 
-$wp_customize->add_control('viral_full_width_menu_bar', array(
-    'type' => 'checkbox',
+$wp_customize->add_control(new Viral_Toggle_Control($wp_customize, 'viral_full_width_menu_bar', array(
     'settings' => 'viral_full_width_menu_bar',
     'section' => 'viral_main_header_settings_sec',
     'label' => esc_html__('Full Width Menu Bar', 'viral')
-));
+)));
 
 $wp_customize->add_setting('viral_disable_menu_shadow', array(
     'default' => false,
     'sanitize_callback' => 'viral_sanitize_checkbox'
 ));
 
-$wp_customize->add_control('viral_disable_menu_shadow', array(
-    'type' => 'checkbox',
+$wp_customize->add_control(new Viral_Toggle_Control($wp_customize, 'viral_disable_menu_shadow', array(
     'settings' => 'viral_disable_menu_shadow',
     'section' => 'viral_main_header_settings_sec',
     'label' => esc_html__('Disable Shadow Below Menu', 'viral')
-));
+)));
 
 $wp_customize->add_setting('viral_main_header_preview', array(
     'sanitize_callback' => 'viral_sanitize_text'
@@ -832,8 +840,8 @@ $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_
     'active_callback' => 'viral_is_upgrade_notice_active'
 )));
 
-/* Shared Pro block-style previews. 33 block thumbnails ship in images/pro/;
-   11 are shown and the rest are summarised by the "+N more" tile. */
+/* Shared Pro block-style previews. The 11 thumbnails below ship in images/pro/;
+   the rest of the Pro block styles are summarised by the "+N more" tile. */
 $viral_pro_block_images = array(
     'news/style1.png', 'news/style2.png', 'news/style3.png',
     'tile/style1.png', 'tile/style2.png', 'tile/style3.png',
@@ -901,12 +909,11 @@ $wp_customize->add_setting('viral_ticker_dark_color_scheme', array(
     'sanitize_callback' => 'viral_sanitize_checkbox'
 ));
 
-$wp_customize->add_control('viral_ticker_dark_color_scheme', array(
-    'type' => 'checkbox',
+$wp_customize->add_control(new Viral_Toggle_Control($wp_customize, 'viral_ticker_dark_color_scheme', array(
     'settings' => 'viral_ticker_dark_color_scheme',
     'section' => 'viral_frontpage_top_sec',
     'label' => esc_html__('Enable Black Background on Ticker', 'viral')
-));
+)));
 
 $wp_customize->add_control(new Viral_Repeater_Control($wp_customize, 'viral_frontpage_top_blocks', array(
     'label' => esc_html__('FrontPage Top Blocks - FullWidth', 'viral'),
@@ -972,7 +979,7 @@ $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_
         esc_html__('Category tabs with Next/Previous, Load More or page numbers', 'viral'),
         esc_html__('Add color, image, gradient or video background for the section', 'viral'),
         esc_html__('Set top and bottom margin & padding', 'viral'),
-        esc_html__('Set top and bottom SVG seperators', 'viral'),
+        esc_html__('Set top and bottom SVG separators', 'viral'),
         esc_html__('12 heading styles with custom colors', 'viral'),
         esc_html__('Lazy load for image', 'viral'),
         esc_html__('10 image hover styles', 'viral'),
@@ -1072,7 +1079,7 @@ $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_
         esc_html__('Category tabs with Next/Previous, Load More or page numbers', 'viral'),
         esc_html__('Add color, image, gradient or video background for the section', 'viral'),
         esc_html__('Set top and bottom margin & padding', 'viral'),
-        esc_html__('Set top and bottom SVG seperators', 'viral'),
+        esc_html__('Set top and bottom SVG separators', 'viral'),
         esc_html__('12 heading styles with custom colors', 'viral'),
         esc_html__('Lazy load for image', 'viral'),
         esc_html__('10 image hover styles', 'viral'),
@@ -1216,7 +1223,7 @@ $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_
         esc_html__('Category tabs with Next/Previous, Load More or page numbers', 'viral'),
         esc_html__('Add color, image, gradient or video background for the section', 'viral'),
         esc_html__('Set top and bottom margin & padding', 'viral'),
-        esc_html__('Set top and bottom SVG seperators', 'viral'),
+        esc_html__('Set top and bottom SVG separators', 'viral'),
         esc_html__('12 heading styles with custom colors', 'viral'),
         esc_html__('Lazy load for image', 'viral'),
         esc_html__('10 image hover styles', 'viral'),
