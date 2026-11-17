@@ -101,12 +101,12 @@ if (!class_exists('Viral_Welcome')):
         }
 
         /**
-         * Renders the widgets-screen prompt.
+         * Renders the widgets-screen prompt, on in_admin_header as the block editor drops admin_notices.
          *
          * @return void
          */
         public function screen_notice_header() {
-            // The block widget editor mounts over anything printed here.
+            // The block widget editor mounts over anything printed here, so block_widgets_notice() handles it.
             if (function_exists('wp_use_widgets_block_editor') && wp_use_widgets_block_editor()) {
                 $screen = get_current_screen();
 
@@ -119,7 +119,7 @@ if (!class_exists('Viral_Welcome')):
         }
 
         /**
-         * Widgets prompt for the block-based widget editor.
+         * Widgets prompt for the block-based widget editor, pushed into its core/notices store.
          *
          * @return void
          */
@@ -138,7 +138,7 @@ if (!class_exists('Viral_Welcome')):
                 return;
             }
 
-            // Built with add_query_arg rather than wp_nonce_url.
+            // add_query_arg, not wp_nonce_url, whose &amp; would break the nonce in this JSON.
             $dismiss_url = add_query_arg(array(
                 'viral-hide-notice' => 'screen-widgets',
                 'viral_notice_nonce' => wp_create_nonce('screen-widgets')

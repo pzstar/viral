@@ -65,6 +65,7 @@ $viral_pro_features = '<p><strong>' . esc_html__("One-time payment: 1 site $69, 
 	<p style="text-align:center;margin:10px 0 0"><a href="' . admin_url('admin.php?page=viral-welcome&section=free_vs_pro') . '" target="_blank">' . esc_html__("Compare Free vs Pro", "viral") . '</a></p>';
 
 // Register sections.
+// Seasonal campaigns swap the banner copy; during a sale the card drops the list price.
 $viral_campaign = viral_get_active_campaign();
 
 $wp_customize->add_section(new Viral_Pro_Banner_Section($wp_customize, 'viral-pro-section', array(
