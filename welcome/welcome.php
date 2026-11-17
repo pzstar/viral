@@ -103,15 +103,10 @@ if (!class_exists('Viral_Welcome')):
         /**
          * Renders the widgets-screen prompt.
          *
-         * The block-based widget editor drops everything hooked to
-         * admin_notices, so that screen is served from in_admin_header
-         * instead, which fires outside the editor's root element.
-         *
          * @return void
          */
         public function screen_notice_header() {
-            // The block widget editor mounts over anything printed here, so let
-            // block_widgets_notice() handle that case through the editor's own store.
+            // The block widget editor mounts over anything printed here.
             if (function_exists('wp_use_widgets_block_editor') && wp_use_widgets_block_editor()) {
                 $screen = get_current_screen();
 
@@ -125,12 +120,6 @@ if (!class_exists('Viral_Welcome')):
 
         /**
          * Widgets prompt for the block-based widget editor.
-         *
-         * That screen discards markup from admin_notices and in_admin_header
-         * alike, so the notice is pushed into the editor's core/notices store
-         * where it renders natively. The "Don't show again" action reuses the
-         * same nonce-checked dismiss route as every other notice, so dismissing
-         * here also dismisses the classic-screen version.
          *
          * @return void
          */
@@ -149,10 +138,7 @@ if (!class_exists('Viral_Welcome')):
                 return;
             }
 
-            // Built with add_query_arg rather than wp_nonce_url because that helper
-            // HTML-escapes its return value, which would put a literal &amp; in the
-            // JSON string and break the nonce parameter. Strings stay unescaped too -
-            // wp_json_encode handles JS quoting and the editor escapes on render.
+            // Built with add_query_arg rather than wp_nonce_url.
             $dismiss_url = add_query_arg(array(
                 'viral-hide-notice' => 'screen-widgets',
                 'viral_notice_nonce' => wp_create_nonce('screen-widgets')
@@ -173,9 +159,7 @@ if (!class_exists('Viral_Welcome')):
         }
 
         /**
-         * Contextual prompts on the two admin screens where users run into
-         * Pro-only limits - widget areas and menus. Neither screen carried
-         * any prompt before.
+         * Contextual prompts on the two admin screens where users run into Pro-only limits.
          *
          * @param string $hook Which hook is currently rendering.
          * @return void
