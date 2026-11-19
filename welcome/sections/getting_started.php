@@ -45,7 +45,7 @@ $viral_percent = round(100 * $viral_done / count($viral_steps));
             <h3><?php esc_html_e('Start From a Demo', 'viral'); ?></h3>
             <p><?php esc_html_e('Import a complete demo website, with its content and settings, in a single click, then replace the content with your own.', 'viral'); ?></p>
             <?php echo $this->generate_hdi_install_button(); ?>
-            <p class="welcome-small"><a href="https://hashthemes.com/documentation/viral-documentation/#ImportDemoContent" target="_blank"><?php esc_html_e('How the demo importer works', 'viral'); ?></a></p>
+            <p class="welcome-small"><a href="https://hashthemes.com/documentation/viral-documentation/#Import-Demo-Content" target="_blank"><?php esc_html_e('How the demo importer works', 'viral'); ?></a></p>
         </div>
     </div>
 </div>
@@ -68,7 +68,7 @@ $viral_percent = round(100 * $viral_done / count($viral_steps));
 <div class="welcome-block">
     <div class="welcome-block-head">
         <h3><?php esc_html_e('Build Your Front Page', 'viral'); ?></h3>
-        <a href="https://hashthemes.com/documentation/viral-documentation/#HomePageSetup" target="_blank"><?php esc_html_e('Step-by-step guide', 'viral'); ?> <span aria-hidden="true">&rarr;</span></a>
+        <a href="https://hashthemes.com/documentation/viral-documentation/#Home-Page-Setup" target="_blank"><?php esc_html_e('Step-by-step guide', 'viral'); ?> <span aria-hidden="true">&rarr;</span></a>
     </div>
     <p class="welcome-block-intro"><?php echo esc_html__('Build the front page from the theme\'s ready-made news sections in the Customizer, or design it freely with Elementor.', 'viral'); ?></p>
 

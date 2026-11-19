@@ -378,9 +378,7 @@ function viral_typography_vars($keys) {
         $letter_spacing = get_theme_mod($key . '_letter_spacing');
         $color = get_theme_mod($key . '_color');
 
-        if (strpos($style, 'italic')) {
-            $italic = 'italic';
-        }
+        $italic = strpos((string) $style, 'italic') ? 'italic' : '';
 
         $weight = absint($style);
         $key = str_replace('_', '-', $key);
