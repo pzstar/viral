@@ -9,22 +9,13 @@ class Viral_Pro_Preview_Control extends WP_Customize_Control {
     public $upgrade_url = '';
     public $upgrade_text = '';
 
-    /**
-     * Image filenames relative to the theme's images/pro/ directory,
-     * e.g. array('news/style1.png', 'tile/style2.png').
-     */
+    /** Image filenames relative to customizer-panel/assets/images/pro/. */
     public $images = array();
 
-    /**
-     * Rendered as a trailing "+N" tile. Set to the number of Pro layouts
-     * that exist beyond the ones shown here.
-     */
+    /** Rendered as a trailing "+N more" tile. */
     public $more_count = 0;
 
-    /**
-     * Thumbnails per row. Wide artwork such as header layouts needs fewer
-     * columns to stay legible at sidebar width.
-     */
+    /** Thumbnails per row. Wide artwork needs fewer columns to stay legible. */
     public $columns = 3;
 
     public function render_content() {
@@ -32,7 +23,7 @@ class Viral_Pro_Preview_Control extends WP_Customize_Control {
             return;
         }
 
-        $base = get_template_directory_uri() . '/images/pro/';
+        $base = get_template_directory_uri() . '/inc/customizer/customizer-panel/assets/images/pro/';
         $columns = (2 === (int) $this->columns) ? ' ht--cols-2' : '';
         ?>
         <div class="ht--pro-preview">

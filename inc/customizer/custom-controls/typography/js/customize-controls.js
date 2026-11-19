@@ -28,14 +28,14 @@ jQuery(document).ready(function ($) {
             });
         },
         clear: function (event) {
-            var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0];
+            var element = $(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0];
             if (element) {
                 var setting = $(element).attr('data-customize-setting-link');
                 wp.customize(setting, function (obj) {
                     obj.set('');
                 });
             }
-        },
+        }
     });
 
     // Chosen JS
@@ -52,27 +52,27 @@ jQuery(document).ready(function ($) {
             var control = this;
 
             control.container.on('change', '.ht--typography-font-family select',
-                    function () {
-                        control.settings['family'].set(jQuery(this).val());
-                    }
+                function () {
+                    control.settings['family'].set(jQuery(this).val());
+                }
             );
 
             control.container.on('change', '.ht--typography-font-style select',
-                    function () {
-                        control.settings['style'].set(jQuery(this).val());
-                    }
+                function () {
+                    control.settings['style'].set(jQuery(this).val());
+                }
             );
 
             control.container.on('change', '.ht--typography-text-transform select',
-                    function () {
-                        control.settings['text_transform'].set(jQuery(this).val());
-                    }
+                function () {
+                    control.settings['text_transform'].set(jQuery(this).val());
+                }
             );
 
             control.container.on('change', '.ht--typography-text-decoration select',
-                    function () {
-                        control.settings['text_decoration'].set(jQuery(this).val());
-                    }
+                function () {
+                    control.settings['text_decoration'].set(jQuery(this).val());
+                }
             );
         }
     });

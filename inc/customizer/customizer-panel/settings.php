@@ -838,7 +838,7 @@ $wp_customize->add_control(new Viral_Upgrade_Info_Control($wp_customize, 'viral_
     'active_callback' => 'viral_is_upgrade_notice_active'
 )));
 
-/* Shared Pro block-style previews. The 11 thumbnails below ship in images/pro/;
+/* Shared Pro block-style previews. The 11 thumbnails below ship in customizer-panel/assets/images/pro/;
    the rest of the Pro block styles are summarised by the "+N more" tile. */
 $viral_pro_block_images = array(
     'news/style1.png', 'news/style2.png', 'news/style3.png',
